@@ -3,6 +3,8 @@
    <NavBar :mode="mode" @toggle="toggle"/>
    <Hero />
    <About />
+   <Resume />
+   <Projects />
    <Footer />
   </div>
 </template>
@@ -12,6 +14,8 @@ import NavBar from "./components/NavBar.vue";
 import Footer from "./components/sections/Footer.vue";
 import Hero from "./components/Hero.vue";
 import About from "./components/sections/AboutMe.vue";
+import Resume from "./components/sections/Resume.vue";
+import Projects from "./components/sections/Projects.vue";
 
 export default {
   name: 'App',
@@ -19,7 +23,9 @@ export default {
       NavBar,
       Footer,
       Hero,
-      About
+      About,
+      Resume,
+      Projects
   },
     data() {
     return {

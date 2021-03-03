@@ -11,5 +11,11 @@
             "name": "my name is",
             "frontend": "I am a frontend developer"
         }
+    },
+    "projects": {
+        "projects": "Projects",
+        "see": "See project",
+        "whitebird": "is an open-source, web-based, collaborative, digital Whiteboard built with NestJS, MongoDB, NuxtJs and FabricJs",
+        "conForm": "is a program that allows the user to create, edit and save multiple concept papers"
     }
 }
