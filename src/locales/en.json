@@ -1,0 +1,15 @@
+{
+    "footer": {
+        "chooselang": "Choose language"
+    },
+    "about": {
+        "me": "About me",
+        "resume": "View resume"
+    },
+    "hero": {
+        "introduction": {
+            "name": "my name is",
+            "frontend": "I am a frontend developer"
+        }
+    }
+}

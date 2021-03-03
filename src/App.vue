@@ -1,17 +1,63 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <NavBar :mode="mode" @toggle="toggle"/>
+   <Hero />
+   <About />
+   <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBar from "./components/NavBar.vue";
+import Footer from "./components/sections/Footer.vue";
+import Hero from "./components/Hero.vue";
+import About from "./components/sections/AboutMe.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+      NavBar,
+      Footer,
+      Hero,
+      About
+  },
+    data() {
+    return {
+      mode: localStorage.getItem('theme-color'),
+      currentTheme: ''
+    }
+  },
+   beforeMount() {
+    if (localStorage.getItem('theme-color')) {
+      this.currentTheme = localStorage.getItem('theme-color')
+    } else {
+       this.currentTheme = localStorage.setItem('theme-color', 'light')
+    }
+    window.addEventListener('DOMContentLoaded', this.onLoad);
+  },
+   beforeDestroy() {
+    window.removeEventListener('DOMContentLoaded', this.onLoad);
+  },
+  methods: {
+    onLoad() {
+      const showOnLoad = document.querySelectorAll('.revealOnLoad');
+      showOnLoad.forEach((ele) => {
+        ele.classList.add('animated');
+        ele.classList.add('fadeInLeft');
+      });
+    },
+      toggle() {
+      const storedTheme = localStorage.getItem('theme-color');
+       if(storedTheme === 'dark') {
+        localStorage.setItem('theme-color', 'light');
+         this.mode = "light"
+        this.currentTheme = localStorage.getItem('theme-color');
+      } else {
+        localStorage.setItem('theme-color', 'dark');
+        this.mode = "dark"
+        this.currentTheme = localStorage.getItem('theme-color');
+      }
+    }
   }
 }
 </script>
