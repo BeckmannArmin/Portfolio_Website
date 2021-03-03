@@ -31,17 +31,9 @@ export default {
 
    select {
       background: #fff;
+      border-radius: 10px;
+    height: 25px;
    }
 }
 
-  .dark {
-    select {
-      background: #20232a !important;
-      color: #EBEDF0;
-    .choose-lang {
-      color: #EBEDF0;
-    }
-    }
-
-  }
 </style>

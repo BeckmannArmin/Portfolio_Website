@@ -1,6 +1,6 @@
 <template>
   <footer class="footer navbar-static-bottom">
-    <div class="container">
+    <div class="container d-flex align-items-center justify-content-center flex-column">
       <a href="#top">
       <div class="arrow"></div>
       </a>
@@ -17,6 +17,11 @@
          <font-awesome-icon :icon="['fab', 'linkedin-in']" />
         </a>
       </div>
+      <!-- Divider -->
+      <hr class="mt-2 mb-2 w-25">
+      <p class="footer-text">
+        Created by Armin Beckmann
+      </p>
     </div>
   </footer>
 </template>
@@ -50,13 +55,21 @@ export default {
     }
   }
 
+  .footer-text {
+    color: grey;
+    font-size: 0.8rem;
+  }
+
+  hr {
+    border: 0;
+    border-top: 2px solid rgba($color: gray, $alpha: 0.25);
+  }
+
   div.arrow {
     width: 35px;
     height: 35px;
     box-sizing: border-box;
     position: relative;
-    left: 50%;
-    top: 50%;
     transform: rotate(-45deg);
 
     &::before {
