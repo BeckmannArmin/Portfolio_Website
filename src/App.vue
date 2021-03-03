@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-   <NavBar :mode="mode" @toggle="toggle"/>
    <Hero />
    <About />
    <Resume />
    <Projects />
-   <Footer />
+   <Footer :mode="mode" @toggle="toggle"/>
   </div>
 </template>
 
 <script>
-import NavBar from "./components/NavBar.vue";
 import Footer from "./components/sections/Footer.vue";
 import Hero from "./components/Hero.vue";
 import About from "./components/sections/AboutMe.vue";
@@ -20,7 +18,6 @@ import Projects from "./components/sections/Projects.vue";
 export default {
   name: 'App',
   components: {
-      NavBar,
       Footer,
       Hero,
       About,

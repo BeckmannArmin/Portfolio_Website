@@ -1,89 +1,84 @@
 <template>
-  <footer class="page-footer footer mt-auto py-3">
-    <div class="container text-center">
-      <div class="row">
-        <hr class="clearfix w-100 d-md-none" />
-        <!-- Grid column -->
-        <div class="col-md-3 mx-auto">
-          <!-- Links -->
-          <h5
-            class="font-weight-bold text-uppercase mt-3 mb-4"
-            style="color: black"
-          >
-            Resources
-          </h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="https://github.com/BeckmannArmin/laravel-conForm">
-                <i class="fab fa-github header-github-link"></i>
-              </a>
-            </li>
-            <LocaleSwitcher />
-          </ul>
-        </div>
+  <footer class="footer navbar-static-bottom">
+    <div class="container">
+      <a href="#top">
+      <div class="arrow"></div>
+      </a>
+      <!-- Locale toggle -->
+      <LocaleSwitcher />
+       <!-- Dark Mode toggle -->
+      <Toggle :mode="mode" @toggle="$emit('toggle')" />
+      <!-- brand icons -->
+      <div class="socials d-flex justify-content-center flex-row">
+        <a href="https://github.com/BeckmannArmin" target="_blank">
+         <font-awesome-icon :icon="['fab', 'github']" />
+        </a>
+        <a href="https://www.linkedin.com/in/armin-beckmann/" target="_blank">
+         <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+        </a>
       </div>
     </div>
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
-      © 2021 Copyright:
-      <a style="color: black"> Armin</a>
-    </div>
-    <!-- Copyright -->
   </footer>
 </template>
 
 <script>
+import Toggle from "../Toggler.vue";
 import LocaleSwitcher from "../LocaleSwitcher.vue";
 export default {
+  props: ["mode"],
   components: {
     LocaleSwitcher,
+    Toggle
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.header-github-link {
-  font-size: 2rem;
-}
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 4.8rem 0;
 
-.footer-copyright {
-  color: black;
-}
-
-.dark .page-footer {
-  background: #20232a;
-
-  .text-uppercase {
-    color: #ebedf0 !important;
-  }
-
-  .list-unstyled {
-    .header-github-link {
-      color: #fff
-    }
+  .socials {
     a {
-      color: #ebedf0 !important;
+      flex-direction: column;
+    color: #fff;
+    font-size: 3rem;
+    width: 5rem;
+    height: 5rem;
+    margin: 1.6rem;
     }
   }
 
-  .footer-copyright {
-    color: #ebedf0 !important;
+  div.arrow {
+    width: 35px;
+    height: 35px;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: rotate(-45deg);
 
-    a {
-      color: #ebedf0 !important;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-width: 0.8vmin 0.8vmin 0 0;
+      border-style: solid;
+      border-color: #fafafa;
+      transition: 0.2s ease;
+      display: block;
+      transform-origin: 100% 0;
+    }
+
+    &:hover:after {
+      border-color: #FF647C;
+      height: 120%;
+    }
+    &:hover:before {
+      border-color: #FF647C;
+      transform: scale(0.8);
     }
   }
-}
-
-.list-unstyled {
-  display: flex;
-  align-items: center;
-  flex-flow: column;
-  a {
-    color: black;
-  }
-}
-.row {
-  margin: 0 auto 0;
 }
 </style>

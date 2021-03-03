@@ -1,10 +1,19 @@
 import Vue from 'vue'
 import App from './App.vue'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+
 import VueI18n from 'vue-i18n';
 import en from './locales/en.json';
 import de from './locales/de.json';
 import ScrollAnimation from './directives/scrollanimation';
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faGithub,faLinkedinIn)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
