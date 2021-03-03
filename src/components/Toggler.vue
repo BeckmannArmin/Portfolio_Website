@@ -1,5 +1,5 @@
 <template>
-  <div class="toggleWrapper p-4">
+  <div class="toggleWrapper pt-4">
     <input
       type="checkbox"
       :checked="mode === 'dark' ? 'checked' : false"

@@ -31,14 +31,14 @@
          <div class="row justify-content-center">
           <div class="col-lg-4 col-sm-12">
             <div class="text-left">
-              <h3 class="project-title">conForm</h3>
+              <h3 class="project-title">HLY Hard Seltzer</h3>
               <div>
-                <p class="mb-4"><span class="text-color-main">conForm</span> {{ $t('projects.conForm') }}.</p>
+                <p class="mb-4"><span class="text-color-main">HLY </span> {{ $t('projects.hly') }}.</p>
               </div>
 
               <a
                 target="_blank"
-                href="https://github.com/BuchholzTim/Whitebird"
+                href="https://www.youtube.com/watch?v=bZbDIigXlNc&feature=youtu.be"
                 class="cta-btn cta-btn-projects"
               >
                 {{ $t("projects.see") }}

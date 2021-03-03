@@ -1,11 +1,9 @@
 <template>
   <footer class="footer navbar-static-bottom">
     <div class="container d-flex align-items-center justify-content-center flex-column">
-      <a href="#top">
+      <a href="#top" class="m-4">
       <div class="arrow"></div>
       </a>
-      <!-- Locale toggle -->
-      <LocaleSwitcher />
        <!-- Dark Mode toggle -->
       <Toggle :mode="mode" @toggle="$emit('toggle')" />
       <!-- brand icons -->
@@ -17,11 +15,11 @@
          <font-awesome-icon :icon="['fab', 'linkedin-in']" />
         </a>
       </div>
+       <!-- Locale toggle -->
+      <LocaleSwitcher />
       <!-- Divider -->
       <hr class="mt-2 mb-2 w-25">
-      <p class="footer-text">
-        Created by Armin Beckmann
-      </p>
+      <img class="img-fluid" style="height: 125px" alt="Thats me" src="../../assets/armin.png">
     </div>
   </footer>
 </template>
@@ -40,7 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  background-color: #333;
+  background-color: #111111;
   color: #fff;
   padding: 4.8rem 0;
 
