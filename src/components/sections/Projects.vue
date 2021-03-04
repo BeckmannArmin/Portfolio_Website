@@ -47,7 +47,7 @@
           </div>
           <div class="col-lg-4 col-sm-12">
               <div class="m-auto" style="width: 90%">
-                  <img class="img-fluid" style="height: 200px" src="../../assets/conForm_logo.png">
+                  <img class="img-fluid" style="height: 200px" src="../../assets/hly_logo.png">
               </div>
           </div>
         </div>
@@ -107,7 +107,7 @@
     font-weight: 700;
     line-height: 1;
     z-index: 1;
-    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.1s ease-in;
   }
   .cta-btn-projects {
     color: #bd7ae3;
@@ -115,7 +115,7 @@
   }
 
   a:hover {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
   .cta-btn-projects:hover {
@@ -140,7 +140,7 @@
     left: 0;
     bottom: 0;
     z-index: -1;
-    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.1s ease-in;
   }
 
   .project-title {
@@ -163,7 +163,7 @@
   .before-enter {
     opacity: 0;
     transform: translateY(100px);
-    transition: all 2s ease-out;
+    transition: all 1s ease-out;
   }
 
   .enter {
