@@ -2,13 +2,13 @@
   <div id="hero" class="jumbotron">
     <div class="container">
       <h1
-        class="hero-title revealOnLoad"
-
+        class="hero-title"
       >
-        Hi, {{ $t('hero.introduction.name')}} <span class="text-color-main"> Armin </span><br />{{ $t('hero.introduction.frontend')}}.
+        <span class="revealOnLoad delay-1" style="opacity: 0"> Hi, {{ $t('hero.introduction.name')}} <span class="text-color-main"> Armin </span></span><br /><span class="revealOnLoad delay-2" style="opacity: 0">{{ $t('hero.introduction.frontend')}}.</span>
       </h1>
       <p
-        class="d-flex revealOnLoad"
+        class="d-flex revealOnLoad delay-2"
+        style="opacity: 0"
       >
         <a class="cta-btn cta-btn-hero" href="#about">{{ $t('about.knowmore') }}</a>
       </p>
@@ -44,13 +44,20 @@ $english-violet: #BD7AE3;
 
   .container {
       .animated {
-          opacity: 1;
+          opacity: 1 !important;
            transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-          transition: opacity 1s cubic-bezier(0.5, 0, 0, 1) 0.5s,
+           transition: opacity 1s cubic-bezier(0.5, 0, 0, 1) 0.5s,
             transform 1s cubic-bezier(0.5, 0, 0, 1) 0.5s;
       }
       .fadeInLeft {
              visibility: visible;
+      }
+      .delay-1 {
+          transition-delay: 1s;
+      }
+
+      .delay-2 {
+          transition-delay: 1.5s;
       }
   }
 
