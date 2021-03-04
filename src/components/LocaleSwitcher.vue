@@ -38,6 +38,10 @@ export default {
     border-radius: 10px;
     height: 25px;
     width: 150px;
+
+    .choose-lang {
+        width: 150px;
+    }
   }
 }
 </style>
