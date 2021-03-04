@@ -1,10 +1,10 @@
 <template>
   <section id="projects">
     <div class="container">
-      <div v-scrollanimation class="mb-4">
-        <h2 class="section-title salmon-text">{{ $t("projects.projects") }}</h2>
+      <div class="mb-4">
+        <h2 v-scrollanimation class="section-title salmon-text">{{ $t("projects.projects") }}</h2>
         <!-- Whitebird -->
-        <div class="row justify-content-center">
+        <div v-scrollanimation class="row justify-content-center">
           <div class="col-lg-4 col-sm-12">
             <div class="text-left">
               <h3 class="project-title">Whitebird</h3>
@@ -55,8 +55,8 @@
             </div>
           </div>
         </div>
-        <!-- conForm -->
-        <div class="row justify-content-center">
+        <!-- Hly -->
+        <div v-scrollanimation class="row justify-content-center">
           <div class="col-lg-4 col-sm-12">
             <div class="text-left">
               <h3 class="project-title">HLY Hard Seltzer</h3>
@@ -69,7 +69,7 @@
 
               <a
                 target="_blank"
-                href="https://www.youtube.com/watch?v=bZbDIigXlNc&feature=youtu.be"
+                href="https://www.youtube.com/watch?v=bZbDIigXlNc"
                 class="cta-btn cta-btn-projects"
               >
                 {{ $t("projects.see") }}
@@ -81,7 +81,7 @@
             <div class="row justify-content-center">
               <div class="animated-card-wrapper">
                 <a
-                  href="https://github.com/BuchholzTim/Whitebird"
+                  href="https://www.youtube.com/watch?v=bZbDIigXlNc"
                   target="_blank"
                   class="animated-card-link"
                 >
@@ -103,7 +103,7 @@
         </div>
 
         <!-- Holy Spot -->
-        <div class="row justify-content-center">
+        <div v-scrollanimation class="row justify-content-center">
           <div class="col-lg-4 col-sm-12">
             <div class="text-left">
               <h3 class="project-title">conForm</h3>
