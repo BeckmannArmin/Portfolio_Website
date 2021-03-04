@@ -232,7 +232,7 @@ $salmon: #ff647c;
 }
 
 .app-form-control:focus {
-  border-bottom-color: #ddd;
+  border-bottom-color: $salmon;
 }
 
 .app-form-button {
