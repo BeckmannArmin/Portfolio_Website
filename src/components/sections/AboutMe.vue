@@ -22,16 +22,10 @@
             class="about-wrapper-info d-flex justify-content-center flex-column h-100"
           >
             <p class="text-left">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Excepturi neque, ipsa animi maiores repellendu distinctioaperiam
-              earum dolor voluptatum consequatur blanditiis inventore debitis
-              fuga numquam voluptate architecto itaque molestiae.
+              {{ $t('about.motivation') }}.
             </p>
             <p class="text-left">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Excepturi neque, ipsa animi maiores repellendu distinctioaperiam
-              earum dolor voluptatum consequatur blanditiis inventore debitis
-              fuga numquam voluptate architecto itaque molestiae.
+              {{ $t('about.openminded') }}.
             </p>
             <span class="d-flex mt-3">
               <a class="cta-btn cta-btn-resume" href="#resume"> {{ $t("about.resume") }} </a>

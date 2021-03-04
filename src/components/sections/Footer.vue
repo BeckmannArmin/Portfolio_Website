@@ -37,19 +37,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$salmon: #FF647C;
+$neutral-black: #111111;
+$neutral-white: #fff;
+
 .footer {
-  background-color: #111111;
-  color: #fff;
+  background-color: $neutral-black;
+  color: $neutral-white;
   padding: 4.8rem 0;
 
   .socials {
     a {
       flex-direction: column;
-    color: #fff;
+    color: $neutral-white;
     font-size: 3rem;
     width: 5rem;
     height: 5rem;
     margin: 1.6rem;
+    }
+
+    a svg:hover {
+        transition: all 0.2 ease-in-out;
+        color: $salmon;
     }
   }
 
@@ -83,11 +92,11 @@ export default {
     }
 
     &:hover:after {
-      border-color: #FF647C;
+      border-color: $salmon;
       height: 120%;
     }
     &:hover:before {
-      border-color: #FF647C;
+      border-color: $salmon;
       transform: scale(0.8);
     }
   }

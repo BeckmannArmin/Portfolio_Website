@@ -4,7 +4,10 @@
     },
     "about": {
         "me": "About me",
-        "resume": "View resume"
+        "resume": "View resume",
+        "knowmore": "Know more",
+        "motivation": "A few years ago, I have had the pleasure to turn my passion for Mobile and Web Development into some kind of a job. Started with simple Wordpress sites for clients in my city I gained experiences in Web Development early",
+        "openminded": "I am a creative and open minded developer trying to learn steadily"
     },
     "hero": {
         "introduction": {
