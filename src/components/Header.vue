@@ -3,11 +3,11 @@
     <nav>
       <ul>
         <li>
-          <a href="#about">About</a>
+          <a href="#about">{{ $t('about.me') }}</a>
         </li>
-        <li><a href="#about">Experience</a></li>
-        <li><a href="#about">Projects</a></li>
-        <li><a href="#about">Contact</a></li>
+        <li><a href="#experience">{{ $t('about.experience') }}</a></li>
+        <li><a href="#projects">{{ $t('projects.projects') }}</a></li>
+        <li><a href="#contact">{{ $t('contact.contact') }}</a></li>
       </ul>
     </nav>
   </header>
@@ -49,7 +49,7 @@ header {
       a {
         text-transform: uppercase;
         letter-spacing: 2px;
-        color: #444;
+        color: #272341;
         font-size: 11px;
         font-weight: bold;
       }

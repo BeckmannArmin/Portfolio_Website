@@ -5,6 +5,7 @@
     <About />
     <Resume />
     <Projects />
+    <Contact />
     <Footer :mode="mode" @toggle="toggle" />
   </div>
 </template>
@@ -16,6 +17,7 @@ import About from "./components/sections/AboutMe.vue";
 import Resume from "./components/sections/Resume.vue";
 import Projects from "./components/sections/Projects.vue";
 import Header from "./components/Header.vue";
+import Contact from "./components/sections/Contact.vue";
 
 export default {
   name: "App",
@@ -26,6 +28,7 @@ export default {
     About,
     Resume,
     Projects,
+    Contact
   },
   data() {
     return {
@@ -79,6 +82,7 @@ export default {
 </script>
 
 <style>
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
 #app {
   font-family: "Poppins", sans-serif;

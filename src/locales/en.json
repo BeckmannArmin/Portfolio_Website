@@ -4,6 +4,7 @@
     },
     "about": {
         "me": "About me",
+        "experience": "Experience",
         "resume": "View resume",
         "knowmore": "Know more",
         "motivation": "A few years ago, I have had the pleasure to turn my passion for Mobile and Web Development into some kind of a job. Started with simple Wordpress sites for clients in my city I gained experiences in Web Development early",
@@ -21,5 +22,14 @@
         "whitebird": "is an open-source, web-based, collaborative, digital Whiteboard built with NestJS, MongoDB, NuxtJs and FabricJs",
         "conForm": "is a program that allows the user to create, edit and save multiple concept papers",
         "hly": "was a project within the study whose aim was to generate a positive opinion among consumers and thus to win more customers for the still unknown beverage"
+    },
+    "contact": {
+        "contact": "Contact",
+        "cancel": "Cancel",
+        "send": "Send",
+        "name": "Name",
+        "email": "E-Mail",
+        "number": "Contact number",
+        "message": "Message"
     }
 }
