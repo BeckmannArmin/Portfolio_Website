@@ -116,7 +116,7 @@
 
               <a
                 target="_blank"
-                href="https://github.com/BuchholzTim/Whitebird"
+                href="https://github.com/BeckmannArmin/conForm"
                 class="cta-btn cta-btn-projects"
               >
                 {{ $t("projects.see") }}
@@ -127,7 +127,7 @@
             <div class="row justify-content-center">
               <div class="animated-card-wrapper">
                 <a
-                  href="https://github.com/BuchholzTim/Whitebird"
+                  href="https://github.com/BeckmannArmin/conForm"
                   target="_blank"
                   class="animated-card-link"
                 >
@@ -330,7 +330,7 @@
   }
 
   .salmon-text {
-    color: #3f3356;
+     color: #3f3356;
   }
 
   .before-enter {

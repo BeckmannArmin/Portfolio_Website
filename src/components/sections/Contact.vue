@@ -280,6 +280,11 @@ $salmon: #ff647c;
       text-transform: uppercase;
     }
   }
+
+  &:after {
+       background-image: linear-gradient(135deg, #CDDDF4, #CDBAFA);
+        -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
+  }
 }
 
 .before-enter {

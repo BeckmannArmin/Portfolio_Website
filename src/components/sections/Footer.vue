@@ -1,27 +1,53 @@
 <template>
-  <footer class="footer navbar-static-bottom">
-    <div class="container d-flex align-items-center justify-content-center flex-column">
-      <a href="#top" class="m-4">
-      <div class="arrow"></div>
-      </a>
-       <!-- Dark Mode toggle -->
-      <Toggle :mode="mode" @toggle="$emit('toggle')" />
-      <!-- brand icons -->
-      <div class="socials d-flex justify-content-center flex-row">
-        <a href="https://github.com/BeckmannArmin" target="_blank">
-         <font-awesome-icon :icon="['fab', 'github']" />
-        </a>
-        <a href="https://www.linkedin.com/in/armin-beckmann/" target="_blank">
-         <font-awesome-icon :icon="['fab', 'linkedin-in']" />
-        </a>
+<section id="footer">
+  <footer class="footer position-relative text-center">
+    <div class="footer-wrapper position-absolute">
+      <div class="container">
+        <div
+          id="curved"
+          class="position-relative d-flex justify-content-center align-items-center flex-column"
+        >
+          <div class="contact">
+            <a
+              href="mailto:armin.beckmann@protonmail.com"
+              title="Get in touch"
+              rel="me"
+              target="_blank"
+              >armin.beckmann@protonmail.com</a
+            >
+          </div>
+          <div class="socials d-flex justify-content-center flex-row">
+            <a
+              class="m-2"
+              href="https://github.com/BeckmannArmin"
+              target="_blank"
+            >
+              <font-awesome-icon :icon="['fab', 'github']" />
+            </a>
+            <a
+              class="m-2"
+              href="https://www.linkedin.com/in/armin-beckmann/"
+              target="_blank"
+            >
+              <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+            </a>
+          </div>
+          <div class="info">
+            <img
+              class="img-fluid"
+              style="height: 125px"
+              alt="Thats me"
+              src="../../assets/armin.png"
+            />
+          </div>
+          <a href="#top">
+            <div class="arrow"></div>
+          </a>
+        </div>
       </div>
-       <!-- Locale toggle -->
-      <LocaleSwitcher />
-      <!-- Divider -->
-      <hr class="mt-2 mb-2 w-25">
-      <img class="img-fluid" style="height: 125px" alt="Thats me" src="../../assets/armin.png">
     </div>
   </footer>
+</section>
 </template>
 
 <script>
@@ -30,74 +56,120 @@ import LocaleSwitcher from "../LocaleSwitcher.vue";
 export default {
   props: ["mode"],
   components: {
-    LocaleSwitcher,
-    Toggle
+    // eslint-disable-next-line vue/no-unused-components
+    LocaleSwitcher, Toggle,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-$salmon: #FF647C;
+$salmon: #ff647c;
 $neutral-black: #111111;
 $neutral-white: #fff;
 
+
+/** reversed gradient of contact section */
+#footer {
+background-image: linear-gradient(135deg, #CDD2F6, #CDBAFA);
+padding-top: 100px;
+}
 .footer {
-  background-color: $neutral-black;
-  color: $neutral-white;
-  padding: 4.8rem 0;
+  height: 300px;
+  min-height: 300px;
+  padding: 2em 0;
 
-  .socials {
-    a {
-      flex-direction: column;
-    color: $neutral-white;
-    font-size: 3rem;
-    width: 5rem;
-    height: 5rem;
-    margin: 1.6rem;
+  .logo {
+    width: 12em;
+    height: 12em;
+    margin: 2em auto;
+  }
+
+  .footer-wrapper {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1000;
+
+    .socials {
+      margin: 2em 0;
+
+      li {
+        margin: 0 0.5em;
+      }
+
+      a {
+        width: 1.5em;
+        height: 1.5em;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        text-align: center;
+        background-color: #dbe8d4;
+        border-radius: 50%;
+        box-shadow: #222733;
+
+        svg {
+          color: #222733;
+        }
+      }
     }
 
-    a svg:hover {
-        transition: all 0.2 ease-in-out;
-        color: $salmon;
+    .arrow {
+        margin: 4rem auto 2rem;
+      width: 35px;
+      height: 35px;
+      box-sizing: border-box;
+      position: relative;
+      transform: rotate(-45deg);
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-width: 0.8vmin 0.8vmin 0 0;
+        border-style: solid;
+        border-color: #fafafa;
+        transition: 0.2s ease;
+        display: block;
+        transform-origin: 100% 0;
+      }
+      &:hover:after {
+        border-color: $salmon;
+        height: 120%;
+      }
+      &:hover:before {
+        border-color: $salmon;
+        transform: scale(0.8);
+      }
     }
   }
 
-  .footer-text {
-    color: grey;
-    font-size: 0.8rem;
-  }
+  #curved {
+    padding-top: 4rem;
 
-  hr {
-    border: 0;
-    border-top: 2px solid rgba($color: gray, $alpha: 0.25);
-  }
+    .contact {
+      a {
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        padding-top: 2rem;
+      }
+    }
 
-  div.arrow {
-    width: 35px;
-    height: 35px;
-    box-sizing: border-box;
-    position: relative;
-    transform: rotate(-45deg);
-
-    &::before {
+    &:before {
       content: "";
-      width: 100%;
-      height: 100%;
-      border-width: 0.8vmin 0.8vmin 0 0;
-      border-style: solid;
-      border-color: #fafafa;
-      transition: 0.2s ease;
       display: block;
-      transform-origin: 100% 0;
-    }
-
-    &:hover:after {
-      border-color: $salmon;
-      height: 120%;
-    }
-    &:hover:before {
-      border-color: $salmon;
-      transform: scale(0.8);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 120rem;
+      width: 200vw;
+      height: 120rem;
+      height: 200vw;
+      margin-left: -60rem;
+      margin-left: -100vw;
+      z-index: -1;
+      border-radius: 50%;
+      background-color: #111111;
     }
   }
 }

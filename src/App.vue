@@ -3,7 +3,7 @@
     <Header />
     <Hero />
     <About />
-    <Resume />
+    <Experience />
     <Projects />
     <Contact />
     <Footer :mode="mode" @toggle="toggle" />
@@ -14,7 +14,7 @@
 import Footer from "./components/sections/Footer.vue";
 import Hero from "./components/Hero.vue";
 import About from "./components/sections/AboutMe.vue";
-import Resume from "./components/sections/Resume.vue";
+import Experience from "./components/sections/Experience.vue";
 import Projects from "./components/sections/Projects.vue";
 import Header from "./components/Header.vue";
 import Contact from "./components/sections/Contact.vue";
@@ -26,7 +26,7 @@ export default {
     Footer,
     Hero,
     About,
-    Resume,
+    Experience,
     Projects,
     Contact
   },
@@ -90,5 +90,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
 }
 </style>

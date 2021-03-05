@@ -5,7 +5,7 @@
         <li>
           <a href="#about">{{ $t('about.me') }}</a>
         </li>
-        <li><a href="#experience">{{ $t('about.experience') }}</a></li>
+        <li><a href="#experience">{{ $t('experience.experience') }}</a></li>
         <li><a href="#projects">{{ $t('projects.projects') }}</a></li>
         <li><a href="#contact">{{ $t('contact.contact') }}</a></li>
       </ul>
