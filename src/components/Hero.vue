@@ -105,6 +105,7 @@ $english-violet: #BD7AE3;
   }
 }
 
+/** In order to make this work we have to give the rect large enough values to grow*/
 @keyframes glitch--v2 {
     0% {
         clip: rect(9px,9999px,11px,0);
