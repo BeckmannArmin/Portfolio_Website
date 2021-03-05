@@ -1,12 +1,14 @@
 <template>
   <section id="projects">
     <div class="container">
-      <div class="mb-4">
-        <h2 v-scrollanimation class="section-title salmon-text">{{ $t("projects.projects") }}</h2>
+      <div class="project-wrapper">
+        <h2 v-scrollanimation class="section-title salmon-text">
+          {{ $t("projects.projects") }}
+        </h2>
         <!-- Whitebird -->
         <div v-scrollanimation class="row justify-content-center">
           <div class="col-lg-4 col-sm-12">
-            <div class="text-left">
+            <div class="project-wrapper-text">
               <h3 class="project-title">Whitebird</h3>
               <div>
                 <p class="mb-4">
@@ -58,7 +60,7 @@
         <!-- Hly -->
         <div v-scrollanimation class="row justify-content-center">
           <div class="col-lg-4 col-sm-12">
-            <div class="text-left">
+            <div class="project-wrapper-text">
               <h3 class="project-title">HLY Hard Seltzer</h3>
               <div>
                 <p class="mb-4">
@@ -105,7 +107,7 @@
         <!-- Holy Spot -->
         <div v-scrollanimation class="row justify-content-center">
           <div class="col-lg-4 col-sm-12">
-            <div class="text-left">
+            <div class="project-wrapper-text">
               <h3 class="project-title">conForm</h3>
               <div>
                 <p class="mb-4">
@@ -255,11 +257,28 @@
   transition: opacity 0.5s ease-in, transform 0.3s ease-in-out 0.25s;
 }
 
+section {
+  padding: 5rem 0;
+}
+
+p,
+a {
+  font-size: 1.6rem;
+}
+
 #projects {
   background-color: #fff;
   color: #272341;
   margin-top: -10rem;
   padding-top: 15rem;
+
+  .project-wrapper {
+    margin-bottom: 10rem;
+
+    .project-wrapper-text {
+      text-align: left;
+    }
+  }
 
   .row {
     margin-bottom: 8rem;
@@ -330,7 +349,7 @@
   }
 
   .salmon-text {
-     color: #3f3356;
+    color: #3f3356;
   }
 
   .before-enter {
@@ -342,6 +361,52 @@
   .enter {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+/** Media queries */
+@media (max-width: 75em) {
+  #projects {
+    margin-top: 0;
+    padding-top: 5rem;
+
+    .project-wrapper-text {
+      margin-bottom: 4.8rem;
+    }
+  }
+}
+
+@media (max-width: 37.5em) {
+  section {
+    border: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #projects {
+    .project-wrapper {
+      margin-bottom: 0;
+
+      .row {
+        margin-bottom: 4rem;
+      }
+
+      .project-wrapper-text {
+        margin-bottom: 2.5rem !important;
+        .project-title {
+          font-size: 2rem;
+        }
+
+        .cta-btn-projects {
+    background-image: none;
+    border: 2px solid #bd7ae3;
+    -webkit-text-fill-color: #bd7ae3;
+        }
+      }
+    }
+    .section-title {
+      font-size: 2.8rem;
+    }
   }
 }
 </style>

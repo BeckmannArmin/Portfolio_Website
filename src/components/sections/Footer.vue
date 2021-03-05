@@ -18,14 +18,12 @@
           </div>
           <div class="socials d-flex justify-content-center flex-row">
             <a
-              class="m-2"
               href="https://github.com/BeckmannArmin"
               target="_blank"
             >
               <font-awesome-icon :icon="['fab', 'github']" />
             </a>
             <a
-              class="m-2"
               href="https://www.linkedin.com/in/armin-beckmann/"
               target="_blank"
             >
@@ -99,9 +97,10 @@ padding-top: 100px;
       }
 
       a {
-        width: 1.5em;
-        height: 1.5em;
-        font-size: 1.5em;
+        width: 1.6em;
+        height: 1.6em;
+        margin: 0.5em;
+        font-size: 3rem;
         line-height: 1.5em;
         text-align: center;
         background-color: #dbe8d4;
@@ -151,6 +150,7 @@ padding-top: 100px;
         text-decoration: none;
         color: #fff;
         cursor: pointer;
+        font-size: 1.4rem;
         padding-top: 2rem;
       }
     }

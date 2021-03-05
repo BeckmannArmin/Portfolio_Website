@@ -4,7 +4,7 @@
       <h2 v-scrollanimation class="section-title">{{ $t("contact.contact") }}</h2>
 
       <!-- The container that holds the form -->
-      <div v-scrollanimation class="container" style="width: 650px">
+      <div v-scrollanimation class="container" style="width: 100%">
         <div class="screen">
           <!-- MACOS screen header -->
           <div class="screen-header">
@@ -268,7 +268,7 @@ $salmon: #ff647c;
   background-image: linear-gradient(135deg, #CDDDF4, #CDBAFA);
   -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  padding: 10rem 0 10rem;
+  padding: 15rem 0 10rem;
   margin-top: -10rem;
   margin-bottom: -1px;
   color: #fff;
@@ -296,5 +296,21 @@ $salmon: #ff647c;
 .enter {
   opacity: 1;
   transform: translateY(0px);
+}
+
+/** Media queries */
+@media (max-width: 75em) {
+#contact {
+    padding: 10rem 0;
+    clip-path: none;
+    margin-top: 0;
+    -webkit-clip-path: none;
+}
+}
+
+@media (max-width: 37.5em) {
+#contact .container .section-title {
+    font-size: 2.8rem;
+}
 }
 </style>
