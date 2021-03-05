@@ -11,6 +11,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
+
 library.add(faGithub,faLinkedinIn)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

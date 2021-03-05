@@ -265,7 +265,7 @@ $salmon: #ff647c;
 
 
 #contact {
-  background-image: linear-gradient(135deg, #bd7ae3, #8461c9);
+  background-image: linear-gradient(135deg, #CDDDF4, #CDBAFA);
   -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   padding: 10rem 0 10rem;

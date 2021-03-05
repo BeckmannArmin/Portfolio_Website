@@ -1,6 +1,31 @@
 <template>
   <section id="about">
     <div class="container">
+      <h2 v-scrollanimation class="section-title pt-4">{{ $t("about.me") }}</h2>
+      <div class="col-md-6 float-left" data-aos="fade-up">
+        <div class="h-50p"></div>
+        <p class="text-left">{{ $t("about.motivation") }}.</p>
+        <p class="text-left">{{ $t("about.openminded") }}.</p>
+        <div class="h-50p"></div>
+        <img
+          class="img-fluid float-left about-img"
+          src="../../assets/signature_me-white.png"
+          width="230"
+        />
+        <div class="h-50p"></div>
+      </div>
+      <div class="col-md-6 float-left">
+        <img
+          src="../../assets/profile_img.jpg"
+          width="400"
+          class="img-responsive"
+          alt
+          align="right"
+          data-aos="fade-right"
+          data-aos-delay="0"
+        />
+      </div>
+      <!--
       <h2 v-scrollanimation class="section-title">{{ $t("about.me") }}</h2>
       <div class="row about-wrapper">
         <div class="col-md-6 col-sm-12">
@@ -33,14 +58,38 @@
           </div>
         </div>
       </div>
+      -->
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
-section {
-  padding: 5rem 0;
+#about {
+  background-color: #CDDDF4;
+  background-image: linear-gradient(135deg, #CDDDF4, #CDBAFA);
+  color: #fff;
+  height: 100%;
+  border-top: 0;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  padding-bottom: 30%;
+
+  .about-img {
+      background: transparent;
+  }
+
+  .section-title {
+    margin: 0 0 4.5rem;
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .h-50p {
+    height: 50px;
+  }
 }
+/**
 #about {
   background-color: #bd7ae3;
   background-image: linear-gradient(135deg, #bd7ae3, #8461c9);
@@ -111,6 +160,7 @@ section {
     text-transform: uppercase;
   }
 }
+*/
 
 .before-enter {
   opacity: 0;
