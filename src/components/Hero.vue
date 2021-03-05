@@ -4,7 +4,7 @@
       <h1
         class="hero-title"
       >
-        <span class="revealOnLoad delay-1" style="opacity: 0"> Hi, {{ $t('hero.introduction.name')}} <span class="text-color-main"> Armin </span></span><br /><span class="revealOnLoad delay-2" style="opacity: 0">{{ $t('hero.introduction.frontend')}}.</span>
+        <span class="revealOnLoad delay-1" style="opacity: 0"> Hi, {{ $t('hero.introduction.name')}} <span data-text="Nimra" class="text-color-main glitch glitch--v1"> Armin </span></span><br /><span class="revealOnLoad delay-2" style="opacity: 0">{{ $t('hero.introduction.frontend')}}.</span>
       </h1>
       <p
         class="d-flex revealOnLoad delay-2"
@@ -18,7 +18,14 @@
 
 <script>
 export default {
-
+    mounted() {
+        setInterval(() => {
+            document.querySelector('.glitch').classList.toggle('glitch--v1');
+            setTimeout(() => {
+                document.querySelector('.glitch').classList.toggle('glitch--v2')
+            }, 100)
+        }, 5000);
+    }
 }
 </script>
 
@@ -41,6 +48,125 @@ $english-violet: #BD7AE3;
   bottom: 0;
   right: 0;
   z-index: -1;
+
+.glitch {
+  position: relative;
+  font-size:5.6rem;
+  &--v1 {
+
+      &:before {
+        -webkit-animation: glitch--v2 2.2s linear;
+        animation: glitch--v2 2.2s linear;
+        animation-iteration-count: infinite;
+        animation-delay: .115s;
+      }
+      &:after {
+         -webkit-animation: glitch-anim-1 2s linear;
+        animation: glitch-anim-1 2s linear;
+        animation-iteration-count: infinite;
+        animation-delay: .055s;
+      }
+
+  }
+    &--v2 {
+
+        &:before {
+            -webkit-animation: glitch-anim-1 1.4s ease;
+            animation: glitch-anim-2 1.4s ease;
+            animation-iteration-count: infinite;
+            animation-delay: .315s;
+        }
+        &:after {
+            -webkit-animation: glitch--v2 1.2s linear;
+            animation: glitch--v2 1.2s linear;
+            animation-iteration-count: infinite;
+            animation-delay: .55s;
+        }
+
+    }
+  &:after,
+  &:before{
+    font-size: 5.6rem;
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: #000;
+    clip: rect(0,0,0,0);
+  }
+  &:before {
+    left: -2px;
+    text-shadow: 3px 0 rgba(252,77,122, 0.75);
+
+  }
+  &:after {
+    left: 2px;
+    text-shadow: -3px 0 #272341;
+  }
+}
+
+@keyframes glitch--v2 {
+    0% {
+        clip: rect(9px,9999px,11px,0);
+    }
+
+    15% {
+        clip: rect(11px,9999px,38px,0);
+    }
+
+    30% {
+        clip: rect(1px,9999px,26px,0);
+    }
+
+    50% {
+        clip: rect(0,0,0,0);
+    }
+
+    70% {
+        clip: rect(23px,9999px,36px,0);
+    }
+
+    80% {
+        clip: rect(0,0,0,0);
+    }
+    100% {
+        clip: rect(9px,9999px,11px,0);
+    }
+}
+
+@keyframes glitch-anim-1 {
+    0% {
+        top: 4px;
+        left: 3px;
+        clip: rect(36px,9999px,44px,0);
+    }
+
+    20% {
+
+        clip: rect(42px,9999px,147px,0);
+    }
+
+    40% {
+
+        clip: rect(4px,9999px,100px,0);
+    }
+
+    60% {
+
+        clip: rect(71px,9999px,108px,0);
+    }
+
+    80% {
+
+        clip: rect(90px,9999px,140px,0);
+    }
+
+    100% {
+        top: 1px;
+        left: 0;
+        clip: rect(128px,9999px,78px,0);
+    }
+}
 
   .container {
       .animated {
