@@ -107,11 +107,14 @@
 
 <style lang="scss" scoped>
 #experience {
+    p {
+    font-size: 1.6rem;
+    }
   padding: 3rem 0;
   .section-title {
     position: relative;
     margin: 0 0 4.5rem;
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 700;
     text-transform: uppercase;
   }
@@ -127,7 +130,7 @@
     position: relative;
     margin: 0 0 4.5rem;
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
   }
 
@@ -135,7 +138,7 @@
     position: relative;
     margin: 0 0 4.5rem;
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
   }
 
@@ -202,5 +205,22 @@
       }
     }
   }
+}
+
+/** Media quueries */
+@media (max-width: 37.5em){
+    section {
+        border: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    }
+#experience {
+    .section-title {
+    font-size: 2.8rem;
+}
+.subsection-title {
+    font-size: 1.8rem;
+}
+}
 }
 </style>

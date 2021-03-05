@@ -28,7 +28,7 @@
               {{ $t('about.openminded') }}.
             </p>
             <span class="d-flex mt-3">
-              <a class="cta-btn cta-btn-resume" href="#resume"> {{ $t("about.resume") }} </a>
+              <a class="cta-btn cta-btn-resume" href="#experience"> {{ $t("about.resume") }} </a>
             </span>
           </div>
         </div>

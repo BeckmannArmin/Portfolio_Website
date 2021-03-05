@@ -4,8 +4,8 @@
       <h2 v-scrollanimation class="section-title">{{ $t("contact.contact") }}</h2>
 
       <!-- The container that holds the form -->
-      <div v-scrollanimation class="container" style="width: 100%">
-        <div class="screen">
+      <div v-scrollanimation class="container d-flex justify-content-center">
+        <div class="screen" style="max-width:65%; min-width: 65%;">
           <!-- MACOS screen header -->
           <div class="screen-header">
             <div class="screen-header-left">
@@ -299,6 +299,7 @@ $salmon: #ff647c;
 }
 
 /** Media queries */
+
 @media (max-width: 75em) {
 #contact {
     padding: 10rem 0;
