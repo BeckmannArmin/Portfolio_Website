@@ -9,17 +9,42 @@
         <li><a href="#projects">{{ $t('projects.projects') }}</a></li>
         <li><a href="#contact">{{ $t('contact.contact') }}</a></li>
       </ul>
+      <div id="toggle">
+         <Toggle :mode="mode" @toggle="$emit('toggle')" />
+      </div>
     </nav>
   </header>
 </template>
 
+<script>
+import Toggle from "../components/Toggler.vue";
+
+export default {
+      props: ["mode"],
+      components: {
+          Toggle
+      }
+
+}
+</script>
+
 <style lang="scss" scoped>
+
+#toggle {
+        position: fixed;
+    top: -5px;
+
+    right: 50px;
+
+}
 
 /** animated header - start */
 .bg-nav {
   background: #fff;
   border-bottom: 1px solid #f3f3f3;
-
+ a {
+     color: #272341;
+ }
   ul {
     padding: 0px;
   }
@@ -49,7 +74,7 @@ header {
       a {
         text-transform: uppercase;
         letter-spacing: 2px;
-        color: #272341;
+        color: #fff;
         font-size: 11px;
         font-weight: bold;
       }

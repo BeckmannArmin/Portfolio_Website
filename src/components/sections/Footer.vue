@@ -49,13 +49,11 @@
 </template>
 
 <script>
-import Toggle from "../Toggler.vue";
 import LocaleSwitcher from "../LocaleSwitcher.vue";
 export default {
-  props: ["mode"],
   components: {
     // eslint-disable-next-line vue/no-unused-components
-    LocaleSwitcher, Toggle,
+    LocaleSwitcher
   },
 };
 </script>

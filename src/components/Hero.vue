@@ -37,17 +37,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$english-violet: #bd7ae3;
+$shades_of_pink: #e91e63;
+$salmon: #FF647C;
+
+#master.stage-0 {
+      transform: translateX(0);
+      color: #000;
+}
+
+#master.stage-1 #hero, #master.stage-2 #hero {
+    transform: translateX(105vw);
+}
 
 #hero {
   min-height: 100vh;
   height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   border-bottom: 0;
   background: #fff;
   font-weight: 400;
-  color: #272341;
+  color: #fff;
   padding: 0 5.6rem;
   margin-bottom: 0;
   top: 0;
@@ -55,6 +66,9 @@ $english-violet: #bd7ae3;
   bottom: 0;
   right: 0;
   z-index: -1;
+  background: radial-gradient(#252525,#181818);
+  transition: transform 1s cubic-bezier(1,0,0,1);
+
 
   .glitch {
     position: relative;
@@ -202,8 +216,8 @@ $english-violet: #bd7ae3;
   }
 
   .cta-btn-hero {
-    color: $english-violet;
-    border: 2px solid $english-violet;
+    color: $shades_of_pink;
+    border: 2px solid $shades_of_pink;
   }
 
   a:hover {
@@ -216,7 +230,7 @@ $english-violet: #bd7ae3;
   }
 
   .cta-btn:after {
-    background: $english-violet;
+    background: $shades_of_pink;
   }
 
   .cta-btn-hero:hover:after {
@@ -242,7 +256,7 @@ $english-violet: #bd7ae3;
     text-align: left;
 
     .text-color-main {
-      background-image: linear-gradient(135deg, $english-violet, #8461c9);
+      background-image: linear-gradient(135deg, $shades_of_pink, $salmon);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       color: transparent;

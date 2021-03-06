@@ -34,7 +34,8 @@ export default {
 
   input {
     position: absolute;
-    left: -99em;
+    right: -99em;
+    background: none;
   }
 }
 
