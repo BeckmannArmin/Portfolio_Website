@@ -1,19 +1,37 @@
 <template>
   <section id="about" class="d-flex position-absolute">
     <div
-      class="container d-flex justify-content-center flex-column w-100"
+      class="d-flex justify-content-center flex-column w-100"
       id="about-content"
       :style="style"
     >
-      <div class="container">
-        <div class="content d-inline-flex flex-row">
-          <p class="about-wrapper-info-text">
-              <span :style="style">{{ $t("about.openminded.start") }}</span>
-              <span :style="style" class="info-text-colored">{{ $t("about.openminded.creative") }}</span>
-              <span :style="style">{{ $t("about.openminded.middle") }}</span>
-              <span :style="style" class="info-text-colored">{{ $t("about.openminded.open") }}</span>
-              <span :style="style">{{ $t("about.openminded.try") }}</span>
-          </p>
+      <div class="content d-inline-flex flex-row">
+          <!--  -->
+        <div class="sc">
+          <span>{{ $t("about.openminded.start") }}</span>
+        </div>
+            <!-- -->
+        <div class="r">
+          <span class="info-text-colored">{{
+            $t("about.openminded.creative")
+          }}</span>
+        </div>
+            <!-- -->
+        <div class="o">
+          <span>{{ $t("about.openminded.middle") }}</span>
+        </div>
+            <!-- -->
+        <div class="l">
+          <span class="info-text-colored">{{
+            $t("about.openminded.open")
+          }}</span>
+        </div>
+            <!-- -->
+        <div class="l1">
+          <span>{{ $t("about.openminded.try") }}</span>
+        </div>
+        <div class="l2">
+          <span>{{ $t("about.openminded.astehtic") }}</span>
         </div>
       </div>
     </div>
@@ -22,17 +40,17 @@
 
 <script>
 export default {
-    props: {
-        yOffset: Number
+  props: {
+    yOffset: Number,
+  },
+  computed: {
+    style() {
+      return {
+        transform: "translate3d(0, " + -this.yOffset + "px, 0)",
+      };
     },
-    computed: {
-        style() {
-            return {
-                transform: 'translate3d('+ -(this.yOffset/2) + 'px,' + -(this.yOffset) + 'px, 0)'
-            }
-        }
-    }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -46,7 +64,7 @@ export default {
 }
 
 #master.stage-1 #about-content {
-    opacity: 1;
+  opacity: 1;
 }
 
 #about {
@@ -62,27 +80,31 @@ export default {
     opacity: 0;
     transition: opacity 2.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-    .content {
+    div.content {
       margin: 0 auto;
-      display: inline-flex;
-      flex-direction: row;
       flex-wrap: wrap;
+      font-size: 5rem;
+      font-weight: 700;
+      text-align: left;
+      width: 80%;
 
-      .about-wrapper-info-text {
-        font-size: 5rem;
-        font-weight: 700;
-        text-align: left;
-        color: $white;
+      .l2:after {
+        content: ".";
+        color: $frog-green;
+      }
 
-        &:after {
-            content: ".";
-            color: $frog-green;
+      div {
+        position: relative;
+        margin-right: 16px;
+
+        span {
+          color: $white;
         }
 
-        .info-text-colored {
-            color: $text-main;
+        span.info-text-colored {
+            color: $text-main !important;
             font-weight: 800;
-        }
+          }
       }
     }
   }

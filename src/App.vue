@@ -60,8 +60,8 @@ export default {
     window.addEventListener("DOMContentLoaded", this.onLoad);
   },
   beforeDestroy() {
-    window.removeEventListener("scroll");
-    window.removeEventListener("DOMContentLoaded");
+    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("DOMContentLoaded", this.onLoad);
   },
   methods: {
     handleScroll() {
@@ -81,6 +81,38 @@ export default {
         } else {
             this.y = 0;
         }
+        this.transformLetters(this.y);
+    },
+      transformLetters(scroll) {
+
+      const sc = document.querySelector(".sc");
+      const r = document.querySelector(".r");
+      const o = document.querySelector(".o");
+      const l = document.querySelector(".l");
+      const l1 = document.querySelector(".l1");
+      const l2 = document.querySelector(".l2");
+
+      sc.style.transform = `translate3d(${-scroll * 1.45}px, ${scroll * 1.4}px, 0) rotate(${
+        -scroll * 0.03
+      }deg)`;
+
+      r.style.transform = `translate3d(${-scroll * 0.45}px, ${
+        scroll * 0.95
+      }px, 0) rotate(${-scroll * 0.1}deg)`;
+
+      o.style.transform = `translate3d(${scroll * 0.65}px, ${
+        scroll * 1.05
+      }px, 0) rotate(${scroll * 0.2}deg)`;
+
+      l.style.transform = `translate3d(0, ${scroll * 0.5}px, 0) rotate(${
+        scroll * 0.04
+      }deg)`;
+      l1.style.transform = `translate3d(0, ${scroll * 0.5}px, 0) rotate(${
+        scroll * 0.04
+      }deg)`;
+       l2.style.transform = `translate3d(0, ${scroll * 0.75}px, 0) rotate(${
+        scroll * 0.04
+      }deg)`;
     },
     onLoad() {
       const showOnLoad = document.querySelectorAll(".revealOnLoad");
@@ -112,7 +144,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
 
 .hybrid-section-container {
-    height: 200vh;
+    height: 150vh;
     background-color: $salmon;
 
     &:after {
