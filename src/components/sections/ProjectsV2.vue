@@ -23,7 +23,7 @@
           <div class="project-list row-inner">
             <!-- Whitebird -->
             <div class="project enter frontend backend">
-              <div class="project-inner-container">
+              <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
                 <img
                   class="image img-fluid"
                   src="../../assets/whitebird_logo.svg"
@@ -41,7 +41,7 @@
             </div>
             <!-- Hly -->
             <div class="project enter design">
-              <div class="project-inner-container">
+              <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
                 <img class="image img-fluid" src="../../assets/hly_logo.png" />
                 <b>Hly</b>
               </div>
@@ -57,7 +57,7 @@
 
             <!-- conForm -->
             <div class="project enter frontend backend">
-              <div class="project-inner-container">
+              <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
                 <img
                   class="image img-fluid"
                   src="../../assets/conForm_logo.png"
@@ -180,7 +180,7 @@ section {
 }
 
 #projects {
-  background: #fff;
+  background: $white;
   text-align: center;
   position: relative;
   padding-bottom: 180px;
@@ -193,7 +193,7 @@ section {
 
     &:after {
         content: ".";
-        color: #cbe2be;
+        color: $frog-green;
     }
   }
 
@@ -212,8 +212,8 @@ section {
     }
 
     .btn.active {
-      color: #fff;
-      background: #e91e63;
+      color: $white;
+      background: $salmon;
       border-radius: 6px;
     }
   }
@@ -221,7 +221,7 @@ section {
   .project-categories,
   .project img {
     border-radius: 6px;
-    background: #fff;
+    background: $white;
   }
 
   .row {
@@ -261,28 +261,21 @@ section {
     min-height: 275px;
     min-width: 250px;
     margin: 16px 12px 0;
-    background: #e91e63;
+    background: $salmon;
     border-radius: 6px;
     position: relative;
     flex: 1;
     opacity: 1;
     text-align: center;
-    transition: all 0.375s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.375s $project-transition;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
   .project-inner-container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    transition: margin 0.475s cubic-bezier(0.645, 0.045, 0.355, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: margin 0.475s $project-transition;
     flex: auto;
-    flex-direction: column;
     margin: 24px;
   }
 
@@ -293,21 +286,21 @@ section {
     object-fit: cover;
     height: 90%;
     width: 85%;
-    transition: height 0.375s cubic-bezier(0.645, 0.045, 0.355, 1),
-      width 0.375s cubic-bezier(0.645, 0.045, 0.355, 1),
-      flex 0.375s cubic-bezier(0.645, 0.045, 0.355, 1),
-      top 0.375s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: height 0.375s $project-transition,
+      width 0.375s $project-transition,
+      flex 0.375s $project-transition,
+      top 0.375s $project-transition;
     box-shadow: 0 3px 7px 0 rgb(0, 0, 0 / 25%);
   }
 
   .project b {
     position: absolute;
     bottom: -6px;
-    color: #fff;
+    color: $white;
     opacity: 0.65;
     font-size: 14px;
-    transition: max-height 0.375s cubic-bezier(0.645, 0.045, 0.355, 1),
-      bottom 0.375s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: max-height 0.375s $project-transition,
+      bottom 0.375s $project-transition;
     max-height: 24px;
     overflow: hidden;
   }
@@ -323,16 +316,16 @@ section {
     justify-content: center;
     align-items: center;
     z-index: 5;
-    background: rgba(37, 37, 37, 0.85);
+    background: $background-overlay;
     transition: opacity 0.375s cubic-bezier(1, 0, 0, 1);
     overflow: hidden;
     border-radius: 6px;
 
     a {
       padding: 10px 26px;
-      color: #fff;
-      border: 2px solid #e91e63;
-      transition: all 0.375s cubic-bezier(0.645, 0.045, 0.355, 1);
+      color: $white;
+      border: 2px solid $salmon;
+      transition: all 0.375s $project-transition;
       z-index: 3;
     }
   }

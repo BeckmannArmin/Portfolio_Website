@@ -47,12 +47,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shades_of_pink: #e91e63;
-$salmon: #FF647C;
 
 #master.stage-0 {
       transform: translateX(0);
-      color: #000;
+      color: $black;
 }
 
 #master.stage-1 #hero, #master.stage-2 #hero {
@@ -66,9 +64,9 @@ $salmon: #FF647C;
   display: flex;
   align-items: center;
   border-bottom: 0;
-  background: #fff;
+  background: $white;
   font-weight: 400;
-  color: #fff;
+  color: $white;
   padding: 0 5.6rem;
   margin-bottom: 0;
   top: 0;
@@ -76,7 +74,7 @@ $salmon: #FF647C;
   bottom: 0;
   right: 0;
   z-index: -1;
-  background: radial-gradient(#252525,#181818);
+  background: $hero-bg-gradient;
   transition: transform 1s cubic-bezier(1,0,0,1);
 
 
@@ -118,7 +116,7 @@ $salmon: #FF647C;
       position: absolute;
       top: 0;
       width: 100%;
-      background: #000;
+      background:$black;
       clip: rect(0, 0, 0, 0);
     }
     &:before {
@@ -127,7 +125,7 @@ $salmon: #FF647C;
     }
     &:after {
       left: 2px;
-      text-shadow: -3px 0 #272341;
+      text-shadow: -3px 0 $neutral-purple;
     }
   }
 
@@ -221,12 +219,12 @@ $salmon: #FF647C;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: .15em;
-          color: #fff;
+          color: $white;
       }
 
       b {
           font-size: 1.4rem;
-          color: #e91e63;
+          color: $salmon;
           font-weight: 900;
       }
   }
@@ -243,7 +241,7 @@ $salmon: #FF647C;
   }
 
   .cta-btn-hero {
-    color: $shades_of_pink;
+    color: $salmon;
   }
 
   a:hover {
@@ -251,7 +249,7 @@ $salmon: #FF647C;
   }
 
   .cta-btn-hero:hover {
-    color: #e91e63;
+    color: $salmon;
     text-decoration: none;
   }
 
@@ -279,11 +277,11 @@ $salmon: #FF647C;
 
     .intro:after {
         content: ".";
-        color: #cbe2be;
+        color: $frog-green;
     }
 
     .text-color-main {
-      background-image: linear-gradient(135deg, $shades_of_pink, $salmon);
+      background-image: $hero-title-gradient;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       color: transparent;

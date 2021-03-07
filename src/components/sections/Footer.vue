@@ -66,7 +66,7 @@ $neutral-white: #fff;
 
 /** reversed gradient of contact section */
 #footer {
-background-image: linear-gradient(135deg, #CDD2F6, #CDBAFA);
+background-image: $footer-bg-gradient;
 padding-top: 100px;
 }
 .footer {
@@ -101,12 +101,12 @@ padding-top: 100px;
         font-size: 3rem;
         line-height: 1.5em;
         text-align: center;
-        background-color: #cbe2be;
+        background-color: $frog-green;
         border-radius: 50%;
-        box-shadow: #222733;
+        box-shadow: $neutral-dark-purple;
 
         svg {
-          color: #222733;
+          color: $neutral-dark-purple;
         }
       }
     }
@@ -124,7 +124,7 @@ padding-top: 100px;
         height: 100%;
         border-width: 0.8vmin 0.8vmin 0 0;
         border-style: solid;
-        border-color: #fafafa;
+        border-color: $neutral-blue;
         transition: 0.2s ease;
         display: block;
         transform-origin: 100% 0;
@@ -146,7 +146,7 @@ padding-top: 100px;
     .contact {
       a {
         text-decoration: none;
-        color: #fff;
+        color: $white;
         cursor: pointer;
         font-size: 1.4rem;
         padding-top: 2rem;
@@ -167,7 +167,7 @@ padding-top: 100px;
       margin-left: -100vw;
       z-index: -1;
       border-radius: 50%;
-      background-color: #111111;
+      background-color: $bg-black;
     }
   }
 }

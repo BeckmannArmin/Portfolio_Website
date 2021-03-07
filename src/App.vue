@@ -1,7 +1,7 @@
 <template>
-    <div id="master" class="stage-0">
-        <div class="hybrid-section-container">
-            <div class="hybrid-section" :style="style">
+    <div id="master" class="stage-0 h-100 w-100 position-relative">
+        <div class="hybrid-section-container w-100 position-relative">
+            <div class="hybrid-section d-inline-flex flex-row position-fixed w-100 h-100" :style="style">
                 <Hero />
                 <About :yOffset=y />
             </div>
@@ -112,10 +112,8 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
 
 .hybrid-section-container {
-    position: relative;
     height: 200vh;
-    width: 100%;
-    background-color: #e91e63;
+    background-color: $salmon;
 
     &:after {
         content: "";
@@ -131,16 +129,11 @@ export default {
     position: absolute;
     bottom: -1px;
     z-index: 3;
-    box-shadow: 0 -75px 50px #e91e63;
+    box-shadow: 0 -75px 50px $salmon;
 
     }
 
     .hybrid-section {
-        position: fixed;
-        display: inline-flex;
-        flex-direction: row;
-        width: 100%;
-        height: 100%;
         z-index: 3;
         overflow: hidden;
     }
@@ -154,14 +147,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $text-main;
   font-size: 62.5%;
 
 }
 
 #master {
-    height: 100%;
-    width: 100%;
-    position: relative;
+
 }
 </style>

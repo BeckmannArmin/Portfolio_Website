@@ -1,5 +1,5 @@
 <template>
-  <section id="about">
+  <section id="about" class="h-100">
     <div class="container">
       <h2 v-scrollanimation class="section-title">{{ $t("about.me") }}</h2>
       <div class="row about-wrapper">
@@ -21,14 +21,12 @@
             v-scrollanimation
             class="about-wrapper-info d-flex justify-content-center flex-column h-100"
           >
-            <p class="about-wrapper-info-text">
-              {{ $t('about.motivation') }}.
-            </p>
-            <p class="about-wrapper-info-text">
-              {{ $t('about.openminded') }}.
-            </p>
+            <p class="about-wrapper-info-text">{{ $t("about.motivation") }}.</p>
+            <p class="about-wrapper-info-text">{{ $t("about.openminded") }}.</p>
             <span class="d-flex mt-3">
-              <a class="cta-btn cta-btn-resume" href="#experience"> {{ $t("about.resume") }} </a>
+              <a class="cta-btn cta-btn-resume" href="#experience">
+                {{ $t("about.resume") }}
+              </a>
             </span>
           </div>
         </div>
@@ -38,16 +36,14 @@
 </template>
 
 <style lang="scss" scoped>
-
 section {
-    padding: 5rem 0;
+  padding: 5rem 0;
 }
 
 #about {
   background-color: #bd7ae3;
   background-image: linear-gradient(135deg, #bd7ae3, #8461c9);
   color: #fff;
-  height: 100%;
   border-top: 0;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
@@ -58,58 +54,56 @@ section {
   }
 
   .about-wrapper-info {
+    .about-wrapper-info-text {
+      font-size: 1.6rem;
+      text-align: left;
+    }
 
-      .about-wrapper-info-text {
-          font-size: 1.6rem;
-          text-align: left;
+    span {
+      .cta-btn {
+        display: inline-block;
+        position: relative;
+        padding: 0.8rem 1.6rem;
+        font-weight: 700;
+        line-height: 1;
+        font-size: 1.6rem;
+        z-index: 1;
+        transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .cta-btn-resume {
+        color: #fff;
+        border: 2px solid #fff;
       }
 
-      span {
+      a:hover {
+        transition: all 0.3s ease-in-out;
+      }
 
-    .cta-btn {
-      display: inline-block;
-      position: relative;
-      padding: 0.8rem 1.6rem;
-      font-weight: 700;
-      line-height: 1;
-      font-size: 1.6rem;
-      z-index: 1;
-      transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-    }
-    .cta-btn-resume {
-      color: #fff;
-      border: 2px solid #fff;
-    }
-
-    a:hover {
-        transition: all .3s ease-in-out;
-    }
-
-    .cta-btn-resume:hover {
+      .cta-btn-resume:hover {
         color: #bd7ae3;
         text-decoration: none;
-    }
+      }
 
-    .cta-btn:after {
-      background: #fff;
-    }
+      .cta-btn:after {
+        background: #fff;
+      }
 
-    .cta-btn-resume:hover:after {
+      .cta-btn-resume:hover:after {
         width: 100%;
-    }
+      }
 
-    .cta-btn-resume:after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 0;
-      height: 100%;
-      left: 0;
-      bottom: 0;
-      z-index: -1;
-      transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+      .cta-btn-resume:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+        transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+      }
     }
-         }
   }
 
   .section-title {
@@ -134,55 +128,53 @@ section {
 /** Media queries */
 
 @media (max-width: 75em) {
-#about {
+  #about {
     height: 100%;
     -webkit-clip-path: none;
     clip-path: none;
 
     .about-wrapper-image {
-        height: 100%;
+      height: 100%;
     }
-}
-
+  }
 }
 
 @media (max-width: 56.25em) {
-#about {
+  #about {
     .about-wrapper-info-text {
-    text-align: left;
-}
-}
+      text-align: left;
+    }
+  }
 }
 
 @media (max-width: 48em) {
-#about {
+  #about {
     .about-wrapper-image {
-    padding-bottom: 6.4rem;
-}
-.about-wrapper-info{
-    align-items: center;
+      padding-bottom: 6.4rem;
+    }
+    .about-wrapper-info {
+      align-items: center;
 
-    .about-wrapper-info-text {
-    text-align: center;
-}
-}
-}
+      .about-wrapper-info-text {
+        text-align: center;
+      }
+    }
+  }
 }
 
-@media (max-width: 37.5em){
-    section {
-        border: none;
+@media (max-width: 37.5em) {
+  section {
+    border: none;
     padding-left: 1rem;
     padding-right: 1rem;
-    }
-#about {
+  }
+  #about {
     .section-title {
-    font-size: 2.8rem;
+      font-size: 2.8rem;
+    }
+    .about-wrapper {
+      padding-bottom: 5rem;
+    }
+  }
 }
-.about-wrapper {
-    padding-bottom: 5rem;
-}
-}
-}
-
 </style>

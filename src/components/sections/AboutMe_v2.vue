@@ -72,15 +72,15 @@ export default {
         font-size: 5rem;
         font-weight: 700;
         text-align: left;
-        color: #fff;
+        color: $white;
 
         &:after {
             content: ".";
-            color: #cbe2be;
+            color: $frog-green;
         }
 
         .info-text-colored {
-            color: #1A051D;
+            color: $text-main;
             font-weight: 800;
         }
       }

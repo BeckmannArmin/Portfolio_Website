@@ -64,13 +64,13 @@
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
                 <p class="timeline-event-thumbnail">
-                  2020 - {{ $t('experience.experience_datenow')}}
+                  2020 - {{ $t("experience.experience_datenow") }}
                 </p>
-                <h3>{{ $t('experience.study')}}</h3>
+                <h3>{{ $t("experience.study") }}</h3>
                 <p class="text-left">
-                  <strong>{{ $t('experience.study_master')}}</strong>
+                  <strong>{{ $t("experience.study_master") }}</strong>
                   <br />
-                  {{ $t('experience.study_master_desc')}}
+                  {{ $t("experience.study_master_desc") }}
                 </p>
               </div>
             </li>
@@ -107,9 +107,9 @@
 
 <style lang="scss" scoped>
 #experience {
-    p {
+  p {
     font-size: 1.6rem;
-    }
+  }
   padding: 3rem 0;
   .section-title {
     position: relative;
@@ -119,13 +119,13 @@
     text-transform: uppercase;
 
     &:after {
-        content: ".";
-        color: #cbe2be;
+      content: ".";
+      color: $frog-green;
     }
   }
 
   .rounded {
-    border-top: 8px solid #ff647c;
+    border-top: 8px solid $salmon-light;
     position: relative;
     border-radius: 5px;
     width: 35%;
@@ -148,7 +148,7 @@
   }
 
   .salmon-text {
-    color: #3f3356;
+    color: $text-main;
   }
 
   .timeline {
@@ -157,7 +157,7 @@
     position: relative;
 
     &:before {
-      background-color: black;
+      background-color: $black;
       content: "";
       margin-left: -1px;
       position: absolute;
@@ -174,8 +174,8 @@
       transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
-      background-color: #ff647c;
-      outline: 10px solid #f3f3f3;
+      background-color: $salmon-light;
+      outline: 10px solid $neutral-grey;
       display: block;
       margin: 0.5em 0.5em 0.5em -0.5em;
       position: absolute;
@@ -202,8 +202,8 @@
         color: white;
         font-size: 12px;
         font-weight: bold;
-        background-color: #ff647c;
-        box-shadow: inset 0 0 0 0em #425bb5;
+        background-color: $salmon_light;
+        box-shadow: inset 0 0 0 0em $blue;
         display: inline-block;
         margin-bottom: 1.2em;
         padding: 0.25em 1em 0.2em 1em;
@@ -213,19 +213,19 @@
 }
 
 /** Media quueries */
-@media (max-width: 37.5em){
-    section {
-        border: none;
+@media (max-width: 37.5em) {
+  section {
+    border: none;
     padding-left: 1rem;
     padding-right: 1rem;
-    }
-#experience {
+  }
+  #experience {
     .section-title {
-    font-size: 2.8rem;
-}
-.subsection-title {
-    font-size: 1.8rem;
-}
-}
+      font-size: 2.8rem;
+    }
+    .subsection-title {
+      font-size: 1.8rem;
+    }
+  }
 }
 </style>
