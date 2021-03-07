@@ -31,10 +31,11 @@ export default {
 
 <style lang="scss" scoped>
 .toggleWrapper {
- 
+
   input {
     position: absolute;
-    left: -99em;
+    right: -99em;
+    background: none;
   }
 }
 
@@ -47,7 +48,7 @@ export default {
   background-color: #83D8FF;
   border-radius: 90px - 6;
   transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  
+
 }
 
 .toggle-handler {
@@ -63,7 +64,7 @@ export default {
   box-shadow: 0 2px 6px rgba(0,0,0,.3);
   transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform:  rotate(-45deg);
-  
+
   .crater {
     position: absolute;
     background-color: #E8CDA5;
@@ -71,21 +72,21 @@ export default {
     transition: opacity 200ms ease-in-out;
     border-radius: 100%;
   }
-  
+
   .crater-1 {
     top: 18px;
     left: 10px;
     width: 4px;
     height: 4px;
   }
-  
+
   .crater-2 {
     top: 28px;
     left: 22px;
     width: 6px;
     height: 6px;
   }
-  
+
   .crater-3 {
     top: 10px;
     left: 25px;
@@ -124,7 +125,7 @@ export default {
   width: 30px;
   height: 3px;
 }
-    
+
 .star-4,
 .star-5,
 .star-6 {
@@ -162,7 +163,7 @@ export default {
 input:checked {
   + .toggle {
     background-color: #749DD6;
-  
+
     &:before {
       color: #749ED7;
     }
@@ -170,31 +171,31 @@ input:checked {
     &:after {
       color: #ffffff;
     }
-    
+
     .toggle-handler {
       background-color: #FFE5B5;
       transform: translate3d(40px, 0, 0) rotate(0);
-  
+
       .crater { opacity: 1; }
     }
-    
+
     .star-1 {
       width: 2px;
       height: 2px;
     }
-    
+
     .star-2 {
       width: 4px;
       height: 4px;
       transform: translate3d(-5px, 0, 0);
     }
-    
+
     .star-3 {
       width: 2px;
       height: 2px;
       transform: translate3d(-7px, 0, 0);
     }
-    
+
     .star-4,
     .star-5,
     .star-6 {

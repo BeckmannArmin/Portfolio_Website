@@ -1,23 +1,29 @@
 <template>
+    <div id="master" class="stage-0 h-100 w-100 position-relative">
+        <div class="hybrid-section-container w-100 position-relative">
+            <div class="hybrid-section d-inline-flex flex-row position-fixed w-100 h-100" :style="style">
+                <Hero />
+                <About :yOffset=y />
+            </div>
+        </div>
   <div id="app">
     <Header />
-    <Hero />
-    <About />
-    <Resume />
+    <Experience />
     <Projects />
     <Contact />
     <Footer :mode="mode" @toggle="toggle" />
   </div>
+    </div>
 </template>
 
 <script>
 import Footer from "./components/sections/Footer.vue";
 import Hero from "./components/Hero.vue";
-import About from "./components/sections/AboutMe.vue";
-import Resume from "./components/sections/Resume.vue";
-import Projects from "./components/sections/Projects.vue";
+import Experience from "./components/sections/Experience.vue";
+import Projects from "./components/sections/ProjectsV2.vue";
 import Header from "./components/Header.vue";
 import Contact from "./components/sections/Contact.vue";
+import About from "./components/sections/AboutMe_v2.vue";
 
 export default {
   name: "App",
@@ -26,15 +32,23 @@ export default {
     Footer,
     Hero,
     About,
-    Resume,
+    Experience,
     Projects,
-    Contact
+    Contact,
   },
   data() {
     return {
       mode: localStorage.getItem("theme-color"),
       currentTheme: "",
+      y: 0,
     };
+  },
+  computed: {
+      style() {
+          return {
+              transform: 'translateY(' + this.y + 'px)'
+          }
+      }
   },
   beforeMount() {
     if (localStorage.getItem("theme-color")) {
@@ -46,20 +60,32 @@ export default {
     window.addEventListener("DOMContentLoaded", this.onLoad);
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
-    window.removeEventListener("DOMContentLoaded", this.onLoad);
+    window.removeEventListener("scroll");
+    window.removeEventListener("DOMContentLoaded");
   },
   methods: {
     handleScroll() {
         const navBar = document.querySelector('.navbar');
+        const master = document.querySelector('#master');
         if (window.scrollY > 10) {
+            master.classList.add('stage-1');
+            master.classList.remove('stage-0')
             navBar.classList.add('bg-nav');
         } else {
-            navBar.classList.remove('bg-nav')
+           navBar.classList.remove('bg-nav');
+            master.classList.remove('stage-1');
+            master.classList.add('stage-0');
+        }
+        if (master.classList.contains('stage-1') && (window.scrollY > 100)) {
+            this.y = -window.scrollY;
+        } else {
+            this.y = 0;
         }
     },
     onLoad() {
       const showOnLoad = document.querySelectorAll(".revealOnLoad");
+      const showMaster = document.querySelector('#master');
+      showMaster.classList.add('enter');
       showOnLoad.forEach((ele) => {
         ele.classList.add("animated");
         ele.classList.add("fadeInLeft");
@@ -81,14 +107,52 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
+
+.hybrid-section-container {
+    height: 200vh;
+    background-color: $salmon;
+
+    &:after {
+        content: "";
+    background-image: url(./assets/background.svg),linear-gradient(
+0deg
+,#fff,#fff);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 8vw;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    z-index: 3;
+    box-shadow: 0 -75px 50px $salmon;
+
+    }
+
+    .hybrid-section {
+        z-index: 3;
+        overflow: hidden;
+    }
+}
+
+html {
+ font-size: 62.5%;
+}
 #app {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $text-main;
+  font-size: 62.5%;
+
+}
+
+#master {
+
 }
 </style>

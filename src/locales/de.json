@@ -8,7 +8,13 @@
         "resume": "Lebenslauf anschauen",
         "knowmore": "Erfahre mehr",
         "motivation": "Vor ein paar Jahren hatte ich das Vergnügen, meine Leidenschaft für Mobile- und Webentwicklung zum Beruf zu machen. Angefangen mit einfachen Wordpress-Seiten für Kunden in meiner Stadt habe ich früh Erfahrungen in der Webentwicklung gesammelt",
-        "openminded": "Ich bin ein kreativer und aufgeschlossener Entwickler, der versucht, ständig etwas Neues dazu zu lernen"
+        "openminded": {
+            "start": "Ich bin ein ",
+            "creative": "kreativer ",
+            "middle": "und ",
+            "open": "aufgeschlossener Entwickler ",
+            "try": "der versucht, moderne und ästhetische Webseiten zu schaffen"
+        }
     },
     "hero": {
         "introduction": {
@@ -31,5 +37,44 @@
         "email": "E-Mail",
         "number": "Kontaktnummer",
         "message": "Nachricht"
+    },
+    "experience": {
+        "experience": "Beschäftigung",
+        "resume": "Lebenslauf",
+        "education": "Ausbildung",
+        "skills": "Fähigkeiten",
+        "web": "Webentwicklung",
+        "web_text_1": "Ich benutze",
+        "web_text_2": "täglich und versuche, mit den neuesten Funktionen und Trends Schritt zu halten",
+        "web_text_3": "Für meine Webprojekte verwende ich",
+        "web_text_4": "ziemlich oft. Meine bevorzugten JS-Frameworks sind",
+        "web_text_5": "Für einige Server-seitige Aufgaben verwendete ich",
+        "web_text_6": "gepaart mit",
+        "web_text_7": "Ich habe",
+        "web_text_8": "Apps während meines Studiums und in meiner vorherigen Tätigkeit entwickelt",
+        "web_text_9": "Für alle meine Programmierarbeiten verwende ich",
+        "web_text_10": "um meine Arbeit zu verfolgen und zu koordinieren",
+        "design_text_1": "Ich habe Erfahrung mit",
+        "design_text_2": "Für meinen Web-Design-Workflow beginne ich in der Regel mit der Erstellung eines",
+        "design_text_3": "gefolgt von ein paar groben",
+        "design_text_4": "und dann einen",
+        "design_text_5": "welcher in ein paar Iterationen eine finale Form annimmt",
+        "design": "Design",
+        "eyeled": "Werkstudent",
+        "eyeled_desc": "Entwicklung von mobilen benutzerschnittstellen in Swift, sowie Webentwicklung",
+        "date_eye": "September 19 - Dezember 20",
+        "thesis": "Umsetzung einer GPS-gestützten Fußgängernavigations-Komponente für Messe-Außengelände mit optimierter Benutzerführung auf mobilen Endgeräten unter iOS in Objective-C",
+        "thesis_date": "Oktober 19 - Januar 20",
+        "thesis_title": "Bachelorarbeit",
+        "intern_eye": "Praktikant in der mobilen Softwareentwicklung",
+        "intern_date": "Mai 19 - August 19",
+        "intern_desc": "Praktikum im Bereich mobile Softwareentwicklung mit Schwerpunkt iOS-Entwicklung",
+        "study": "Hochschule, Kaiserslautern",
+        "study_deg": "Bachelor of Science - BS, Medieninformatik",
+        "study_desc": "Mobile Kommunikation & Usability Engineering",
+        "experience_datenow": "Heute",
+        "expected": "voraussichtlicher Abschluss Jan 2022",
+        "study_master": "Master of Science, MS, Informatik",
+        "study_master_desc": "Mensch-Technik-Interaktion"
     }
 }

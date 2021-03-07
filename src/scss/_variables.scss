@@ -1,0 +1,39 @@
+/** main colors */
+$salmon: #e91e63;
+$salmon_light: #FF647C;
+$text-main: #1A051D;
+$background-overlay: rgba(37, 37, 37, 0.85);
+$bg-black: #111111;
+
+/** gradient colors */
+$hero-bg-gradient: radial-gradient(#252525,#181818);
+$hero-title-gradient: linear-gradient(135deg, $salmon, $salmon_light);
+$contact-bg-gradient: linear-gradient(135deg, #CDDDF4, #CDBAFA);
+$contact-bg-gradient-reversed: linear-gradient(135deg, #CDDDF4, #CDBAFA);
+$footer-bg-gradient: linear-gradient(135deg, #CDD2F6, #CDBAFA);
+
+/** accent colors */
+$frog-green: #cbe2be;
+$blue: #6979F8;
+$light-blue: #A5AFFB;
+$lighter-blue: #E5E7FA;
+
+/** contact screen - macOS style **/
+$screen-bg: #3e3e3e;
+$screen-header: #4d4d4f;
+$screen-close-btn: #ed1c6f;
+$screen-mini-btn: #74c54f;
+$screen-maxi-btn: #e8e925 ;
+
+/** neutral colors */
+$neutral-grey: #ECE9F1;
+$neutral-blue: #F7F5F9;
+$neutral-dark-purple: #1A051D;
+$neutral-purple: #3F3356;
+$neutral-light-purple: #D0C9D6;
+$black: #000;
+$white: #fff;
+
+/** bezier paths */
+$project-transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+$clip-path-polygon: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);

@@ -1,11 +1,13 @@
 <template>
   <section id="contact">
     <div class="container">
-      <h2 v-scrollanimation class="section-title">{{ $t("contact.contact") }}</h2>
+      <h2 v-scrollanimation class="section-title">
+        {{ $t("contact.contact") }}
+      </h2>
 
       <!-- The container that holds the form -->
-      <div v-scrollanimation class="container" style="width: 650px">
-        <div class="screen">
+      <div v-scrollanimation class="container d-flex justify-content-center">
+        <div class="screen" style="max-width: 65%; min-width: 65%">
           <!-- MACOS screen header -->
           <div class="screen-header">
             <div class="screen-header-left">
@@ -55,7 +57,10 @@
                   />
                 </div>
                 <div class="app-form-group buttons">
-                  <button class="app-form-button btn-cancel mr-3" @click="handleCancel">
+                  <button
+                    class="app-form-button btn-cancel mr-3"
+                    @click="handleCancel"
+                  >
                     {{ $t("contact.cancel") }}
                   </button>
                   <button
@@ -113,12 +118,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 $salmon: #ff647c;
 
 .screen {
   position: relative;
-  background: #3e3e3e;
+  background: $screen-bg;
   border-radius: 15px;
 }
 
@@ -139,7 +143,7 @@ $salmon: #ff647c;
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background: #4d4d4f;
+  background: $screen-header;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
@@ -154,19 +158,19 @@ $salmon: #ff647c;
   height: 8px;
   margin-right: 3px;
   border-radius: 8px;
-  background: white;
+  background: $white;
 }
 
 .screen-header-button.closee {
-  background: #ed1c6f;
+  background: $screen-close-btn;
 }
 
 .screen-header-button.maximize {
-  background: #e8e925;
+  background: $screen-maxi-btn;
 }
 
 .screen-header-button.minimize {
-  background: #74c54f;
+  background: $screen-mini-btn;
 }
 
 .screen-header-right {
@@ -220,7 +224,7 @@ $salmon: #ff647c;
   background: none;
   border: none;
   border-bottom: 1px solid #666;
-  color: #ddd;
+  color: $neutral-grey;
   font-size: 14px;
   text-transform: uppercase;
   outline: none;
@@ -232,7 +236,7 @@ $salmon: #ff647c;
 }
 
 .app-form-control:focus {
-  border-bottom-color: #ddd;
+  border-bottom-color: $salmon;
 }
 
 .app-form-button {
@@ -242,43 +246,53 @@ $salmon: #ff647c;
 }
 
 .app-form-button.btn-cancel {
-     color: $salmon;
-     border:none;
-     background: none;
+  color: $salmon;
+  border: none;
+  background: none;
 }
 
 .app-form-button.btn-submit {
-    color: #fff;
-    background: $salmon;
-    border: 1px solid $salmon;
-    padding: 10px;
-    border-radius: 10px;
+  color: #fff;
+  background: $salmon;
+  border: 1px solid $salmon;
+  padding: 10px;
+  border-radius: 10px;
 
-    i {
-        color: #fff;
-    }
+  i {
+    color: #fff;
+  }
 }
 
 .app-form-button.btn-cancel:hover {
   color: rgba($color: $salmon, $alpha: 0.5);
 }
 
-
 #contact {
-  background-image: linear-gradient(135deg, #bd7ae3, #8461c9);
-  -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  padding: 10rem 0 10rem;
+  background-image: $contact-bg-gradient;
+  -webkit-clip-path: $clip-path-polygon;
+  clip-path: $clip-path-polygon;
+  padding: 15rem 0 10rem;
   margin-top: -10rem;
   margin-bottom: -1px;
-  color: #fff;
+  color: $white;
   .container {
     .section-title {
       margin: 0 0 4.5rem;
       font-size: 4rem;
       font-weight: 700;
       text-transform: uppercase;
+
+      &::after {
+        content: ".";
+        color: $frog-green;
+      }
     }
+  }
+
+  &:after {
+    background-image: $contact-bg-gradient-reversed;
+    -webkit-clip-path: $clip-path-polygon;
+    clip-path: $clip-path-polygon;
   }
 }
 
@@ -291,5 +305,22 @@ $salmon: #ff647c;
 .enter {
   opacity: 1;
   transform: translateY(0px);
+}
+
+/** Media queries */
+
+@media (max-width: 75em) {
+  #contact {
+    padding: 10rem 0;
+    clip-path: none;
+    margin-top: 0;
+    -webkit-clip-path: none;
+  }
+}
+
+@media (max-width: 37.5em) {
+  #contact .container .section-title {
+    font-size: 2.8rem;
+  }
 }
 </style>

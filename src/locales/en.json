@@ -8,7 +8,14 @@
         "resume": "View resume",
         "knowmore": "Know more",
         "motivation": "A few years ago, I have had the pleasure to turn my passion for Mobile and Web Development into some kind of a job. Started with simple Wordpress sites for clients in my city I gained experiences in Web Development early",
-        "openminded": "I am a creative and open minded developer trying to learn steadily"
+        "openminded": {
+            "start": "I am a ",
+            "creative": "creative ",
+            "middle": "and ",
+            "open": "open minded developer ",
+            "try": "trying to create modern and aestethically websites "
+        }
+
     },
     "hero": {
         "introduction": {
@@ -31,5 +38,44 @@
         "email": "E-Mail",
         "number": "Contact number",
         "message": "Message"
+    },
+    "experience": {
+        "experience": "Employment",
+        "resume": "Resume",
+        "education": "Education",
+        "skills": "Skills",
+        "web": "Web development",
+        "web_text_1": "I use",
+        "web_text_2": "on a daily basis, and try to keep up with the latest features and trends",
+        "web_text_3": "For my web projects I use",
+        "web_text_4": "fairly often. My favorite JS frameworks are",
+        "web_text_5": "For some server-side related stuff I used",
+        "web_text_6": "paired with",
+        "web_text_7": "I have developed apps in",
+        "web_text_8": "during my study and in my prior job",
+        "web_text_9": "For all my programming work I use",
+        "web_text_10": "to track & coordinate my work",
+        "design_text_1": "I have experience with",
+        "design_text_2": "For my web design workflow, I usually start by creating a",
+        "design_text_3": "followed by a few rough",
+        "design_text_4": "and then a",
+        "design_text_5": "which takes a final form in a few iterations",
+        "design": "Design",
+        "eyeled": "Working student",
+        "eyeled_desc": "Development of mobile user interfaces in Swift, as well as web development",
+        "date_eye": "September 19 - December 20",
+        "thesis": "Implementation of a GPS-based pedestrian navigation component for outdoor exhibition grounds with optimized user guidance on mobile devices under Objective-C in iOS",
+        "thesis_date": "October 19 - January 20",
+        "thesis_title": "Bachelor Thesis",
+        "intern_eye": "Intern in software development",
+        "intern_date": "May 19 - August 19",
+        "intern_desc": "Internship in mobile software development with focus on iOS development",
+        "study": "University of Applied Sciences, Kaiserslautern",
+        "study_deg": "Bachelor of Science - BS, Media Computer Science",
+        "study_desc": "Mobile Communication & Usability Engineering",
+        "experience_datenow": "Present",
+        "expected": "expected completion Jan 2022",
+        "study_master": "Master of Science, MS, Computer Science",
+        "study_master_desc": "Human-Computer-Interaction"
     }
 }
