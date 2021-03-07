@@ -7,7 +7,10 @@
       <div
         class="center align-items-center w-100 d-flex flex-column justify-content-center"
       >
-        <div id="button-container" class="project-categories d-flex position-relative">
+        <div
+          id="button-container"
+          class="project-categories d-flex position-relative"
+        >
           <button class="btn active" @click="filterProjects('all')">
             Alle
           </button>
@@ -23,7 +26,9 @@
           <div class="project-list row-inner">
             <!-- Whitebird -->
             <div class="project enter frontend backend">
-              <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
+              <div
+                class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100"
+              >
                 <img
                   class="image img-fluid"
                   src="../../assets/whitebird_logo.svg"
@@ -31,7 +36,7 @@
                 <b>Whitebird</b>
               </div>
               <div
-                class="overlay"
+                class="overlay d-flex position-absolute justify-content-center align-items-center"
                 :style="{ opacity: opacity1 }"
                 @mouseover="setOpacity1"
                 @mouseout="unsetOpacity"
@@ -41,12 +46,14 @@
             </div>
             <!-- Hly -->
             <div class="project enter design">
-              <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
+              <div
+                class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100"
+              >
                 <img class="image img-fluid" src="../../assets/hly_logo.png" />
                 <b>Hly</b>
               </div>
               <div
-                class="overlay"
+                class="overlay d-flex position-absolute justify-content-center align-items-center"
                 :style="{ opacity: opacity2 }"
                 @mouseover="setOpacity2"
                 @mouseout="unsetOpacity"
@@ -57,7 +64,9 @@
 
             <!-- conForm -->
             <div class="project enter frontend backend">
-              <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
+              <div
+                class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100"
+              >
                 <img
                   class="image img-fluid"
                   src="../../assets/conForm_logo.png"
@@ -65,7 +74,7 @@
                 <b>conForm</b>
               </div>
               <div
-                class="overlay"
+                class="overlay d-flex position-absolute justify-content-center align-items-center"
                 :style="{ opacity: opacity3 }"
                 @mouseover="setOpacity3"
                 @mouseout="unsetOpacity"
@@ -90,12 +99,12 @@ export default {
     };
   },
   mounted() {
-      this.highlightActiveBtn();
+    this.highlightActiveBtn();
   },
   methods: {
-      /**
-       * Source: https://www.w3schools.com/howto/howto_js_filter_elements.asp
-       */
+    /**
+     * Source: https://www.w3schools.com/howto/howto_js_filter_elements.asp
+     */
     filterProjects(c) {
       var x, i;
       x = document.getElementsByClassName("project");
@@ -134,15 +143,14 @@ export default {
     },
     highlightActiveBtn() {
       var btnContainer = document.getElementById("button-container");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
-
+      var btns = btnContainer.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
     },
     setOpacity1() {
       this.opacity1 = 1;
@@ -172,7 +180,9 @@ section {
   width: 100%;
 }
 
-.btn, b, a {
+.btn,
+b,
+a {
   font-weight: 600;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -192,8 +202,8 @@ section {
     text-transform: uppercase;
 
     &:after {
-        content: ".";
-        color: $frog-green;
+      content: ".";
+      color: $frog-green;
     }
   }
 
@@ -287,8 +297,7 @@ section {
     height: 90%;
     width: 85%;
     transition: height 0.375s $project-transition,
-      width 0.375s $project-transition,
-      flex 0.375s $project-transition,
+      width 0.375s $project-transition, flex 0.375s $project-transition,
       top 0.375s $project-transition;
     box-shadow: 0 3px 7px 0 rgb(0, 0, 0 / 25%);
   }
@@ -306,15 +315,11 @@ section {
   }
 
   .project .overlay {
-    position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
     opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 5;
     background: $background-overlay;
     transition: opacity 0.375s cubic-bezier(1, 0, 0, 1);
