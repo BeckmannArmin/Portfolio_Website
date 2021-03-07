@@ -190,6 +190,11 @@ section {
     font-size: 4rem;
     font-weight: 700;
     text-transform: uppercase;
+
+    &:after {
+        content: ".";
+        color: #cbe2be;
+    }
   }
 
   .project-categories {

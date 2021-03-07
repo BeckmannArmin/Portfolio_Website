@@ -1,6 +1,6 @@
 <template>
   <div id="hero" class="jumbotron">
-    <div class="container">
+    <div class="container d-flex flex-column align-items-center">
       <h1 class="hero-title">
         <span data-aos="fade-in">
           Hi, {{ $t("hero.introduction.name") }}
@@ -11,16 +11,24 @@
           >
             Armin
           </span></span
-        ><br /><span
+        ><br /><span class="intro"
         data-aos="fade-in"
-          >{{ $t("hero.introduction.frontend") }}.</span
+          >{{ $t("hero.introduction.frontend") }}</span
         >
       </h1>
-      <p class="d-flex">
-        <a class="cta-btn cta-btn-hero" href="#about">{{
-          $t("about.knowmore")
+      <div class="d-inline-block home-nav">
+        <a class="cta-btn cta-btn-hero" href="#experience">{{
+          $t("experience.resume")
         }}</a>
-      </p>
+        <b>/</b>
+        <a class="cta-btn cta-btn-hero" href="#projects">{{
+          $t("projects.projects")
+        }}</a>
+        <b>/</b>
+        <a class="cta-btn cta-btn-hero" href="#contact">{{
+          $t("contact.contact")
+        }}</a>
+      </div>
     </div>
   </div>
 </template>
@@ -206,6 +214,23 @@ $salmon: #FF647C;
     font-size: 2.4rem;
   }
 
+  .home-nav {
+      a {
+          margin: 0 1rem;
+          font-size: 1.6rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: .15em;
+          color: #fff;
+      }
+
+      b {
+          font-size: 1.4rem;
+          color: #e91e63;
+          font-weight: 900;
+      }
+  }
+
   .cta-btn {
     display: inline-block;
     position: relative;
@@ -219,7 +244,6 @@ $salmon: #FF647C;
 
   .cta-btn-hero {
     color: $shades_of_pink;
-    border: 2px solid $shades_of_pink;
   }
 
   a:hover {
@@ -227,12 +251,8 @@ $salmon: #FF647C;
   }
 
   .cta-btn-hero:hover {
-    color: #fff;
+    color: #e91e63;
     text-decoration: none;
-  }
-
-  .cta-btn:after {
-    background: $shades_of_pink;
   }
 
   .cta-btn-hero:hover:after {
@@ -256,6 +276,11 @@ $salmon: #FF647C;
     font-weight: 700;
     margin-bottom: 3.2rem;
     text-align: left;
+
+    .intro:after {
+        content: ".";
+        color: #cbe2be;
+    }
 
     .text-color-main {
       background-image: linear-gradient(135deg, $shades_of_pink, $salmon);

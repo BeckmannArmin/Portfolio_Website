@@ -7,7 +7,13 @@
     >
       <div class="container">
         <div class="content d-inline-flex flex-row">
-          <p class="about-wrapper-info-text">{{ $t("about.openminded") }}</p>
+          <p class="about-wrapper-info-text">
+              <span :style="style">{{ $t("about.openminded.start") }}</span>
+              <span :style="style" class="info-text-colored">{{ $t("about.openminded.creative") }}</span>
+              <span :style="style">{{ $t("about.openminded.middle") }}</span>
+              <span :style="style" class="info-text-colored">{{ $t("about.openminded.open") }}</span>
+              <span :style="style">{{ $t("about.openminded.try") }}</span>
+          </p>
         </div>
       </div>
     </div>
@@ -22,7 +28,7 @@ export default {
     computed: {
         style() {
             return {
-                transform: 'translateY(' + -(this.yOffset) + 'px)'
+                transform: 'translate3d('+ -(this.yOffset/2) + 'px,' + -(this.yOffset) + 'px, 0)'
             }
         }
     }
@@ -63,10 +69,20 @@ export default {
       flex-wrap: wrap;
 
       .about-wrapper-info-text {
-        font-size: 5.6rem;
+        font-size: 5rem;
         font-weight: 700;
         text-align: left;
         color: #fff;
+
+        &:after {
+            content: ".";
+            color: #cbe2be;
+        }
+
+        .info-text-colored {
+            color: #1A051D;
+            font-weight: 800;
+        }
       }
     }
   }

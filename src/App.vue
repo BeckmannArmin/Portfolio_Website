@@ -3,7 +3,7 @@
         <div class="hybrid-section-container">
             <div class="hybrid-section" :style="style">
                 <Hero />
-                <About :yOffset="y" />
+                <About :yOffset=y />
             </div>
         </div>
   <div id="app">
@@ -40,7 +40,7 @@ export default {
     return {
       mode: localStorage.getItem("theme-color"),
       currentTheme: "",
-      y: '',
+      y: 0,
     };
   },
   computed: {

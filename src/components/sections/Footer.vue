@@ -101,7 +101,7 @@ padding-top: 100px;
         font-size: 3rem;
         line-height: 1.5em;
         text-align: center;
-        background-color: #dbe8d4;
+        background-color: #cbe2be;
         border-radius: 50%;
         box-shadow: #222733;
 

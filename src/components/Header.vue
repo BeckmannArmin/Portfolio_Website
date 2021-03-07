@@ -3,7 +3,7 @@
     <nav>
       <ul>
         <li>
-          <a href="#about">{{ $t('about.me') }}</a>
+          <a href="#master">{{ $t('about.me') }}</a>
         </li>
         <li><a href="#experience">{{ $t('experience.resume') }}</a></li>
         <li><a href="#projects">{{ $t('projects.projects') }}</a></li>

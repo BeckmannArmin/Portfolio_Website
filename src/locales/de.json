@@ -8,7 +8,13 @@
         "resume": "Lebenslauf anschauen",
         "knowmore": "Erfahre mehr",
         "motivation": "Vor ein paar Jahren hatte ich das Vergnügen, meine Leidenschaft für Mobile- und Webentwicklung zum Beruf zu machen. Angefangen mit einfachen Wordpress-Seiten für Kunden in meiner Stadt habe ich früh Erfahrungen in der Webentwicklung gesammelt",
-        "openminded": "Ich bin ein kreativer und aufgeschlossener Entwickler, der versucht, ständig etwas Neues dazu zu lernen"
+        "openminded": {
+            "start": "Ich bin ein ",
+            "creative": "kreativer ",
+            "middle": "und ",
+            "open": "aufgeschlossener Entwickler ",
+            "try": "der versucht, moderne und ästhetische Webseiten zu schaffen"
+        }
     },
     "hero": {
         "introduction": {
