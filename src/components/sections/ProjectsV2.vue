@@ -93,6 +93,9 @@ export default {
       this.highlightActiveBtn();
   },
   methods: {
+      /**
+       * Source: https://www.w3schools.com/howto/howto_js_filter_elements.asp
+       */
     filterProjects(c) {
       var x, i;
       x = document.getElementsByClassName("project");
@@ -180,7 +183,7 @@ section {
   background: #fff;
   text-align: center;
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 180px;
 
   .section-title {
     margin: 0 0 4.5rem;

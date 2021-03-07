@@ -2,19 +2,21 @@
   <div id="hero" class="jumbotron">
     <div class="container">
       <h1 class="hero-title">
-        <span class="revealOnLoad delay-1" style="opacity: 0">
+        <span data-aos="fade-in">
           Hi, {{ $t("hero.introduction.name") }}
           <span
+            data-aos="fade-in"
             data-text="Nimra"
             class="span-name text-color-main glitch glitch--v1"
           >
             Armin
           </span></span
-        ><br /><span class="revealOnLoad delay-2" style="opacity: 0"
+        ><br /><span
+        data-aos="fade-in"
           >{{ $t("hero.introduction.frontend") }}.</span
         >
       </h1>
-      <p class="d-flex revealOnLoad delay-2" style="opacity: 0">
+      <p class="d-flex">
         <a class="cta-btn cta-btn-hero" href="#about">{{
           $t("about.knowmore")
         }}</a>

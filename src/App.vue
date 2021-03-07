@@ -1,14 +1,13 @@
 <template>
-    <div id="master" class="stage-1">
+    <div id="master" class="stage-0">
         <div class="hybrid-section-container">
-            <div class="hybrid-section" style="transform: translate3d(10px, 1000px, 10px);">
+            <div class="hybrid-section" :style="style">
                 <Hero />
-                <AboutV2 />
+                <About :yOffset="y" />
             </div>
         </div>
   <div id="app">
     <Header />
-    <About />
     <Experience />
     <Projects />
     <Contact />
@@ -20,12 +19,11 @@
 <script>
 import Footer from "./components/sections/Footer.vue";
 import Hero from "./components/Hero.vue";
-import About from "./components/sections/AboutMe.vue";
 import Experience from "./components/sections/Experience.vue";
 import Projects from "./components/sections/ProjectsV2.vue";
 import Header from "./components/Header.vue";
 import Contact from "./components/sections/Contact.vue";
-import AboutV2 from "./components/sections/AboutMe_v2.vue";
+import About from "./components/sections/AboutMe_v2.vue";
 
 export default {
   name: "App",
@@ -37,13 +35,20 @@ export default {
     Experience,
     Projects,
     Contact,
-    AboutV2
   },
   data() {
     return {
       mode: localStorage.getItem("theme-color"),
       currentTheme: "",
+      y: '',
     };
+  },
+  computed: {
+      style() {
+          return {
+              transform: 'translateY(' + this.y + 'px)'
+          }
+      }
   },
   beforeMount() {
     if (localStorage.getItem("theme-color")) {
@@ -55,19 +60,10 @@ export default {
     window.addEventListener("DOMContentLoaded", this.onLoad);
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
-    window.removeEventListener("DOMContentLoaded", this.onLoad);
+    window.removeEventListener("scroll");
+    window.removeEventListener("DOMContentLoaded");
   },
   methods: {
-      handleAnim: function (evt, el) {
-      if (window.scrollY > 10) {
-        el.setAttribute(
-          'style',
-          'transform: translate3d(0, 0px, 0)'
-        )
-      }
-      return window.scrollY > 100
-    },
     handleScroll() {
         const navBar = document.querySelector('.navbar');
         const master = document.querySelector('#master');
@@ -79,6 +75,11 @@ export default {
            navBar.classList.remove('bg-nav');
             master.classList.remove('stage-1');
             master.classList.add('stage-0');
+        }
+        if (master.classList.contains('stage-1') && (window.scrollY > 100)) {
+            this.y = -window.scrollY;
+        } else {
+            this.y = 0;
         }
     },
     onLoad() {
@@ -114,6 +115,7 @@ export default {
     position: relative;
     height: 200vh;
     width: 100%;
+    background-color: #e91e63;
 
     &:after {
         content: "";
@@ -161,13 +163,5 @@ html {
     height: 100%;
     width: 100%;
     position: relative;
-        transition: opacity .475s ease-in-out,transform .45s cubic-bezier(1,0,0,1),border-radius .35s ease-in-out!important;
-    opacity: 0;
-    border-radius: 6px;
-    z-index: 972;
-}
-
-#master.enter {
-    opacity: 1;
 }
 </style>
