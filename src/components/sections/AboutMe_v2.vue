@@ -5,35 +5,30 @@
       id="about-content"
       :style="style"
     >
-      <div class="content d-inline-flex flex-row">
-          <!--  -->
-        <div class="sc">
-          <span>{{ $t("about.openminded.start") }}</span>
-        </div>
-            <!-- -->
-        <div class="r">
-          <span class="info-text-colored">{{
-            $t("about.openminded.creative")
-          }}</span>
-        </div>
-            <!-- -->
-        <div class="o">
-          <span>{{ $t("about.openminded.middle") }}</span>
-        </div>
-            <!-- -->
-        <div class="l">
-          <span class="info-text-colored">{{
-            $t("about.openminded.open")
-          }}</span>
-        </div>
-            <!-- -->
-        <div class="l1">
-          <span>{{ $t("about.openminded.try") }}</span>
-        </div>
-        <div class="l2">
-          <span>{{ $t("about.openminded.astehtic") }}</span>
-        </div>
-      </div>
+      <div class="content d-inline-flex flex-row justify-content-center">
+          <div class="sc">
+            <span>{{ $t("about.openminded.start") }}</span>
+          </div>
+          <div class="r">
+            <span class="info-text-colored">{{
+              $t("about.openminded.creative")
+            }}</span>
+          </div>
+          <div class="o">
+            <span>{{ $t("about.openminded.middle") }}</span>
+          </div>
+          <div class="l">
+            <span class="info-text-colored">{{
+              $t("about.openminded.open")
+            }}</span>
+          </div>
+          <div class="l1">
+            <span>{{ $t("about.openminded.try") }}</span>
+          </div>
+          <div class="l2">
+            <span>{{ $t("about.openminded.astehtic") }}</span>
+          </div>
+          </div>
     </div>
   </section>
 </template>
@@ -102,9 +97,65 @@ export default {
         }
 
         span.info-text-colored {
-            color: $text-main !important;
-            font-weight: 800;
-          }
+          color: $text-main !important;
+          font-weight: 800;
+        }
+      }
+    }
+  }
+}
+
+/** Media queries */
+@media (max-width: 800px) {
+  #about-content {
+    opacity: 1 !important;
+    transform: none !important;
+
+    .content {
+      div {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 75em) {
+  #about {
+    #about-content {
+      div.content {
+        font-size: 4rem;
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media (max-width: 56.25em) {
+  #about {
+    #about-content {
+      div.content {
+        font-size: 3rem;
+        width: 90%;
+      }
+    }
+  }
+}
+@media (max-width: 37.5em) {
+  #about {
+    #about-content {
+      div.content {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 20em) {
+  #about {
+    #about-content {
+      div.content {
+        font-size: 1.9rem;
       }
     }
   }
