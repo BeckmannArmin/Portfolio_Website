@@ -180,8 +180,8 @@
 
     .project-close {
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
+      top: 0;
+      right: .2rem;
       background-color: transparent;
       border: none;
       color: #94a4b4;
@@ -193,6 +193,12 @@
       &:hover {
         -webkit-transform: scale(1.2);
         transform: scale(1.2);
+        color: $frog-green-light;
+      }
+
+      &:after {
+          content: "x";
+          font-weight: 600;
       }
     }
   }
