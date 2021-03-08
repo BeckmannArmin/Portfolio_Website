@@ -34,6 +34,7 @@ export default {
     position: fixed;
     top: -5px;
     right: 50px;
+    transform: scale(0.75);
 
 }
 
