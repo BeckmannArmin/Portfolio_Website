@@ -38,7 +38,7 @@
               <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
               >
-                <a id="learn-1">Learn more</a>
+                <a id="learn-1">{{ $t("projects.view") }}</a>
               </div>
             </div>
             <!-- Hly -->
@@ -51,9 +51,8 @@
               </div>
               <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
-
               >
-                <a id="learn-2">Learn more</a>
+                <a id="learn-2">{{ $t("projects.view") }}</a>
               </div>
             </div>
             <!-- conForm -->
@@ -69,9 +68,8 @@
               </div>
               <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
-
               >
-                <a id="learn-3">Learn more</a>
+                <a id="learn-3">{{ $t("projects.view") }}</a>
               </div>
             </div>
             <!-- Menschen.Helfen.Leben -->
@@ -84,22 +82,23 @@
               </div>
               <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
-
               >
-                <a id="learn-4">Learn more</a>
+                <a id="learn-4">{{ $t("projects.view") }}</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <ProjectModal />
   </section>
 </template>
 
 <script>
+import ProjectModal from "./modals/ProjectModal.vue";
 export default {
-  data() {
-    return { };
+  components: {
+    ProjectModal,
   },
   mounted() {
     this.highlightActiveBtn();
@@ -311,7 +310,7 @@ a {
     border-radius: 6px;
 
     &:hover {
-        opacity: 1;
+      opacity: 1;
     }
 
     a {

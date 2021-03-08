@@ -185,4 +185,20 @@ html {
 
 }
 
+body::-webkit-scrollbar {
+  width: 6px;
+    background-color: #171a1d;
+    border-radius: 3px;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 12px;
+    background-color: #171a1d;
+}
+
+body::-webkit-scrollbar-thumb {
+      border-radius: 12px;
+    background-color: #97bfd3;
+}
+
 </style>
