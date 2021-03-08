@@ -12,7 +12,7 @@
           class="project-categories d-flex position-relative"
         >
           <button class="btn active" @click="filterProjects('all')">
-            Alle
+            {{ $t("projects.all") }}
           </button>
           <button class="btn" @click="filterProjects('frontend')">
             Frontend
@@ -37,9 +37,6 @@
               </div>
               <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
-                :style="{ opacity: opacity1 }"
-                @mouseover="setOpacity1"
-                @mouseout="unsetOpacity"
               >
                 <a id="learn-1">Learn more</a>
               </div>
@@ -54,14 +51,11 @@
               </div>
               <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
-                :style="{ opacity: opacity2 }"
-                @mouseover="setOpacity2"
-                @mouseout="unsetOpacity"
+
               >
                 <a id="learn-2">Learn more</a>
               </div>
             </div>
-
             <!-- conForm -->
             <div class="project enter frontend backend">
               <div
@@ -75,11 +69,24 @@
               </div>
               <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
-                :style="{ opacity: opacity3 }"
-                @mouseover="setOpacity3"
-                @mouseout="unsetOpacity"
+
               >
                 <a id="learn-3">Learn more</a>
+              </div>
+            </div>
+            <!-- Menschen.Helfen.Leben -->
+            <div class="project enter design">
+              <div
+                class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100"
+              >
+                <img class="image img-fluid" src="../../assets/menschen.jpg" />
+                <b>Menschen.Helfen.Leben</b>
+              </div>
+              <div
+                class="overlay d-flex position-absolute justify-content-center align-items-center"
+
+              >
+                <a id="learn-4">Learn more</a>
               </div>
             </div>
           </div>
@@ -92,11 +99,7 @@
 <script>
 export default {
   data() {
-    return {
-      opacity1: 0,
-      opacity2: 0,
-      opacity3: 0,
-    };
+    return { };
   },
   mounted() {
     this.highlightActiveBtn();
@@ -151,25 +154,6 @@ export default {
           this.className += " active";
         });
       }
-    },
-    setOpacity1() {
-      this.opacity1 = 1;
-    },
-    setOpacity2() {
-      this.opacity2 = 1;
-    },
-    setOpacity3() {
-      this.opacity3 = 1;
-    },
-    unsetOpacity() {
-      this.opacity1 = 0;
-      this.opacity2 = 0;
-      this.opacity3 = 0;
-    },
-    toggleActive(event) {
-      console.log(event);
-      let button = event.target;
-      button.classList.toggle("active");
     },
   },
 };
@@ -325,6 +309,10 @@ a {
     transition: opacity 0.375s cubic-bezier(1, 0, 0, 1);
     overflow: hidden;
     border-radius: 6px;
+
+    &:hover {
+        opacity: 1;
+    }
 
     a {
       padding: 10px 26px;

@@ -29,7 +29,8 @@
         "see": "See project",
         "whitebird": "is an open-source, web-based, collaborative, digital Whiteboard built with NestJS, MongoDB, NuxtJs and FabricJs",
         "conForm": "is a program that allows the user to create, edit and save multiple concept papers",
-        "hly": "was a project within the study whose aim was to generate a positive opinion among consumers and thus to win more customers for the still unknown beverage"
+        "hly": "was a project within the study whose aim was to generate a positive opinion among consumers and thus to win more customers for the still unknown beverage",
+        "all": "All"
     },
     "contact": {
         "contact": "Contact",
