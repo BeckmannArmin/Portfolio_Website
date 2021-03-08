@@ -92,26 +92,26 @@ export default {
       const l1 = document.querySelector(".l1");
       const l2 = document.querySelector(".l2");
 
-      sc.style.transform = `translate3d(${-scroll * 1.45}px, ${scroll * 1.4}px, 0) rotate(${
-        -scroll * 0.03
+      sc.style.transform = `translate3d(${-scroll * 0.001}px, ${-scroll * 0.01}px, 0) rotate(${
+        -scroll * 0.0008
       }deg)`;
 
-      r.style.transform = `translate3d(${-scroll * 0.45}px, ${
-        scroll * 0.95
-      }px, 0) rotate(${-scroll * 0.1}deg)`;
-
-      o.style.transform = `translate3d(${scroll * 0.65}px, ${
-        scroll * 1.05
-      }px, 0) rotate(${scroll * 0.2}deg)`;
-
-      l.style.transform = `translate3d(0, ${scroll * 0.5}px, 0) rotate(${
-        scroll * 0.04
+      r.style.transform = `translate3d(${-scroll * 0.015}px, ${-scroll * 0.06}px, 0) rotate(${
+        -scroll * 0.0016
       }deg)`;
-      l1.style.transform = `translate3d(0, ${scroll * 0.5}px, 0) rotate(${
-        scroll * 0.04
+
+      o.style.transform = `translate3d(${-scroll * 0.025}px, ${-scroll * 0.08}px, 0) rotate(${
+        -scroll * 0.0032
       }deg)`;
-       l2.style.transform = `translate3d(0, ${scroll * 0.75}px, 0) rotate(${
-        scroll * 0.04
+
+      l.style.transform = `translate3d(${-scroll * 0.035}px, ${-scroll * 0.10}px, 0) rotate(${
+        -scroll * 0.0032
+      }deg)`;
+      l1.style.transform = `translate3d(${-scroll * 0.045}px, ${-scroll * 0.10}px, 0) rotate(${
+        -scroll * 0.0032
+      }deg)`;
+       l2.style.transform = `translate3d(${-scroll * 0.055}px, ${-scroll * 0.11}px, 0) rotate(${
+        -scroll * 0.0032
       }deg)`;
     },
     onLoad() {
@@ -171,6 +171,7 @@ export default {
     }
 }
 
+/** We set a font size of 62.5% what gives us 10px in relation */
 html {
  font-size: 62.5%;
 }
@@ -184,7 +185,4 @@ html {
 
 }
 
-#master {
-
-}
 </style>
