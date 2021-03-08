@@ -1,21 +1,18 @@
 <template>
   <div class="project-bg position-fixed w-100 h-100">
     <div class="project-modal position-absolute">
-      <button class="project-close"></button>
+      <button class="project-close" @click="closeModal"></button>
       <div class="project-left p-4">
-        <img class="img-fluid" src="../../../assets/whitebird_logo.svg" />
+        <img class="img-fluid" :src='image' />
       </div>
       <div class="project-right p-4 text-left">
         <div class="project-label">Project</div>
-        <h3 class="project-name">Whitebird</h3>
+        <h3 class="project-name">{{name}}</h3>
         <ul class="technologies-used">
-          <li class="technology">Node</li>
-          <li class="technology">NuxtJs</li>
-          <li class="technology">MongoDB</li>
-          <li class="technology">FabricJS</li>
+          <li v-for="(technology,index) in technologies" :key="index" class="technology">{{technology}}</li>
         </ul>
         <div class="project-label">About</div>
-        <p class="project-summary">Whitebird {{ $t("projects.whitebird") }}</p>
+        <p class="project-summary">{{name}} {{summary}}</p>
         <a
           class="cta-btn cta-btn-project"
           href="https://github.com/BuchholzTim/Whitebird"
@@ -27,19 +24,39 @@
   </div>
 </template>
 
+<script>
+export default {
+    props: {
+        name: String,
+        summary: String,
+        technologies: Array,
+        id: Number,
+        image: String,
+    },
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+        closeModal() {
+            this.$emit('closeModal');
+        }
+    }
+}
+</script>
+
 <style lang="scss" scoped>
 .project-bg {
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.4);
-  //opacity: 0;
-  //visibility: hidden;
+  opacity: 1;
+    visibility: visible;
   top: 0;
   left: 0;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  opacity: 1;
-  visibility: visible;
 
   .project-modal {
     top: 50%;
@@ -48,6 +65,7 @@
     transform: translate(-50%, -50%);
     width: 1000px;
     height: 500px;
+     opacity: 1;
     background-color: $modal-bg;
     -webkit-user-select: text;
     -moz-user-select: text;
@@ -55,12 +73,11 @@
     user-select: text;
     -webkit-box-shadow: 0 0 5px #000;
     box-shadow: 0 0 5px #000;
-    opacity: 1;
     -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
 
     .project-left {
-      width: 60rem;
+      width: 50rem;
       height: 100%;
       display: inline-block;
 

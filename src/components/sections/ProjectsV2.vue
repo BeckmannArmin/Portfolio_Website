@@ -24,73 +24,24 @@
         </div>
         <div class="row d-flex justify-content-center">
           <div class="project-list row-inner">
-            <!-- Whitebird -->
-            <div class="project enter frontend backend">
-              <div
-                class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100"
-              >
-                <img
-                  class="image img-fluid"
-                  src="../../assets/whitebird_logo.svg"
-                />
-                <b>Whitebird</b>
-              </div>
-              <div
+            <div v-for="(project, index) in projects" :key="index" class="project" :class="project.classes">
+                <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
+                    <img class="image img-fluid" :src="project.img"/>
+                    <b>{{ project.name }}</b>
+                </div>
+                  <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
               >
-                <a id="learn-1">{{ $t("projects.view") }}</a>
-              </div>
-            </div>
-            <!-- Hly -->
-            <div class="project enter design">
-              <div
-                class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100"
-              >
-                <img class="image img-fluid" src="../../assets/hly_logo.png" />
-                <b>Hly</b>
-              </div>
-              <div
-                class="overlay d-flex position-absolute justify-content-center align-items-center"
-              >
-                <a id="learn-2">{{ $t("projects.view") }}</a>
-              </div>
-            </div>
-            <!-- conForm -->
-            <div class="project enter frontend backend">
-              <div
-                class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100"
-              >
-                <img
-                  class="image img-fluid"
-                  src="../../assets/conForm_logo.png"
-                />
-                <b>conForm</b>
-              </div>
-              <div
-                class="overlay d-flex position-absolute justify-content-center align-items-center"
-              >
-                <a id="learn-3">{{ $t("projects.view") }}</a>
-              </div>
-            </div>
-            <!-- Menschen.Helfen.Leben -->
-            <div class="project enter design">
-              <div
-                class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100"
-              >
-                <img class="image img-fluid" src="../../assets/menschen.jpg" />
-                <b>Menschen.Helfen.Leben</b>
-              </div>
-              <div
-                class="overlay d-flex position-absolute justify-content-center align-items-center"
-              >
-                <a id="learn-4">{{ $t("projects.view") }}</a>
+                <a @click="showModalFor(project)">{{ $t("projects.view") }}</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <ProjectModal />
+    <div v-for="(project, index) in projects" :key="index">
+        <ProjectModal v-if="project.showModal" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :summary="project.summary" :technologies="project.technologies" :image="project.img"/>
+    </div>
   </section>
 </template>
 
@@ -100,6 +51,17 @@ export default {
   components: {
     ProjectModal,
   },
+  data()
+  {
+      return {
+        projects: [
+            {id: 1, name: 'Whitebird', summary: `${this.$t('projects.whitebird')}`, technologies: ['NestJs','NuxtJs','MongoDB','FabricJS'], classes: ['frontend', 'backend'], img: require('../../assets/whitebird_logo.svg'), showModal: false},
+            {id: 2, name: 'Hly', summary: `${this.$t('projects.hly')}`, technologies: ['Photoshop'], classes: ['design'], img: require('../../assets/hly_logo.png'), showModal: false},
+            {id: 3, name: 'conForm', summary: `${this.$t('projects.conForm')}`, technologies: ['Laravel','VueJs'],classes: ['frontend', 'backend'], img: require('../../assets/conForm_logo.png'), showModal: false},
+            {id: 4, name: 'Menschen.Helfen.Leben', summary: 'menschen helfen leben text', technologies: ['Wordpress'],classes: ['design'], img: require('../../assets/menschen.jpg'), showModal: false}
+        ],
+      }
+    },
   mounted() {
     this.highlightActiveBtn();
   },
@@ -154,6 +116,9 @@ export default {
         });
       }
     },
+    showModalFor(project) {
+        project.showModal = true;
+    }
   },
 };
 </script>
