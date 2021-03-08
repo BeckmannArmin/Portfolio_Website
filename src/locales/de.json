@@ -27,7 +27,7 @@
         "projects": "Projekte",
         "see": "Projekt anschauen",
         "whitebird": "ist ein Open-Source, webbasiertes, kollaboratives, digitales Whiteboard, das mit NestJS, MongoDB, NuxtJs und FabricJs gebaut wurde",
-        "conForm": "ist ein Programm, mit dem der Benutzer mehrere Konzeptpapiere erstellen, bearbeiten und speichern kann",
+        "conForm": "ist ein Programm, mit dem der Benutzer mehrere Konzeptpapiere erstellen, bearbeiten und speichern kann. Um die Erstellung eines Konzeptpapiers zu vereinfachen, sollte eine Webanwendung entwickelt werden, die das herkömmliche Herunterladen, Ausfüllen, Bearbeiten und erneute Hochladen eines jeden Papiers ersetzt. Jede Gruppe sollte die Möglichkeit haben, in einer eigenen Sitzung an ihrem Konzeptpapier zu arbeiten. Der Zugang sollte über Benutzerauthentifizierung und Join-Codes gewährleistet sein",
         "hly": "war ein Projekt im Rahmen des Studium dessen Ziel darin lag ein positives Urteil beim Verbraucher zu erzeugen und damit mehr Kunden für das noch unbekannte Getränk zu gewinnen",
         "all": "Alle",
         "view": "Projekt anschauen"

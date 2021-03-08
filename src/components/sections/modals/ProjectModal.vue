@@ -3,16 +3,22 @@
     <div class="project-modal position-absolute">
       <button class="project-close" @click="closeModal"></button>
       <div class="project-left p-4">
-        <img class="img-fluid" :src='image' />
+        <img class="img-fluid" :src="image" />
       </div>
       <div class="project-right p-4 text-left">
         <div class="project-label">Project</div>
-        <h3 class="project-name">{{name}}</h3>
+        <h3 class="project-name">{{ name }}</h3>
         <ul class="technologies-used">
-          <li v-for="(technology,index) in technologies" :key="index" class="technology">{{technology}}</li>
+          <li
+            v-for="(technology, index) in technologies"
+            :key="index"
+            class="technology"
+          >
+            {{ technology }}
+          </li>
         </ul>
         <div class="project-label">About</div>
-        <p class="project-summary">{{name}} {{summary}}</p>
+        <p class="project-summary">{{ name }} {{ summary }}</p>
         <a
           class="cta-btn cta-btn-project"
           href="https://github.com/BuchholzTim/Whitebird"
@@ -26,24 +32,22 @@
 
 <script>
 export default {
-    props: {
-        name: String,
-        summary: String,
-        technologies: Array,
-        id: Number,
-        image: String,
+  props: {
+    name: String,
+    summary: String,
+    technologies: Array,
+    id: Number,
+    image: String,
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    closeModal() {
+      this.$emit("closeModal");
     },
-    data() {
-        return {
-
-        }
-    },
-    methods: {
-        closeModal() {
-            this.$emit('closeModal');
-        }
-    }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -51,21 +55,20 @@ export default {
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.4);
   opacity: 1;
-    visibility: visible;
+  visibility: visible;
   top: 0;
   left: 0;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
 
   .project-modal {
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 1000px;
-    height: 500px;
-     opacity: 1;
+    width: 100rem;
+    height: 50rem;
+    opacity: 1;
     background-color: $modal-bg;
     -webkit-user-select: text;
     -moz-user-select: text;
@@ -109,6 +112,7 @@ export default {
       .technologies-used {
         list-style: none;
         margin-bottom: 2rem;
+        padding: 0;
 
         .technology {
           display: inline-block;
@@ -198,7 +202,7 @@ export default {
     .project-close {
       position: absolute;
       top: 0;
-      right: .2rem;
+      right: 0.2rem;
       background-color: transparent;
       border: none;
       color: #94a4b4;
@@ -214,9 +218,56 @@ export default {
       }
 
       &:after {
-          content: "x";
-          font-weight: 600;
+        content: "x";
+        font-weight: 600;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .project-bg {
+    .project-modal {
+      width: 95%;
+      min-height: 50rem;
+
+      .project-left {
+          width: 55%;
+      }
+
+      .project-right {
+          width: 45%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 45em) {
+.project-bg {
+    .project-modal {
+      width: 43rem;
+      height: auto;
+
+      .project-left {
+          width: 100%;
+          height: auto;
+
+          img {
+            object-fit: contain;
+          }
+      }
+
+      .project-right {
+              width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 25em) {
+  .project-bg {
+    .project-modal {
+      width: 38rem;
     }
   }
 }
