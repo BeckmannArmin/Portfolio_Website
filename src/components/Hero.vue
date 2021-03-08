@@ -287,12 +287,12 @@
       .span-name {
         font-size: 4rem;
       }
-    }
-    .title {
-          width: 100%;
-          justify-content: center;
-      h2 {
-        font-size: 4rem;
+
+      .title {
+        width: 100%;
+        h2 {
+          font-size: 4rem;
+        }
       }
     }
   }
@@ -305,6 +305,7 @@
       text-align: center;
 
       .title {
+          justify-content: center;
         h2 {
           font-size: 3.6rem;
         }
