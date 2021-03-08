@@ -65,8 +65,8 @@ export default {
 #about {
   transition: transform 1s cubic-bezier(1, 0, 0, 1);
   background: none;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   opacity: 1;
   z-index: 1;
 

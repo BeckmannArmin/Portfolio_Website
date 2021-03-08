@@ -143,7 +143,7 @@ export default {
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
 
-/** We split our Welcome section which scrolls horizontally and our #app which scrolls vertically */
+/** we hijack our welcome (hybrid) section to scroll horizontally */
 .hybrid-section-container {
     height: 150vh;
     background-color: $salmon;
