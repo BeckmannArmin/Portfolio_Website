@@ -24,11 +24,13 @@
       ></button>
     </div>
     <Sidebar :class="{open : isOpen}" @toggleClose="closeMenu" style="transform: translateX(-100vw)" />
+    <Overlay :class="{open : isOpen}"/>
   </div>
 </template>
 
 <script>
 import Sidebar from "./Sidebar.vue";
+import Overlay from "./Overlay.vue";
 export default {
   data() {
     return {
@@ -36,7 +38,8 @@ export default {
     };
   },
   components: {
-      Sidebar
+      Sidebar,
+      Overlay
   },
   methods: {
     toggleClass() {
