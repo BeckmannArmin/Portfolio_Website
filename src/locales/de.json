@@ -25,11 +25,14 @@
     "projects": {
         "projects": "Projekte",
         "see": "Projekt anschauen",
-        "whitebird": "ist ein Open-Source, webbasiertes, kollaboratives, digitales Whiteboard, das mit NestJS, MongoDB, NuxtJs und FabricJs gebaut wurde",
+        "whitebird": "ist ein Open-Source, webbasiertes, kollaboratives, digitales Whiteboard, das mit NestJS, MongoDB, NuxtJs und FabricJs gebaut wurde. Ich habe mich hauptsächlich um das Frontend gekümmert, habe aber auch im Backend geholfen",
         "conForm": "ist ein Programm, mit dem der Benutzer mehrere Konzeptpapiere erstellen, bearbeiten und speichern kann. Um die Erstellung eines Konzeptpapiers zu vereinfachen, sollte eine Webanwendung entwickelt werden, die das herkömmliche Herunterladen, Ausfüllen, Bearbeiten und erneute Hochladen eines jeden Papiers ersetzt. Jede Gruppe sollte die Möglichkeit haben, in einer eigenen Sitzung an ihrem Konzeptpapier zu arbeiten. Der Zugang sollte über Benutzerauthentifizierung und Join-Codes gewährleistet sein",
         "hly": "war ein Projekt im Rahmen des Studium dessen Ziel darin lag ein positives Urteil beim Verbraucher zu erzeugen und damit mehr Kunden für das noch unbekannte Getränk zu gewinnen",
         "all": "Alle",
-        "view": "Projekt anschauen"
+        "view": "Projekt anschauen",
+        "menschenhelfen": "ist eine Webseite, deren Ziel ist es möglichst viele Menschen für die regionale Blutspende zu gewinnen. Ich habe die Webseite neu entworfen um deren Ziel hervorzuheben und im allgemeinen die Usability der Seite zu steigern",
+        "about": "Über",
+        "project": "Projekt"
     },
     "contact": {
         "contact": "Kontakt",

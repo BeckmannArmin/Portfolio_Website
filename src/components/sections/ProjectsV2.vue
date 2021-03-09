@@ -40,7 +40,7 @@
       </div>
     </div>
     <div v-for="(project, index) in projects" :key="index">
-        <ProjectModal v-if="project.showModal" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :summary="project.summary" :technologies="project.technologies" :image="project.img"/>
+        <ProjectModal v-if="project.showModal" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :summary="project.summary" :technologies="project.technologies" :href="project.href" :image="project.img"/>
     </div>
   </section>
 </template>
@@ -55,10 +55,10 @@ export default {
   {
       return {
         projects: [
-            {id: 1, name: 'Whitebird', summary: `${this.$t('projects.whitebird')}`, technologies: ['NestJs','NuxtJs','MongoDB','FabricJS'], classes: ['frontend', 'backend'], img: require('../../assets/whitebird_logo.svg'), showModal: false},
-            {id: 2, name: 'Hly', summary: `${this.$t('projects.hly')}`, technologies: ['Photoshop'], classes: ['design'], img: require('../../assets/hly_logo.png'), showModal: false},
-            {id: 3, name: 'conForm', summary: `${this.$t('projects.conForm')}`, technologies: ['Laravel','VueJs'],classes: ['frontend', 'backend'], img: require('../../assets/conForm_logo.png'), showModal: false},
-            {id: 4, name: 'Menschen.Helfen.Leben', summary: 'menschen helfen leben text', technologies: ['Wordpress'],classes: ['design'], img: require('../../assets/menschen.jpg'), showModal: false}
+            {id: 1, name: 'Whitebird', summary: `${this.$t('projects.whitebird')}`, technologies: ['NestJs','NuxtJs','MongoDB','FabricJS'], classes: ['frontend', 'backend'], img: require('../../assets/whitebird_logo.svg'), href: 'https://github.com/BuchholzTim/Whitebird', showModal: false},
+            {id: 2, name: 'Hly', summary: `${this.$t('projects.hly')}`, technologies: ['Photoshop'], classes: ['design'], img: require('../../assets/hly_logo.png'), href: 'https://www.youtube.com/watch?v=bZbDIigXlNc', showModal: false},
+            {id: 3, name: 'conForm', summary: `${this.$t('projects.conForm')}`, technologies: ['Laravel','VueJs'],classes: ['frontend', 'backend'], img: require('../../assets/conForm_logo.png'),href: 'https://github.com/BeckmannArmin/conForm', showModal: false},
+            {id: 4, name: 'Menschen.Helfen.Leben', summary: `${this.$t('projects.menschenhelfen')}`, technologies: ['Wordpress', 'CSS'],classes: ['design'], img: require('../../assets/menschen.jpg'), href: 'https://menschen-helfen-leben.de/', showModal: false}
         ],
       }
     },

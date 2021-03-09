@@ -6,7 +6,7 @@
         <img class="img-fluid" :src="image" />
       </div>
       <div class="project-right p-4 text-left">
-        <div class="project-label">Project</div>
+        <div class="project-label">{{ $t('projects.project') }}</div>
         <h3 class="project-name">{{ name }}</h3>
         <ul class="technologies-used">
           <li
@@ -17,14 +17,12 @@
             {{ technology }}
           </li>
         </ul>
-        <div class="project-label">About</div>
+        <div class="project-label">{{ $t('projects.about') }}</div>
         <p class="project-summary">{{ name }} {{ summary }}</p>
-        <a
-          class="cta-btn cta-btn-project"
-          href="https://github.com/BuchholzTim/Whitebird"
-          target="_blank"
-          >{{ $t("projects.view") }}</a
-        >
+        <a class="cta-btn cta-btn-project" :href="href" target="_blank" >
+            {{ $t("projects.view") }}
+        </a>
+
       </div>
     </div>
   </div>
@@ -38,6 +36,7 @@ export default {
     technologies: Array,
     id: Number,
     image: String,
+    href: String,
   },
   data() {
     return {};
