@@ -164,6 +164,7 @@ export default {
 /** We set a font size of 62.5% what gives us 10px in relation */
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 #app {
   font-family: "Poppins", sans-serif;

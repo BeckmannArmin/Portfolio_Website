@@ -80,7 +80,7 @@ export default {
       text-align: left;
       width: 90%;
 
-      .l2:after {
+      .l1:after {
         content: ".";
         color: $frog-green;
       }
