@@ -3,10 +3,10 @@
     <div
       class="sidebar-body d-flex justify-content-center align-items-center flex-column"
     >
-      <a :class="{active: isHome}" @click="toggleClass" href="#master">{{ $t('about.me') }}</a>
-      <a :class="{active: isExperience}" @click="toggleClass" href="#experience">{{ $t('experience.resume') }}</a>
-      <a :class="{active: isProjects}" @click="toggleClass" href="#projects">{{ $t('projects.projects') }}</a>
-      <a :class="{active: isContact}" @click="toggleClass" href="#contact">{{ $t('contact.contact') }}</a>
+      <a :class="{active : isHome}" @click="toggleHome" href="#master">{{ $t('about.me') }}</a>
+      <a :class="{active : isExperience}" @click="toggleExperience" href="#experience">{{ $t('experience.resume') }}</a>
+      <a :class="{active : isProjects}" @click="toggleProjects" href="#projects">{{ $t('projects.projects') }}</a>
+      <a :class="{active : isContact}" @click="toggleContacts" href="#contact">{{ $t('contact.contact') }}</a>
     </div>
   </div>
 </template>
@@ -22,8 +22,33 @@ export default {
         }
     },
     methods: {
-        toggleClass() {
-
+        toggleHome() {
+            this.isHome = true;
+            this.isExperience = false;
+            this.isProjects = false;
+            this.isContact = false;
+            this.$emit('toggleClose');
+        },
+        toggleExperience() {
+            this.isHome = false;
+            this.isExperience = true;
+            this.isProjects = false;
+            this.isContact = false;
+            this.$emit('toggleClose');
+        },
+        toggleProjects() {
+            this.isHome = false;
+            this.isExperience = false;
+            this.isProjects = true;
+            this.isContact = false;
+            this.$emit('toggleClose');
+        },
+        toggleContacts() {
+            this.isHome = false;
+            this.isExperience = false;
+            this.isProjects = false;
+            this.isContact = true;
+            this.$emit('toggleClose');
         }
     }
 }
@@ -59,6 +84,8 @@ export default {
       font-weight: 700;
       color: #252525;
       margin: 15px;
+      user-select: none;
+    text-decoration: none;
 
       &.active {
           &:after {

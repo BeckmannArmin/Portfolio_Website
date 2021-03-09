@@ -23,7 +23,7 @@
         @click="toggleClass"
       ></button>
     </div>
-    <Sidebar :class="{open : isOpen}" style="transform: translateX(-100vw)" />
+    <Sidebar :class="{open : isOpen}" @toggleClose="closeMenu" style="transform: translateX(-100vw)" />
   </div>
 </template>
 
@@ -40,8 +40,13 @@ export default {
   },
   methods: {
     toggleClass() {
-      this.isOpen = !this.isOpen;
+          this.isOpen = !this.isOpen;
     },
+    closeMenu() {
+        setTimeout(() => {
+            this.isOpen = !this.isOpen
+        }, 1000)
+    }
   },
 };
 </script>
