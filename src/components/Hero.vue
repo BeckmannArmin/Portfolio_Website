@@ -336,7 +336,9 @@
 
      .home-nav {
       a {
-          font-size: 1.4rem;
+          font-size: 1.2rem;
+          margin: 0;
+          letter-spacing: 0;
       }
   }
   }

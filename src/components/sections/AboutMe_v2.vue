@@ -66,7 +66,7 @@ export default {
   transition: transform 1s cubic-bezier(1, 0, 0, 1);
   background: none;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   opacity: 1;
   z-index: 1;
 
@@ -81,7 +81,7 @@ export default {
       font-size: 5rem;
       font-weight: 700;
       text-align: left;
-      width: 80%;
+      width: 90%;
 
       .l2:after {
         content: ".";
@@ -125,7 +125,6 @@ export default {
     #about-content {
       div.content {
         font-size: 4rem;
-        width: 60%;
       }
     }
   }
@@ -134,9 +133,14 @@ export default {
 @media (max-width: 56.25em) {
   #about {
     #about-content {
+        transform: none !important;
       div.content {
-        font-size: 3rem;
-        width: 90%;
+        font-size: 3.6rem;
+        justify-content: flex-start !important;
+
+        div {
+        transform: none !important;
+        }
       }
     }
   }
@@ -145,7 +149,8 @@ export default {
   #about {
     #about-content {
       div.content {
-        font-size: 2.5rem;
+        font-size: 3.6rem;
+        left: 5%;
       }
     }
   }
@@ -155,7 +160,7 @@ export default {
   #about {
     #about-content {
       div.content {
-        font-size: 1.9rem;
+        font-size: 3.2rem;
       }
     }
   }

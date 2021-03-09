@@ -83,4 +83,10 @@ header {
     }
   }
 }
+
+@media (max-width: 800px) {
+    header {
+        display: none;
+    }
+}
 </style>
