@@ -25,9 +25,6 @@
           <div class="l1">
             <span>{{ $t("about.openminded.try") }}</span>
           </div>
-          <div class="l2">
-            <span>{{ $t("about.openminded.astehtic") }}</span>
-          </div>
           </div>
     </div>
   </section>

@@ -13,7 +13,7 @@
       <Header :mode="mode" @toggle="toggle"/>
       <Experience />
       <Projects />
-      <Contact />
+      <ContactV2 />
       <Footer />
     </div>
   </div>
@@ -25,9 +25,9 @@ import Hero from "./components/Hero.vue";
 import Experience from "./components/sections/Experience.vue";
 import Projects from "./components/sections/ProjectsV2.vue";
 import Header from "./components/Header.vue";
-import Contact from "./components/sections/Contact.vue";
 import About from "./components/sections/AboutMe_v2.vue";
 import NavBarExpand from "./components/HeaderCollapse.vue";
+import ContactV2 from "./components/sections/ContactV2.vue";
 
 export default {
   name: "App",
@@ -38,7 +38,7 @@ export default {
     About,
     Experience,
     Projects,
-    Contact,
+    ContactV2,
     NavBarExpand,
   },
   data() {
@@ -92,7 +92,6 @@ export default {
       const o = document.querySelector(".o");
       const l = document.querySelector(".l");
       const l1 = document.querySelector(".l1");
-      const l2 = document.querySelector(".l2");
 
       sc.style.transform = `translate3d(${-scroll * 0.001}px, ${
         -scroll * 0.01
@@ -111,9 +110,6 @@ export default {
       }px, 0) rotate(${-scroll * 0.0032}deg)`;
       l1.style.transform = `translate3d(${-scroll * 0.045}px, ${
         -scroll * 0.1
-      }px, 0) rotate(${-scroll * 0.0032}deg)`;
-      l2.style.transform = `translate3d(${-scroll * 0.055}px, ${
-        -scroll * 0.11
       }px, 0) rotate(${-scroll * 0.0032}deg)`;
     },
     toggle() {
