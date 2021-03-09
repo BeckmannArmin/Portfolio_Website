@@ -183,7 +183,6 @@ html {
   text-align: center;
   color: $text-main;
   font-size: 62.5%;
-
 }
 
 </style>

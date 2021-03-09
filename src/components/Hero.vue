@@ -333,6 +333,12 @@
         }
       }
     }
+
+     .home-nav {
+      a {
+          font-size: 1.4rem;
+      }
+  }
   }
   .span-name {
     font-size: 3.5rem;

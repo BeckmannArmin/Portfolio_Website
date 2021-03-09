@@ -9,7 +9,7 @@
       >
         <div
           id="button-container"
-          class="project-categories d-flex position-relative"
+          class="project-categories position-relative"
         >
           <button class="btn active" @click="filterProjects('all')">
             {{ $t("projects.all") }}
@@ -287,4 +287,15 @@ a {
     }
   }
 }
+
+@media (max-width: 56.25em) {
+    #projects {
+        .project-categories {
+            margin: 0 auto;
+            overflow-x: auto;
+            max-width: none;
+        }
+    }
+}
+
 </style>
