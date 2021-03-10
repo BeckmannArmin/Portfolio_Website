@@ -34,15 +34,6 @@
 
 
 <style lang="scss" scoped>
-#master.stage-0 {
-  transform: translateX(0);
-  color: $black;
-}
-
-#master.stage-1 #hero,
-#master.stage-2 #hero {
-  transform: translateX(105vw);
-}
 
 #hero {
   min-height: 100vh;
@@ -57,6 +48,7 @@
   padding: 0 5.6rem;
   margin-bottom: 0;
   top: 0;
+  overflow: visible;
   left: 0;
   bottom: 0;
   right: 0;

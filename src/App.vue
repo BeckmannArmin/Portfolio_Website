@@ -1,7 +1,7 @@
 <template>
   <div id="master" class="stage-0 h-100 w-100 position-relative">
-    <div class="hybrid-section-container w-100 position-relative">
-      <div class="hybrid-section d-inline-flex w-100 h-100" :style="style">
+    <div class="welcome-section-wrapper w-100 position-relative">
+      <div class="welcome-section-animated d-inline-flex w-100 h-100" :style="style">
         <Hero />
         <About :yOffset="y" />
       </div>
@@ -132,8 +132,17 @@ export default {
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
 
+#master.stage-0 {
+  transform: translateX(0);
+}
+
+#master.stage-1 #hero,
+#master.stage-2 #hero {
+  transform: translateX(105vw);
+}
+
 /** We split our Welcome section which scrolls horizontally and our #app which scrolls vertically */
-.hybrid-section-container {
+.welcome-section-wrapper {
   height: 150vh;
   background-color: $salmon;
 
@@ -153,7 +162,7 @@ export default {
     box-shadow: 0 -75px 50px $salmon;
   }
 
-  .hybrid-section {
+  .welcome-section-animated {
     flex-flow: row;
     position: fixed;
     z-index: 3;
@@ -176,13 +185,13 @@ html {
 }
 
 @media (max-width: 56.25em) {
-  .hybrid-section-container {
+  .welcome-section-wrapper {
     height: auto !important;
     &:after {
         display: none;
         content: none;
     }
-    .hybrid-section {
+    .welcome-section-animated {
       position: relative !important;
       transform: translateZ(0) !important;
       flex-direction: column !important;
