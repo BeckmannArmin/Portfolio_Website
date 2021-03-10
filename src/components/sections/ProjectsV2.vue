@@ -40,7 +40,7 @@
       </div>
     </div>
     <div v-for="(project, index) in projects" :key="index">
-        <ProjectModal v-if="project.showModal" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :summary="project.summary" :technologies="project.technologies" :href="project.href" :image="project.img"/>
+        <ProjectModal :class="{ enter : project.showModal }" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :summary="project.summary" :technologies="project.technologies" :href="project.href" :image="project.img"/>
     </div>
   </section>
 </template>
@@ -158,8 +158,8 @@ a {
   .project-categories {
     margin-top: 24px;
     margin-bottom: 12px;
-    max-width: 80%;
     padding: 4px;
+    display: flex;
 
     .btn {
       padding: 10px 26px;
@@ -189,7 +189,6 @@ a {
   }
 
   .row-inner {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     text-align: left;
@@ -294,6 +293,7 @@ a {
             margin: 0 auto;
             overflow-x: auto;
             max-width: none;
+            width: 80%;
         }
     }
 }

@@ -57,22 +57,26 @@ export default {
 <style lang="scss" scoped>
 
 .menu-icon-wrapper {
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   padding: 2rem;
   pointer-events: none;
   background: #fff;
   transition: 0.1s;
   border-bottom-right-radius: 6px;
-  box-shadow: $box-shadow-dark;
+  box-shadow: 0 3px 7px 0 rgba(0,0,0, 0.4);
+
+  &.open {
+      box-shadow: none;
+  }
 }
 
 .menu-icon-wrapper svg {
   position: absolute;
   top: -14px;
   left: -12px;
-  -webkit-transform: scale(0.07);
-  transform: scale(0.07);
+  -webkit-transform: scale(0.08);
+  transform: scale(0.08);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
