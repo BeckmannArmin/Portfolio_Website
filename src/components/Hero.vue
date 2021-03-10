@@ -34,7 +34,6 @@
 
 
 <style lang="scss" scoped>
-
 #hero {
   min-height: 100vh;
   height: 100vh;
@@ -86,10 +85,30 @@
       position: relative;
 
       &.text-color-main {
-        background-image: $hero-title-gradient;
+        background: $hero-title-gradient;
         -webkit-background-clip: text;
+        background-clip: text;
+
         -webkit-text-fill-color: transparent;
         color: transparent;
+
+        background: -moz-linear-gradient(135deg, $salmon, $salmon_light); /* FF3.6+ */
+
+        background: -webkit-gradient(
+          135deg, $salmon, $salmon_light
+        ); /* Chrome,Safari4+ */
+
+        background: -webkit-linear-gradient(
+          135deg, $salmon, $salmon_light
+        ); /* Chrome10+,Safari5.1+ */
+
+        background: -o-linear-gradient(
+          135deg, $salmon, $salmon_light
+        ); /* Opera 11.10+ */
+
+        background: -ms-linear-gradient(
+         135deg, $salmon, $salmon_light
+        ); /* IE10+ */
       }
 
       &::after {
@@ -186,12 +205,6 @@
     .intro:after {
       content: ".";
       color: $frog-green;
-    }
-    .text-color-main {
-      background-image: $hero-title-gradient;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
     }
   }
 }
@@ -297,7 +310,7 @@
       text-align: center;
 
       .title {
-          justify-content: center;
+        justify-content: center;
         h2 {
           font-size: 3.6rem;
         }
@@ -326,13 +339,13 @@
       }
     }
 
-     .home-nav {
+    .home-nav {
       a {
-          font-size: 1.2rem;
-          margin: 0;
-          letter-spacing: 0;
+        font-size: 1.2rem;
+        margin: 0;
+        letter-spacing: 0;
       }
-  }
+    }
   }
   .span-name {
     font-size: 3.5rem;

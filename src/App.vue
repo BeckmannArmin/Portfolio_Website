@@ -174,6 +174,7 @@ export default {
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 #app {
   font-family: "Poppins", sans-serif;
