@@ -1,5 +1,5 @@
 <template>
-  <div :id="id" class="project-item">
+  <div :id="id" class="project-item enter">
     <div class="project-parent-container">
       <button class="project-close" @click="closeModal"></button>
       <div class="project-container">
@@ -57,7 +57,7 @@ export default {
   bottom: 0;
   width: 100vw;
   min-height: 100vh;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   transform: scale(0.6);
@@ -70,7 +70,6 @@ export default {
   &.enter {
     border-radius: 0;
     opacity: 1;
-    display: flex;
     transform: scale(1);
     transition: transform 0.375s cubic-bezier(1, 0, 0, 1),
       opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out !important;
@@ -216,7 +215,7 @@ export default {
       }
 
      img.project-img {
-        width: 55%;
+        width: 35%;
         border-radius: 8px;
         margin: 42px auto 75px;
         background: #fff;

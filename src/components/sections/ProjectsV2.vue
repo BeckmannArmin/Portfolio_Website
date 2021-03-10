@@ -40,7 +40,7 @@
       </div>
     </div>
     <div v-for="(project, index) in projects" :key="index">
-        <ProjectModal :class="{ enter : project.showModal }" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :summary="project.summary" :technologies="project.technologies" :href="project.href" :image="project.img"/>
+        <ProjectModal v-if="project.showModal" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :summary="project.summary" :technologies="project.technologies" :href="project.href" :image="project.img"/>
     </div>
   </section>
 </template>
