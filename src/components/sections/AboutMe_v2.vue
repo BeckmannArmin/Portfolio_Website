@@ -46,20 +46,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/**
 #master.stage-0 #about {
   transform: translateX(-100vw);
 }
-
 #master.stage-1 #about,
 #master.stage-2 #about {
   transform: translateX(0);
 }
-
 #master.stage-1 #about-content {
-  opacity: 1;
+    opacity: 1;
 }
-*/
 
 #about {
   transition: transform 1s cubic-bezier(1, 0, 0, 1);

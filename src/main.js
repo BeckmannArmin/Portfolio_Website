@@ -14,17 +14,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faGithub,faLinkedinIn)
 
-import { gsap } from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 AOS.init();
-
 
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

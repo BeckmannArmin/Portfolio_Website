@@ -1,5 +1,5 @@
 <template>
-  <div id="master" class="stage-0 h-100 w-100 position-relative isLoading">
+  <div id="master" class="stage-0 h-100 w-100 position-relative">
     <div class="welcome-section-wrapper w-100 position-relative">
       <div
         class="welcome-section-animated d-inline-flex w-100 h-100"
@@ -31,7 +31,6 @@ import Header from "./components/Header.vue";
 import About from "./components/sections/AboutMe_v2.vue";
 import NavBarExpand from "./components/HeaderCollapse.vue";
 import ContactV2 from "./components/sections/ContactV2.vue";
-import gsap from "gsap";
 
 export default {
   name: "App",
@@ -82,11 +81,10 @@ export default {
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
     function handleIntersect(entry) {
-      if (entry[0].intersectionRatio > 0) {
+      if (entry[0].intersectionRatio > 0 && master.classList.contains('stage-1')) {
         master.classList.remove("stage-1");
         master.classList.add("stage-2");
       } else {
-        master.classList.add("stage-1");
         master.classList.remove("stage-2");
       }
     }
@@ -98,43 +96,15 @@ export default {
       const navBar = document.querySelector(".navbar");
       const master = document.querySelector("#master");
 
-      master.classList.add("stage-1");
-      master.classList.remove("stage-0");
-
-      var anim = gsap.timeline({
-        paused: false,
-      });
-
-      anim.from("#master.stage-0", 0, {
-         transform: "translateX(0)"
-      });
-
-       anim.from("#master.stage-0 #about", 0, {
-         transform: "translateX(-100vw)"
-      });
-
-      anim.to("#master.stage-1 #hero",.5, {
-          transform: "translateX(105vw)",
-      })
-
-      anim.to("#master.stage-1 #about-content",.5, {
-          opacity: 1,
-      })
-
-      anim.to("#master.stage-1 #about", 3, {
-         transform: "translateX(0)",
-        onComplete: () =>
-          document.querySelector("#master").classList.remove("isLoading"),
-      });
-
-
-      navBar.classList.add("bg-nav");
-
-      if (window.scrollY < 10) {
-        navBar.classList.remove("bg-nav");
-        master.classList.remove("stage-1");
-        master.classList.add("stage-0");
-      }
+       if (window.scrollY > 10) {
+            master.classList.add('stage-1');
+            master.classList.remove('stage-0')
+            navBar.classList.add('bg-nav');
+        } else {
+           navBar.classList.remove('bg-nav');
+            master.classList.remove('stage-1');
+            master.classList.add('stage-0');
+        }
 
       if (master.classList.contains("stage-1") && window.scrollY > 100) {
         this.y = -window.scrollY;
@@ -150,21 +120,27 @@ export default {
       const l = document.querySelector(".l");
       const l1 = document.querySelector(".l1");
 
+      /** I am */
       sc.style.transform = `translate3d(${-scroll * 0.001}px, ${
         -scroll * 0.01
       }px, 0) rotate(${-scroll * 0.0008}deg)`;
 
+      /** creative */
       r.style.transform = `translate3d(${-scroll * 0.015}px, ${
         -scroll * 0.06
       }px, 0) rotate(${-scroll * 0.0016}deg)`;
 
+      /** and */
       o.style.transform = `translate3d(${-scroll * 0.025}px, ${
         -scroll * 0.08
       }px, 0) rotate(${-scroll * 0.0032}deg)`;
 
+      /** open minded developer */
       l.style.transform = `translate3d(${-scroll * 0.035}px, ${
         -scroll * 0.1
       }px, 0) rotate(${-scroll * 0.0032}deg)`;
+
+      /** and create modern and asthetically websites */
       l1.style.transform = `translate3d(${-scroll * 0.045}px, ${
         -scroll * 0.1
       }px, 0) rotate(${-scroll * 0.0032}deg)`;
@@ -188,22 +164,6 @@ export default {
 <style lang="scss">
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
-
-/**
-#master.stage-0 {
-  transform: translateX(0);
-}
-
-#master.stage-1 #hero,
-#master.stage-2 #hero {
-  transform: translateX(105vw);
-}
-
-*/
-
-#master.isLoading .one {
-  display: none;
-}
 
 /** We split our Welcome section which scrolls horizontally and our #app which scrolls vertically */
 .welcome-section-wrapper {
