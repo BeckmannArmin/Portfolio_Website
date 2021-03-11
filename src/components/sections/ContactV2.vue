@@ -46,7 +46,7 @@
 
 <script>
 export default {
-     data() {
+  data() {
     return {
       user: {
         name: "",
@@ -56,7 +56,7 @@ export default {
       btnOldHtml: "",
     };
   },
-     methods: {
+  methods: {
     handleSubmit() {
       this.disableSubmission(this.$refs.btnSubmit);
       setTimeout(() => {
@@ -77,7 +77,7 @@ export default {
       btn.innerHTML = this.btnOldHtml;
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -93,11 +93,11 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 15rem 0 10rem;
+    padding-top: 10rem;
     position: relative;
- background-image: $contact-bg-gradient;
-  -webkit-clip-path: $clip-path-polygon;
-  clip-path: $clip-path-polygon;
+    background-image: $contact-bg-gradient;
+    -webkit-clip-path: $clip-path-polygon;
+    clip-path: $clip-path-polygon;
 
     .form-wrapper {
       width: 550px;
@@ -213,21 +213,21 @@ export default {
 
 @media (max-width: 75em) {
   #contact {
-      .wrapper {
-    clip-path: none;
-    margin-top: 0;
-    -webkit-clip-path: none;
-      }
+    .wrapper {
+      clip-path: none;
+      margin-top: 0;
+      -webkit-clip-path: none;
+    }
   }
 }
 
 @media (max-width: 56.25em) {
-    #contact {
-  .wrapper {
+  #contact {
+    .wrapper {
       .form-wrapper {
-          width: 95% !important;
+        width: 95% !important;
       }
-}
     }
+  }
 }
 </style>

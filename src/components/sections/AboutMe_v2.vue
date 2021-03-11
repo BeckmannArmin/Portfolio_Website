@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/**
 #master.stage-0 #about {
   transform: translateX(-100vw);
 }
@@ -58,6 +59,7 @@ export default {
 #master.stage-1 #about-content {
   opacity: 1;
 }
+*/
 
 #about {
   transition: transform 1s cubic-bezier(1, 0, 0, 1);

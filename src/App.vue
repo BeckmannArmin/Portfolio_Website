@@ -1,16 +1,19 @@
 <template>
-  <div id="master" class="stage-0 h-100 w-100 position-relative">
+  <div id="master" class="stage-0 h-100 w-100 position-relative isLoading">
     <div class="welcome-section-wrapper w-100 position-relative">
-      <div class="welcome-section-animated d-inline-flex w-100 h-100" :style="style">
+      <div
+        class="welcome-section-animated d-inline-flex w-100 h-100"
+        :style="style"
+      >
         <Hero />
         <About :yOffset="y" />
       </div>
     </div>
-    <div id="app">
+    <div id="app" class="one">
       <!-- Navbar collapsed -->
       <NavBarExpand />
       <!-- Navbar main -->
-      <Header :mode="mode" @toggle="toggle"/>
+      <Header :mode="mode" @toggle="toggle" />
       <Experience />
       <Projects />
       <ContactV2 />
@@ -28,6 +31,7 @@ import Header from "./components/Header.vue";
 import About from "./components/sections/AboutMe_v2.vue";
 import NavBarExpand from "./components/HeaderCollapse.vue";
 import ContactV2 from "./components/sections/ContactV2.vue";
+import gsap from "gsap";
 
 export default {
   name: "App",
@@ -66,19 +70,72 @@ export default {
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
   },
+  mounted() {
+    const master = document.querySelector("#master");
+    const observeElement = document.querySelector(".one");
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    function handleIntersect(entry) {
+      if (entry[0].intersectionRatio > 0) {
+        master.classList.remove("stage-1");
+        master.classList.add("stage-2");
+      } else {
+        master.classList.add("stage-1");
+        master.classList.remove("stage-2");
+      }
+    }
+
+    observer.observe(observeElement);
+  },
   methods: {
     handleScroll() {
       const navBar = document.querySelector(".navbar");
       const master = document.querySelector("#master");
-      if (window.scrollY > 10) {
-        master.classList.add("stage-1");
-        master.classList.remove("stage-0");
-        navBar.classList.add("bg-nav");
-      } else {
+
+      master.classList.add("stage-1");
+      master.classList.remove("stage-0");
+
+      var anim = gsap.timeline({
+        paused: false,
+      });
+
+      anim.from("#master.stage-0", 0, {
+         transform: "translateX(0)"
+      });
+
+       anim.from("#master.stage-0 #about", 0, {
+         transform: "translateX(-100vw)"
+      });
+
+      anim.to("#master.stage-1 #hero",.5, {
+          transform: "translateX(105vw)",
+      })
+
+      anim.to("#master.stage-1 #about-content",.5, {
+          opacity: 1,
+      })
+
+      anim.to("#master.stage-1 #about", 3, {
+         transform: "translateX(0)",
+        onComplete: () =>
+          document.querySelector("#master").classList.remove("isLoading"),
+      });
+
+
+      navBar.classList.add("bg-nav");
+
+      if (window.scrollY < 10) {
         navBar.classList.remove("bg-nav");
         master.classList.remove("stage-1");
         master.classList.add("stage-0");
       }
+
       if (master.classList.contains("stage-1") && window.scrollY > 100) {
         this.y = -window.scrollY;
       } else {
@@ -132,6 +189,7 @@ export default {
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
 
+/**
 #master.stage-0 {
   transform: translateX(0);
 }
@@ -139,6 +197,12 @@ export default {
 #master.stage-1 #hero,
 #master.stage-2 #hero {
   transform: translateX(105vw);
+}
+
+*/
+
+#master.isLoading .one {
+  display: none;
 }
 
 /** We split our Welcome section which scrolls horizontally and our #app which scrolls vertically */
@@ -170,11 +234,16 @@ export default {
   }
 }
 
+body,
+html {
+  overflow-x: hidden;
+}
+
 /** We set a font size of 62.5% what gives us 10px in relation */
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-y: scroll;
 }
 #app {
   font-family: "Poppins", sans-serif;
@@ -189,17 +258,18 @@ html {
   .welcome-section-wrapper {
     height: auto !important;
     &:after {
-        display: none;
-        content: none;
+      display: none;
+      content: none;
     }
     .welcome-section-animated {
       position: relative !important;
       transform: translateZ(0) !important;
       flex-direction: column !important;
 
-      #hero, #about {
-          transform: none !important;
-          position: relative!important;
+      #hero,
+      #about {
+        transform: none !important;
+        position: relative !important;
       }
     }
   }

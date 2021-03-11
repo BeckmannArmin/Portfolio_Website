@@ -12,12 +12,20 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+library.add(faGithub,faLinkedinIn)
+
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 AOS.init();
 
-library.add(faGithub,faLinkedinIn)
+
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
