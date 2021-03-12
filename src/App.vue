@@ -1,15 +1,9 @@
 <template>
-  <div
-    id="master"
-    class="stage-0 h-100 w-100 position-relative"
-    :class="mode"
-  >
+  <div id="master" class="stage-0 h-100 w-100 position-relative" :class="mode">
     <div class="welcome-section-wrapper w-100 position-relative">
-      <div
-        class="welcome-section-animated d-inline-flex w-100 h-100"
-      >
+      <div class="welcome-section-animated d-inline-flex w-100 h-100">
         <Hero />
-        <About />
+        <About :y300="y" />
       </div>
     </div>
     <div id="app" class="one">
@@ -51,7 +45,15 @@ export default {
     return {
       mode: localStorage.getItem("theme-color"),
       currentTheme: "",
+      y: 0,
     };
+  },
+  computed: {
+    style() {
+      return {
+        transform: "translateY(" + this.y + "px)",
+      };
+    },
   },
   beforeMount() {
     if (localStorage.getItem("theme-color")) {
@@ -77,6 +79,41 @@ export default {
         master.classList.remove("stage-1");
         master.classList.add("stage-0");
       }
+
+      if (master.classList.contains("stage-1")) {
+        this.y = -window.scrollY;
+      } else {
+        this.y = 0;
+      }
+      this.transformLetters(this.y);
+
+    },
+    transformLetters(scroll) {
+      const sc = document.querySelector(".sc");
+      const r = document.querySelector(".r");
+      const o = document.querySelector(".o");
+      const l = document.querySelector(".l");
+      const l1 = document.querySelector(".l1");
+      /** I am */
+      sc.style.transform = `translate3d(${-(scroll - 300) * 0.001}px, ${
+        -(scroll - 300) * 0.01
+      }px, 0) rotate(${-(scroll - 300) * 0.0008}deg)`;
+      /** creative */
+      r.style.transform = `translate3d(${-(scroll - 300) * 0.015}px, ${
+        -(scroll - 300) * 0.06
+      }px, 0) rotate(${-(scroll - 300) * 0.0016}deg)`;
+      /** and */
+      o.style.transform = `translate3d(${-(scroll - 300) * 0.025}px, ${
+        -(scroll - 300) * 0.08
+      }px, 0) rotate(${-(scroll - 300) * 0.0032}deg)`;
+      /** open minded developer */
+      l.style.transform = `translate3d(${-(scroll - 300) * 0.035}px, ${
+        -(scroll - 300) * 0.1
+      }px, 0) rotate(${-(scroll - 300) * 0.0032}deg)`;
+      /** and create modern and asthetically websites */
+      l1.style.transform = `translate3d(${-(scroll - 300) * 0.045}px, ${
+        -(scroll - 300) * 0.1
+      }px, 0) rotate(${-(scroll - 300) * 0.0032}deg)`;
     },
     toggle() {
       const storedTheme = localStorage.getItem("theme-color");

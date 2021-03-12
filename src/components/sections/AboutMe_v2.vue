@@ -1,9 +1,10 @@
 <template>
   <section id="about" class="d-flex position-absolute">
     <div
-     data-aos="fade-in"
+      data-aos="fade-in"
       class="d-flex justify-content-center flex-column w-100"
       id="about-content"
+      :style="style"
     >
       <div class="content d-inline-flex flex-row">
         <div class="sc">
@@ -29,6 +30,21 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: {
+    yOffset: Number,
+  },
+  computed: {
+    style() {
+      return {
+        transform: "translate3d(0, " + -(this.yOffset + window.innerHeight) + "px, 0)",
+      };
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 #master.stage-0 #about {
@@ -64,7 +80,6 @@
 
   /** disable transformations */
   position: relative !important;
-  transform: none !important;
 
   #about-content {
     align-self: center;
