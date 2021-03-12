@@ -34,8 +34,6 @@ import Header from "./components/Header.vue";
 import About from "./components/sections/AboutMe_v2.vue";
 import NavBarCollapsed from "./components/HeaderCollapse.vue";
 import ContactV2 from "./components/sections/ContactV2.vue";
-// eslint-disable-next-line no-unused-vars
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
   name: "App",
