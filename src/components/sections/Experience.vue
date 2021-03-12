@@ -106,6 +106,23 @@
 </template>
 
 <style lang="scss" scoped>
+
+.dark {
+ #experience {
+     background: $bg-dark;
+     .section-title {
+         color: $section-title-dark;
+         &:after {
+      color: $salmon;
+    }
+     }
+
+     .subsection-title {
+         color: $frog-green-light;
+     }
+ }
+}
+
 #experience {
   p {
     font-size: 1.6rem;

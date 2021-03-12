@@ -39,6 +39,16 @@ export default {
 }
 
 /** animated header - start */
+
+.dark {
+    .bg-nav {
+        background: $bg-dark;
+        border-bottom: 1px solid black;
+        a {
+            color: $text-color-dark;
+        }
+    }
+}
 .bg-nav {
   background: #fff;
   border-bottom: 1px solid #f3f3f3;

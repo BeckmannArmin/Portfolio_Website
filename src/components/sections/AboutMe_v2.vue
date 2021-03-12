@@ -56,7 +56,23 @@ export default {
 #master.stage-1 #about-content {
     opacity: 1;
 }
+.dark {
+    #about {
+        #about-content {
+            div.content {
+                .l1:after {
+        color: $salmon;
+      }
+                div {
+                        span.info-text-colored {
+                            color: $section-title-dark !important;
 
+                        }
+                }
+            }
+        }
+    }
+}
 #about {
   transition: transform 1s cubic-bezier(1, 0, 0, 1);
   background: none;

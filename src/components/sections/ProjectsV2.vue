@@ -124,6 +124,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.dark {
+    #projects {
+        background: $bg-dark;
+
+        .section-title {
+            color: $section-title-dark;
+            &:after {
+                color: $salmon;
+            }
+        }
+
+        .project-categories {
+            background: $bg-dark;
+
+            .btn {
+                color: $section-title-dark;
+            }
+        }
+    }
+}
 section {
   width: 100%;
 }
@@ -142,6 +163,7 @@ a {
   text-align: center;
   position: relative;
   padding-bottom: 180px;
+  padding-top: 100px;
 
   .section-title {
     margin: 0 0 4.5rem;

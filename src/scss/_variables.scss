@@ -34,7 +34,7 @@ $neutral-dark-purple: #1A051D;
 $neutral-purple: #3F3356;
 $neutral-light-purple: #D0C9D6;
 $black: #000;
-$white: #fff;
+$white: #FAFAFA;
 
 /** bezier paths */
 $project-transition: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -42,9 +42,12 @@ $clip-path-polygon: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
 
 /** Dark mode */
 $bg-dark: radial-gradient(#252525, #181818);
+$bg-dark-linear: linear-gradient(135deg,#252525, #181818);
 $box-shadow-dark: 0 -75px 50px $bg-dark;
 $box-shadow-light: 0 -75px 50px $salmon;
 $footer-bg-dark: #2E3445;
 $footer-text-dark: #73CCA8;
 $body-bg-dark: #222733;
-$text-color-dark: #DBE8D4;
+$text-color-dark: #FAFAFA;
+$section-title-dark: #DBE8D4;
+$contact-bg-gradient-dark: linear-gradient(135deg, #191919, #181818);

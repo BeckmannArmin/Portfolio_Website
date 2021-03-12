@@ -81,7 +81,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dark {
+    #contact {
+        background: $bg-dark;
+        .wrapper {
+            background-image: $contact-bg-gradient-dark;
+
+            .form-wrapper {
+                .section-title{ color: $section-title-dark;
+                &:after {
+                    color: $salmon;
+                }
+                }
+            }
+        }
+    }
+}
+
 #contact {
+    background: $white;
   .wrapper {
     width: 100%;
     min-height: 100vh;

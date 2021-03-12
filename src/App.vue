@@ -1,5 +1,5 @@
 <template>
-  <div id="master" class="stage-0 h-100 w-100 position-relative isAnimating">
+  <div id="master" class="stage-0 h-100 w-100 position-relative isAnimating" :class="mode">
     <div class="welcome-section-wrapper w-100 position-relative">
       <div
         class="welcome-section-animated d-inline-flex w-100 h-100"
@@ -251,5 +251,21 @@ html {
       }
     }
   }
+}
+
+/** Dark mode */
+.dark {
+    .welcome-section-wrapper {
+        background: $bg-black;
+         &:after {
+             background-image: url(./assets/background-dark.svg),
+      linear-gradient(135deg, #191919, #181818);
+              box-shadow: 0 -75px 50px #111111;
+         }
+    }
+    #app {
+        color: $text-color-dark;
+    }
+
 }
 </style>

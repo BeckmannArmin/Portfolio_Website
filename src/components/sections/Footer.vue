@@ -77,10 +77,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$salmon: #ff647c;
-$neutral-black: #111111;
-$neutral-white: #fff;
 
+.dark {
+    #footer {
+        background-image: $bg-dark;
+    }
+}
 /** reversed gradient of contact section */
 #footer {
   background-image: $footer-bg-gradient;
@@ -211,7 +213,7 @@ $neutral-white: #fff;
         text-decoration: none;
         color: $white;
         cursor: pointer;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         padding-top: 2rem;
       }
     }
