@@ -2,11 +2,14 @@
   <section id="contact">
     <div class="wrapper">
       <div class="form-wrapper">
-        <h2 data-aos="fade-in" class="section-title">
+        <h2
+          data-aos="fade-in"
+          class="section-title"
+        >
           {{ $t("contact.contact") }}
         </h2>
         <form class="contact-form validate-form">
-          <div class="input-wrapper validate-form">
+          <div data-aos="fade-down-right" data-aos-delay="100" class="input-wrapper validate-form">
             <input
               class="input"
               type="text"
@@ -15,7 +18,7 @@
             />
             <span class="focus-input"></span>
           </div>
-          <div class="input-wrapper validate-form">
+          <div data-aos="fade-down-right" data-aos-delay="200" class="input-wrapper validate-form">
             <input
               class="input"
               type="text"
@@ -24,7 +27,7 @@
             />
             <span class="focus-input"></span>
           </div>
-          <div class="input-wrapper validate-form">
+          <div data-aos="fade-down-right" data-aos-delay="300" class="input-wrapper validate-form">
             <textarea
               class="input"
               name="message"
@@ -33,7 +36,7 @@
             ></textarea>
             <span class="focus-input"></span>
           </div>
-          <div class="btn-wrapper">
+          <div data-aos="fade-down-right" data-aos-delay="400" class="btn-wrapper">
             <button class="btn-submit" ref="btnSubmit" @click="handleSubmit">
               {{ $t("contact.send") }}
             </button>
@@ -82,24 +85,25 @@ export default {
 
 <style lang="scss" scoped>
 .dark {
-    #contact {
-        background: $bg-dark;
-        .wrapper {
-            background-image: $contact-bg-gradient-dark;
+  #contact {
+    background: $bg-dark;
+    .wrapper {
+      background-image: $contact-bg-gradient-dark;
 
-            .form-wrapper {
-                .section-title{ color: $section-title-dark;
-                &:after {
-                    color: $salmon;
-                }
-                }
-            }
+      .form-wrapper {
+        .section-title {
+          color: $section-title-dark;
+          &:after {
+            color: $salmon;
+          }
         }
+      }
     }
+  }
 }
 
 #contact {
-    background: $white;
+  background: $white;
   .wrapper {
     width: 100%;
     min-height: 100vh;

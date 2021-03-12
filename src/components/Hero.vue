@@ -34,16 +34,20 @@
 
 
 <style lang="scss" scoped>
-
 #master.stage-0 {
-      transform: translateX(0);
-      color: $black;
+  transform: translateX(0);
+  color: $black;
 }
-#master.stage-1 #hero, #master.stage-2 #hero {
-    transform: translateX(105vw);
+#master.stage-1 #hero,
+#master.stage-2 #hero {
+  transform: translateX(105vw);
 }
 
 #hero {
+  /** disable transformations */
+  position: relative !important;
+  transform: none !important;
+
   min-height: 100vh;
   height: 100vh;
   width: 100%;
@@ -100,22 +104,34 @@
         -webkit-text-fill-color: transparent;
         color: transparent;
 
-        background: -moz-linear-gradient(135deg, $salmon, $salmon_light); /* FF3.6+ */
+        background: -moz-linear-gradient(
+          135deg,
+          $salmon,
+          $salmon_light
+        ); /* FF3.6+ */
 
         background: -webkit-gradient(
-          135deg, $salmon, $salmon_light
+          135deg,
+          $salmon,
+          $salmon_light
         ); /* Chrome,Safari4+ */
 
         background: -webkit-linear-gradient(
-          135deg, $salmon, $salmon_light
+          135deg,
+          $salmon,
+          $salmon_light
         ); /* Chrome10+,Safari5.1+ */
 
         background: -o-linear-gradient(
-          135deg, $salmon, $salmon_light
+          135deg,
+          $salmon,
+          $salmon_light
         ); /* Opera 11.10+ */
 
         background: -ms-linear-gradient(
-         135deg, $salmon, $salmon_light
+          135deg,
+          $salmon,
+          $salmon_light
         ); /* IE10+ */
       }
 

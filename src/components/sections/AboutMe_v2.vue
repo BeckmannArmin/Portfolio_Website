@@ -1,49 +1,34 @@
 <template>
   <section id="about" class="d-flex position-absolute">
     <div
+     data-aos="fade-in"
       class="d-flex justify-content-center flex-column w-100"
       id="about-content"
-      :style="style"
     >
-      <div class="content d-inline-flex flex-row justify-content-center">
-          <div class="sc">
-            <span>{{ $t("about.openminded.start") }}</span>
-          </div>
-          <div class="r">
-            <span class="info-text-colored">{{
-              $t("about.openminded.creative")
-            }}</span>
-          </div>
-          <div class="o">
-            <span>{{ $t("about.openminded.middle") }}</span>
-          </div>
-          <div class="l">
-            <span class="info-text-colored">{{
-              $t("about.openminded.open")
-            }}</span>
-          </div>
-          <div class="l1">
-            <span>{{ $t("about.openminded.try") }}</span>
-          </div>
-          </div>
+      <div class="content d-inline-flex flex-row">
+        <div class="sc">
+          <span>{{ $t("about.openminded.start") }}</span>
+        </div>
+        <div class="r">
+          <span class="info-text-colored">{{
+            $t("about.openminded.creative")
+          }}</span>
+        </div>
+        <div class="o">
+          <span>{{ $t("about.openminded.middle") }}</span>
+        </div>
+        <div class="l">
+          <span class="info-text-colored">{{
+            $t("about.openminded.open")
+          }}</span>
+        </div>
+        <div class="l1">
+          <span>{{ $t("about.openminded.try") }}</span>
+        </div>
+      </div>
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  props: {
-    yOffset: Number,
-  },
-  computed: {
-    style() {
-      return {
-        transform: "translate3d(0, " + -this.yOffset + "px, 0)",
-      };
-    },
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 #master.stage-0 #about {
@@ -53,46 +38,43 @@ export default {
 #master.stage-2 #about {
   transform: translateX(0);
 }
-#master.stage-1 #about-content {
-    opacity: 1;
-}
-.dark {
-    #about {
-        #about-content {
-            div.content {
-                .l1:after {
-        color: $salmon;
-      }
-                div {
-                        span.info-text-colored {
-                            color: $section-title-dark !important;
 
-                        }
-                }
-            }
+.dark {
+  #about {
+    #about-content {
+      div.content {
+        .l1:after {
+          color: $salmon;
         }
+        div {
+          span.info-text-colored {
+            color: $section-title-dark !important;
+          }
+        }
+      }
     }
+  }
 }
 #about {
-  transition: transform 1s cubic-bezier(1, 0, 0, 1);
   background: none;
   width: 100%;
   height: 100vh;
   opacity: 1;
   z-index: 1;
 
+  /** disable transformations */
+  position: relative !important;
+  transform: none !important;
+
   #about-content {
-    align-items: center;
-    opacity: 0;
-    transition: opacity 2.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    align-self: center;
 
     div.content {
       margin: 0 auto;
       flex-wrap: wrap;
       font-size: 5rem;
       font-weight: 700;
-      text-align: left;
-      width: 90%;
+      width: 60%;
 
       .l1:after {
         content: ".";
@@ -144,13 +126,13 @@ export default {
 @media (max-width: 56.25em) {
   #about {
     #about-content {
-        transform: none !important;
+      transform: none !important;
       div.content {
         font-size: 3.6rem;
         justify-content: flex-start !important;
 
         div {
-        transform: none !important;
+          transform: none !important;
         }
       }
     }
