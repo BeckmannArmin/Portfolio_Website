@@ -1,59 +1,77 @@
 <template>
-<section id="footer">
-  <footer class="footer position-relative text-center">
-    <div class="footer-wrapper position-absolute">
-      <div class="container">
-        <div
-          id="curved"
-          class="position-relative d-flex justify-content-center align-items-center flex-column"
-        >
-          <div class="contact">
-            <a
-              href="mailto:armin.beckmann@protonmail.com"
-              title="Get in touch"
-              rel="me"
-              target="_blank"
-              >armin.beckmann@protonmail.com</a
-            >
-          </div>
-          <div class="socials d-flex justify-content-center flex-row">
-            <a
-              href="https://github.com/BeckmannArmin"
-              target="_blank"
-            >
-              <font-awesome-icon :icon="['fab', 'github']" />
+  <section id="footer">
+    <footer class="footer position-relative text-center">
+      <div class="footer-wrapper position-absolute">
+        <div class="container">
+          <div
+            id="curved"
+            class="position-relative d-flex justify-content-center align-items-center flex-column"
+          >
+            <div class="contact">
+              <a
+                href="mailto:armin.beckmann@protonmail.com"
+                title="Get in touch"
+                rel="me"
+                target="_blank"
+                >armin.beckmann@protonmail.com</a
+              >
+            </div>
+            <div class="socials d-flex justify-content-center flex-row">
+              <a href="https://github.com/BeckmannArmin" target="_blank">
+                <font-awesome-icon :icon="['fab', 'github']" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/armin-beckmann/"
+                target="_blank"
+              >
+                <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+              </a>
+            </div>
+            <div class="info pt-4">
+              <div class="deal-with-it">
+                <img
+                  class="img-fluid image-me"
+                  style="height: 125px"
+                  alt="Thats me"
+                  src="../../assets/armin.png"
+                  @mouseover="opacity = 1"
+                  @mouseout="opacity = 0"
+                />
+                <img
+                  alt="deal with it"
+                  class="deal-with-it-img"
+                  src="../../assets/deal-with-it.png"
+                  :style="{opacity: opacity + '!important'}"
+                />
+                <img
+                alt="im on fire"
+                class="fire-img"
+                src="../../assets/burn-baby-burn.gif"
+                :style="{opacity: opacity + '!important'}"
+                />
+              </div>
+            </div>
+            <a href="#top">
+              <div class="arrow"></div>
             </a>
-            <a
-              href="https://www.linkedin.com/in/armin-beckmann/"
-              target="_blank"
-            >
-              <font-awesome-icon :icon="['fab', 'linkedin-in']" />
-            </a>
           </div>
-          <div class="info">
-            <img
-              class="img-fluid"
-              style="height: 125px"
-              alt="Thats me"
-              src="../../assets/armin.png"
-            />
-          </div>
-          <a href="#top">
-            <div class="arrow"></div>
-          </a>
         </div>
       </div>
-    </div>
-  </footer>
-</section>
+    </footer>
+  </section>
 </template>
 
 <script>
 import LocaleSwitcher from "../LocaleSwitcher.vue";
 export default {
+  data() {
+      return {
+          opacity: 0,
+      }
+  },
   components: {
     // eslint-disable-next-line vue/no-unused-components
-    LocaleSwitcher
+    LocaleSwitcher,
   },
 };
 </script>
@@ -63,11 +81,10 @@ $salmon: #ff647c;
 $neutral-black: #111111;
 $neutral-white: #fff;
 
-
 /** reversed gradient of contact section */
 #footer {
-background-image: $footer-bg-gradient;
-padding-top: 100px;
+  background-image: $footer-bg-gradient;
+  padding-top: 100px;
 }
 .footer {
   height: 300px;
@@ -88,31 +105,77 @@ padding-top: 100px;
     z-index: 1000;
 
     .socials {
-      margin: 2em 0;
-
-      li {
-        margin: 0 0.5em;
-      }
-
+      margin-top: 2em;
       a {
-        width: 1.6em;
-        height: 1.6em;
         margin: 0.5em;
-        font-size: 3rem;
+        font-size: 4rem;
         line-height: 1.5em;
         text-align: center;
-        background-color: $frog-green;
         border-radius: 50%;
-        box-shadow: $neutral-dark-purple;
 
         svg {
-          color: $neutral-dark-purple;
+          color: $white;
+        }
+      }
+    }
+
+    .info {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      .deal-with-it {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+
+        .image-me {
+            z-index: 2;
+        }
+
+        .deal-with-it-img {
+          position: absolute;
+          right: 18%;
+          top: 12%;
+          z-index: 3;
+          width: 65px;
+          -webkit-align-self: flex-end;
+          -ms-flex-item-align: end;
+          align-self: flex-end;
+          opacity: 0;
+
+        }
+        .fire-img {
+          position: absolute;
+          z-index: 1;
+          width: 200px;
+          -webkit-align-self: flex-end;
+          -ms-flex-item-align: end;
+          align-self: flex-end;
+          opacity: 0;
+          transform: translate(15px, 15px);
         }
       }
     }
 
     .arrow {
-        margin: 4rem auto 2rem;
+      margin: 4rem auto 2rem;
       width: 35px;
       height: 35px;
       box-sizing: border-box;
@@ -141,7 +204,7 @@ padding-top: 100px;
   }
 
   #curved {
-    padding-top: 4rem;
+    padding-top: 80px;
 
     .contact {
       a {

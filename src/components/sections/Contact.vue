@@ -1,12 +1,12 @@
 <template>
   <section id="contact">
     <div class="container">
-      <h2 v-scrollanimation class="section-title">
+      <h2 data-aos="fade-in" class="section-title">
         {{ $t("contact.contact") }}
       </h2>
 
       <!-- The container that holds the form -->
-      <div v-scrollanimation class="d-flex justify-content-center">
+      <div data-aos="fade-in" class="d-flex justify-content-center">
         <div class="screen">
           <!-- MACOS screen header -->
           <div class="screen-header">

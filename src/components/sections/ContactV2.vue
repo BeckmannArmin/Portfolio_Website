@@ -2,7 +2,7 @@
   <section id="contact">
     <div class="wrapper">
       <div class="form-wrapper">
-        <h2 v-scrollanimation class="section-title">
+        <h2 data-aos="fade-in" class="section-title">
           {{ $t("contact.contact") }}
         </h2>
         <form class="contact-form validate-form">

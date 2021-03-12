@@ -1,5 +1,5 @@
 <template>
-  <div id="master" class="stage-0 h-100 w-100 position-relative">
+  <div id="master" class="stage-0 h-100 w-100 position-relative isAnimating">
     <div class="welcome-section-wrapper w-100 position-relative">
       <div
         class="welcome-section-animated d-inline-flex w-100 h-100"
@@ -11,7 +11,7 @@
     </div>
     <div id="app" class="one">
       <!-- Navbar collapsed -->
-      <NavBarExpand />
+      <NavBarCollapsed />
       <!-- Navbar main -->
       <Header :mode="mode" @toggle="toggle" />
       <Experience />
@@ -29,8 +29,10 @@ import Experience from "./components/sections/Experience.vue";
 import Projects from "./components/sections/ProjectsV2.vue";
 import Header from "./components/Header.vue";
 import About from "./components/sections/AboutMe_v2.vue";
-import NavBarExpand from "./components/HeaderCollapse.vue";
+import NavBarCollapsed from "./components/HeaderCollapse.vue";
 import ContactV2 from "./components/sections/ContactV2.vue";
+// eslint-disable-next-line no-unused-vars
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
   name: "App",
@@ -42,7 +44,7 @@ export default {
     Experience,
     Projects,
     ContactV2,
-    NavBarExpand,
+    NavBarCollapsed,
   },
   data() {
     return {
@@ -95,6 +97,16 @@ export default {
     handleScroll() {
       const navBar = document.querySelector(".navbar");
       const master = document.querySelector("#master");
+
+        /**
+        ScrollTrigger.create({
+        trigger: "#master.stage-1 #about",
+        start: "top top",
+        endTrigger: "#experience",
+        end: "+=100%",
+        onEnter: self => console.log("toggled, isActive:", self.isActive),
+        });
+        */
 
        if (window.scrollY > 10) {
             master.classList.add('stage-1');
@@ -212,6 +224,12 @@ html {
   text-align: center;
   color: $text-main;
   font-size: 62.5%;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 }
 
 @media (max-width: 56.25em) {
