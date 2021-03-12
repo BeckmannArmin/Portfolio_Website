@@ -1,15 +1,9 @@
 <template>
-  <div
-    id="master"
-    class="stage-0 h-100 w-100 position-relative"
-    :class="mode"
-  >
+  <div id="master" class="stage-0 h-100 w-100 position-relative" :class="mode">
     <div class="welcome-section-wrapper w-100 position-relative">
-      <div
-        class="welcome-section-animated d-inline-flex w-100 h-100"
-      >
+      <div class="welcome-section-animated d-inline-flex w-100 h-100" :style="style">
         <Hero />
-        <About />
+        <About :yOffset="y" />
       </div>
     </div>
     <div id="app" class="one">
@@ -34,6 +28,7 @@ import Header from "./components/Header.vue";
 import About from "./components/sections/AboutMe_v2.vue";
 import NavBarCollapsed from "./components/HeaderCollapse.vue";
 import ContactV2 from "./components/sections/ContactV2.vue";
+import gsap from "gsap";
 
 export default {
   name: "App",
@@ -51,7 +46,15 @@ export default {
     return {
       mode: localStorage.getItem("theme-color"),
       currentTheme: "",
+      y: 0,
     };
+  },
+   computed: {
+    style() {
+      return {
+        transform: "translateY(" + this.y + "px)",
+      };
+    },
   },
   beforeMount() {
     if (localStorage.getItem("theme-color")) {
@@ -68,15 +71,72 @@ export default {
     handleScroll() {
       const navBar = document.querySelector(".navbar");
       const master = document.querySelector("#master");
-      if (window.scrollY > 10) {
-        master.classList.add("stage-1");
-        master.classList.remove("stage-0");
-        navBar.classList.add("bg-nav");
-      } else {
+
+      master.classList.add("stage-1");
+      master.classList.remove("stage-0");
+
+      var anim = gsap.timeline({
+        paused: false,
+      });
+
+      anim.from("#master.stage-0", 0, {
+        transform: "translateX(0)",
+      });
+
+      anim.from("#master.stage-0 #about", 0, {
+        transform: "translateX(-100vw)",
+      });
+
+      anim.to("#master.stage-1 #hero", 0.25, {
+        transform: "translateX(105vw)",
+      });
+
+      anim.to("#master.stage-1 #about-content", 0.5, {
+        opacity: 1,
+      });
+
+      anim.to("#master.stage-1 #about", 3, {
+        transform: "translateX(0)",
+        onComplete: () =>
+          document.querySelector("#master").classList.remove("isLoading"),
+      });
+
+      navBar.classList.add("bg-nav");
+
+      if (window.scrollY < 10) {
         navBar.classList.remove("bg-nav");
         master.classList.remove("stage-1");
         master.classList.add("stage-0");
       }
+
+      this.transformLetters(-window.scrollY)
+    },
+    transformLetters(scroll) {
+      const sc = document.querySelector(".sc");
+      const r = document.querySelector(".r");
+      const o = document.querySelector(".o");
+      const l = document.querySelector(".l");
+      const l1 = document.querySelector(".l1");
+      /** I am */
+      sc.style.transform = `translate3d(${-scroll * 0.001}px, ${
+        -scroll * 0.01
+      }px, 0) rotate(${-scroll * 0.0008}deg)`;
+      /** creative */
+      r.style.transform = `translate3d(${-scroll * 0.015}px, ${
+        -scroll * 0.06
+      }px, 0) rotate(${-scroll * 0.0016}deg)`;
+      /** and */
+      o.style.transform = `translate3d(${-scroll * 0.025}px, ${
+        -scroll * 0.08
+      }px, 0) rotate(${-scroll * 0.0032}deg)`;
+      /** open minded developer */
+      l.style.transform = `translate3d(${-scroll * 0.035}px, ${
+        -scroll * 0.1
+      }px, 0) rotate(${-scroll * 0.0032}deg)`;
+      /** and create modern and asthetically websites */
+      l1.style.transform = `translate3d(${-scroll * 0.045}px, ${
+        -scroll * 0.1
+      }px, 0) rotate(${-scroll * 0.0032}deg)`;
     },
     toggle() {
       const storedTheme = localStorage.getItem("theme-color");
@@ -150,13 +210,6 @@ html {
 @media screen and (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-}
-.welcome-section-wrapper {
-  height: auto !important;
-  .welcome-section-animated {
-    position: relative !important;
-    flex-direction: column !important;
   }
 }
 

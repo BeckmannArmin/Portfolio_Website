@@ -44,9 +44,6 @@
 }
 
 #hero {
-  /** disable transformations */
-  position: relative !important;
-  transform: none !important;
 
   min-height: 100vh;
   height: 100vh;

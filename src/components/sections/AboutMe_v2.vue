@@ -4,6 +4,7 @@
      data-aos="fade-in"
       class="d-flex justify-content-center flex-column w-100"
       id="about-content"
+      :style="style"
     >
       <div class="content d-inline-flex flex-row">
         <div class="sc">
@@ -30,6 +31,21 @@
   </section>
 </template>
 
+<script>
+export default {
+     props: {
+    yOffset: Number,
+  },
+  computed: {
+    style() {
+      return {
+        transform: "translate3d(0, " + -this.yOffset + "px, 0)",
+      };
+    },
+  },
+}
+</script>
+
 <style lang="scss" scoped>
 #master.stage-0 #about {
   transform: translateX(-100vw);
@@ -37,6 +53,10 @@
 #master.stage-1 #about,
 #master.stage-2 #about {
   transform: translateX(0);
+}
+
+#master.stage-1 #about-content {
+    opacity: 1;
 }
 
 .dark {
@@ -59,15 +79,12 @@
   background: none;
   width: 100%;
   height: 100vh;
-  opacity: 1;
   z-index: 1;
-
-  /** disable transformations */
-  position: relative !important;
-  transform: none !important;
 
   #about-content {
     align-self: center;
+    position: absolute;
+    left: 5%;
 
     div.content {
       margin: 0 auto;
@@ -127,6 +144,7 @@
   #about {
     #about-content {
       transform: none !important;
+      left: 0;
       div.content {
         font-size: 3.6rem;
         justify-content: flex-start !important;
