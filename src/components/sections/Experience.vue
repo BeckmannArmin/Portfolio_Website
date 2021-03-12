@@ -2,7 +2,7 @@
   <section id="experience">
     <div class="container">
       <div class="mb-4">
-        <h1 v-scrollanimation class="section-title salmon-text">
+        <h1 data-aos="fade-in" class="section-title salmon-text">
           {{ $t("experience.resume") }}
         </h1>
         <div style="height: 50px"></div>
@@ -106,6 +106,23 @@
 </template>
 
 <style lang="scss" scoped>
+
+.dark {
+ #experience {
+     background: $bg-dark;
+     .section-title {
+         color: $section-title-dark;
+         &:after {
+      color: $salmon;
+    }
+     }
+
+     .subsection-title {
+         color: $frog-green-light;
+     }
+ }
+}
+
 #experience {
   p {
     font-size: 1.6rem;

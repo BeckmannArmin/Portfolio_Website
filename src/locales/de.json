@@ -9,11 +9,11 @@
         "knowmore": "Erfahre mehr",
         "motivation": "Vor ein paar Jahren hatte ich das Vergnügen, meine Leidenschaft für Mobile- und Webentwicklung zum Beruf zu machen. Angefangen mit einfachen Wordpress-Seiten für Kunden in meiner Stadt habe ich früh Erfahrungen in der Webentwicklung gesammelt",
         "openminded": {
-            "start": "Ich bin ein ",
-            "creative": "kreativer ",
-            "middle": "und ",
-            "open": "aufgeschlossener Entwickler ",
-            "try": "der versucht, moderne und ästhetische Webseiten zu schaffen"
+            "start": "Ich bin ein",
+            "creative": "kreativer",
+            "middle": "und",
+            "open": "aufgeschlossener Entwickler",
+            "try": "und gestalte moderne und ästhetische Webseiten"
         }
     },
     "hero": {
@@ -25,9 +25,14 @@
     "projects": {
         "projects": "Projekte",
         "see": "Projekt anschauen",
-        "whitebird": "ist ein Open-Source, webbasiertes, kollaboratives, digitales Whiteboard, das mit NestJS, MongoDB, NuxtJs und FabricJs gebaut wurde",
-        "conForm": "ist ein Programm, mit dem der Benutzer mehrere Konzeptpapiere erstellen, bearbeiten und speichern kann",
-        "hly": "war ein Projekt im Rahmen des Studium dessen Ziel darin lag ein positives Urteil beim Verbraucher zu erzeugen und damit mehr Kunden für das noch unbekannte Getränk zu gewinnen"
+        "whitebird": "ist ein Open-Source, webbasiertes, kollaboratives, digitales Whiteboard, das mit NestJS, MongoDB, NuxtJs und FabricJs gebaut wurde. Ich habe mich hauptsächlich um das Frontend gekümmert, habe aber auch im Backend geholfen",
+        "conForm": "ist ein Programm, mit dem der Benutzer mehrere Konzeptpapiere erstellen, bearbeiten und speichern kann. Um die Erstellung eines Konzeptpapiers zu vereinfachen, sollte eine Webanwendung entwickelt werden, die das herkömmliche Herunterladen, Ausfüllen, Bearbeiten und erneute Hochladen eines jeden Papiers ersetzt. Jede Gruppe sollte die Möglichkeit haben, in einer eigenen Sitzung an ihrem Konzeptpapier zu arbeiten. Der Zugang sollte über Benutzerauthentifizierung und Join-Codes gewährleistet sein",
+        "hly": "war ein Projekt im Rahmen des Studium dessen Ziel darin lag ein positives Urteil beim Verbraucher zu erzeugen und damit mehr Kunden für das noch unbekannte Getränk zu gewinnen",
+        "all": "Alle",
+        "view": "Projekt anschauen",
+        "menschenhelfen": "ist eine Webseite, deren Ziel ist es möglichst viele Menschen für die regionale Blutspende zu gewinnen. Ich habe die Webseite neu entworfen um deren Ziel hervorzuheben und im allgemeinen die Usability der Seite zu steigern",
+        "about": "Über",
+        "project": "Projekt"
     },
     "contact": {
         "contact": "Kontakt",
@@ -60,8 +65,8 @@
         "design_text_4": "und dann einen",
         "design_text_5": "welcher in ein paar Iterationen eine finale Form annimmt",
         "design": "Design",
-        "eyeled": "Werkstudent",
-        "eyeled_desc": "Entwicklung von mobilen benutzerschnittstellen in Swift, sowie Webentwicklung",
+        "eyeled": "Werksstudent",
+        "eyeled_desc": "Entwicklung von mobilen Benutzerschnittstellen in Swift, sowie Webentwicklung",
         "date_eye": "September 19 - Dezember 20",
         "thesis": "Umsetzung einer GPS-gestützten Fußgängernavigations-Komponente für Messe-Außengelände mit optimierter Benutzerführung auf mobilen Endgeräten unter iOS in Objective-C",
         "thesis_date": "Oktober 19 - Januar 20",

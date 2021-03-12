@@ -1,58 +1,82 @@
 <template>
   <section id="about" class="d-flex position-absolute">
     <div
-      class="container d-flex justify-content-center flex-column w-100"
+      class="d-flex justify-content-center flex-column w-100"
       id="about-content"
       :style="style"
     >
-      <div class="container">
-        <div class="content d-inline-flex flex-row">
-          <p class="about-wrapper-info-text">
-              <span :style="style">{{ $t("about.openminded.start") }}</span>
-              <span :style="style" class="info-text-colored">{{ $t("about.openminded.creative") }}</span>
-              <span :style="style">{{ $t("about.openminded.middle") }}</span>
-              <span :style="style" class="info-text-colored">{{ $t("about.openminded.open") }}</span>
-              <span :style="style">{{ $t("about.openminded.try") }}</span>
-          </p>
-        </div>
-      </div>
+      <div class="content d-inline-flex flex-row justify-content-center">
+          <div class="sc">
+            <span>{{ $t("about.openminded.start") }}</span>
+          </div>
+          <div class="r">
+            <span class="info-text-colored">{{
+              $t("about.openminded.creative")
+            }}</span>
+          </div>
+          <div class="o">
+            <span>{{ $t("about.openminded.middle") }}</span>
+          </div>
+          <div class="l">
+            <span class="info-text-colored">{{
+              $t("about.openminded.open")
+            }}</span>
+          </div>
+          <div class="l1">
+            <span>{{ $t("about.openminded.try") }}</span>
+          </div>
+          </div>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-    props: {
-        yOffset: Number
+  props: {
+    yOffset: Number,
+  },
+  computed: {
+    style() {
+      return {
+        transform: "translate3d(0, " + -this.yOffset + "px, 0)",
+      };
     },
-    computed: {
-        style() {
-            return {
-                transform: 'translate3d('+ -(this.yOffset/2) + 'px,' + -(this.yOffset) + 'px, 0)'
-            }
-        }
-    }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 #master.stage-0 #about {
   transform: translateX(-100vw);
 }
-
 #master.stage-1 #about,
 #master.stage-2 #about {
   transform: translateX(0);
 }
-
 #master.stage-1 #about-content {
     opacity: 1;
 }
+.dark {
+    #about {
+        #about-content {
+            div.content {
+                .l1:after {
+        color: $salmon;
+      }
+                div {
+                        span.info-text-colored {
+                            color: $section-title-dark !important;
 
+                        }
+                }
+            }
+        }
+    }
+}
 #about {
   transition: transform 1s cubic-bezier(1, 0, 0, 1);
   background: none;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   opacity: 1;
   z-index: 1;
@@ -62,27 +86,92 @@ export default {
     opacity: 0;
     transition: opacity 2.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-    .content {
+    div.content {
       margin: 0 auto;
-      display: inline-flex;
-      flex-direction: row;
       flex-wrap: wrap;
+      font-size: 5rem;
+      font-weight: 700;
+      text-align: left;
+      width: 90%;
 
-      .about-wrapper-info-text {
-        font-size: 5rem;
-        font-weight: 700;
-        text-align: left;
-        color: $white;
+      .l1:after {
+        content: ".";
+        color: $frog-green;
+      }
 
-        &:after {
-            content: ".";
-            color: $frog-green;
+      div {
+        position: relative;
+        margin-right: 16px;
+
+        span {
+          color: $white;
         }
 
-        .info-text-colored {
-            color: $text-main;
-            font-weight: 800;
+        span.info-text-colored {
+          color: $text-main !important;
+          font-weight: 800;
         }
+      }
+    }
+  }
+}
+
+/** Media queries */
+@media (max-width: 800px) {
+  #about-content {
+    opacity: 1 !important;
+    transform: none !important;
+
+    .content {
+      div {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 75em) {
+  #about {
+    #about-content {
+      div.content {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 56.25em) {
+  #about {
+    #about-content {
+        transform: none !important;
+      div.content {
+        font-size: 3.6rem;
+        justify-content: flex-start !important;
+
+        div {
+        transform: none !important;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 37.5em) {
+  #about {
+    #about-content {
+      div.content {
+        font-size: 3.6rem;
+        left: 5%;
+      }
+    }
+  }
+}
+
+@media (max-width: 20em) {
+  #about {
+    #about-content {
+      div.content {
+        font-size: 3.2rem;
       }
     }
   }

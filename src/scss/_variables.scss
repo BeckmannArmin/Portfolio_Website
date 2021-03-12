@@ -1,7 +1,7 @@
 /** main colors */
 $salmon: #e91e63;
 $salmon_light: #FF647C;
-$text-main: #1A051D;
+$text-main: #1a171a;
 $background-overlay: rgba(37, 37, 37, 0.85);
 $bg-black: #111111;
 
@@ -14,9 +14,11 @@ $footer-bg-gradient: linear-gradient(135deg, #CDD2F6, #CDBAFA);
 
 /** accent colors */
 $frog-green: #cbe2be;
+$frog-green-light: #DBE8D4;
 $blue: #6979F8;
 $light-blue: #A5AFFB;
 $lighter-blue: #E5E7FA;
+$modal-bg: #222733;
 
 /** contact screen - macOS style **/
 $screen-bg: #3e3e3e;
@@ -32,8 +34,20 @@ $neutral-dark-purple: #1A051D;
 $neutral-purple: #3F3356;
 $neutral-light-purple: #D0C9D6;
 $black: #000;
-$white: #fff;
+$white: #FAFAFA;
 
 /** bezier paths */
 $project-transition: cubic-bezier(0.645, 0.045, 0.355, 1);
 $clip-path-polygon: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
+
+/** Dark mode */
+$bg-dark: radial-gradient(#252525, #181818);
+$bg-dark-linear: linear-gradient(135deg,#252525, #181818);
+$box-shadow-dark: 0 -75px 50px $bg-dark;
+$box-shadow-light: 0 -75px 50px $salmon;
+$footer-bg-dark: #2E3445;
+$footer-text-dark: #73CCA8;
+$body-bg-dark: #222733;
+$text-color-dark: #FAFAFA;
+$section-title-dark: #DBE8D4;
+$contact-bg-gradient-dark: linear-gradient(135deg, #191919, #181818);

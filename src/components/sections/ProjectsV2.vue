@@ -7,9 +7,12 @@
       <div
         class="center align-items-center w-100 d-flex flex-column justify-content-center"
       >
-        <div id="button-container" class="project-categories d-flex position-relative">
+        <div
+          id="button-container"
+          class="project-categories position-relative"
+        >
           <button class="btn active" @click="filterProjects('all')">
-            Alle
+            {{ $t("projects.all") }}
           </button>
           <button class="btn" @click="filterProjects('frontend')">
             Frontend
@@ -21,81 +24,51 @@
         </div>
         <div class="row d-flex justify-content-center">
           <div class="project-list row-inner">
-            <!-- Whitebird -->
-            <div class="project enter frontend backend">
-              <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
-                <img
-                  class="image img-fluid"
-                  src="../../assets/whitebird_logo.svg"
-                />
-                <b>Whitebird</b>
-              </div>
-              <div
-                class="overlay"
-                :style="{ opacity: opacity1 }"
-                @mouseover="setOpacity1"
-                @mouseout="unsetOpacity"
+            <div v-for="(project, index) in projects" :key="index" class="project" :class="project.classes">
+                <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
+                    <img class="image img-fluid" :src="project.img"/>
+                    <b>{{ project.name }}</b>
+                </div>
+                  <div
+                class="overlay d-flex position-absolute justify-content-center align-items-center"
               >
-                <a id="learn-1">Learn more</a>
-              </div>
-            </div>
-            <!-- Hly -->
-            <div class="project enter design">
-              <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
-                <img class="image img-fluid" src="../../assets/hly_logo.png" />
-                <b>Hly</b>
-              </div>
-              <div
-                class="overlay"
-                :style="{ opacity: opacity2 }"
-                @mouseover="setOpacity2"
-                @mouseout="unsetOpacity"
-              >
-                <a id="learn-2">Learn more</a>
-              </div>
-            </div>
-
-            <!-- conForm -->
-            <div class="project enter frontend backend">
-              <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
-                <img
-                  class="image img-fluid"
-                  src="../../assets/conForm_logo.png"
-                />
-                <b>conForm</b>
-              </div>
-              <div
-                class="overlay"
-                :style="{ opacity: opacity3 }"
-                @mouseover="setOpacity3"
-                @mouseout="unsetOpacity"
-              >
-                <a id="learn-3">Learn more</a>
+                <a @click="showModalFor(project)">{{ $t("projects.view") }}</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div v-for="(project, index) in projects" :key="index">
+        <ProjectModal v-if="project.showModal" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :summary="project.summary" :technologies="project.technologies" :href="project.href" :image="project.img"/>
+    </div>
   </section>
 </template>
 
 <script>
+import ProjectModal from "./modals/ProjectModal.vue";
 export default {
-  data() {
-    return {
-      opacity1: 0,
-      opacity2: 0,
-      opacity3: 0,
-    };
+  components: {
+    ProjectModal,
   },
+  data()
+  {
+      return {
+        projects: [
+            {id: 1, name: 'Whitebird', summary: `${this.$t('projects.whitebird')}`, technologies: ['NestJs','NuxtJs','MongoDB','FabricJS'], classes: ['frontend', 'backend'], img: require('../../assets/whitebird_logo.svg'), href: 'https://github.com/BuchholzTim/Whitebird', showModal: false},
+            {id: 2, name: 'Hly', summary: `${this.$t('projects.hly')}`, technologies: ['Photoshop'], classes: ['design'], img: require('../../assets/hly_logo.png'), href: 'https://www.youtube.com/watch?v=bZbDIigXlNc', showModal: false},
+            {id: 3, name: 'conForm', summary: `${this.$t('projects.conForm')}`, technologies: ['Laravel','VueJs'],classes: ['frontend', 'backend'], img: require('../../assets/conForm_logo.png'),href: 'https://github.com/BeckmannArmin/conForm', showModal: false},
+            {id: 4, name: 'Menschen.Helfen.Leben', summary: `${this.$t('projects.menschenhelfen')}`, technologies: ['Wordpress', 'CSS'],classes: ['design'], img: require('../../assets/menschen.jpg'), href: 'https://menschen-helfen-leben.de/', showModal: false}
+        ],
+      }
+    },
   mounted() {
-      this.highlightActiveBtn();
+    this.highlightActiveBtn();
   },
   methods: {
-      /**
-       * Source: https://www.w3schools.com/howto/howto_js_filter_elements.asp
-       */
+    /**
+     * Source: https://www.w3schools.com/howto/howto_js_filter_elements.asp
+     */
     filterProjects(c) {
       var x, i;
       x = document.getElementsByClassName("project");
@@ -134,45 +107,51 @@ export default {
     },
     highlightActiveBtn() {
       var btnContainer = document.getElementById("button-container");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
-
+      var btns = btnContainer.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace("active", "");
+          this.className += " active";
+        });
+      }
     },
-    setOpacity1() {
-      this.opacity1 = 1;
-    },
-    setOpacity2() {
-      this.opacity2 = 1;
-    },
-    setOpacity3() {
-      this.opacity3 = 1;
-    },
-    unsetOpacity() {
-      this.opacity1 = 0;
-      this.opacity2 = 0;
-      this.opacity3 = 0;
-    },
-    toggleActive(event) {
-      console.log(event);
-      let button = event.target;
-      button.classList.toggle("active");
-    },
+    showModalFor(project) {
+        project.showModal = true;
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
+
+.dark {
+    #projects {
+        background: $bg-dark;
+
+        .section-title {
+            color: $section-title-dark;
+            &:after {
+                color: $salmon;
+            }
+        }
+
+        .project-categories {
+            background: $bg-dark;
+
+            .btn {
+                color: $section-title-dark;
+            }
+        }
+    }
+}
 section {
   width: 100%;
 }
 
-.btn, b, a {
+.btn,
+b,
+a {
   font-weight: 600;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -184,6 +163,7 @@ section {
   text-align: center;
   position: relative;
   padding-bottom: 180px;
+  padding-top: 100px;
 
   .section-title {
     margin: 0 0 4.5rem;
@@ -192,16 +172,16 @@ section {
     text-transform: uppercase;
 
     &:after {
-        content: ".";
-        color: $frog-green;
+      content: ".";
+      color: $frog-green;
     }
   }
 
   .project-categories {
     margin-top: 24px;
     margin-bottom: 12px;
-    max-width: 80%;
     padding: 4px;
+    display: flex;
 
     .btn {
       padding: 10px 26px;
@@ -231,7 +211,6 @@ section {
   }
 
   .row-inner {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     text-align: left;
@@ -287,8 +266,7 @@ section {
     height: 90%;
     width: 85%;
     transition: height 0.375s $project-transition,
-      width 0.375s $project-transition,
-      flex 0.375s $project-transition,
+      width 0.375s $project-transition, flex 0.375s $project-transition,
       top 0.375s $project-transition;
     box-shadow: 0 3px 7px 0 rgb(0, 0, 0 / 25%);
   }
@@ -306,20 +284,20 @@ section {
   }
 
   .project .overlay {
-    position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
     opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 5;
     background: $background-overlay;
     transition: opacity 0.375s cubic-bezier(1, 0, 0, 1);
     overflow: hidden;
     border-radius: 6px;
+
+    &:hover {
+      opacity: 1;
+    }
 
     a {
       padding: 10px 26px;
@@ -330,4 +308,16 @@ section {
     }
   }
 }
+
+@media (max-width: 56.25em) {
+    #projects {
+        .project-categories {
+            margin: 0 auto;
+            overflow-x: auto;
+            max-width: none;
+            width: 80%;
+        }
+    }
+}
+
 </style>

@@ -4,17 +4,16 @@
       <h1 class="hero-title">
         <span data-aos="fade-in">
           Hi, {{ $t("hero.introduction.name") }}
-          <span
-            data-aos="fade-in"
-            data-text="Nimra"
-            class="span-name text-color-main glitch glitch--v1"
-          >
-            Armin
-          </span></span
-        ><br /><span class="intro"
-        data-aos="fade-in"
-          >{{ $t("hero.introduction.frontend") }}</span
-        >
+          <span data-text="Nimra" class="span-name text-color-main">
+            <span class="title">
+              <span class="block"></span>
+              <h2 class="text-color-main">Armin</h2>
+            </span>
+          </span>
+        </span>
+        <span class="intro" data-aos="fade-in">{{
+          $t("hero.introduction.frontend")
+        }}</span>
       </h1>
       <div class="d-inline-block home-nav">
         <a class="cta-btn cta-btn-hero" href="#experience">{{
@@ -33,18 +32,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  mounted() {
-    setInterval(() => {
-      document.querySelector(".glitch").classList.toggle("glitch--v1");
-      setTimeout(() => {
-        document.querySelector(".glitch").classList.toggle("glitch--v2");
-      }, 100);
-    }, 5000);
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 
@@ -52,7 +39,6 @@ export default {
       transform: translateX(0);
       color: $black;
 }
-
 #master.stage-1 #hero, #master.stage-2 #hero {
     transform: translateX(105vw);
 }
@@ -75,117 +61,83 @@ export default {
   right: 0;
   z-index: -1;
   background: $hero-bg-gradient;
-  transition: transform 1s cubic-bezier(1,0,0,1);
+  transition: transform 1s cubic-bezier(1, 0, 0, 1);
 
-
-  .glitch {
+  .title {
+    width: 25%;
     position: relative;
-    font-size: 5.6rem;
-    &--v1 {
-      &:before {
-        -webkit-animation: glitch--v2 2.2s linear;
-        animation: glitch--v2 2.2s linear;
-        animation-iteration-count: infinite;
-        animation-delay: 0.115s;
-      }
-      &:after {
-        -webkit-animation: glitch-anim-1 2s linear;
-        animation: glitch-anim-1 2s linear;
-        animation-iteration-count: infinite;
-        animation-delay: 0.055s;
-      }
-    }
-    &--v2 {
-      &:before {
-        -webkit-animation: glitch-anim-1 1.4s ease;
-        animation: glitch-anim-2 1.4s ease;
-        animation-iteration-count: infinite;
-        animation-delay: 0.315s;
-      }
-      &:after {
-        -webkit-animation: glitch--v2 1.2s linear;
-        animation: glitch--v2 1.2s linear;
-        animation-iteration-count: infinite;
-        animation-delay: 0.55s;
-      }
-    }
-    &:after,
-    &:before {
-      font-size: 5.6rem;
-      content: attr(data-text);
+    display: flex;
+    align-items: center;
+    height: 5rem;
+
+    .block {
+      width: 0%;
+      height: inherit;
+      background: $frog-green;
       position: absolute;
-      top: 0;
-      width: 100%;
-      background:$black;
-      clip: rect(0, 0, 0, 0);
-    }
-    &:before {
-      left: -2px;
-      text-shadow: 3px 0 rgba(252, 77, 122, 0.75);
-    }
-    &:after {
-      left: 2px;
-      text-shadow: -3px 0 $neutral-purple;
-    }
-  }
-
-  /** In order to make this work we have to give the rect large enough values to grow*/
-  @keyframes glitch--v2 {
-    0% {
-      clip: rect(9px, 9999px, 11px, 0);
+      animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+      display: flex;
+      border-radius: 4px;
     }
 
-    15% {
-      clip: rect(11px, 9999px, 38px, 0);
-    }
+    h2 {
+      font-size: 5.6rem;
+      font-weight: 700;
+      -webkit-animation: mainFadeIn 2s forwards;
+      -o-animation: mainFadeIn 2s forwards;
+      animation: mainFadeIn 2s forwards;
+      animation-delay: 1.6s;
+      opacity: 0;
+      display: flex;
+      align-items: baseline;
+      position: relative;
 
-    30% {
-      clip: rect(1px, 9999px, 26px, 0);
-    }
+      &.text-color-main {
+        background: $hero-title-gradient;
+        -webkit-background-clip: text;
+        background-clip: text;
 
-    50% {
-      clip: rect(0, 0, 0, 0);
-    }
+        -webkit-text-fill-color: transparent;
+        color: transparent;
 
-    70% {
-      clip: rect(23px, 9999px, 36px, 0);
-    }
+        background: -moz-linear-gradient(135deg, $salmon, $salmon_light); /* FF3.6+ */
 
-    80% {
-      clip: rect(0, 0, 0, 0);
-    }
-    100% {
-      clip: rect(9px, 9999px, 11px, 0);
-    }
-  }
+        background: -webkit-gradient(
+          135deg, $salmon, $salmon_light
+        ); /* Chrome,Safari4+ */
 
-  @keyframes glitch-anim-1 {
-    0% {
-      top: 4px;
-      left: 3px;
-      clip: rect(36px, 9999px, 44px, 0);
-    }
+        background: -webkit-linear-gradient(
+          135deg, $salmon, $salmon_light
+        ); /* Chrome10+,Safari5.1+ */
 
-    20% {
-      clip: rect(42px, 9999px, 147px, 0);
-    }
+        background: -o-linear-gradient(
+          135deg, $salmon, $salmon_light
+        ); /* Opera 11.10+ */
 
-    40% {
-      clip: rect(4px, 9999px, 100px, 0);
-    }
+        background: -ms-linear-gradient(
+         135deg, $salmon, $salmon_light
+        ); /* IE10+ */
+      }
 
-    60% {
-      clip: rect(71px, 9999px, 108px, 0);
-    }
+      &::after {
+        content: ".";
+        width: 0px;
+        height: 0px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
 
-    80% {
-      clip: rect(90px, 9999px, 140px, 0);
-    }
-
-    100% {
-      top: 1px;
-      left: 0;
-      clip: rect(128px, 9999px, 78px, 0);
+        background: $frog-green;
+        -webkit-animation: load 0.6s cubic-bezier(0.74, 0.06, 0.4, 0.92)
+          forwards;
+        animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        animation-delay: 2s;
+        margin-left: 5px;
+        margin-top: -10px;
+        position: absolute;
+        bottom: 13px;
+        right: -12px;
+      }
     }
   }
 
@@ -213,20 +165,20 @@ export default {
   }
 
   .home-nav {
-      a {
-          margin: 0 1rem;
-          font-size: 1.6rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: .15em;
-          color: $white;
-      }
+    a {
+      margin: 0 1rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: $white;
+    }
 
-      b {
-          font-size: 1.4rem;
-          color: $salmon;
-          font-weight: 900;
-      }
+    b {
+      font-size: 1.4rem;
+      color: $salmon;
+      font-weight: 900;
+    }
   }
 
   .cta-btn {
@@ -253,49 +205,108 @@ export default {
     text-decoration: none;
   }
 
-  .cta-btn-hero:hover:after {
-    width: 100%;
-  }
-
-  .cta-btn-hero:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    transition: all 0.1s ease-in;
-  }
-
   .hero-title {
     font-size: 5.6rem;
     font-weight: 700;
     margin-bottom: 3.2rem;
     text-align: left;
-
     .intro:after {
-        content: ".";
-        color: $frog-green;
+      content: ".";
+      color: $frog-green;
     }
+  }
+}
 
-    .text-color-main {
-      background-image: $hero-title-gradient;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-    }
+@keyframes mainBlock {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes secBlock {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes mainFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    width: 0px;
+    height: 0px;
+    background: $frog-green;
+    border: 0px solid #ddd;
+    opacity: 0;
+  }
+  50% {
+    width: 10px;
+    height: 10px;
+    background: $frog-green;
+    opacity: 1;
+    bottom: 45px;
+  }
+  65% {
+    width: 7px;
+    height: 7px;
+    bottom: 0px;
+    width: 15px;
+  }
+  80% {
+    width: 10px;
+    height: 10px;
+    bottom: 20px;
+  }
+  100% {
+    width: 7px;
+    height: 7px;
+    background: $frog-green;
+    border: 0px solid #222;
+    bottom: 13px;
   }
 }
 
 /** Media queries */
 @media (max-width: 75em) {
-  #hero .hero-title {
-    font-size: 4rem;
-
-    .span-name {
+  #hero {
+    .hero-title {
       font-size: 4rem;
+
+      .span-name {
+        font-size: 4rem;
+      }
+
+      .title {
+        width: 100%;
+        h2 {
+          font-size: 4rem;
+        }
+      }
     }
   }
 }
@@ -305,6 +316,13 @@ export default {
     .hero-title {
       font-size: 3.6rem;
       text-align: center;
+
+      .title {
+        justify-content: center;
+        h2 {
+          font-size: 3.6rem;
+        }
+      }
     }
 
     .span-name {
@@ -317,11 +335,26 @@ export default {
 }
 @media (max-width: 37.5em) {
   #hero {
-      padding: 0 1.6rem;
-      .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.5;
-  }
+    padding: 0 1.6rem;
+    .hero-title {
+      font-size: 3.5rem;
+      line-height: 1.5;
+
+      .title {
+        h2 {
+          font-size: 3.5rem;
+        }
+      }
+    }
+
+    .home-nav {
+      a {
+        font-size: 1.2rem;
+        margin: 0;
+        letter-spacing: 0;
+        padding: 1rem;
+      }
+    }
   }
   .span-name {
     font-size: 3.5rem;
@@ -329,8 +362,15 @@ export default {
 }
 
 @media (max-width: 20em) {
-  #hero .hero-title {
-    font-size: 2.8rem;
+  #hero {
+    .hero-title {
+      font-size: 2.8rem;
+      .title {
+        h2 {
+          font-size: 2.8rem;
+        }
+      }
+    }
   }
   .span-name {
     font-size: 2.8rem;

@@ -1,13 +1,13 @@
 <template>
   <section id="contact">
     <div class="container">
-      <h2 v-scrollanimation class="section-title">
+      <h2 data-aos="fade-in" class="section-title">
         {{ $t("contact.contact") }}
       </h2>
 
       <!-- The container that holds the form -->
-      <div v-scrollanimation class="container d-flex justify-content-center">
-        <div class="screen" style="max-width: 65%; min-width: 65%">
+      <div data-aos="fade-in" class="d-flex justify-content-center">
+        <div class="screen">
           <!-- MACOS screen header -->
           <div class="screen-header">
             <div class="screen-header-left">
@@ -38,14 +38,6 @@
                     class="app-form-control"
                     :placeholder="$t('contact.email')"
                     v-model="user.email"
-                  />
-                </div>
-                <div class="app-form-group">
-                  <input
-                    type="number"
-                    class="app-form-control"
-                    :placeholder="$t('contact.number')"
-                    v-model="user.number"
                   />
                 </div>
                 <div class="app-form-group message">
@@ -118,12 +110,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$salmon: #ff647c;
 
 .screen {
   position: relative;
   background: $screen-bg;
   border-radius: 15px;
+  width: 515px;
 }
 
 .screen:after {
@@ -321,6 +313,15 @@ $salmon: #ff647c;
 @media (max-width: 37.5em) {
   #contact .container .section-title {
     font-size: 2.8rem;
+    .app-form-group.buttons {
+        padding: 1rem;
+    }
   }
+}
+
+@media only screen and (max-width: 800px) {
+.screen {
+    width: 95%;
+}
 }
 </style>
