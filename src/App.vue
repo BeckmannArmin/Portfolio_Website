@@ -3,12 +3,12 @@
     <div class="welcome-section-wrapper w-100 position-relative">
       <div class="welcome-section-animated d-inline-flex w-100 h-100">
         <Hero />
-        <About :y300="y" />
+        <About :yOffset="y" />
       </div>
     </div>
     <div id="app" class="one">
       <!-- Navbar collapsed -->
-      <NavBarCollapsed />
+      <NavBarCollapsed :mode="mode" @toggle="toggle" />
       <!-- Navbar main -->
       <Header :mode="mode" @toggle="toggle" />
       <Experience />

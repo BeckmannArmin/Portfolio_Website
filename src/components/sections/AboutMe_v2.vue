@@ -7,23 +7,23 @@
       :style="style"
     >
       <div class="content d-inline-flex flex-row">
-        <div class="sc">
+        <div class="sc" style="transform: translate3d(0,0,0)">
           <span>{{ $t("about.openminded.start") }}</span>
         </div>
-        <div class="r">
+        <div class="r" style="transform: translate3d(0,0,0)">
           <span class="info-text-colored">{{
             $t("about.openminded.creative")
           }}</span>
         </div>
-        <div class="o">
+        <div class="o" style="transform: translate3d(0,0,0)">
           <span>{{ $t("about.openminded.middle") }}</span>
         </div>
-        <div class="l">
+        <div class="l" style="transform: translate3d(0,0,0)">
           <span class="info-text-colored">{{
             $t("about.openminded.open")
           }}</span>
         </div>
-        <div class="l1">
+        <div class="l1" style="transform: translate3d(0,0,0)">
           <span>{{ $t("about.openminded.try") }}</span>
         </div>
       </div>

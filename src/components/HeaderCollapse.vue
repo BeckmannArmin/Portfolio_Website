@@ -23,7 +23,7 @@
         @click="toggleClass"
       ></button>
     </div>
-    <Sidebar :class="{open : isOpen}" @toggleClose="closeMenu" style="transform: translateX(-100vw)" />
+    <Sidebar :mode="mode" @toggle="$emit('toggle')" :class="{open : isOpen}" @toggleClose="closeMenu" style="transform: translateX(-100vw)" />
     <Overlay :class="{open : isOpen}"/>
   </div>
 </template>
@@ -32,6 +32,7 @@
 import Sidebar from "./Sidebar.vue";
 import Overlay from "./Overlay.vue";
 export default {
+    props: ["mode"],
   data() {
     return {
       isOpen: false,

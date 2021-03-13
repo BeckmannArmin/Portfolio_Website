@@ -7,12 +7,15 @@
       <a :class="{active : isExperience}" @click="toggleExperience" href="#experience">{{ $t('experience.resume') }}</a>
       <a :class="{active : isProjects}" @click="toggleProjects" href="#projects">{{ $t('projects.projects') }}</a>
       <a :class="{active : isContact}" @click="toggleContacts" href="#contact">{{ $t('contact.contact') }}</a>
+      <a> <Toggle :mode="mode" @toggle="$emit('toggle')" /> </a>
     </div>
   </div>
 </template>
 
 <script>
+import Toggle from "./Toggler.vue";
 export default {
+     props: ["mode"],
     data() {
         return {
             isHome: false,
@@ -20,6 +23,9 @@ export default {
             isProjects: false,
             isContact: false
         }
+    },
+    components: {
+        Toggle
     },
     methods: {
         toggleHome() {

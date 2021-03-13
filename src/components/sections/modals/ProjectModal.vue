@@ -147,7 +147,7 @@ export default {
             margin: 0.5rem;
             border: 1px solid $frog-green;
             border-radius: 4px;
-            padding: 0.5rem;
+            padding: 0.75rem;
             color: $frog-green-light;
             font-weight: lighter;
             letter-spacing: 1px;
@@ -158,10 +158,8 @@ export default {
         .cta-btn {
           display: inline-block;
           position: relative;
-          padding: 0.8rem 1.6rem;
+          padding: 1.5rem 2rem;
           font-weight: 700;
-          height: 70px;
-          width: 150px;
           border-radius: 6px;
           background: none;
           line-height: 1;

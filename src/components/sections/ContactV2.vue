@@ -8,8 +8,8 @@
         >
           {{ $t("contact.contact") }}
         </h2>
-        <form class="contact-form validate-form">
-          <div data-aos="fade-down-right" data-aos-delay="100" class="input-wrapper validate-form">
+        <form data-aos="fade-down-right" class="contact-form validate-form">
+          <div  class="input-wrapper validate-form">
             <input
               class="input"
               type="text"
@@ -18,7 +18,7 @@
             />
             <span class="focus-input"></span>
           </div>
-          <div data-aos="fade-down-right" data-aos-delay="200" class="input-wrapper validate-form">
+          <div class="input-wrapper validate-form">
             <input
               class="input"
               type="text"
@@ -27,7 +27,7 @@
             />
             <span class="focus-input"></span>
           </div>
-          <div data-aos="fade-down-right" data-aos-delay="300" class="input-wrapper validate-form">
+          <div class="input-wrapper validate-form">
             <textarea
               class="input"
               name="message"
@@ -36,7 +36,7 @@
             ></textarea>
             <span class="focus-input"></span>
           </div>
-          <div data-aos="fade-down-right" data-aos-delay="400" class="btn-wrapper">
+          <div class="btn-wrapper">
             <button class="btn-submit" ref="btnSubmit" @click="handleSubmit">
               {{ $t("contact.send") }}
             </button>
