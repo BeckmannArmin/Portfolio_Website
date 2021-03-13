@@ -34,6 +34,7 @@
 
 
 <style lang="scss" scoped>
+/**
 #master.stage-0 {
   transform: translateX(0);
   color: $black;
@@ -42,6 +43,7 @@
 #master.stage-2 #hero {
   transform: translateX(105vw);
 }
+*/
 
 #hero {
   /** disable transformations */

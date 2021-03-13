@@ -62,7 +62,7 @@ export default {
   height: 55px;
   padding: 2rem;
   pointer-events: none;
-  background: #fff;
+  background: $white;
   transition: 0.1s;
   border-bottom-right-radius: 6px;
   box-shadow: 0 3px 7px 0 rgba(0,0,0, 0.4);

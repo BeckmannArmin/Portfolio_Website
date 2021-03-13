@@ -3,7 +3,7 @@
     <div class="welcome-section-wrapper w-100 position-relative">
       <div class="welcome-section-animated d-inline-flex w-100 h-100">
         <Hero />
-        <About :yOffset="y" />
+        <About />
       </div>
     </div>
     <div id="app" class="one">
@@ -68,14 +68,21 @@ export default {
   },
   methods: {
     handleScroll() {
+      var elmnt = document.querySelector("#hero");
+      var offSet = elmnt.offsetHeight;
       const navBar = document.querySelector(".navbar");
       const master = document.querySelector("#master");
+
       if (window.scrollY > 10) {
+           navBar.classList.add("bg-nav");
+      } else {
+           navBar.classList.remove("bg-nav");
+      }
+
+      if (window.scrollY > offSet) {
         master.classList.add("stage-1");
         master.classList.remove("stage-0");
-        navBar.classList.add("bg-nav");
       } else {
-        navBar.classList.remove("bg-nav");
         master.classList.remove("stage-1");
         master.classList.add("stage-0");
       }
@@ -83,10 +90,17 @@ export default {
       if (master.classList.contains("stage-1")) {
         this.y = -window.scrollY;
       } else {
-        this.y = 0;
+        this.y = -window.scrollY;
       }
-      this.transformLetters(this.y);
-
+      let secondSectionScroll = this.y + offSet;
+      if (secondSectionScroll < 0) {
+        this.transformLetters(secondSectionScroll);
+        this.transformAboutContent(secondSectionScroll);
+      }
+    },
+    transformAboutContent(scroll) {
+      const aboutContent = document.querySelector("#about-content");
+      aboutContent.style.transform = `translate3d(0, ${-scroll}px, 0)`;
     },
     transformLetters(scroll) {
       const sc = document.querySelector(".sc");
@@ -94,26 +108,21 @@ export default {
       const o = document.querySelector(".o");
       const l = document.querySelector(".l");
       const l1 = document.querySelector(".l1");
-      /** I am */
-      sc.style.transform = `translate3d(${-(scroll - 300) * 0.001}px, ${
-        -(scroll - 300) * 0.01
-      }px, 0) rotate(${-(scroll - 300) * 0.0008}deg)`;
-      /** creative */
-      r.style.transform = `translate3d(${-(scroll - 300) * 0.015}px, ${
-        -(scroll - 300) * 0.06
-      }px, 0) rotate(${-(scroll - 300) * 0.0016}deg)`;
-      /** and */
-      o.style.transform = `translate3d(${-(scroll - 300) * 0.025}px, ${
-        -(scroll - 300) * 0.08
-      }px, 0) rotate(${-(scroll - 300) * 0.0032}deg)`;
-      /** open minded developer */
-      l.style.transform = `translate3d(${-(scroll - 300) * 0.035}px, ${
-        -(scroll - 300) * 0.1
-      }px, 0) rotate(${-(scroll - 300) * 0.0032}deg)`;
-      /** and create modern and asthetically websites */
-      l1.style.transform = `translate3d(${-(scroll - 300) * 0.045}px, ${
-        -(scroll - 300) * 0.1
-      }px, 0) rotate(${-(scroll - 300) * 0.0032}deg)`;
+      sc.style.transform = `translate3d(${-scroll * 0.001}px, ${
+        -scroll * 0.01
+      }px, 0) rotate(${-scroll * 0.0008}deg)`;
+      r.style.transform = `translate3d(${-scroll * 0.015}px, ${
+        -scroll * 0.06
+      }px, 0) rotate(${-scroll * 0.0016}deg)`;
+      o.style.transform = `translate3d(${-scroll * 0.025}px, ${
+        -scroll * 0.08
+      }px, 0) rotate(${-scroll * 0.0032}deg)`;
+      l.style.transform = `translate3d(${-scroll * 0.035}px, ${
+        -scroll * 0.1
+      }px, 0) rotate(${-scroll * 0.0032}deg)`;
+      l1.style.transform = `translate3d(${-scroll * 0.045}px, ${
+        -scroll * 0.1
+      }px, 0) rotate(${-scroll * 0.0032}deg)`;
     },
     toggle() {
       const storedTheme = localStorage.getItem("theme-color");

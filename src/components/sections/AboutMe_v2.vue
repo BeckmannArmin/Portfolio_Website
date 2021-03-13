@@ -1,10 +1,8 @@
 <template>
   <section id="about" class="d-flex position-absolute">
     <div
-      data-aos="fade-in"
       class="d-flex justify-content-center flex-column w-100"
       id="about-content"
-      :style="style"
     >
       <div class="content d-inline-flex flex-row">
         <div class="sc" style="transform: translate3d(0,0,0)">
@@ -31,22 +29,9 @@
   </section>
 </template>
 
-<script>
-export default {
-  props: {
-    yOffset: Number,
-  },
-  computed: {
-    style() {
-      return {
-        transform: "translate3d(0, " + -(this.yOffset + window.innerHeight) + "px, 0)",
-      };
-    },
-  },
-};
-</script>
-
 <style lang="scss" scoped>
+
+/**
 #master.stage-0 #about {
   transform: translateX(-100vw);
 }
@@ -54,6 +39,7 @@ export default {
 #master.stage-2 #about {
   transform: translateX(0);
 }
+*/
 
 .dark {
   #about {
@@ -83,9 +69,12 @@ export default {
 
   #about-content {
     align-self: center;
+    position: absolute;
+    left: 5%;
 
     div.content {
-      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
       flex-wrap: wrap;
       font-size: 5rem;
       font-weight: 700;
@@ -131,8 +120,9 @@ export default {
 @media (max-width: 75em) {
   #about {
     #about-content {
+        left: 0;
       div.content {
-        font-size: 4rem;
+        font-size: 4.5rem;
       }
     }
   }
@@ -142,12 +132,17 @@ export default {
   #about {
     #about-content {
       transform: none !important;
+       left: 0;
       div.content {
-        font-size: 3.6rem;
         justify-content: flex-start !important;
+        width: 90% !important;
 
         div {
           transform: none !important;
+
+          span {
+            font-size: 4rem !important;
+          }
         }
       }
     }
@@ -157,8 +152,11 @@ export default {
   #about {
     #about-content {
       div.content {
-        font-size: 3.6rem;
-        left: 5%;
+        div {
+            span {
+                font-size: 3.6rem !important;
+            }
+        }
       }
     }
   }
