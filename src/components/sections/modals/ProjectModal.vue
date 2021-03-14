@@ -15,7 +15,7 @@
             </li>
           </ul>
           <button class="cta-btn cta-btn-project">
-            {{ $t("projects.view") }}
+            <a :href="href" target="_blank"> {{ $t("projects.view") }}</a>
           </button>
         </div>
         <p class="project-message">{{ name }} {{ summary }}</p>
@@ -168,17 +168,21 @@ export default {
           transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
         }
         .cta-btn-project {
-          color: $frog-green-light;
           border: 1px solid $frog-green;
+        }
+
+        a {
+          color: $frog-green-light;
+          text-decoration: none;
         }
 
         a:hover {
           transition: all 0.3s ease-in-out;
+          color: $frog-green;
         }
 
         .cta-btn-project:hover {
           color: $frog-green;
-          text-decoration: none;
         }
 
         .cta-btn:after {
@@ -212,31 +216,31 @@ export default {
         text-align: left;
       }
 
-     img.project-img {
+      img.project-img {
         width: 35%;
         border-radius: 8px;
         margin: 42px auto 75px;
         background: #fff;
         padding: 24px;
-       box-shadow: 0 3px 7px 0 rgba(0,0,0, 0.4);;
+        box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4);
       }
     }
   }
 }
 
 @media (max-width: 56.25em) {
+  p {
+    font-size: 1.6rem !important;
+    text-align: center !important;
+  }
 
-    p {
-        font-size: 1.6rem !important;
-        text-align: center !important;
-    }
+  h1.title {
+    font-size: 2.5rem !important;
+    padding: 0 2rem;
+  }
 
-    h1.title {
-        font-size: 4rem !important;
-    }
-
-    img.project-img {
-        width: 80% !important;
-      }
+  img.project-img {
+    width: 80% !important;
+  }
 }
 </style>
