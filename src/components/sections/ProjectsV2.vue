@@ -128,7 +128,7 @@ export default {
 .dark {
     #projects {
         background: $bg-dark;
-
+        padding-top: 180px;
         .section-title {
             color: $section-title-dark;
             &:after {

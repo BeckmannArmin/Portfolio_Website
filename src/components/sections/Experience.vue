@@ -109,6 +109,7 @@
 
 .dark {
  #experience {
+     padding-top: 180px;
      background: $bg-dark;
      .section-title {
          color: $section-title-dark;
