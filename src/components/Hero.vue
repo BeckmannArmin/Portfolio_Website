@@ -94,7 +94,7 @@
       animation: mainFadeIn 2s forwards;
       animation-delay: 1.6s;
       opacity: 0;
-      display: flex;
+      display: block;
       align-items: baseline;
       position: relative;
 
@@ -102,7 +102,6 @@
         background: $hero-title-gradient;
         -webkit-background-clip: text;
         background-clip: text;
-
         -webkit-text-fill-color: transparent;
         color: transparent;
 
