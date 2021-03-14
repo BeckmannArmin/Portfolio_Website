@@ -128,7 +128,6 @@ export default {
 .dark {
     #projects {
         background: $bg-dark;
-        padding-top: 180px;
         .section-title {
             color: $section-title-dark;
             &:after {
@@ -163,7 +162,7 @@ a {
   text-align: center;
   position: relative;
   padding-bottom: 180px;
-  padding-top: 100px;
+  padding-top: 180px;
 
   .section-title {
     margin: 0 0 4.5rem;

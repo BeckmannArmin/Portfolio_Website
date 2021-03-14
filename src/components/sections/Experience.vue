@@ -109,7 +109,6 @@
 
 .dark {
  #experience {
-     padding-top: 180px;
      background: $bg-dark;
      .section-title {
          color: $section-title-dark;
@@ -128,7 +127,7 @@
   p {
     font-size: 1.6rem;
   }
-  padding: 3rem 0;
+  padding-top: 180px;
   .section-title {
     position: relative;
     margin: 0 0 4.5rem;
