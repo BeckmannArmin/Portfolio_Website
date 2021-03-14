@@ -1,13 +1,13 @@
 /** main colors */
-$salmon: #e91e63;
-$salmon_light: #FF647C;
+$fuchsia: #e91e63;
+$fuchsia_light: #FF647C;
 $text-main: #1a171a;
 $background-overlay: rgba(37, 37, 37, 0.85);
 $bg-black: #111111;
 
 /** gradient colors */
 $hero-bg-gradient: radial-gradient(#252525,#181818);
-$hero-title-gradient: linear-gradient(135deg, $salmon, $salmon_light);
+$hero-title-gradient: linear-gradient(135deg, $fuchsia, $fuchsia_light);
 $contact-bg-gradient: linear-gradient(135deg, #CDDDF4, #CDBAFA);
 $contact-bg-gradient-reversed: linear-gradient(135deg, #CDDDF4, #CDBAFA);
 $footer-bg-gradient: linear-gradient(135deg, #CDD2F6, #CDBAFA);
@@ -44,7 +44,7 @@ $clip-path-polygon: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
 $bg-dark: radial-gradient(#252525, #181818);
 $bg-dark-linear: linear-gradient(135deg,#252525, #181818);
 $box-shadow-dark: 0 -75px 50px $bg-dark;
-$box-shadow-light: 0 -75px 50px $salmon;
+$box-shadow-light: 0 -75px 50px $fuchsia;
 $footer-bg-dark: #2E3445;
 $footer-text-dark: #73CCA8;
 $body-bg-dark: #222733;

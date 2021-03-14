@@ -132,7 +132,7 @@ export default {
 
           &::after {
             content: ".";
-            color: $salmon;
+            color: $fuchsia;
           }
         }
 

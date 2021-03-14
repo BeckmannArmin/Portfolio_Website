@@ -107,32 +107,32 @@
 
         background: -moz-linear-gradient(
           135deg,
-          $salmon,
-          $salmon_light
+          $fuchsia,
+          $fuchsia_light
         ); /* FF3.6+ */
 
         background: -webkit-gradient(
           135deg,
-          $salmon,
-          $salmon_light
+          $fuchsia,
+          $fuchsia_light
         ); /* Chrome,Safari4+ */
 
         background: -webkit-linear-gradient(
           135deg,
-          $salmon,
-          $salmon_light
+          $fuchsia,
+          $fuchsia_light
         ); /* Chrome10+,Safari5.1+ */
 
         background: -o-linear-gradient(
           135deg,
-          $salmon,
-          $salmon_light
+          $fuchsia,
+          $fuchsia_light
         ); /* Opera 11.10+ */
 
         background: -ms-linear-gradient(
           135deg,
-          $salmon,
-          $salmon_light
+          $fuchsia,
+          $fuchsia_light
         ); /* IE10+ */
       }
 
@@ -193,7 +193,7 @@
 
     b {
       font-size: 1.4rem;
-      color: $salmon;
+      color: $fuchsia;
       font-weight: 900;
     }
   }
@@ -210,7 +210,7 @@
   }
 
   .cta-btn-hero {
-    color: $salmon;
+    color: $fuchsia;
   }
 
   a:hover {
@@ -218,7 +218,7 @@
   }
 
   .cta-btn-hero:hover {
-    color: $salmon;
+    color: $fuchsia;
     text-decoration: none;
   }
 

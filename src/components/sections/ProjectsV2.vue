@@ -131,7 +131,7 @@ export default {
         .section-title {
             color: $section-title-dark;
             &:after {
-                color: $salmon;
+                color: $fuchsia;
             }
         }
 
@@ -192,7 +192,7 @@ a {
 
     .btn.active {
       color: $white;
-      background: $salmon;
+      background: $fuchsia;
       border-radius: 6px;
     }
   }
@@ -239,7 +239,7 @@ a {
     min-height: 275px;
     min-width: 250px;
     margin: 16px 12px 0;
-    background: $salmon;
+    background: $fuchsia;
     border-radius: 6px;
     position: relative;
     flex: 1;
@@ -301,7 +301,7 @@ a {
     a {
       padding: 10px 26px;
       color: $white;
-      border: 2px solid $salmon;
+      border: 2px solid $fuchsia;
       transition: all 0.375s $project-transition;
       z-index: 3;
     }

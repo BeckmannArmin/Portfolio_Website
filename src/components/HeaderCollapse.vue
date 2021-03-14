@@ -83,7 +83,7 @@ export default {
 }
 
 .menu-icon-wrapper svg path {
-  stroke: $salmon-light;
+  stroke: $fuchsia-light;
   stroke-width: 40px;
   stroke-linecap: round;
   stroke-linejoin: round;

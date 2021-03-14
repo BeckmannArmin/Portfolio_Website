@@ -228,7 +228,7 @@ export default {
 }
 
 .app-form-control:focus {
-  border-bottom-color: $salmon;
+  border-bottom-color: $fuchsia;
 }
 
 .app-form-button {
@@ -238,15 +238,15 @@ export default {
 }
 
 .app-form-button.btn-cancel {
-  color: $salmon;
+  color: $fuchsia;
   border: none;
   background: none;
 }
 
 .app-form-button.btn-submit {
   color: #fff;
-  background: $salmon;
-  border: 1px solid $salmon;
+  background: $fuchsia;
+  border: 1px solid $fuchsia;
   padding: 10px;
   border-radius: 10px;
 
@@ -256,7 +256,7 @@ export default {
 }
 
 .app-form-button.btn-cancel:hover {
-  color: rgba($color: $salmon, $alpha: 0.5);
+  color: rgba($color: $fuchsia, $alpha: 0.5);
 }
 
 #contact {

@@ -46,7 +46,7 @@
     #about-content {
       div.content {
         .l1:after {
-          color: $salmon;
+          color: $fuchsia;
         }
         div {
           span.info-text-colored {

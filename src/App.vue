@@ -147,7 +147,7 @@ export default {
 /** We split our Welcome section which scrolls horizontally and our #app which scrolls vertically */
 .welcome-section-wrapper {
   height: 150vh;
-  background-color: $salmon;
+  background-color: $fuchsia;
 
   &:after {
     content: "";
@@ -162,7 +162,7 @@ export default {
     position: absolute;
     bottom: -1px;
     z-index: 3;
-    box-shadow: 0 -75px 50px $salmon;
+    box-shadow: 0 -75px 50px $fuchsia;
   }
 
   .welcome-section-animated {

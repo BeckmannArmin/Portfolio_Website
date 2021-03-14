@@ -195,11 +195,11 @@ export default {
         transform-origin: 100% 0;
       }
       &:hover:after {
-        border-color: $salmon;
+        border-color: $fuchsia;
         height: 120%;
       }
       &:hover:before {
-        border-color: $salmon;
+        border-color: $fuchsia;
         transform: scale(0.8);
       }
     }

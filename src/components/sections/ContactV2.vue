@@ -94,7 +94,7 @@ export default {
         .section-title {
           color: $section-title-dark;
           &:after {
-            color: $salmon;
+            color: $fuchsia;
           }
         }
       }
@@ -215,8 +215,8 @@ export default {
 
           .btn-submit {
             color: #fff;
-            background: $salmon;
-            border: 1px solid $salmon;
+            background: $fuchsia;
+            border: 1px solid $fuchsia;
             font-weight: 700;
             font-size: 1.6rem;
             padding: 10px;

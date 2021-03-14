@@ -109,7 +109,7 @@ export default {
     bottom: 0;
     height: 8px;
     width: 0;
-    background: $salmon-light;
+    background: $fuchsia-light;
     opacity: .75;
       }
     }
