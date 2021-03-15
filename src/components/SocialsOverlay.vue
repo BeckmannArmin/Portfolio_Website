@@ -7,7 +7,7 @@
       <a href="https://www.linkedin.com/in/armin-beckmann/" target="_blank">
         <font-awesome-icon :icon="['fab', 'linkedin-in']" />
       </a>
-      <a href="https://www.linkedin.com/in/armin-beckmann/" target="_blank">
+      <a href="https://codepen.io/Preefix99" target="_blank">
         <font-awesome-icon :icon="['fab', 'codepen']" />
       </a>
     </div>

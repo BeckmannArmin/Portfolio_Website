@@ -26,6 +26,9 @@
               >
                 <font-awesome-icon :icon="['fab', 'linkedin-in']" />
               </a>
+               <a href="https://codepen.io/Preefix99" target="_blank">
+                <font-awesome-icon :icon="['fab', 'codepen']" />
+              </a>
             </div>
             <div class="info pt-4">
               <div class="deal-with-it">
