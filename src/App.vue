@@ -1,5 +1,6 @@
 <template>
   <div id="master" class="stage-0 h-100 w-100 position-relative" :class="mode">
+    <Preloader />
     <div class="welcome-section-wrapper w-100 position-relative">
       <div class="welcome-section-animated d-inline-flex w-100 h-100">
         <Hero />
@@ -28,6 +29,7 @@ import Header from "./components/Header.vue";
 import About from "./components/sections/AboutMe_v2.vue";
 import NavBarCollapsed from "./components/HeaderCollapse.vue";
 import ContactV2 from "./components/sections/ContactV2.vue";
+import Preloader from "./components/Preloader.vue";
 
 export default {
   name: "App",
@@ -40,6 +42,7 @@ export default {
     Projects,
     ContactV2,
     NavBarCollapsed,
+    Preloader
   },
   data() {
     return {
@@ -62,11 +65,19 @@ export default {
       this.currentTheme = localStorage.setItem("theme-color", "light");
     }
     window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("DOMContentLoaded", this.onLoad);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("DOMContentLoaded", this.onLoad);
   },
   methods: {
+      onLoad() {
+          const loader = document.querySelector("#preloader");
+          const master = document.querySelector("#master");
+          loader.classList.add("leave");
+          master.classList.add("enter");
+      },
     handleScroll() {
       var elmnt = document.querySelector("#hero");
       var offSet = elmnt.offsetHeight;
@@ -143,6 +154,16 @@ export default {
 <style lang="scss">
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
+
+#master {
+    transition: opacity .475s ease-in-out,transform .45s cubic-bezier(1,0,0,1),border-radius .35s ease-in-out!important;
+    opacity: 0;
+    border-radius: 6px;
+    z-index: 972;
+   &.enter {
+       opacity: 1;
+   }
+}
 
 /** We split our Welcome section which scrolls horizontally and our #app which scrolls vertically */
 .welcome-section-wrapper {
