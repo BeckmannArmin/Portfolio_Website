@@ -7,10 +7,10 @@ import en from './locales/en.json';
 import de from './locales/de.json';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedinIn, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faGithub,faLinkedinIn)
+library.add(faGithub,faLinkedinIn, faCodepen)
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';

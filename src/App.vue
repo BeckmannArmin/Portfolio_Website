@@ -1,6 +1,7 @@
 <template>
   <div id="master" class="stage-0 h-100 w-100 position-relative" :class="mode">
     <Preloader />
+    <SocialsExternal />
     <div class="welcome-section-wrapper w-100 position-relative">
       <div class="welcome-section-animated d-inline-flex w-100 h-100">
         <Hero />
@@ -30,6 +31,7 @@ import About from "./components/sections/AboutMe_v2.vue";
 import NavBarCollapsed from "./components/HeaderCollapse.vue";
 import ContactV2 from "./components/sections/ContactV2.vue";
 import Preloader from "./components/Preloader.vue";
+import SocialsExternal from "./components/SocialsOverlay.vue";
 
 export default {
   name: "App",
@@ -42,7 +44,8 @@ export default {
     Projects,
     ContactV2,
     NavBarCollapsed,
-    Preloader
+    Preloader,
+    SocialsExternal
   },
   data() {
     return {
@@ -74,9 +77,7 @@ export default {
   methods: {
       onLoad() {
           const loader = document.querySelector("#preloader");
-          const master = document.querySelector("#master");
           loader.classList.add("leave");
-          master.classList.add("enter");
       },
     handleScroll() {
       var elmnt = document.querySelector("#hero");
@@ -157,12 +158,9 @@ export default {
 
 #master {
     transition: opacity .475s ease-in-out,transform .45s cubic-bezier(1,0,0,1),border-radius .35s ease-in-out!important;
-    opacity: 0;
+    opacity: 1;
     border-radius: 6px;
     z-index: 972;
-   &.enter {
-       opacity: 1;
-   }
 }
 
 /** We split our Welcome section which scrolls horizontally and our #app which scrolls vertically */

@@ -1,5 +1,5 @@
 <template>
-  <div id="navbar-collapse" class="fixed-top">
+  <div id="navbar-collapse" class="fixed--top">
     <div
       id="menu-icon-wrapper"
       class="menu-icon-wrapper"
@@ -56,6 +56,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.fixed--top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+}
 
 .menu-icon-wrapper {
   width: 55px;

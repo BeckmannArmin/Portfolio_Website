@@ -30,7 +30,7 @@
   &.leave {
     animation: disappear .475s cubic-bezier(.165,.84,.44,1);
     animation-fill-mode: forwards;
-    animation-delay: .35s;
+    animation-delay: 1s;
   }
 }
 
