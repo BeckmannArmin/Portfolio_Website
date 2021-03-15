@@ -74,9 +74,9 @@ export default {
       const master = document.querySelector("#master");
 
       if (window.scrollY > 10) {
-           navBar.classList.add("bg-nav");
+        navBar.classList.add("bg-nav");
       } else {
-           navBar.classList.remove("bg-nav");
+        navBar.classList.remove("bg-nav");
       }
 
       if (window.scrollY > offSet) {
@@ -171,6 +171,20 @@ export default {
     z-index: 3;
     overflow: hidden;
   }
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+  background-color: #171a1d;
+  border-radius: 3px;
+}
+body::-webkit-scrollbar-track {
+  background-color: #171a1d;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  border: 0;
+  background-color: $frog-green;
 }
 
 body,

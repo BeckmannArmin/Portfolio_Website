@@ -162,7 +162,7 @@ a {
   text-align: center;
   position: relative;
   padding-bottom: 180px;
-  padding-top: 180px;
+  padding-top: 90px;
 
   .section-title {
     margin: 0 0 4.5rem;

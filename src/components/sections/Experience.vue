@@ -127,7 +127,8 @@
   p {
     font-size: 1.6rem;
   }
-  padding-top: 180px;
+  padding-top: 90px;
+  padding-bottom: 90px;
   .section-title {
     position: relative;
     margin: 0 0 4.5rem;
