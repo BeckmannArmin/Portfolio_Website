@@ -209,6 +209,7 @@ body::-webkit-scrollbar-thumb {
 body,
 html {
   overflow-x: hidden;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 /** We set a font size of 62.5% what gives us 10px in relation */
@@ -218,7 +219,7 @@ html {
   overflow-y: scroll;
 }
 #app {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
