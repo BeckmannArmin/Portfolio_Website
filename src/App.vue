@@ -8,7 +8,7 @@
         <About />
       </div>
     </div>
-    <div id="app" class="one">
+    <div id="app">
       <!-- Navbar collapsed -->
       <NavBarCollapsed :mode="mode" @toggle="toggle" />
       <!-- Navbar main -->

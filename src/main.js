@@ -9,6 +9,7 @@ import de from './locales/de.json';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faLinkedinIn, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import animejs from "animejs";
 
 library.add(faGithub,faLinkedinIn, faCodepen)
 
@@ -31,6 +32,7 @@ Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.config.productionTip = false
 Vue.use(VueI18n)
+Vue.use(animejs);
 
 
 var lang = localStorage.getItem('lang');

@@ -118,7 +118,7 @@
      }
 
      .subsection-title {
-         color: $frog-green-light;
+         color: $frog-green;
      }
  }
 }

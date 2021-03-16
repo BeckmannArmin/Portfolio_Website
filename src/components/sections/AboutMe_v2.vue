@@ -154,7 +154,7 @@
       div.content {
         div {
             span {
-                font-size: 3.6rem !important;
+                font-size: 3.2rem !important;
             }
         }
       }

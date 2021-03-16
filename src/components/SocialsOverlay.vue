@@ -1,6 +1,6 @@
 <template>
   <div id="socials-overlay">
-    <div class="container">
+    <div class="socials-wrapper">
       <a href="https://github.com/BeckmannArmin" target="_blank">
         <font-awesome-icon :icon="['fab', 'github']" />
       </a>
@@ -16,24 +16,26 @@
 
 <style lang="scss" scoped>
 #socials-overlay {
-  position: absolute;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  right: 2%;
-  list-style: none;
-  transform: translateY(50%);
-  -webkit-transform: translateY(50%);
-  transition: opacity 0.35s ease 0.75s;
-  z-index: 7;
+  .socials-wrapper {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    right: 2%;
+    list-style: none;
+    transform: translateY(50%);
+    -webkit-transform: translateY(50%);
+    transition: opacity 0.35s ease 0.75s;
+    z-index: 7;
 
-  a {
-    padding: 2rem;
-    font-size: 5rem;
-    svg {
-      color: $white;
+    a {
+      padding: 2rem;
+      font-size: 5rem;
+      svg {
+        color: $white;
 
-      &:hover {
-        color: $fuchsia;
+        &:hover {
+          color: $fuchsia;
+        }
       }
     }
   }
@@ -41,25 +43,28 @@
 
 @media (max-width: 800px) {
   #socials-overlay {
-    position: fixed;
-    z-index: 980;
-    transform: none;
-    transition: all 0.35s ease-in-out;
-    flex-flow: row !important;
-    background: $white;
-    top: 0;
-    display: block;
-    right: 0;
-    border-bottom-left-radius: 6px;
-    box-shadow: 0 3px 7px 0 rgba(0,0,0, 0.4);
-    height: 55px;
+    .socials-wrapper {
+      position: fixed;
+      z-index: 980;
+      transform: none;
+      transition: all 0.35s ease-in-out;
+      flex-flow: row !important;
+      background: $white;
+      top: 0;
+      display: flex;
+      align-items: center;
+      right: 0;
+      border-bottom-left-radius: 6px;
+      box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4);
+      height: 55px;
 
-    a {
-      padding: 1.4rem;
-      font-size: 2.8rem !important;
+      a {
+        padding: 1.4rem;
+        font-size: 2.8rem !important;
 
-      svg {
-        color: $fuchsia !important;
+        svg {
+          color: $fuchsia !important;
+        }
       }
     }
   }
@@ -69,7 +74,6 @@
   #socials-overlay {
     a {
       font-size: 2.8rem !important;
-
     }
   }
 }
