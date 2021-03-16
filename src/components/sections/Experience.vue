@@ -134,7 +134,6 @@
     margin: 0 0 4.5rem;
     font-size: 4.5rem;
     font-weight: 700;
-    text-transform: uppercase;
 
     &:after {
       content: ".";
@@ -154,7 +153,6 @@
     margin: 0 0 4.5rem;
     font-size: 3rem;
     font-weight: 600;
-    text-transform: uppercase;
   }
 
   .subsubsection-title {
@@ -162,7 +160,6 @@
     margin: 0 0 4.5rem;
     font-size: 2.5rem;
     font-weight: 600;
-    text-transform: uppercase;
   }
 
   .fuchsia-text {

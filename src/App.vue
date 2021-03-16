@@ -155,6 +155,7 @@ export default {
 <style lang="scss">
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
 
 #master {
     transition: opacity .475s ease-in-out,transform .45s cubic-bezier(1,0,0,1),border-radius .35s ease-in-out!important;
@@ -225,6 +226,11 @@ html {
   text-align: center;
   color: $text-main;
   font-size: 62.5%;
+
+
+  p {
+      font-family: 'Roboto Slab', serif;
+  }
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

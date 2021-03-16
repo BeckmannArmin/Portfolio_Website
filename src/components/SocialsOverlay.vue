@@ -24,6 +24,7 @@
   transform: translateY(50%);
   -webkit-transform: translateY(50%);
   transition: opacity 0.35s ease 0.75s;
+  box-shadow: 0 3px 7px 0 rgba(0,0,0, 0.4);
   z-index: 7;
 
   a {

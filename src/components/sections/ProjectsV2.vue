@@ -168,7 +168,6 @@ a {
     margin: 0 0 4.5rem;
     font-size: 4rem;
     font-weight: 700;
-    text-transform: uppercase;
 
     &:after {
       content: ".";
