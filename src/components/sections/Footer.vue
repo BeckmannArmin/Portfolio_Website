@@ -26,7 +26,7 @@
               >
                 <font-awesome-icon :icon="['fab', 'linkedin-in']" />
               </a>
-               <a href="https://codepen.io/Preefix99" target="_blank">
+              <a href="https://codepen.io/Preefix99" target="_blank">
                 <font-awesome-icon :icon="['fab', 'codepen']" />
               </a>
             </div>
@@ -44,13 +44,13 @@
                   alt="deal with it"
                   class="deal-with-it-img"
                   src="../../assets/deal-with-it.png"
-                  :style="{opacity: opacity + '!important'}"
+                  :style="{ opacity: opacity + '!important' }"
                 />
                 <img
-                alt="im on fire"
-                class="fire-img"
-                src="../../assets/burn-baby-burn.gif"
-                :style="{opacity: opacity + '!important'}"
+                  alt="im on fire"
+                  class="fire-img"
+                  src="../../assets/burn-baby-burn.gif"
+                  :style="{ opacity: opacity + '!important' }"
                 />
               </div>
             </div>
@@ -59,6 +59,7 @@
             </a>
           </div>
         </div>
+        <LocaleSwitcher />
       </div>
     </footer>
   </section>
@@ -68,9 +69,9 @@
 import LocaleSwitcher from "../LocaleSwitcher.vue";
 export default {
   data() {
-      return {
-          opacity: 0,
-      }
+    return {
+      opacity: 0,
+    };
   },
   components: {
     // eslint-disable-next-line vue/no-unused-components
@@ -80,11 +81,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .dark {
-    #footer {
-        background-image: $bg-dark;
-    }
+  #footer {
+    background-image: $bg-dark;
+  }
 }
 /** reversed gradient of contact section */
 #footer {
@@ -120,6 +120,10 @@ export default {
 
         svg {
           color: $white;
+
+          &:hover {
+              color: $fuchsia;
+          }
         }
       }
     }
@@ -151,7 +155,7 @@ export default {
         flex: 1;
 
         .image-me {
-            z-index: 2;
+          z-index: 2;
         }
 
         .deal-with-it-img {
@@ -164,7 +168,6 @@ export default {
           -ms-flex-item-align: end;
           align-self: flex-end;
           opacity: 0;
-
         }
         .fire-img {
           position: absolute;
@@ -218,6 +221,10 @@ export default {
         cursor: pointer;
         font-size: 1.6rem;
         padding-top: 2rem;
+
+        &:hover {
+            color: $fuchsia;
+        }
       }
     }
 

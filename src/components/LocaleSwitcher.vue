@@ -1,5 +1,5 @@
 <template>
-  <div class="locale-changer container">
+  <div class="locale-changer">
     <select v-model="localLang">
       <option value="choose-one" class="choose-lang" disabled="true">
         {{ $t("footer.chooselang") }}
@@ -30,17 +30,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  margin: 1rem 0 1rem !important;
-
+.locale-changer {
+  margin: 1rem auto 2rem;
   select {
     background: #fff;
-    border-radius: 10px;
-    height: 25px;
+    border-radius: 6px;
+    height: 35px;
     width: 150px;
+    font-size: 1.6rem;
 
     .choose-lang {
-        width: 150px;
+      width: 150px;
     }
   }
 }
