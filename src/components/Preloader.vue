@@ -22,7 +22,7 @@
         <g
           id="strokes"
           fill="none"
-          stroke="#bc85ff"
+          stroke="#e91e63"
           stroke-linecap="round"
           stroke-linejoin="round"
         >
@@ -43,7 +43,7 @@
         <g
           id="strokes2"
           fill="none"
-          stroke="#6fdcbf"
+          stroke="#cbe2be"
           stroke-linecap="round"
           stroke-linejoin="round"
         >
@@ -113,12 +113,8 @@ export default {
     align-items: center;
     justify-content: center;
 
-    .logo-dark {
-      fill: #fff;
-    }
-
     .logo-large {
-      width: 15vw;
+      width: 35%;
     }
 
     .cog {
