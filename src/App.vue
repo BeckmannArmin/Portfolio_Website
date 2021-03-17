@@ -77,7 +77,11 @@ export default {
   methods: {
       onLoad() {
           const loader = document.querySelector("#preloader");
-          loader.classList.add("leave");
+          const wrapper = document.querySelector(".welcome-section-wrapper");
+          setTimeout(() => {
+            loader.classList.add("leave");
+            wrapper.classList.add("enter");
+          }, 1500);
       },
     handleScroll() {
       var elmnt = document.querySelector("#hero");
@@ -157,17 +161,18 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
 
-#master {
-    transition: opacity .475s ease-in-out,transform .45s cubic-bezier(1,0,0,1),border-radius .35s ease-in-out!important;
-    opacity: 1;
-    border-radius: 6px;
-    z-index: 972;
-}
 
 /** We split our Welcome section which scrolls horizontally and our #app which scrolls vertically */
 .welcome-section-wrapper {
   height: 150vh;
   background-color: $fuchsia;
+
+    transition: opacity .475s ease-in-out,transform .45s cubic-bezier(1,0,0,1),border-radius .35s ease-in-out!important;
+    opacity: 0;
+
+    &.enter {
+        opacity: 1;
+    }
 
   &:after {
     content: "";
