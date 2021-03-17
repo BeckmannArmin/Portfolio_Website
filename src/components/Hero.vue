@@ -110,11 +110,11 @@ export default {
           e = e.touches[0];
         }
 
-        /** We generate a random number that lies between our window and that should´t go voer the bounds */
-        var winWidth = window.innerWidth;
-        var winHeight = window.innerHeight;
-        var randomX = getRandomNumber(0, winHeight);
-        var randomY = getRandomNumber(0, winWidth);
+        /** We generate a random number that lies between our window and that should´t go over the bounds */
+        var winWidth = window.innerWidth / 10;
+        var winHeight = window.innerHeight / 10;
+        var randomX = getRandomNumber(winWidth, winHeight);
+        var randomY = getRandomNumber(winHeight, winWidth);
 
         const rippleBtn = document.querySelector("#rippleBtn");
         rippleBtn.style.transform = `translateX(${randomX}px) translateY(${randomY}px)`;
@@ -272,7 +272,7 @@ export default {
       }
 
       function getRandomNumber(min, max) {
-        return Math.random() * (max - min) + min;
+       return Math.random() * (max - min) + min;
       }
     },
   },
@@ -355,7 +355,6 @@ canvas {
       animation: mainFadeIn 2s forwards;
       animation-delay: 3s;
       opacity: 0;
-      mix-blend-mode: difference;
 
       &.text-color-main {
         background: $hero-title-gradient;
