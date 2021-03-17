@@ -1,6 +1,8 @@
 <template>
   <div id="hero" class="jumbotron">
+    <!-- The canvas which fills our screen on toggle -->
     <canvas id="c"></canvas>
+    <!-- My personal logo -->
     <div class="brand">
       <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
         <symbol id="logo" viewBox="0 0 848.48 722.27">
@@ -19,6 +21,7 @@
         ></use>
       </svg>
     </div>
+    <!-- Hero title and subtitle -->
     <div class="container d-flex flex-column">
       <h1 class="hero-title">
         <span>
@@ -408,7 +411,12 @@ canvas {
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: $white;
+      text-decoration: none;
       mix-blend-mode: difference;
+
+      &:hover {
+          color: $fuchsia-light;
+      }
     }
 
     b {
