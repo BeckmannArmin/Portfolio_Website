@@ -69,6 +69,7 @@
 </template>
 
 <script>
+import anime from 'animejs/lib/anime.es.js';
 
 export default {
   mounted() {
@@ -76,6 +77,17 @@ export default {
   },
   methods: {
     animateLogo() {
+          anime({
+        targets: ".preloader-container g path",
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: "easeInOutSine",
+        duration: 1500,
+        delay: function (el, i) {
+          return i * 250;
+        },
+        direction: "alternate",
+        loop: false,
+      });
     },
   },
 };
