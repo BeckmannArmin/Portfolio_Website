@@ -69,7 +69,6 @@
 </template>
 
 <script>
-import gsap from "gsap";
 
 export default {
   mounted() {
@@ -77,22 +76,6 @@ export default {
   },
   methods: {
     animateLogo() {
-      gsap.set(".path", {
-        drawSVG: "0% 0%",
-      });
-
-      var tl = gsap.timeline({ delay: 1.5 });
-
-      tl.addLabel("i", 2.85)
-        .set(".logo", { autoAlpha: 1 })
-        .to(".cPath", 0.5, { drawSVG: "100%", ease: "easeNone" }, 0.2)
-        .to(
-          ".a1Path",
-          0.25,
-          { drawSVG: "100%", ease: "easeNone" },
-          0.2,
-          "-=0.35"
-        );
     },
   },
 };

@@ -18,11 +18,6 @@ import 'aos/dist/aos.css';
 
 AOS.init();
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
