@@ -111,8 +111,8 @@ export default {
         }
 
         /** We generate a random number that lies between our window and that should´t go over the bounds */
-        var winWidth = window.innerWidth / 10;
-        var winHeight = window.innerHeight / 10;
+        var winWidth = window.innerWidth / 5;
+        var winHeight = window.innerHeight / 5;
         var randomX = getRandomNumber(winWidth, winHeight);
         var randomY = getRandomNumber(winHeight, winWidth);
 
