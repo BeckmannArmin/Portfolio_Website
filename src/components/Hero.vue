@@ -1,27 +1,20 @@
 <template>
   <div id="hero" class="jumbotron">
     <canvas id="c"></canvas>
-    <div class="container d-flex flex-column align-items-center">
+    <div class="container d-flex flex-column">
       <h1 class="hero-title">
         <span data-aos="fade-in">
-          Hi, {{ $t("hero.introduction.name") }}
-          <span data-text="Nimra" class="span-name text-color-main">
+          <span class="text-color-main">
             <span class="title">
               <span class="block"></span>
-              <h2 class="text-color-main">
-                Armin
-                <button
-                  id="rippleBtn"
-                  type="button"
-                  class="ripple-btn"
-                ></button>
-              </h2>
+              <h2 class="text-color-main">Armin Beckmann</h2>
             </span>
           </span>
         </span>
-        <span class="intro" data-aos="fade-in">{{
-          $t("hero.introduction.frontend")
-        }}</span>
+        <span class="intro" data-aos="fade-in"
+          >{{ $t("hero.introduction.frontend") }}
+          <button id="rippleBtn" type="button" class="ripple-btn"></button>
+        </span>
       </h1>
       <div class="d-inline-block home-nav">
         <a class="cta-btn cta-btn-hero" href="#experience">{{
@@ -56,11 +49,11 @@ export default {
       var ctx = c.getContext("2d");
       var cH;
       var cW;
-      var bgColor = "#FF6138";
+      var bgColor = "#181818";
       var animations = [];
 
       var colorPicker = (function () {
-        var colors = ["#FF6138", "#FFBE53", "#2980B9", "#282741"];
+        var colors = ["#181818", "#FFBE53", "#2980B9", "#282741"];
         var index = 0;
         function next() {
           index = index++ < colors.length - 1 ? index : 0;
@@ -316,11 +309,10 @@ canvas {
   transition: transform 1s cubic-bezier(1, 0, 0, 1);
 
   .title {
-    width: 25%;
+    width: 70%;
     position: relative;
-    display: flex;
-    align-items: center;
-    height: 5rem;
+    display: inline-block;
+    height: 100%;
 
     .block {
       width: 0%;
@@ -333,36 +325,14 @@ canvas {
     }
 
     h2 {
-      font-size: 5.6rem;
+      font-size: 6.2rem;
       font-weight: 700;
       -webkit-animation: mainFadeIn 2s forwards;
       -o-animation: mainFadeIn 2s forwards;
       animation: mainFadeIn 2s forwards;
       animation-delay: 1.6s;
       opacity: 0;
-      display: block;
-      align-items: baseline;
-      position: relative;
       mix-blend-mode: difference;
-
-      .ripple-btn {
-        width: 15px;
-        height: 15px;
-        mix-blend-mode: difference;
-        border-radius: 50%;
-        display: inline-flex;
-        border: none;
-
-        &::before {
-          position: relative;
-          content: "";
-          top: 2px;
-          right: 4px;
-          border: 5px solid #fff;
-          border-radius: 50%;
-          animation: animate 2s linear infinite;
-        }
-      }
 
       &.text-color-main {
         background: $hero-title-gradient;
@@ -423,30 +393,10 @@ canvas {
     }
   }
 
-  .container {
-    .animated {
-      opacity: 1 !important;
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-      transition: opacity 1s cubic-bezier(0.5, 0, 0, 1) 0.5s,
-        transform 1s cubic-bezier(0.5, 0, 0, 1) 0.5s;
-    }
-    .fadeInLeft {
-      visibility: visible;
-    }
-    .delay-1 {
-      transition-delay: 1s;
-    }
-
-    .delay-2 {
-      transition-delay: 1.5s;
-    }
-  }
-
-  .hero-cta a {
-    font-size: 2.4rem;
-  }
-
   .home-nav {
+    > a:first-of-type {
+      margin-left: 0;
+    }
     a {
       margin: 0 1rem;
       font-size: 1.6rem;
@@ -465,39 +415,35 @@ canvas {
     }
   }
 
-  .cta-btn {
-    display: inline-block;
-    position: relative;
-    padding: 0.8rem 1.6rem;
-    font-weight: 700;
-    line-height: 1;
-    font-size: 1.6rem;
-    z-index: 1;
-    transition: all 0.2s ease-in;
-  }
-
-  .cta-btn-hero {
-    color: $fuchsia;
-  }
-
-  a:hover {
-    transition: all 0.2s ease-in-out;
-  }
-
-  .cta-btn-hero:hover {
-    color: $fuchsia;
-    text-decoration: none;
-  }
-
   .hero-title {
+    display: flex;
+    flex-flow: column;
     font-size: 5.6rem;
     font-weight: 700;
     margin-bottom: 3.2rem;
     text-align: left;
     mix-blend-mode: difference;
-    .intro:after {
-      content: ".";
-      color: $frog-green;
+    .intro {
+      font-size: 3rem;
+      display: inline-block;
+      .ripple-btn {
+        width: 15px;
+        height: 15px;
+        mix-blend-mode: difference;
+        border-radius: 50%;
+        display: inline-flex;
+        border: none;
+
+        &::before {
+          position: relative;
+          content: "";
+          top: 2px;
+          right: 4px;
+          border: 5px solid #fff;
+          border-radius: 50%;
+          animation: animate 2s linear infinite;
+        }
+      }
     }
   }
 }
@@ -589,14 +535,10 @@ canvas {
     .hero-title {
       font-size: 4rem;
 
-      .span-name {
-        font-size: 4rem;
-      }
-
       .title {
         width: 100%;
         h2 {
-          font-size: 4rem;
+          font-size: 5rem;
         }
       }
     }
@@ -607,21 +549,12 @@ canvas {
   #hero {
     .hero-title {
       font-size: 3.6rem;
-      text-align: center;
 
       .title {
-        justify-content: center;
         h2 {
-          font-size: 3.6rem;
+          font-size: 4rem;
         }
       }
-    }
-
-    .span-name {
-      font-size: 3.6rem;
-    }
-    p {
-      justify-content: center;
     }
   }
 }
@@ -637,6 +570,10 @@ canvas {
           font-size: 3.5rem;
         }
       }
+
+      .intro {
+          font-size: 2.5rem;
+      }
     }
 
     .home-nav {
@@ -647,9 +584,6 @@ canvas {
         padding: 0.75rem;
       }
     }
-  }
-  .span-name {
-    font-size: 3.5rem;
   }
 }
 
@@ -662,10 +596,10 @@ canvas {
           font-size: 2.8rem;
         }
       }
+      .intro {
+          font-size: 2rem;
+      }
     }
-  }
-  .span-name {
-    font-size: 2.8rem;
   }
 }
 </style>

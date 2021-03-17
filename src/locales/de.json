@@ -19,7 +19,7 @@
     "hero": {
         "introduction": {
             "name": "mein Name ist",
-            "frontend": "Ich bin ein Frontend Entwickler"
+            "frontend": "Frontend Entwickler"
         }
     },
     "projects": {
@@ -49,21 +49,6 @@
         "education": "Ausbildung",
         "skills": "Fähigkeiten",
         "web": "Webentwicklung",
-        "web_text_1": "Ich benutze",
-        "web_text_2": "täglich und versuche, mit den neuesten Funktionen und Trends Schritt zu halten",
-        "web_text_3": "Für meine Webprojekte verwende ich",
-        "web_text_4": "ziemlich oft. Meine bevorzugten JS-Frameworks sind",
-        "web_text_5": "Für einige Server-seitige Aufgaben verwendete ich",
-        "web_text_6": "gepaart mit",
-        "web_text_7": "Ich habe",
-        "web_text_8": "Apps während meines Studiums und in meiner vorherigen Tätigkeit entwickelt",
-        "web_text_9": "Für alle meine Programmierarbeiten verwende ich",
-        "web_text_10": "um meine Arbeit zu verfolgen und zu koordinieren",
-        "design_text_1": "Ich habe Erfahrung mit",
-        "design_text_2": "Für meinen Web-Design-Workflow beginne ich in der Regel mit der Erstellung eines",
-        "design_text_3": "gefolgt von ein paar groben",
-        "design_text_4": "und dann einen",
-        "design_text_5": "welcher in ein paar Iterationen eine finale Form annimmt",
         "design": "Design",
         "eyeled": "Werksstudent",
         "eyeled_desc": "Entwicklung von mobilen Benutzerschnittstellen in Swift, sowie Webentwicklung",
