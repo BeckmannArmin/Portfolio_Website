@@ -42,7 +42,12 @@
           </div>
         </div>
         <div class="project-body">
-            <div v-for="(font,i) in fonts" :key="i" :style="`background-image: url(${font})`" class="font-images-wrapper"></div>
+          <div
+            v-for="(font, i) in fonts"
+            :key="i"
+            :style="`background-image: url(${font})`"
+            class="font-images-wrapper"
+          ></div>
         </div>
       </div>
     </div>
@@ -146,19 +151,19 @@ export default {
         padding-top: 30px;
         text-align: left;
 
-             .font-images-wrapper {
-            float: left;
-    clear: none;
-    width: 50%;
-    margin-left: 0;
-    margin-right: 0;
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    height: 300px;
+        .font-images-wrapper {
+          float: left;
+          clear: none;
+          width: 50%;
+          margin-left: 0;
+          margin-right: 0;
+          background-position: 50%;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-size: contain;
+          margin-top: 40px;
+          margin-bottom: 40px;
+          height: 300px;
         }
 
         .body-header {
@@ -168,7 +173,8 @@ export default {
             text-align: center;
             margin-bottom: 70px;
             color: $frog-green-light;
-            transition-delay: 0.18s;
+            animation: slideUp 1.2s ease forwards 0.9s;
+            opacity: 0;
             font-size: 4rem;
           }
         }
@@ -200,6 +206,8 @@ export default {
         }
 
         .wrapper-image {
+          animation: slideUp 0.95s ease forwards 2s;
+          opacity: 0;
           &:last-child {
             margin-right: 0;
           }
@@ -226,6 +234,8 @@ export default {
           width: 50%;
           margin-left: 0;
           margin-right: 3%;
+          animation: slideUp 0.95s ease forwards 2s;
+          opacity: 0;
 
           .seperator {
             width: 33%;
@@ -266,6 +276,8 @@ export default {
           margin-top: 50px;
           font-size: 5.6rem;
           font-weight: 600;
+          animation: slideUp 0.95s ease forwards 0.5s;
+          opacity: 0;
 
           &::after {
             content: ".";
@@ -278,6 +290,8 @@ export default {
           margin-bottom: 2rem;
           margin-top: 1rem;
           padding: 0;
+          opacity: 0;
+          animation: slideUp 0.95s ease forwards 0.75s;
 
           .technology {
             display: inline-block;
@@ -302,7 +316,8 @@ export default {
           line-height: 1;
           font-size: 1.6rem;
           z-index: 1;
-          transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+          animation: slideUp 0.95s ease forwards 1s;
+          opacity: 0;
         }
         .cta-btn-project {
           border: 1px solid $frog-green;
@@ -351,6 +366,8 @@ export default {
         width: 90%;
         margin: auto auto 25px;
         text-align: center;
+        animation: slideUp 0.95s ease forwards 1.05s;
+        opacity: 0;
       }
 
       /**
@@ -367,12 +384,22 @@ export default {
   }
 }
 
+/** keyframes */
+@keyframes slideUp {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 56.25em) {
   .project-item .project-parent-container .project-container .project-body {
-
-      .font-images-wrapper {
-          height: 200px;
-      }
+    .font-images-wrapper {
+      height: 200px;
+    }
     &.color-palette {
       padding-left: 0;
 
@@ -428,9 +455,9 @@ export default {
     }
 
     .body-header {
-          .header-sub {
-              font-size: 3.4rem;
-          }
+      .header-sub {
+        font-size: 3.4rem;
+      }
     }
   }
 
@@ -449,35 +476,30 @@ export default {
 }
 
 @media (max-width: 37.5em) {
-  .project-item
-    .project-parent-container
-    .project-container
-    .project-body{
-
-        .font-images-wrapper {
-         display: none;
-      }
-
-        .body-header {
-          .header-sub {
-              font-size: 3.2rem;
-          }
+  .project-item .project-parent-container .project-container .project-body {
+    .font-images-wrapper {
+      display: none;
     }
-        &.color-palette
-    .color-palette-wrapper {
-    float: left;
-    clear: none;
-    width: 45%;
-    margin-left: 0;
-    margin-right: 3%;
-    margin-bottom: 40px;
 
-    .color {
-      width: 125px;
-      height: 125px;
+    .body-header {
+      .header-sub {
+        font-size: 3.2rem;
+      }
+    }
+    &.color-palette .color-palette-wrapper {
+      float: left;
+      clear: none;
+      width: 45%;
+      margin-left: 0;
+      margin-right: 3%;
+      margin-bottom: 40px;
+
+      .color {
+        width: 125px;
+        height: 125px;
+      }
     }
   }
-    }
 }
 
 @media (max-width: 29em) {
