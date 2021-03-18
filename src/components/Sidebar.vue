@@ -85,7 +85,7 @@ export default {
 .sidebar {
   background: $white;
   height: 100vh;
-  width: 55%;
+  width: 45%;
   position: fixed;
   margin: 0 auto;
   top: 0px;
@@ -105,7 +105,16 @@ export default {
 
     a:last-child {
       position: absolute;
+      top: 0;
+      right: 2%;
+      margin: 0;
+    }
+
+    a:nth-last-child(2) {
+      position: absolute;
       bottom: 0;
+      right: 0;
+      margin: 0;
     }
 
     a {
@@ -146,7 +155,7 @@ export default {
 
 @media (max-width: 800px) {
   #sidebar {
-    width: 70% !important;
+    width: 75% !important;
   }
 }
 

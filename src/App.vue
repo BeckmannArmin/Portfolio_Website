@@ -202,6 +202,10 @@ body::-webkit-scrollbar-thumb {
   background-color: $frog-green;
 }
 
+body {
+    background-color: $fuchsia !important;
+}
+
 body,
 html {
   overflow-x: hidden;

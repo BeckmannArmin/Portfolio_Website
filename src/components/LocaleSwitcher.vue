@@ -37,6 +37,7 @@ export default {
   flex-flow: row;
 
   a {
+    font-size: 2rem;
     text-decoration: none;
     color: #252525;
     &:not(.active) {
@@ -45,11 +46,11 @@ export default {
   }
 
   div:nth-child(1) {
-    padding-right: 1rem;
+    padding-right: .5rem;
 
     &::after {
       content: "/";
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: 500;
     }
   }

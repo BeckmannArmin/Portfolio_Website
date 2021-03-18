@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .toggleWrapper {
-
+  transform: scale(.55);
   input {
     position: absolute;
     right: -99em;
