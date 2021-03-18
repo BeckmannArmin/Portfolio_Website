@@ -81,6 +81,7 @@ export default {
 
   &.open {
     box-shadow: none;
+    background: none;
   }
 }
 

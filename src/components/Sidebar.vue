@@ -1,7 +1,7 @@
 <template>
   <div id="sidebar" class="sidebar d-flex justify-content-center">
     <div
-      class="sidebar-body d-flex justify-content-center align-items-center flex-column"
+      class="sidebar-body d-flex justify-content-center align-items-start flex-column"
     >
       <a :class="{ active: isHome }" @click="toggleHome" href="#master">{{
         $t("about.me")
@@ -24,8 +24,10 @@
         href="#contact"
         >{{ $t("contact.contact") }}</a
       >
-      <a> <Toggle :mode="mode" @toggle="$emit('toggle')" /> </a>
-      <a> <LocaleSwitcher /> </a>
+    </div>
+    <div class="action-btns">
+      <Toggle :mode="mode" @toggle="$emit('toggle')" />
+      <LocaleSwitcher />
     </div>
   </div>
 </template>
@@ -83,48 +85,111 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar {
-  background: $white;
-  height: 100vh;
-  width: 45%;
+  display: none;
   position: fixed;
-  margin: 0 auto;
-  top: 0px;
   left: 0;
-  opacity: 0.5;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  overflow-x: hidden;
+  visibility: hidden;
+  transition: all 0.1s ease 0.5s;
   z-index: -1;
-  transition: transform 0.75s ease, opacity 0.75s ease;
+
+  &.open {
+    display: none;
+    visibility: visible;
+    transition-delay: 0.1s;
+    &::before {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      transition-delay: 0s;
+    }
+
+    &::after {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      transition-delay: 0.15s;
+    }
+  }
+
+  &::before {
+    transition-delay: 0.25s;
+    background-color: $fuchsia-light;
+    background: linear-gradient(270deg, $fuchsia-light, $fuchsia);
+  }
+
+  &::after {
+    transition-delay: 0.15s !important;
+    background-color: $black;
+    background: linear-gradient(270deg, $light-blue, $blue);
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    will-change: transform;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    transition: -webkit-transform 0.45s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition: transform 0.45s cubic-bezier(0.694, 0.048, 0.335, 1) 0.25s;
+    transition: transform 0.45s cubic-bezier(0.694, 0.048, 0.335, 1),
+      -webkit-transform 0.45s cubic-bezier(0.694, 0.048, 0.335, 1);
+  }
 
   &.open {
     transform: translateX(0) !important;
     opacity: 1 !important;
+
+    .sidebar-body {
+      opacity: 1;
+      transition-delay: 0.4s;
+      -webkit-transform: translateY(-60%);
+      transform: translateY(-60%);
+    }
+
+    .action-btns {
+      opacity: 1;
+      transition-delay: 0.75s;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
   }
 
   .sidebar-body {
-    margin: auto;
-    height: 100%;
-
-    a:last-child {
-      position: absolute;
-      top: 0;
-      right: 2%;
-      margin: 0;
-    }
-
-    a:nth-last-child(2) {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      margin: 0;
-    }
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 15%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease,
+      -webkit-transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition: opacity 0.3s ease,
+      transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition: opacity 0.3s ease,
+      transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1),
+      -webkit-transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition-delay: 0s;
+    z-index: 100;
 
     a {
       display: inline-flex;
       position: relative;
       text-transform: none;
       letter-spacing: 0;
-      font-size: 3.6rem;
+      font-size: 3rem;
       font-weight: 700;
-      color: #252525;
+      color: #fff;
       margin: 15px;
       user-select: none;
       text-decoration: none;
@@ -151,11 +216,33 @@ export default {
       }
     }
   }
+
+  .action-btns {
+    position: absolute;
+    bottom: 30px;
+    left: 15%;
+    margin: 0;
+    padding: 0;
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease,
+      -webkit-transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition: opacity 0.3s ease,
+      transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition: opacity 0.3s ease,
+      transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1),
+      -webkit-transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition-delay: 0s;
+    z-index: 100;
+
+
+  }
 }
 
 @media (max-width: 800px) {
   #sidebar {
-    width: 75% !important;
+    width: 100% !important;
   }
 }
 
