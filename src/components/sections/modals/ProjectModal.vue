@@ -222,9 +222,6 @@ export default {
             display: block;
             width: 55%;
             margin-left: 10%;
-            transition: -webkit-transform 0.3s;
-            transition: transform 0.3s;
-            transition: transform 0.3s, -webkit-transform 0.3s;
           }
         }
 
