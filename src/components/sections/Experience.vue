@@ -77,7 +77,7 @@
             <li class="position-relative" data-aos="fade-up">
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
-                <p class="timeline-event-thumbnail">{{ $t("2016-2020") }}</p>
+                <p class="timeline-event-thumbnail">2016 - 2020</p>
                 <h3>{{ $t("experience.study") }}</h3>
                 <p>
                   <strong>{{ $t("experience.study_deg") }}</strong>

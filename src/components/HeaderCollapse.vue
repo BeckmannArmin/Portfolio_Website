@@ -67,7 +67,6 @@ export default {
   top: 0;
   left: 0;
   z-index: 1030;
-  padding: 1rem;
 }
 
 .menu-icon-wrapper {

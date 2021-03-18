@@ -59,23 +59,17 @@
             </a>
           </div>
         </div>
-        <LocaleSwitcher />
       </div>
     </footer>
   </section>
 </template>
 
 <script>
-import LocaleSwitcher from "../LocaleSwitcher.vue";
 export default {
   data() {
     return {
       opacity: 0,
     };
-  },
-  components: {
-    // eslint-disable-next-line vue/no-unused-components
-    LocaleSwitcher,
   },
 };
 </script>

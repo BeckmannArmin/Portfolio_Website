@@ -3,61 +3,82 @@
     <div
       class="sidebar-body d-flex justify-content-center align-items-center flex-column"
     >
-      <a :class="{active : isHome}" @click="toggleHome" href="#master">{{ $t('about.me') }}</a>
-      <a :class="{active : isExperience}" @click="toggleExperience" href="#experience">{{ $t('experience.resume') }}</a>
-      <a :class="{active : isProjects}" @click="toggleProjects" href="#projects">{{ $t('projects.projects') }}</a>
-      <a :class="{active : isContact}" @click="toggleContacts" href="#contact">{{ $t('contact.contact') }}</a>
+      <a :class="{ active: isHome }" @click="toggleHome" href="#master">{{
+        $t("about.me")
+      }}</a>
+      <a
+        :class="{ active: isExperience }"
+        @click="toggleExperience"
+        href="#experience"
+        >{{ $t("experience.resume") }}</a
+      >
+      <a
+        :class="{ active: isProjects }"
+        @click="toggleProjects"
+        href="#projects"
+        >{{ $t("projects.projects") }}</a
+      >
+      <a
+        :class="{ active: isContact }"
+        @click="toggleContacts"
+        href="#contact"
+        >{{ $t("contact.contact") }}</a
+      >
       <a> <Toggle :mode="mode" @toggle="$emit('toggle')" /> </a>
+      <a> <LocaleSwitcher /> </a>
     </div>
   </div>
 </template>
 
 <script>
 import Toggle from "./Toggler.vue";
+import LocaleSwitcher from "./LocaleSwitcher.vue";
+
 export default {
-     props: ["mode"],
-    data() {
-        return {
-            isHome: false,
-            isExperience: false,
-            isProjects: false,
-            isContact: false
-        }
+  props: ["mode"],
+  data() {
+    return {
+      isHome: false,
+      isExperience: false,
+      isProjects: false,
+      isContact: false,
+    };
+  },
+  components: {
+    Toggle,
+    LocaleSwitcher,
+  },
+  methods: {
+    toggleHome() {
+      this.isHome = true;
+      this.isExperience = false;
+      this.isProjects = false;
+      this.isContact = false;
+      this.$emit("toggleClose");
     },
-    components: {
-        Toggle
+    toggleExperience() {
+      this.isHome = false;
+      this.isExperience = true;
+      this.isProjects = false;
+      this.isContact = false;
+      this.$emit("toggleClose");
     },
-    methods: {
-        toggleHome() {
-            this.isHome = true;
-            this.isExperience = false;
-            this.isProjects = false;
-            this.isContact = false;
-            this.$emit('toggleClose');
-        },
-        toggleExperience() {
-            this.isHome = false;
-            this.isExperience = true;
-            this.isProjects = false;
-            this.isContact = false;
-            this.$emit('toggleClose');
-        },
-        toggleProjects() {
-            this.isHome = false;
-            this.isExperience = false;
-            this.isProjects = true;
-            this.isContact = false;
-            this.$emit('toggleClose');
-        },
-        toggleContacts() {
-            this.isHome = false;
-            this.isExperience = false;
-            this.isProjects = false;
-            this.isContact = true;
-            this.$emit('toggleClose');
-        }
-    }
-}
+    toggleProjects() {
+      this.isHome = false;
+      this.isExperience = false;
+      this.isProjects = true;
+      this.isContact = false;
+      this.$emit("toggleClose");
+    },
+    toggleContacts() {
+      this.isHome = false;
+      this.isExperience = false;
+      this.isProjects = false;
+      this.isContact = true;
+      this.$emit("toggleClose");
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -69,9 +90,9 @@ export default {
   margin: 0 auto;
   top: 0px;
   left: 0;
-  opacity: .5;
+  opacity: 0.5;
   z-index: -1;
-  transition: transform .75s ease, opacity .75s ease;
+  transition: transform 0.75s ease, opacity 0.75s ease;
 
   &.open {
     transform: translateX(0) !important;
@@ -80,9 +101,15 @@ export default {
 
   .sidebar-body {
     margin: auto;
+    height: 100%;
+
+    a:last-child {
+      position: absolute;
+      bottom: 0;
+    }
 
     a {
-      display: inline-block;
+      display: inline-flex;
       position: relative;
       text-transform: none;
       letter-spacing: 0;
@@ -91,26 +118,27 @@ export default {
       color: #252525;
       margin: 15px;
       user-select: none;
-    text-decoration: none;
+      text-decoration: none;
 
       &.active {
-          &:after {
-              width: 100%;
-              opacity: 1;
-          }
+        &:after {
+          width: 100%;
+          opacity: 1;
+        }
       }
 
       &:after {
-              content: "";
-    transition: width .4s cubic-bezier(1,0,0,1),opacity .4s cubic-bezier(1,0,0,1);
-    position: absolute;
-    top: 50%;
-    left: 0;
-    bottom: 0;
-    height: 8px;
-    width: 0;
-    background: $fuchsia-light;
-    opacity: .75;
+        content: "";
+        transition: width 0.4s cubic-bezier(1, 0, 0, 1),
+          opacity 0.4s cubic-bezier(1, 0, 0, 1);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        bottom: 0;
+        height: 8px;
+        width: 0;
+        background: $fuchsia-light;
+        opacity: 0.75;
       }
     }
   }
@@ -123,12 +151,12 @@ export default {
 }
 
 @media (max-width: 37.5em) {
-    #sidebar {
-        .sidebar-body {
-            a {
-                font-size: 3.2rem;
-            }
-        }
+  #sidebar {
+    .sidebar-body {
+      a {
+        font-size: 3.2rem;
+      }
     }
+  }
 }
 </style>

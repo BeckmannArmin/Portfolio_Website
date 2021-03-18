@@ -16,13 +16,13 @@
 
 <style lang="scss" scoped>
 #socials-overlay {
-    mix-blend-mode: difference;
+  mix-blend-mode: difference;
   .socials-wrapper {
     position: absolute;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     right: 0;
-    padding: .25rem;
+    padding: 0.25rem;
     list-style: none;
     transition: opacity 0.35s ease 0.75s;
     z-index: 900;
@@ -43,6 +43,7 @@
 
 @media (max-width: 800px) {
   #socials-overlay {
+    mix-blend-mode: normal;
     .socials-wrapper {
       position: fixed;
       z-index: 980;
