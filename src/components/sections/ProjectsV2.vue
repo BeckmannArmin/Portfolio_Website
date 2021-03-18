@@ -26,7 +26,7 @@
           <div class="project-list row-inner">
             <div v-for="(project, index) in projects" :key="index" class="project" :class="project.classes">
                 <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
-                    <img class="image img-fluid" :src="project.img"/>
+                    <img class="image img-fluid" :src="project.thumbnail"/>
                     <b>{{ project.name }}</b>
                 </div>
                   <div
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div v-for="(project, index) in projects" :key="index">
-        <ProjectModal v-if="project.showModal" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :summary="project.summary" :task="project.task" :technologies="project.technologies" :href="project.href" :image="project.img" :colors="project.colors"/>
+        <ProjectModal v-if="project.showModal" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :titel="project.titel" :summary="project.summary" :task="project.task" :technologies="project.technologies" :href="project.href" :image="project.img" :colors="project.colors" :fonts="project.fonts"/>
     </div>
   </section>
 </template>
@@ -55,10 +55,11 @@ export default {
   {
       return {
         projects: [
-            {id: 1, name: 'Whitebird', summary: this.$t('projects.whitebird'), task: this.$t('projects.whitebird_task'), technologies: ['NestJs','NuxtJs','MongoDB','FabricJS'], classes: ['frontend', 'backend'], img: require('../../assets/whitebird_logo.svg'), href: 'https://github.com/BuchholzTim/Whitebird', showModal: false, colors: ['#000000', '#8A0000', '#FFD54F', '#58CA68', '#8CB8DE']},
-            {id: 2, name: 'Hly', summary: this.$t('projects.hly'), task: this.$t('projects.menschenhelfen_task'), technologies: ['Photoshop'], classes: ['design'], img: require('../../assets/hly_logo.png'), href: 'https://www.youtube.com/watch?v=bZbDIigXlNc', showModal: false},
-            {id: 3, name: 'conForm', summary: this.$t('projects.conForm'), task: this.$t('projects.conForm_task'), technologies: ['Laravel','VueJs'],classes: ['frontend', 'backend'], img: require('../../assets/conForm_logo.png'),href: 'https://github.com/BeckmannArmin/conForm', showModal: false, colors: ['#f3f3f3', '#ebedf0', '#ff9793', '#ff7e85', '#5c55ba']},
-            {id: 4, name: 'Menschen.Helfen.Leben', summary: this.$t('projects.menschenhelfen'), task: this.$t('projects.menschenhelfen_task'), technologies: ['Wordpress', 'CSS'],classes: ['design'], img: require('../../assets/menschen.jpg'), href: 'https://menschen-helfen-leben.de/', showModal: false, colors: ['#FFF', '#666666', '#404040', '#fd834c', '#e9435a']}
+            {id: 1, name: 'Whitebird', titel: this.$t('projects.whitebird_titel') , summary: this.$t('projects.whitebird'), task: this.$t('projects.whitebird_task'), technologies: ['NestJS','Nuxt.js','MongoDB','Fabric.js', 'Skeuomorphism'], classes: ['frontend', 'backend'], thumbnail: require('../../assets/whitebird_logo.svg') ,img: require('../../assets/whitebird_board.png'), href: 'https://github.com/BuchholzTim/Whitebird', showModal: false, colors: ['#000000', '#8A0000', '#FFD54F', '#58CA68', '#8CB8DE'], fonts: [require('../../assets/poppins.png'), require('../../assets/robotos.png')]},
+            {id: 2, name: 'Hly', titel:this.$t('projects.hly_title') , summary: this.$t('projects.hly'), task: this.$t('projects.hly_task'), technologies: ['Photoshop'], classes: ['design'], thumbnail: require('../../assets/hly_logo.png'),img: require('../../assets/hly_storyboard.png'), href: 'https://www.youtube.com/watch?v=bZbDIigXlNc', showModal: false},
+            {id: 3, name: 'conForm', titel: this.$t('projects.conForm_title'), summary: this.$t('projects.conForm'), task: this.$t('projects.conForm_task'), technologies: ['Laravel','VueJs'],classes: ['frontend', 'backend'],thumbnail: require('../../assets/conForm_logo.png'),  img: require('../../assets/conForm_logo.png'),href: 'https://github.com/BeckmannArmin/conForm', showModal: false, colors: ['#f3f3f3', '#ebedf0', '#ff9793', '#ff7e85', '#5c55ba'], fonts: [require('../../assets/poppins.png'), require('../../assets/opensans.png')]},
+            {id: 4, name: 'Menschen.Helfen.Leben', titel: this.$t('projects.menschenhelfen_titel'), summary: this.$t('projects.menschenhelfen'), task: this.$t('projects.menschenhelfen_task'), technologies: ['Wordpress', 'CSS', 'JavaScript', 'Oxygen'],classes: ['design'],thumbnail: require('../../assets/menschen.jpg'), img: require('../../assets/menschen.jpg'), href: 'https://menschen-helfen-leben.de/', showModal: false, colors: ['#FFF', '#666666', '#404040', '#fd834c', '#e9435a'], fonts: [require('../../assets/poppins.png'), require('../../assets/lato.png')]},
+            {id: 5, name: 'Portfolio_V1', titel: 'Portfolio_V1', summary: this.$t('projects.portfolio'), task: this.$t('projects.portfolio_task'), technologies: ['Vue.js', 'SCSS', 'JavsScript', 'anime.js', 'Bootstrap', 'Illustrator', 'Love', 'Darkmode', 'i18n'],classes: ['frontend, design'],thumbnail: require('../../assets/arminlogo_opt.svg'), img: require('../../assets/arminlogo_opt.svg'), href: '', showModal: false, colors: ['#FFF', '#666666', '#404040', '#fd834c', '#e9435a'], fonts: [require('../../assets/poppins.png'), require('../../assets/robotos.png')]},
         ],
       }
     },

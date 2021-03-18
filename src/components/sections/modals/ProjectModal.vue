@@ -18,10 +18,13 @@
             <a :href="href" target="_blank"> {{ $t("projects.view") }}</a>
           </button>
         </div>
-        <p class="project-message">{{ name }} {{ summary }}</p>
+        <p class="project-message">{{ summary }}</p>
         <div class="project-body">
+          <div class="body-header">
+            <h2 class="header-sub">{{ $t("projects.designing") }}</h2>
+          </div>
           <div class="wrapper-text is-left">
-            <h3 class="wrapper-subtitle">{{ $t('projects.designing')}}</h3>
+            <h3 class="wrapper-subtitle">{{ titel }}</h3>
             <div class="seperator"></div>
             <p class="wrapper-content">{{ task }}</p>
           </div>
@@ -37,6 +40,9 @@
           >
             <div :style="`background-color: ${color}`" class="color"></div>
           </div>
+        </div>
+        <div class="project-body">
+            <div v-for="(font,i) in fonts" :key="i" :style="`background-image: url(${font})`" class="font-images-wrapper"></div>
         </div>
       </div>
     </div>
@@ -54,6 +60,8 @@ export default {
     href: String,
     task: String,
     colors: Array,
+    titel: String,
+    fonts: Array,
   },
   data() {
     return {};
@@ -137,6 +145,33 @@ export default {
         position: relative;
         padding-top: 30px;
         text-align: left;
+
+             .font-images-wrapper {
+            float: left;
+    clear: none;
+    width: 50%;
+    margin-left: 0;
+    margin-right: 0;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: 300px;
+        }
+
+        .body-header {
+          display: block;
+
+          .header-sub {
+            text-align: center;
+            margin-bottom: 70px;
+            color: $frog-green-light;
+            transition-delay: 0.18s;
+            font-size: 4rem;
+          }
+        }
 
         &.color-palette {
           padding-top: 85px;
@@ -334,6 +369,10 @@ export default {
 
 @media (max-width: 56.25em) {
   .project-item .project-parent-container .project-container .project-body {
+
+      .font-images-wrapper {
+          height: 200px;
+      }
     &.color-palette {
       padding-left: 0;
 
@@ -387,6 +426,12 @@ export default {
         transition: none;
       }
     }
+
+    .body-header {
+          .header-sub {
+              font-size: 3.4rem;
+          }
+    }
   }
 
   p {
@@ -407,7 +452,18 @@ export default {
   .project-item
     .project-parent-container
     .project-container
-    .project-body.color-palette
+    .project-body{
+
+        .font-images-wrapper {
+         display: none;
+      }
+
+        .body-header {
+          .header-sub {
+              font-size: 3.2rem;
+          }
+    }
+        &.color-palette
     .color-palette-wrapper {
     float: left;
     clear: none;
@@ -421,6 +477,7 @@ export default {
       height: 125px;
     }
   }
+    }
 }
 
 @media (max-width: 29em) {
