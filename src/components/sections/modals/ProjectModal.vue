@@ -19,7 +19,25 @@
           </button>
         </div>
         <p class="project-message">{{ name }} {{ summary }}</p>
-        <img class="project-img" :src="image" />
+        <div class="project-body">
+          <div class="wrapper-text is-left">
+            <h3 class="wrapper-subtitle">{{ $t('projects.designing')}}</h3>
+            <div class="seperator"></div>
+            <p class="wrapper-content">{{ task }}</p>
+          </div>
+          <div class="wrapper-image is-right">
+            <img class="project-img" :src="image" />
+          </div>
+        </div>
+        <div v-if="colors" class="project-body color-palette">
+          <div
+            v-for="(color, index) in colors"
+            :key="index"
+            class="color-palette-wrapper"
+          >
+            <div :style="`background-color: ${color}`" class="color"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -34,6 +52,8 @@ export default {
     id: Number,
     image: String,
     href: String,
+    task: String,
+    colors: Array,
   },
   data() {
     return {};
@@ -111,6 +131,88 @@ export default {
       display: flex;
       flex-direction: column;
       height: 100%;
+
+      .project-body {
+        width: 100%;
+        position: relative;
+        padding-top: 30px;
+        text-align: left;
+
+        &.color-palette {
+          padding-top: 85px;
+          padding-bottom: 85px;
+          padding-left: 200px;
+
+          .color-palette-wrapper {
+            float: left;
+            clear: none;
+            width: 15%;
+            margin-left: 0;
+            margin-right: 5%;
+            text-align: center;
+
+            .color {
+              display: block;
+              width: 145px;
+              height: 145px;
+              margin: 0 auto;
+              background-color: #fff;
+              box-shadow: 0 5px 20px 0 rgb(0, 0, 0 / 33%);
+              border-radius: 50%;
+              transition: all 0.3s;
+            }
+          }
+        }
+
+        .wrapper-image {
+          &:last-child {
+            margin-right: 0;
+          }
+
+          float: left;
+          clear: none;
+          width: 45%;
+          margin-left: 0;
+          margin-right: 3%;
+
+          img {
+            display: block;
+            width: 55%;
+            margin-left: 10%;
+            transition: -webkit-transform 0.3s;
+            transition: transform 0.3s;
+            transition: transform 0.3s, -webkit-transform 0.3s;
+          }
+        }
+
+        .wrapper-text {
+          float: left;
+          clear: none;
+          width: 50%;
+          margin-left: 0;
+          margin-right: 3%;
+
+          .seperator {
+            width: 33%;
+            height: 3px;
+            margin: 2.6rem 0;
+            background-color: $fuchsia;
+          }
+
+          .wrapper-subtitle {
+            font-size: 3rem;
+            color: $frog-green-light;
+          }
+
+          &.is-left {
+            padding-left: 200px;
+          }
+
+          .wrapper-content {
+            text-align: justify;
+          }
+        }
+      }
 
       .project-header {
         position: relative;
@@ -213,9 +315,10 @@ export default {
       .project-message {
         width: 90%;
         margin: auto auto 25px;
-        text-align: left;
+        text-align: center;
       }
 
+      /**
       img.project-img {
         width: 35%;
         border-radius: 8px;
@@ -224,14 +327,70 @@ export default {
         padding: 24px;
         box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4);
       }
+      */
     }
   }
 }
 
 @media (max-width: 56.25em) {
+  .project-item .project-parent-container .project-container .project-body {
+    &.color-palette {
+      padding-left: 0;
+
+      .color-palette-wrapper {
+        .color {
+          width: 90px;
+          height: 90px;
+        }
+      }
+    }
+
+    .wrapper-text {
+      &:first-child {
+        margin-left: auto;
+      }
+      display: block;
+      clear: both;
+      float: none;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 35px;
+      &.is-left {
+        padding-left: 0;
+        padding: 0 8%;
+      }
+
+      .wrapper-subtitle {
+        font-size: 2.5rem;
+      }
+
+      .wrapper-content {
+        text-align: left !important;
+      }
+    }
+    .wrapper-image {
+      display: block;
+      clear: both;
+      float: none;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      &:last-child {
+        margin-right: auto;
+      }
+
+      img {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        transition: none;
+      }
+    }
+  }
+
   p {
     font-size: 1.6rem !important;
-    text-align: center !important;
   }
 
   h1.title {
@@ -241,6 +400,48 @@ export default {
 
   img.project-img {
     width: 80% !important;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .project-item
+    .project-parent-container
+    .project-container
+    .project-body.color-palette
+    .color-palette-wrapper {
+    float: left;
+    clear: none;
+    width: 45%;
+    margin-left: 0;
+    margin-right: 3%;
+    margin-bottom: 40px;
+
+    .color {
+      width: 125px;
+      height: 125px;
+    }
+  }
+}
+
+@media (max-width: 29em) {
+  .project-item
+    .project-parent-container
+    .project-container
+    .project-body.color-palette
+    .color-palette-wrapper {
+    display: block;
+    clear: both;
+    float: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    &:first-child {
+      margin-left: auto;
+    }
+    .color {
+      width: 125px;
+      height: 125px;
+    }
   }
 }
 </style>

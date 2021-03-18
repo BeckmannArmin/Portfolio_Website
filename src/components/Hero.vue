@@ -275,7 +275,7 @@ export default {
       }
 
       function getRandomNumber(min, max) {
-       return Math.random() * (max - min) + min;
+        return Math.random() * (max - min) + min;
       }
     },
   },
@@ -415,7 +415,7 @@ canvas {
       mix-blend-mode: difference;
 
       &:hover {
-          color: $fuchsia-light;
+        color: $fuchsia-light;
       }
     }
 
