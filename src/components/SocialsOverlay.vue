@@ -1,5 +1,5 @@
 <template>
-  <div id="socials-overlay">
+  <div id="socials-overlay" class="fixed-top">
     <div class="socials-wrapper">
       <a href="https://github.com/BeckmannArmin" target="_blank">
         <font-awesome-icon :icon="['fab', 'github']" />
@@ -16,16 +16,16 @@
 
 <style lang="scss" scoped>
 #socials-overlay {
+    mix-blend-mode: difference;
   .socials-wrapper {
     position: absolute;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    right: 2%;
+    right: 0;
+    padding: .25rem;
     list-style: none;
-    transform: translateY(50%);
-    -webkit-transform: translateY(50%);
     transition: opacity 0.35s ease 0.75s;
-    z-index: 7;
+    z-index: 900;
 
     a {
       padding: 2rem;

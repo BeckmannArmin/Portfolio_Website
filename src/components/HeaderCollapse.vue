@@ -23,8 +23,14 @@
         @click="toggleClass"
       ></button>
     </div>
-    <Sidebar :mode="mode" @toggle="$emit('toggle')" :class="{open : isOpen}" @toggleClose="closeMenu" style="transform: translateX(-100vw)" />
-    <Overlay :class="{open : isOpen}"/>
+    <Sidebar
+      :mode="mode"
+      @toggle="$emit('toggle')"
+      :class="{ open: isOpen }"
+      @toggleClose="closeMenu"
+      style="transform: translateX(-100vw)"
+    />
+    <Overlay :class="{ open: isOpen }" />
   </div>
 </template>
 
@@ -32,36 +38,36 @@
 import Sidebar from "./Sidebar.vue";
 import Overlay from "./Overlay.vue";
 export default {
-    props: ["mode"],
+  props: ["mode"],
   data() {
     return {
       isOpen: false,
     };
   },
   components: {
-      Sidebar,
-      Overlay
+    Sidebar,
+    Overlay,
   },
   methods: {
     toggleClass() {
-          this.isOpen = !this.isOpen;
+      this.isOpen = !this.isOpen;
     },
     closeMenu() {
-        setTimeout(() => {
-            this.isOpen = !this.isOpen
-        }, 1000)
-    }
+      setTimeout(() => {
+        this.isOpen = !this.isOpen;
+      }, 1000);
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .fixed--top {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1030;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1030;
+  padding: 1rem;
 }
 
 .menu-icon-wrapper {
@@ -72,19 +78,19 @@ export default {
   background: $white;
   transition: 0.1s;
   border-bottom-right-radius: 6px;
-  box-shadow: 0 3px 7px 0 rgba(0,0,0, 0.4);
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4);
 
   &.open {
-      box-shadow: none;
+    box-shadow: none;
   }
 }
 
 .menu-icon-wrapper svg {
   position: absolute;
-  top: -14px;
-  left: -12px;
-  -webkit-transform: scale(0.08);
-  transform: scale(0.08);
+  top: -22.5px;
+  left: -22.5px;
+  -webkit-transform: scale(0.1);
+  transform: scale(0.1);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
@@ -138,14 +144,18 @@ export default {
 }
 
 .menu-icon-wrapper.open {
-    transform: translateX(0)!important;
-    visibility: visible!important;
-    opacity: 1;
+  transform: translateX(0) !important;
+  visibility: visible !important;
+  opacity: 1;
 }
 
 @media (min-width: 800px) {
   #navbar-collapse {
-    display: none;
+    .menu-icon-wrapper {
+      background: none;
+      box-shadow: none;
+
+    }
   }
 }
 </style>

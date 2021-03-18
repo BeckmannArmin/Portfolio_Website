@@ -124,6 +124,7 @@
 }
 
 #experience {
+    background: #fff;
   p {
     font-size: 1.6rem;
   }

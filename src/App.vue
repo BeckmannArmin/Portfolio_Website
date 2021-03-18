@@ -10,9 +10,7 @@
     </div>
     <div id="app">
       <!-- Navbar collapsed -->
-      <NavBarCollapsed :mode="mode" @toggle="toggle" />
-      <!-- Navbar main -->
-      <Header :mode="mode" @toggle="toggle" />
+      <NavBar :mode="mode" @toggle="toggle" />
       <Experience />
       <Projects />
       <ContactV2 />
@@ -26,9 +24,8 @@ import Footer from "./components/sections/Footer.vue";
 import Hero from "./components/Hero.vue";
 import Experience from "./components/sections/Experience.vue";
 import Projects from "./components/sections/ProjectsV2.vue";
-import Header from "./components/Header.vue";
 import About from "./components/sections/AboutMe_v2.vue";
-import NavBarCollapsed from "./components/HeaderCollapse.vue";
+import NavBar from "./components/HeaderCollapse.vue";
 import ContactV2 from "./components/sections/ContactV2.vue";
 import Preloader from "./components/Preloader.vue";
 import SocialsExternal from "./components/SocialsOverlay.vue";
@@ -36,14 +33,13 @@ import SocialsExternal from "./components/SocialsOverlay.vue";
 export default {
   name: "App",
   components: {
-    Header,
     Footer,
     Hero,
     About,
     Experience,
     Projects,
     ContactV2,
-    NavBarCollapsed,
+    NavBar,
     Preloader,
     SocialsExternal
   },
@@ -86,14 +82,8 @@ export default {
     handleScroll() {
       var elmnt = document.querySelector("#hero");
       var offSet = elmnt.offsetHeight;
-      const navBar = document.querySelector(".navbar");
       const master = document.querySelector("#master");
 
-      if (window.scrollY > 10) {
-        navBar.classList.add("bg-nav");
-      } else {
-        navBar.classList.remove("bg-nav");
-      }
 
       if (window.scrollY > offSet) {
         master.classList.add("stage-1");
