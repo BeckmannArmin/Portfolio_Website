@@ -190,7 +190,7 @@ export default {
       font-size: 3rem;
       font-weight: 700;
       color: #fff;
-      margin: 15px;
+      margin: 12px;
       user-select: none;
       text-decoration: none;
 
@@ -219,7 +219,10 @@ export default {
 
   .action-btns {
     position: absolute;
-    bottom: 30px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    bottom: 15px;
     left: 15%;
     margin: 0;
     padding: 0;
@@ -236,6 +239,9 @@ export default {
     transition-delay: 0s;
     z-index: 100;
 
+    div:first-of-type {
+        margin-right: 20px;
+    }
 
   }
 }
@@ -250,7 +256,7 @@ export default {
   #sidebar {
     .sidebar-body {
       a {
-        font-size: 3.2rem;
+        font-size: 2.7rem;
       }
     }
   }

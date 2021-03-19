@@ -4,7 +4,7 @@
     <SocialsOverlay />
     <div class="welcome-section-wrapper w-100 position-relative">
       <div class="welcome-section-animated d-inline-flex w-100 h-100">
-        <Hero />
+        <Hero @toggle="toggle" />
         <About />
       </div>
     </div>

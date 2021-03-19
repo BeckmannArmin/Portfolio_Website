@@ -1,6 +1,6 @@
 <template>
   <div id="hero" class="jumbotron">
-     <ShapesMask />
+    <ShapesMask />
     <!-- My personal logo -->
     <div class="brand">
       <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
@@ -32,6 +32,18 @@
         </span>
         <span class="intro"
           >{{ $t("hero.introduction.frontend") }}
+          <button
+            id="rippleBtn"
+            type="button"
+            class="ripple-btn"
+            @click="toggleDarkMode"
+          >
+            <div class="sun visible"></div>
+            <div class="moon">
+              <div class="star"></div>
+              <div class="star small"></div>
+            </div>
+          </button>
         </span>
       </h1>
       <div class="home-nav">
@@ -54,9 +66,20 @@
 <script>
 import ShapesMask from "../components/ShapesMask.vue";
 export default {
-    components: {
-ShapesMask
+  components: {
+    ShapesMask,
+  },
+  methods: {
+    toggleDarkMode() {
+      /**TODO: add them in css */
+      const sun = document.querySelector(".sun");
+      const moon = document.querySelector(".moon");
+      sun.classList.toggle("visible");
+      moon.classList.toggle("visible");
+
+      this.$emit('toggle');
     },
+  },
 };
 </script>
 
@@ -178,7 +201,7 @@ canvas {
   }
 
   .home-nav {
-      display: inline-block;
+    display: inline-block;
     z-index: 6;
     > a:first-of-type {
       margin-left: 0;
@@ -217,33 +240,145 @@ canvas {
     mix-blend-mode: difference;
     .intro {
       font-size: 3rem;
-      display: inline-block;
+      display: inline-flex;
 
-      &::after {
-          content: '.';
-          color: $frog-green-light;
-      }
-
-      /**
       .ripple-btn {
-        width: 15px;
-        height: 15px;
-        mix-blend-mode: difference;
-        border-radius: 50%;
-        display: inline-flex;
+        width: 42px;
+        height: 42px;
+        box-sizing: border-box;
+        padding: 12px;
+        background: none;
         border: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
 
         &::before {
-          position: relative;
+            content: '';
+            top: 0;
+            right: 0;
+            position: relative;
+            animation: animate 2s linear infinite;
+            border: 5px solid #fff;
+            border-radius: 50%;
+            opacity: .5;
+        }
+
+        .sun {
+          width: 50%;
+          height: 50%;
+          position: absolute;
+          pointer-events: none;
+          opacity: 0;
+          transform: scale(0.6) rotate(0deg);
+          transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
+          /*  white transparent for Safari  */
+          background: radial-gradient(
+            circle,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0) 50%,
+            #f0f0f0 50%
+          );
+        }
+        .sun:before {
           content: "";
-          top: 2px;
-          right: 4px;
-          border: 5px solid #fff;
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(
+            circle,
+            #f0f0f0 30%,
+            rgba(0, 0, 0, 0) 31%,
+            rgba(0, 0, 0, 0) 50%,
+            #f0f0f0 50%
+          );
+          transform: rotate(45deg);
+        }
+        .sun.visible {
+          pointer-events: auto;
+          opacity: 1;
+          transform: scale(1) rotate(180deg);
+          transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
+        }
+        .moon {
+          width: 50%;
+          height: 50%;
+          pointer-events: none;
+          position: absolute;
+          left: 12.5%;
+          top: 18.75%;
+          background-color: rgba(0, 0, 0, 0);
           border-radius: 50%;
-          animation: animate 2s linear infinite;
+          box-shadow: 9px 3px 0px 0px #f0f0f0;
+          opacity: 0;
+          transform: scale(0.3) rotate(65deg);
+          transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
+        }
+        .moon.visible {
+          pointer-events: auto;
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+          transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
+        }
+        .star {
+          position: absolute;
+          top: 25%;
+          left: 5%;
+          display: block;
+          width: 0px;
+          height: 0px;
+          border-right: 7px solid rgba(0, 0, 0, 0);
+          border-bottom: 5px solid #f0f0f0;
+          border-left: 7px solid rgba(0, 0, 0, 0);
+          transform: scale(0.55) rotate(35deg);
+          opacity: 0;
+          transition: all 0.2s ease-in 0.4s;
+        }
+        .star:before {
+          border-bottom: 5px solid #f0f0f0;
+          border-left: 3px solid rgba(0, 0, 0, 0);
+          border-right: 3px solid rgba(0, 0, 0, 0);
+          position: absolute;
+          height: 0;
+          width: 0;
+          top: -3px;
+          left: -5px;
+          display: block;
+          content: "";
+          transform: rotate(-35deg);
+        }
+        .star:after {
+          position: absolute;
+          display: block;
+          color: red;
+          top: 0px;
+          left: -7px;
+          width: 0px;
+          height: 0px;
+          border-right: 7px solid rgba(0, 0, 0, 0);
+          border-bottom: 5px solid #f0f0f0;
+          border-left: 7px solid rgba(0, 0, 0, 0);
+          transform: rotate(-70deg);
+          content: "";
+        }
+        .moon.visible .star {
+          opacity: 0.8;
+        }
+        .star.small {
+          transform: scale(0.35) rotate(35deg);
+          position: relative;
+          top: 50%;
+          left: 37.5%;
+          opacity: 0;
+          transition: all 0.2s ease-in 0.45s;
+        }
+        .moon.visible .star.small {
+          opacity: 0.7;
+          transform: scale(0.45) rotate(35deg);
         }
       }
-      */
     }
   }
 }
@@ -300,7 +435,7 @@ canvas {
     }
 
     .home-nav {
-        display: none;
+      display: none;
     }
   }
 }
