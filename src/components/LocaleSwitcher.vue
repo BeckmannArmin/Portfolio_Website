@@ -37,7 +37,7 @@ export default {
   flex-flow: row;
 
   a {
-    font-size: 2rem;
+    font-size: 2.4rem;
     text-decoration: none;
     color: $white;
     font-weight: 700;

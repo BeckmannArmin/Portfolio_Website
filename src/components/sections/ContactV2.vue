@@ -8,7 +8,7 @@
         >
           {{ $t("contact.contact") }}
         </h2>
-        <form data-aos="fade-down-right" class="contact-form validate-form">
+        <form data-aos="fade-in" class="contact-form validate-form">
           <div  class="input-wrapper validate-form">
             <input
               class="input"

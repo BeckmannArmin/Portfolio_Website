@@ -25,15 +25,11 @@
         >{{ $t("contact.contact") }}</a
       >
     </div>
-    <div class="action-btns">
-      <Toggle :mode="mode" @toggle="$emit('toggle')" />
-      <LocaleSwitcher />
-    </div>
+    <LocaleSwitcher />
   </div>
 </template>
 
 <script>
-import Toggle from "./Toggler.vue";
 import LocaleSwitcher from "./LocaleSwitcher.vue";
 
 export default {
@@ -47,7 +43,6 @@ export default {
     };
   },
   components: {
-    Toggle,
     LocaleSwitcher,
   },
   methods: {
@@ -95,6 +90,25 @@ export default {
   visibility: hidden;
   transition: all 0.1s ease 0.5s;
   z-index: -1;
+
+  div:last-of-type {
+    position: absolute;
+    bottom: 5%;
+    left: 15%;
+    margin-left: 12px;
+    z-index: 100;
+    transition: opacity 0.3s ease,
+      -webkit-transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition: opacity 0.3s ease,
+      transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition: opacity 0.3s ease,
+      transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1),
+      -webkit-transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
+    transition-delay: 0s;
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+    opacity: 0;
+  }
 
   &.open {
     display: none;
@@ -145,6 +159,13 @@ export default {
   &.open {
     transform: translateX(0) !important;
     opacity: 1 !important;
+
+    div:last-of-type {
+      opacity: 1;
+      transition-delay: 0.45s;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
 
     .sidebar-body {
       opacity: 1;
@@ -240,9 +261,8 @@ export default {
     z-index: 100;
 
     div:first-of-type {
-        margin-right: 20px;
+      margin-right: 20px;
     }
-
   }
 }
 

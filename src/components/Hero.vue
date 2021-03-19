@@ -237,7 +237,6 @@ canvas {
     z-index: 6;
     margin-bottom: 3.2rem;
     text-align: left;
-    mix-blend-mode: difference;
     .intro {
       font-size: 3rem;
       display: inline-flex;
@@ -245,6 +244,7 @@ canvas {
       .ripple-btn {
         width: 42px;
         height: 42px;
+        transform: scale(.85);
         box-sizing: border-box;
         padding: 12px;
         background: none;
@@ -253,17 +253,6 @@ canvas {
         justify-content: center;
         align-items: center;
         position: relative;
-
-        &::before {
-            content: '';
-            top: 0;
-            right: 0;
-            position: relative;
-            animation: animate 2s linear infinite;
-            border: 5px solid #fff;
-            border-radius: 50%;
-            opacity: .5;
-        }
 
         .sun {
           width: 50%;
@@ -274,12 +263,7 @@ canvas {
           transform: scale(0.6) rotate(0deg);
           transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
           /*  white transparent for Safari  */
-          background: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0) 50%,
-            #f0f0f0 50%
-          );
+
         }
         .sun:before {
           content: "";
@@ -287,15 +271,14 @@ canvas {
           display: block;
           width: 100%;
           height: 100%;
-          background: radial-gradient(
-            circle,
-            #f0f0f0 30%,
-            rgba(0, 0, 0, 0) 31%,
-            rgba(0, 0, 0, 0) 50%,
-            #f0f0f0 50%
-          );
+          background: #FFDE00;
           transform: rotate(45deg);
+          border-radius: 50%;
+          box-shadow: 0 0 0 4.2px #FFDE0080, 0 0 0 8.8px #ffde0040, 0 0 0 10.15px #ffde0060, 0 0 0 12px #ffde0080, 0 0 0 21px #ffde0000, 0 0 8px 21px #ffde0010;
+          animation: sunrise 2s infinite linear forwards, rays 2s 2s infinite linear;
+
         }
+
         .sun.visible {
           pointer-events: auto;
           opacity: 1;
@@ -311,7 +294,7 @@ canvas {
           top: 18.75%;
           background-color: rgba(0, 0, 0, 0);
           border-radius: 50%;
-          box-shadow: 9px 3px 0px 0px #f0f0f0;
+          box-shadow: 9px 3px 0px 0px #FFE5B5;;
           opacity: 0;
           transform: scale(0.3) rotate(65deg);
           transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
@@ -330,14 +313,14 @@ canvas {
           width: 0px;
           height: 0px;
           border-right: 7px solid rgba(0, 0, 0, 0);
-          border-bottom: 5px solid #f0f0f0;
+          border-bottom: 5px solid #FFCF96;
           border-left: 7px solid rgba(0, 0, 0, 0);
           transform: scale(0.55) rotate(35deg);
           opacity: 0;
           transition: all 0.2s ease-in 0.4s;
         }
         .star:before {
-          border-bottom: 5px solid #f0f0f0;
+          border-bottom: 5px solid #FFCF96;
           border-left: 3px solid rgba(0, 0, 0, 0);
           border-right: 3px solid rgba(0, 0, 0, 0);
           position: absolute;
@@ -352,13 +335,13 @@ canvas {
         .star:after {
           position: absolute;
           display: block;
-          color: red;
+          color: #FFCF96;
           top: 0px;
           left: -7px;
           width: 0px;
           height: 0px;
           border-right: 7px solid rgba(0, 0, 0, 0);
-          border-bottom: 5px solid #f0f0f0;
+          border-bottom: 5px solid #FFCF96;
           border-left: 7px solid rgba(0, 0, 0, 0);
           transform: rotate(-70deg);
           content: "";
@@ -381,6 +364,36 @@ canvas {
       }
     }
   }
+}
+
+@keyframes sunrise {
+    0% {
+        box-shadow: none;
+    }
+}
+
+@keyframes rays {
+    0% {
+        box-shadow:
+        0 0 0 0px #FFDE0080,
+        0 0 0 4.4px #ffde0040,
+        0 0 0 5.05px #ffde0020,
+        0 0 0 8px #ffde0010,
+        0 0 0 18px #ffde0000,
+        0 0 8px 21px #ffde0010;
+    }
+
+    100% {
+        box-shadow:
+        0 0 0 4.2px #FFDE0080,
+        0 0 0 8.8px #ffde0040,
+        0 0 0 10.15px #ffde0020,
+        0 0 0 12px #ffde0010,
+        0 0 0 21px #ffde0000,
+        0 0 8px 21px #ffde0010;
+    }
+
+
 }
 
 @keyframes animate {
