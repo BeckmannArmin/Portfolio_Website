@@ -39,7 +39,8 @@ export default {
   a {
     font-size: 2rem;
     text-decoration: none;
-    color: #252525;
+    color: $white;
+    font-weight: 700;
     &:not(.active) {
       font-weight: 500;
     }
@@ -52,6 +53,7 @@ export default {
       content: "/";
       font-size: 2rem;
       font-weight: 500;
+      color: $white;
     }
   }
 }

@@ -41,7 +41,7 @@ export default {
     ContactV2,
     NavBar,
     Preloader,
-    SocialsExternal
+    SocialsExternal,
   },
   data() {
     return {
@@ -74,10 +74,15 @@ export default {
       onLoad() {
           const loader = document.querySelector("#preloader");
           const wrapper = document.querySelector(".welcome-section-wrapper");
+          const shapes = document.querySelector("#shapes");
           setTimeout(() => {
             loader.classList.add("leave");
             wrapper.classList.add("enter");
           }, 1500);
+
+          setTimeout(() => {
+              shapes.classList.add("loaded");
+          }, 3500);
       },
     handleScroll() {
       var elmnt = document.querySelector("#hero");

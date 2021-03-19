@@ -151,6 +151,7 @@ export default {
 
 @media (min-width: 800px) {
   #navbar-collapse {
+      display: none;
     .menu-icon-wrapper {
       background: none;
       box-shadow: none;

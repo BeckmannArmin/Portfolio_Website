@@ -34,7 +34,7 @@ export default {
   transform: scale(.55);
   input {
     position: absolute;
-    right: 99em;
+    right: -99em;
     background: none;
   }
 }
