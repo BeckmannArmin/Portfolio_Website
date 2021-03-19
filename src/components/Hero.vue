@@ -38,7 +38,7 @@
             class="ripple-btn"
             @click="toggleDarkMode"
           >
-            <div class="sun visible"></div>
+            <div class="sun"></div>
             <div class="moon">
               <div class="star"></div>
               <div class="star small"></div>
@@ -66,6 +66,7 @@
 <script>
 import ShapesMask from "../components/ShapesMask.vue";
 export default {
+  props: ["mode"],
   components: {
     ShapesMask,
   },

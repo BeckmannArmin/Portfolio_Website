@@ -70,25 +70,40 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("DOMContentLoaded", this.onLoad);
   },
+  mounted() {
+this.setToggleBtnState();
+  },
   methods: {
-      onLoad() {
-          const loader = document.querySelector("#preloader");
-          const wrapper = document.querySelector(".welcome-section-wrapper");
-          const shapes = document.querySelector("#shapes");
-          setTimeout(() => {
-            loader.classList.add("leave");
-            wrapper.classList.add("enter");
-          }, 1500);
+         setToggleBtnState() {
+      const sun = document.querySelector(".sun");
+      const moon = document.querySelector(".moon");
+      sun.classList.toggle("visible");
+      moon.classList.toggle("visible");
+      if (localStorage.getItem("theme-color") === "light") {
+        sun.classList.add("visible");
+        moon.classList.remove("visible");
+      } else {
+        moon.classList.add("visible");
+        sun.classList.remove("visible");
+      }
+    },
+    onLoad() {
+      const loader = document.querySelector("#preloader");
+      const wrapper = document.querySelector(".welcome-section-wrapper");
+      const shapes = document.querySelector("#shapes");
+      setTimeout(() => {
+        loader.classList.add("leave");
+        wrapper.classList.add("enter");
+      }, 1500);
 
-          setTimeout(() => {
-              shapes.classList.add("loaded");
-          }, 3500);
-      },
+      setTimeout(() => {
+        shapes.classList.add("loaded");
+      }, 3500);
+    },
     handleScroll() {
       var elmnt = document.querySelector("#hero");
       var offSet = elmnt.offsetHeight;
       const master = document.querySelector("#master");
-
 
       if (window.scrollY > offSet) {
         master.classList.add("stage-1");
@@ -154,20 +169,20 @@ export default {
 <style lang="scss">
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap");
 
 /** We split our Welcome section which scrolls horizontally and our #app which scrolls vertically */
 .welcome-section-wrapper {
   height: 150vh;
   background-color: $fuchsia;
 
-    transition: opacity .475s ease-in-out,transform .45s cubic-bezier(1,0,0,1),border-radius .35s ease-in-out!important;
-    opacity: 0;
+  transition: opacity 0.475s ease-in-out,
+    transform 0.45s cubic-bezier(1, 0, 0, 1), border-radius 0.35s ease-in-out !important;
+  opacity: 0;
 
-    &.enter {
-        opacity: 1;
-    }
+  &.enter {
+    opacity: 1;
+  }
 
   &:after {
     content: "";
@@ -208,13 +223,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 body {
-    background-color: $fuchsia !important;
+  background-color: $fuchsia !important;
 }
 
 body,
 html {
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 }
 
 /** We set a font size of 62.5% what gives us 10px in relation */
@@ -224,16 +239,15 @@ html {
   overflow-y: scroll;
 }
 #app {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $text-main;
   font-size: 62.5%;
 
-
   p {
-      font-family: 'Roboto Slab', serif;
+    font-family: "Roboto Slab", serif;
   }
 }
 
