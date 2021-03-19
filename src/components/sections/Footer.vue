@@ -82,7 +82,7 @@ export default {
 }
 /** reversed gradient of contact section */
 #footer {
-  background-image: $footer-bg-gradient;
+  background: $white;
   padding-top: 100px;
 }
 .footer {

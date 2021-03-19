@@ -26,7 +26,7 @@ import Experience from "./components/sections/Experience.vue";
 import Projects from "./components/sections/ProjectsV2.vue";
 import About from "./components/sections/AboutMe_v2.vue";
 import NavBar from "./components/HeaderCollapse.vue";
-import ContactV2 from "./components/sections/ContactV2.vue";
+import ContactV2 from "./components/sections/modals/ContactModal.vue";
 import Preloader from "./components/Preloader.vue";
 import SocialsOverlay from "./components/SocialsOverlay.vue";
 

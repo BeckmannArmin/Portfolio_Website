@@ -55,7 +55,7 @@
           $t("projects.projects")
         }}</a>
         <b>/</b>
-        <a class="cta-btn cta-btn-hero" href="#contact">{{
+        <a class="cta-btn cta-btn-hero" @click="toggleContactModal">{{
           $t("contact.contact")
         }}</a>
       </div>
@@ -80,6 +80,10 @@ export default {
 
       this.$emit("toggle");
     },
+    toggleContactModal() {
+        const contactModal = document.querySelector(".about-contact");
+        contactModal.classList.add("isopen");
+    }
   },
 };
 </script>
