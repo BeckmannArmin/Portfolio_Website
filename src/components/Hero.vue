@@ -78,7 +78,7 @@ export default {
       sun.classList.toggle("visible");
       moon.classList.toggle("visible");
 
-      this.$emit('toggle');
+      this.$emit("toggle");
     },
   },
 };
@@ -96,14 +96,27 @@ export default {
 }
 */
 
-canvas {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+.dark {
+  #hero {
+    background: $hero-bg-gradient;
+    .brand {
+      .logo-white {
+        fill: $white;
+      }
+    }
+
+  .home-nav {
+    a {
+        color: $white;
+    }
+ }
+
+ .hero-title {
+     .intro {
+         color: $white;
+     }
+ }
+  }
 }
 
 #hero {
@@ -117,9 +130,8 @@ canvas {
   display: flex;
   align-items: center;
   border-bottom: 0;
-  background: $white;
   font-weight: 400;
-  color: $white;
+  color: #ebebeb;
   padding: 0 5.6rem;
   margin-bottom: 0;
   top: 0;
@@ -127,7 +139,6 @@ canvas {
   bottom: 0;
   right: 0;
   z-index: -1;
-  background: $hero-bg-gradient;
   transition: transform 1s cubic-bezier(1, 0, 0, 1);
 
   .brand {
@@ -138,7 +149,7 @@ canvas {
     transform-style: preserve-3d;
 
     .logo-white {
-      fill: #fff;
+      fill: $modal-bg;
     }
 
     .logo-large {
@@ -213,7 +224,7 @@ canvas {
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: $white;
+      color: $modal-bg;
       text-decoration: none;
       mix-blend-mode: difference;
 
@@ -224,7 +235,7 @@ canvas {
 
     b {
       font-size: 1.4rem;
-      color: $fuchsia;
+      color: #d3d3d3;
       font-weight: 900;
       mix-blend-mode: difference;
     }
@@ -241,11 +252,12 @@ canvas {
     .intro {
       font-size: 3rem;
       display: inline-flex;
+      color: $modal-bg;
 
       .ripple-btn {
         width: 42px;
         height: 42px;
-        transform: scale(.85);
+        transform: scale(0.85);
         box-sizing: border-box;
         padding: 12px;
         background: none;
@@ -264,7 +276,6 @@ canvas {
           transform: scale(0.6) rotate(0deg);
           transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
           /*  white transparent for Safari  */
-
         }
         .sun:before {
           content: "";
@@ -272,12 +283,14 @@ canvas {
           display: block;
           width: 100%;
           height: 100%;
-          background: #FFDE00;
+          background: #ffde00;
           transform: rotate(45deg);
           border-radius: 50%;
-          box-shadow: 0 0 0 4.2px #FFDE0080, 0 0 0 8.8px #ffde0040, 0 0 0 10.15px #ffde0060, 0 0 0 12px #ffde0080, 0 0 0 21px #ffde0000, 0 0 8px 21px #ffde0010;
-          animation: sunrise 2s infinite linear forwards, rays 2s 2s infinite linear;
-
+          box-shadow: 0 0 0 4.2px #ffde0080, 0 0 0 8.8px #ffde0040,
+            0 0 0 10.15px #ffde0060, 0 0 0 12px #ffde0080, 0 0 0 21px #ffde0000,
+            0 0 8px 21px #ffde0010;
+          animation: sunrise 2s infinite linear forwards,
+            rays 2s 2s infinite linear;
         }
 
         .sun.visible {
@@ -295,7 +308,7 @@ canvas {
           top: 18.75%;
           background-color: rgba(0, 0, 0, 0);
           border-radius: 50%;
-          box-shadow: 9px 3px 0px 0px #FFE5B5;;
+          box-shadow: 9px 3px 0px 0px #ffe5b5;
           opacity: 0;
           transform: scale(0.3) rotate(65deg);
           transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
@@ -314,14 +327,14 @@ canvas {
           width: 0px;
           height: 0px;
           border-right: 7px solid rgba(0, 0, 0, 0);
-          border-bottom: 5px solid #FFCF96;
+          border-bottom: 5px solid #ffcf96;
           border-left: 7px solid rgba(0, 0, 0, 0);
           transform: scale(0.55) rotate(35deg);
           opacity: 0;
           transition: all 0.2s ease-in 0.4s;
         }
         .star:before {
-          border-bottom: 5px solid #FFCF96;
+          border-bottom: 5px solid #ffcf96;
           border-left: 3px solid rgba(0, 0, 0, 0);
           border-right: 3px solid rgba(0, 0, 0, 0);
           position: absolute;
@@ -336,13 +349,13 @@ canvas {
         .star:after {
           position: absolute;
           display: block;
-          color: #FFCF96;
+          color: #ffcf96;
           top: 0px;
           left: -7px;
           width: 0px;
           height: 0px;
           border-right: 7px solid rgba(0, 0, 0, 0);
-          border-bottom: 5px solid #FFCF96;
+          border-bottom: 5px solid #ffcf96;
           border-left: 7px solid rgba(0, 0, 0, 0);
           transform: rotate(-70deg);
           content: "";
@@ -368,33 +381,23 @@ canvas {
 }
 
 @keyframes sunrise {
-    0% {
-        box-shadow: none;
-    }
+  0% {
+    box-shadow: none;
+  }
 }
 
 @keyframes rays {
-    0% {
-        box-shadow:
-        0 0 0 0px #FFDE0080,
-        0 0 0 4.4px #ffde0040,
-        0 0 0 5.05px #ffde0020,
-        0 0 0 8px #ffde0010,
-        0 0 0 18px #ffde0000,
-        0 0 8px 21px #ffde0010;
-    }
+  0% {
+    box-shadow: 0 0 0 0px #ffde0080, 0 0 0 4.4px #ffde0040,
+      0 0 0 5.05px #ffde0020, 0 0 0 8px #ffde0010, 0 0 0 18px #ffde0000,
+      0 0 8px 21px #ffde0010;
+  }
 
-    100% {
-        box-shadow:
-        0 0 0 4.2px #FFDE0080,
-        0 0 0 8.8px #ffde0040,
-        0 0 0 10.15px #ffde0020,
-        0 0 0 12px #ffde0010,
-        0 0 0 21px #ffde0000,
-        0 0 8px 21px #ffde0010;
-    }
-
-
+  100% {
+    box-shadow: 0 0 0 4.2px #ffde0080, 0 0 0 8.8px #ffde0040,
+      0 0 0 10.15px #ffde0020, 0 0 0 12px #ffde0010, 0 0 0 21px #ffde0000,
+      0 0 8px 21px #ffde0010;
+  }
 }
 
 @keyframes animate {
