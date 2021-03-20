@@ -1,100 +1,105 @@
 <template>
-  <div :id="id" class="project-item enter">
-    <div class="project-parent-container">
-      <button class="project-close" @click="closeModal">
-        <div class="leftright"></div>
-        <div class="rightleft"></div>
-      </button>
-      <div class="project-container">
-        <!-- Project Header -->
-        <div class="project-header">
-          <div class="text-loading-mask">
-            <div class="text-loading-overlay"></div>
-            <h1 class="title">{{ name }}</h1>
+  <transition name="fade">
+    <div :id="project.id" class="project-item">
+      <div class="project-parent-container">
+        <button class="project-close" @click="closeModal">
+          <div class="leftright"></div>
+          <div class="rightleft"></div>
+        </button>
+        <div class="project-container">
+          <!-- Project Header -->
+          <div class="project-header">
+            <div class="text-loading-mask">
+              <div class="text-loading-overlay"></div>
+              <h1 class="title">{{ project.name }}</h1>
+            </div>
+            <ul class="technologies-used">
+              <li
+                v-for="(technology, index) in project.technologies"
+                :key="index"
+                class="technology"
+              >
+                {{ technology }}
+              </li>
+            </ul>
           </div>
-          <ul class="technologies-used">
-            <li
-              v-for="(technology, index) in technologies"
-              :key="index"
-              class="technology"
-            >
-              {{ technology }}
-            </li>
-          </ul>
-          <p class="project-message">{{ summary }}</p>
-        </div>
-        <!-- Project Header End -->
+          <!-- Project Header End -->
 
-        <!-- Project Intro -->
-        <div class="project-intro">
-          <div class="giga-text">
-            {{ name }}
-          </div>
-          <div class="container">
-            <h2 class="intro-title">
-              {{ $t("projects.theproject") }}
-            </h2>
-            <div class="intro-description-wrapper">
-              <p>{{ summary }}</p>
+          <!-- Project Intro -->
+          <div class="project-intro">
+            <div class="giga-text">
+              {{ project.name }}
             </div>
-            <div class="intro-btn-wrapper">
-              <a :href="href" class="animBtn cta-btn">
-                <svg>
-                  <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                </svg>
-                <span class="button-text">{{ $t("projects.see") }}</span>
-              </a>
+            <div class="container">
+              <h2 class="intro-title">
+                {{ $t("projects.theproject") }}
+              </h2>
+              <div class="intro-description-wrapper">
+                <p>{{ project.summary }}</p>
+              </div>
+              <div class="intro-btn-wrapper">
+                <a :href="project.href" target="_blank" class="animBtn cta-btn">
+                  <svg>
+                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                  </svg>
+                  <span class="button-text">{{ $t("projects.see") }}</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Project Intro End -->
+          <!-- Project Intro End -->
 
-        <!-- Project brand -->
-        <div class="project-brand">
-          <div class="project-body">
-            <div class="body-header">
-              <h2 class="header-sub">{{ $t("projects.designing") }}</h2>
-            </div>
-            <div class="wrapper-text is-left">
-              <h3 class="wrapper-subtitle">{{ titel }}</h3>
-              <div class="seperator"></div>
-              <p class="wrapper-content">{{ task }}</p>
-            </div>
-            <div class="wrapper-image is-right">
-              <img class="project-img" :src="image" />
+          <!-- Project brand -->
+          <div class="project-brand">
+            <div class="project-body">
+              <div class="body-header">
+                <h2 class="header-sub">{{ $t("projects.designing") }}</h2>
+              </div>
+              <div class="wrapper-text is-left">
+                <h3 class="wrapper-subtitle">{{ project.titel }}</h3>
+                <div class="seperator"></div>
+                <p class="wrapper-content">{{ project.task }}</p>
+              </div>
+              <div class="wrapper-image is-right">
+                <img class="project-img" :src="project.img" />
+              </div>
             </div>
           </div>
+          <!-- Project brand End -->
         </div>
-        <!-- Project brand End -->
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
 export default {
-  props: {
-    name: String,
-    summary: String,
-    technologies: Array,
-    id: Number,
-    image: String,
-    href: String,
-    task: String,
-    titel: String,
-  },
+  props: ["project"],
   data() {
     return {};
   },
   methods: {
     closeModal() {
-      this.$emit("closeModal");
+      this.$emit("closeProject");
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+fade-enter-active,
+.fade-leave-active {
+  transition: transform 0.375s cubic-bezier(1, 0, 0, 1),
+    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out !important;
+  opacity: 1;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: scale(0.6);
+  transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
+
+  opacity: 0;
+}
 .project-item {
   background: #1c1d25;
   z-index: 99999;
@@ -106,20 +111,12 @@ export default {
   width: 100vw;
   min-height: 100vh;
   align-items: center;
+  border-radius: 0;
   justify-content: center;
-  transform: scale(0.6);
-  opacity: 0;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1),
-    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
 
   &.enter {
-    border-radius: 0;
-    opacity: 1;
-    transform: scale(1);
-    transition: transform 0.375s cubic-bezier(1, 0, 0, 1),
-      opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out !important;
     overflow-y: auto;
   }
 
@@ -127,7 +124,6 @@ export default {
     width: 100%;
     position: relative;
     margin: auto;
-    transform: scale(1);
 
     .project-close {
       position: absolute;
@@ -555,67 +551,72 @@ export default {
 }
 
 @media (max-width: 56.25em) {
-  .project-item .project-parent-container .project-container .project-body {
-    .font-images-wrapper {
-      height: 200px;
+  .project-item .project-parent-container .project-container {
+    .project-intro .container .intro-title {
+      font-size: 2.5rem;
     }
-    &.color-palette {
-      padding-left: 0;
+    .project-body {
+      .font-images-wrapper {
+        height: 200px;
+      }
+      &.color-palette {
+        padding-left: 0;
 
-      .color-palette-wrapper {
-        .color {
-          width: 90px;
-          height: 90px;
+        .color-palette-wrapper {
+          .color {
+            width: 90px;
+            height: 90px;
+          }
         }
       }
-    }
 
-    .wrapper-text {
-      &:first-child {
-        margin-left: auto;
-      }
-      display: block;
-      clear: both;
-      float: none;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 35px;
-      &.is-left {
-        padding-left: 0;
-        padding: 0 8%;
-      }
-
-      .wrapper-subtitle {
-        font-size: 2.5rem;
-      }
-
-      .wrapper-content {
-        text-align: left !important;
-      }
-    }
-    .wrapper-image {
-      display: block;
-      clear: both;
-      float: none;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      &:last-child {
-        margin-right: auto;
-      }
-
-      img {
+      .wrapper-text {
+        &:first-child {
+          margin-left: auto;
+        }
         display: block;
-        width: 90%;
-        margin: 0 auto;
-        transition: none;
-      }
-    }
+        clear: both;
+        float: none;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 35px;
+        &.is-left {
+          padding-left: 0;
+          padding: 0 8%;
+        }
 
-    .body-header {
-      .header-sub {
-        font-size: 3.4rem;
+        .wrapper-subtitle {
+          font-size: 2.5rem;
+        }
+
+        .wrapper-content {
+          text-align: left !important;
+        }
+      }
+      .wrapper-image {
+        display: block;
+        clear: both;
+        float: none;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        &:last-child {
+          margin-right: auto;
+        }
+
+        img {
+          display: block;
+          width: 90%;
+          margin: 0 auto;
+          transition: none;
+        }
+      }
+
+      .body-header {
+        .header-sub {
+          font-size: 3.4rem;
+        }
       }
     }
   }

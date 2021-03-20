@@ -32,16 +32,14 @@
                   <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
               >
-                <a @click="showModalFor(project)">{{ $t("projects.view") }}</a>
+                <a @click="activeProject = project">{{ $t("projects.view") }}</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div v-for="(project, index) in projects" :key="index">
-        <ProjectModal v-if="project.showModal" @closeModal="project.showModal = false" :id="project.id" :name="project.name" :titel="project.titel" :summary="project.summary" :task="project.task" :technologies="project.technologies" :href="project.href" :image="project.img" />
-    </div>
+    <ProjectModal v-if="activeProject" :class="activeProject ? 'enter' : ''" :project="activeProject" @closeProject="activeProject = null" />
   </section>
 </template>
 
@@ -54,6 +52,7 @@ export default {
   data()
   {
       return {
+        activeProject: null,
         projects: [
             {id: 1, name: 'Whitebird', titel: this.$t('projects.whitebird_titel') , summary: this.$t('projects.whitebird'), task: this.$t('projects.whitebird_task'), technologies: ['NestJS','Nuxt.js','MongoDB','Fabric.js', 'Skeuomorphism'], classes: ['frontend', 'backend'], thumbnail: require('../../assets/whitebird_logo.svg') ,img: require('../../assets/whitebird_board.png'), href: 'https://github.com/BuchholzTim/Whitebird', showModal: false},
             {id: 2, name: 'Hly', titel:this.$t('projects.hly_title') , summary: this.$t('projects.hly'), task: this.$t('projects.hly_task'), technologies: ['Photoshop'], classes: ['design'], thumbnail: require('../../assets/hly_logo.png'),img: require('../../assets/hly_storyboard.png'), href: 'https://www.youtube.com/watch?v=bZbDIigXlNc', showModal: false},
