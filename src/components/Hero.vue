@@ -1,6 +1,7 @@
 <template>
   <div id="hero" class="jumbotron">
     <ShapesMask />
+    <SocialsOverlay />
     <!-- My personal logo -->
     <div class="brand">
       <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
@@ -46,29 +47,19 @@
           </button>
         </span>
       </h1>
-      <div class="home-nav">
-        <a class="cta-btn cta-btn-hero" href="#experience">{{
-          $t("experience.resume")
-        }}</a>
-        <b>/</b>
-        <a class="cta-btn cta-btn-hero" href="#projects">{{
-          $t("projects.projects")
-        }}</a>
-        <b>/</b>
-        <a class="cta-btn cta-btn-hero" @click="toggleContactModal">{{
-          $t("contact.contact")
-        }}</a>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
 import ShapesMask from "../components/ShapesMask.vue";
+import SocialsOverlay from "../components/SocialsOverlay.vue";
+
 export default {
   props: ["mode"],
   components: {
     ShapesMask,
+    SocialsOverlay,
   },
   methods: {
     toggleDarkMode() {
@@ -81,9 +72,9 @@ export default {
       this.$emit("toggle");
     },
     toggleContactModal() {
-        const contactModal = document.querySelector(".about-contact");
-        contactModal.classList.add("isopen");
-    }
+      const contactModal = document.querySelector(".about-contact");
+      contactModal.classList.add("isopen");
+    },
   },
 };
 </script>
@@ -109,17 +100,11 @@ export default {
       }
     }
 
-  .home-nav {
-    a {
+    .hero-title {
+      .intro {
         color: $white;
+      }
     }
- }
-
- .hero-title {
-     .intro {
-         color: $white;
-     }
- }
   }
 }
 
@@ -136,6 +121,7 @@ export default {
   border-bottom: 0;
   font-weight: 400;
   color: #ebebeb;
+  background: #ebebeb;
   padding: 0 5.6rem;
   margin-bottom: 0;
   top: 0;
@@ -157,7 +143,7 @@ export default {
     }
 
     .logo-large {
-      height: 45vh;
+      transform: scale(2);
     }
   }
 
@@ -216,35 +202,6 @@ export default {
     }
   }
 
-  .home-nav {
-    display: inline-block;
-    z-index: 6;
-    > a:first-of-type {
-      margin-left: 0;
-    }
-    a {
-      margin: 0 1rem;
-      font-size: 1.6rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: $modal-bg;
-      text-decoration: none;
-      mix-blend-mode: difference;
-
-      &:hover {
-        color: $fuchsia-light;
-      }
-    }
-
-    b {
-      font-size: 1.4rem;
-      color: #d3d3d3;
-      font-weight: 900;
-      mix-blend-mode: difference;
-    }
-  }
-
   .hero-title {
     display: flex;
     flex-flow: column;
@@ -290,9 +247,9 @@ export default {
           background: #ffde00;
           transform: rotate(45deg);
           border-radius: 50%;
-          box-shadow: 0 0 0 4.2px #ffde0080, 0 0 0 8.8px #ffde0040,
-            0 0 0 10.15px #ffde0060, 0 0 0 12px #ffde0080, 0 0 0 21px #ffde0000,
-            0 0 8px 21px #ffde0010;
+          box-shadow: 0 0 0 4.2px #e9b23a80, 0 0 0 8.8px #e9b23a60,
+            0 0 0 10.15px #e9b23a40, 0 0 0 12px #e9b23a20, 0 0 0 21px #e9b23a00,
+            0 0 8px 21px #e9b23a10;
           animation: sunrise 2s infinite linear forwards,
             rays 2s 2s infinite linear;
         }
@@ -312,7 +269,7 @@ export default {
           top: 18.75%;
           background-color: rgba(0, 0, 0, 0);
           border-radius: 50%;
-          box-shadow: 9px 3px 0px 0px #ffe5b5;
+          box-shadow: 9px 3px 0px 0px rgb(255, 217, 0);
           opacity: 0;
           transform: scale(0.3) rotate(65deg);
           transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
@@ -392,15 +349,15 @@ export default {
 
 @keyframes rays {
   0% {
-    box-shadow: 0 0 0 0px #ffde0080, 0 0 0 4.4px #ffde0040,
-      0 0 0 5.05px #ffde0020, 0 0 0 8px #ffde0010, 0 0 0 18px #ffde0000,
-      0 0 8px 21px #ffde0010;
+    box-shadow: 0 0 0 0px #e9b23a80, 0 0 0 4.4px #e9b23a40,
+      0 0 0 5.05px #e9b23a20, 0 0 0 8px #e9b23a10, 0 0 0 18px #e9b23a00,
+      0 0 8px 21px #e9b23a10;
   }
 
   100% {
-    box-shadow: 0 0 0 4.2px #ffde0080, 0 0 0 8.8px #ffde0040,
-      0 0 0 10.15px #ffde0020, 0 0 0 12px #ffde0010, 0 0 0 21px #ffde0000,
-      0 0 8px 21px #ffde0010;
+    box-shadow: 0 0 0 4.2px #e9b23a80, 0 0 0 8.8px #e9b23a60,
+      0 0 0 10.15px #e9b23a40, 0 0 0 12px #e9b23a20, 0 0 0 21px #e9b23a00,
+      0 0 8px 21px #e9b23a10;
   }
 }
 
@@ -439,6 +396,9 @@ export default {
 @media (max-width: 56.25em) {
   #hero {
     .brand {
+      .logo-large {
+        transform: scale(1);
+      }
       svg {
         width: 100%;
         -webkit-transform: scale(1.1);

@@ -24,8 +24,6 @@
       ></button>
     </div>
     <Sidebar
-      :mode="mode"
-      @toggle="$emit('toggle')"
       :class="{ open: isOpen }"
       @toggleClose="closeMenu"
       style="transform: translateX(-100vw)"
@@ -38,7 +36,6 @@
 import Sidebar from "./Sidebar.vue";
 import Overlay from "./Overlay.vue";
 export default {
-  props: ["mode"],
   data() {
     return {
       isOpen: false,
@@ -64,8 +61,8 @@ export default {
 <style lang="scss" scoped>
 .fixed--top {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 10px;
+  right: 10px;
   z-index: 1030;
 }
 
@@ -74,10 +71,7 @@ export default {
   height: 55px;
   padding: 2rem;
   pointer-events: none;
-  background: $white;
   transition: 0.1s;
-  border-bottom-right-radius: 6px;
-  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4);
 
   &.open {
     box-shadow: none;
@@ -149,14 +143,9 @@ export default {
   opacity: 1;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 650px) {
   #navbar-collapse {
       display: none;
-    .menu-icon-wrapper {
-      background: none;
-      box-shadow: none;
-
-    }
   }
 }
 </style>

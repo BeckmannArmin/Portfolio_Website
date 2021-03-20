@@ -25,7 +25,18 @@
         >{{ $t("contact.contact") }}</a
       >
     </div>
-    <LocaleSwitcher />
+    <div class="socials">
+      <a href="https://github.com/BeckmannArmin" target="_blank">
+        <font-awesome-icon :icon="['fab', 'github']" />
+      </a>
+      <a href="https://www.linkedin.com/in/armin-beckmann/" target="_blank">
+        <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+      </a>
+      <a href="https://codepen.io/Preefix99" target="_blank">
+        <font-awesome-icon :icon="['fab', 'codepen']" />
+      </a>
+    </div>
+   <LocaleSwitcher />
   </div>
 </template>
 
@@ -91,24 +102,6 @@ export default {
   transition: all 0.1s ease 0.5s;
   z-index: -1;
 
-  div:last-of-type {
-    position: absolute;
-    bottom: 5%;
-    left: 15%;
-    margin-left: 12px;
-    z-index: 100;
-    transition: opacity 0.3s ease,
-      -webkit-transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
-    transition: opacity 0.3s ease,
-      transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
-    transition: opacity 0.3s ease,
-      transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1),
-      -webkit-transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
-    transition-delay: 0s;
-    -webkit-transform: translateY(15px);
-    transform: translateY(15px);
-    opacity: 0;
-  }
 
   &.open {
     display: none;
@@ -174,9 +167,9 @@ export default {
       transform: translateY(-60%);
     }
 
-    .action-btns {
+    .socials {
       opacity: 1;
-      transition-delay: 0.75s;
+      transition-delay: 0.45s;
       -webkit-transform: translateY(0);
       transform: translateY(0);
     }
@@ -238,12 +231,9 @@ export default {
     }
   }
 
-  .action-btns {
+  .socials {
     position: absolute;
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    bottom: 15px;
+    bottom: 5%;
     left: 15%;
     margin: 0;
     padding: 0;
@@ -258,10 +248,15 @@ export default {
       transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1),
       -webkit-transform 0.4s cubic-bezier(0.694, 0.048, 0.335, 1);
     transition-delay: 0s;
-    z-index: 100;
+    z-index: 5;
 
-    div:first-of-type {
-      margin-right: 20px;
+    a {
+      padding: 0 1.5rem;
+      font-size: 3rem;
+
+      svg {
+        color: $white;
+      }
     }
   }
 }
@@ -274,6 +269,11 @@ export default {
 
 @media (max-width: 37.5em) {
   #sidebar {
+      .socials {
+        a {
+            font-size: 2.7rem;
+        }
+    }
     .sidebar-body {
       a {
         font-size: 2.7rem;
@@ -281,4 +281,5 @@ export default {
     }
   }
 }
+
 </style>

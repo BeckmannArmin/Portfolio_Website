@@ -1,7 +1,6 @@
 <template>
   <div id="master" class="stage-0 h-100 w-100 position-relative" :class="mode">
     <Preloader />
-    <SocialsOverlay />
     <div class="welcome-section-wrapper w-100 position-relative">
       <div class="welcome-section-animated d-inline-flex w-100 h-100">
         <Hero @toggle="toggle" />
@@ -9,8 +8,9 @@
       </div>
     </div>
     <div id="app">
-      <!-- Navbar collapsed -->
-      <NavBar :mode="mode" @toggle="toggle" />
+     <Header />
+      <!-- NavBarCollapse collapsed -->
+      <NavBarCollapse />
       <Experience />
       <Projects />
       <ContactV2 />
@@ -25,10 +25,10 @@ import Hero from "./components/Hero.vue";
 import Experience from "./components/sections/Experience.vue";
 import Projects from "./components/sections/ProjectsV2.vue";
 import About from "./components/sections/AboutMe_v2.vue";
-import NavBar from "./components/HeaderCollapse.vue";
+import NavBarCollapse from "./components/HeaderCollapse.vue";
 import ContactV2 from "./components/sections/modals/ContactModal.vue";
 import Preloader from "./components/Preloader.vue";
-import SocialsOverlay from "./components/SocialsOverlay.vue";
+import Header from "./components/Header.vue";
 
 export default {
   name: "App",
@@ -39,9 +39,9 @@ export default {
     Experience,
     Projects,
     ContactV2,
-    NavBar,
+    NavBarCollapse,
     Preloader,
-    SocialsOverlay,
+    Header
   },
   data() {
     return {
@@ -88,6 +88,7 @@ this.setToggleBtnState();
       }
     },
     onLoad() {
+      const header = document.querySelector(".main-nav");
       const loader = document.querySelector("#preloader");
       const wrapper = document.querySelector(".welcome-section-wrapper");
       const shapes = document.querySelector("#shapes");
@@ -98,12 +99,20 @@ this.setToggleBtnState();
 
       setTimeout(() => {
         shapes.classList.add("loaded");
+        header.classList.add("loaded");
       }, 3500);
     },
     handleScroll() {
+      const header = document.querySelector(".main-nav");
       var elmnt = document.querySelector("#hero");
       var offSet = elmnt.offsetHeight;
       const master = document.querySelector("#master");
+
+      if (window.scrollY > 10) {
+          header.classList.add("hidden");
+      } else {
+          header.classList.remove("hidden");
+      }
 
       if (window.scrollY > offSet) {
         master.classList.add("stage-1");
