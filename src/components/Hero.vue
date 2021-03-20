@@ -67,7 +67,7 @@ export default {
           characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
       });
 
-      b.start()
+      b.start();
       setTimeout(() => {
           b.reveal(6000);
       }, 3500);
