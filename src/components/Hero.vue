@@ -54,12 +54,23 @@
 <script>
 import ShapesMask from "../components/ShapesMask.vue";
 import SocialsOverlay from "../components/SocialsOverlay.vue";
+import baffle from "baffle";
 
 export default {
   props: ["mode"],
   components: {
     ShapesMask,
     SocialsOverlay,
+  },
+  mounted() {
+      const b = baffle(".intro", {
+          characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
+      });
+
+      b.start()
+      setTimeout(() => {
+          b.reveal(6000);
+      }, 3500);
   },
   methods: {
     toggleDarkMode() {
