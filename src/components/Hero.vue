@@ -32,7 +32,9 @@
           </span>
         </span>
         <span class="intro"
-          >{{ $t("hero.introduction.frontend") }}
+          ><span class="introRipple">{{
+            $t("hero.introduction.frontend")
+          }}</span>
           <button
             id="rippleBtn"
             type="button"
@@ -63,14 +65,14 @@ export default {
     SocialsOverlay,
   },
   mounted() {
-      const b = baffle(".intro", {
-          characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
-      });
+    const b = baffle(".introRipple", {
+      characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
+    });
 
-      b.start();
-      setTimeout(() => {
-          b.reveal(6000);
-      }, 3500);
+    b.start();
+    setTimeout(() => {
+      b.reveal(6000);
+    }, 3500);
   },
   methods: {
     toggleDarkMode() {

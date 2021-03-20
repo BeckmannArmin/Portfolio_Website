@@ -24,6 +24,7 @@
     },
     "projects": {
         "projects": "Projekte",
+        "theproject": "Das Projekt",
         "designing": "Entwurf",
         "see": "Projekt anschauen",
         "whitebird": "Whitebird ist ein Open-Source, webbasiertes, kollaboratives, digitales Whiteboard, das mit NestJS, MongoDB, NuxtJs und FabricJs gebaut wurde",

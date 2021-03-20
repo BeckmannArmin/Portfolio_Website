@@ -3,8 +3,12 @@
     <div class="project-parent-container">
       <button class="project-close" @click="closeModal"></button>
       <div class="project-container">
+        <!-- Project Header -->
         <div class="project-header">
-          <h1 class="title">{{ name }}</h1>
+          <div class="text-loading-mask">
+            <div class="text-loading-overlay"></div>
+            <h1 class="title">{{ name }}</h1>
+          </div>
           <ul class="technologies-used">
             <li
               v-for="(technology, index) in technologies"
@@ -14,41 +18,51 @@
               {{ technology }}
             </li>
           </ul>
-          <button class="cta-btn cta-btn-project">
-            <a :href="href" target="_blank"> {{ $t("projects.view") }}</a>
-          </button>
+          <p class="project-message">{{ summary }}</p>
         </div>
-        <p class="project-message">{{ summary }}</p>
-        <div class="project-body">
-          <div class="body-header">
-            <h2 class="header-sub">{{ $t("projects.designing") }}</h2>
+        <!-- Project Header End -->
+
+        <!-- Project Intro -->
+        <div class="project-intro">
+          <div class="giga-text">
+            {{ name }}
           </div>
-          <div class="wrapper-text is-left">
-            <h3 class="wrapper-subtitle">{{ titel }}</h3>
-            <div class="seperator"></div>
-            <p class="wrapper-content">{{ task }}</p>
-          </div>
-          <div class="wrapper-image is-right">
-            <img class="project-img" :src="image" />
+          <div class="container">
+            <h2 class="intro-title">
+              {{ $t("projects.theproject") }}
+            </h2>
+            <div class="intro-description-wrapper">
+              <p>{{ summary }}</p>
+            </div>
+            <div class="intro-btn-wrapper">
+              <a :href="href" class="animBtn cta-btn">
+                <svg>
+                  <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
+                <span class="button-text">{{ $t("projects.see") }}</span>
+              </a>
+            </div>
           </div>
         </div>
-        <div v-if="colors" class="project-body color-palette">
-          <div
-            v-for="(color, index) in colors"
-            :key="index"
-            class="color-palette-wrapper"
-          >
-            <div :style="`background-color: ${color}`" class="color"></div>
+        <!-- Project Intro End -->
+
+        <!-- Project brand -->
+        <div class="project-brand">
+          <div class="project-body">
+            <div class="body-header">
+              <h2 class="header-sub">{{ $t("projects.designing") }}</h2>
+            </div>
+            <div class="wrapper-text is-left">
+              <h3 class="wrapper-subtitle">{{ titel }}</h3>
+              <div class="seperator"></div>
+              <p class="wrapper-content">{{ task }}</p>
+            </div>
+            <div class="wrapper-image is-right">
+              <img class="project-img" :src="image" />
+            </div>
           </div>
         </div>
-        <div class="project-body">
-          <div
-            v-for="(font, i) in fonts"
-            :key="i"
-            :style="`background-image: url(${font})`"
-            class="font-images-wrapper"
-          ></div>
-        </div>
+        <!-- Project brand End -->
       </div>
     </div>
   </div>
@@ -64,9 +78,7 @@ export default {
     image: String,
     href: String,
     task: String,
-    colors: Array,
     titel: String,
-    fonts: Array,
   },
   data() {
     return {};
@@ -81,7 +93,7 @@ export default {
 
 <style lang="scss" scoped>
 .project-item {
-  background-color: $modal-bg;
+  background: #1c1d25;
   z-index: 99999;
   position: fixed;
   left: 0;
@@ -109,7 +121,8 @@ export default {
   }
 
   .project-parent-container {
-    width: 80%;
+    width: 100%;
+    position: relative;
     margin: auto;
     transform: scale(1);
 
@@ -129,7 +142,7 @@ export default {
       &:hover {
         -webkit-transform: scale(1.2);
         transform: scale(1.2);
-        color: $frog-green-light;
+        color: $white;
       }
 
       &:after {
@@ -144,116 +157,211 @@ export default {
       flex-direction: column;
       height: 100%;
 
-      .project-body {
-        width: 100%;
-        position: relative;
-        padding-top: 30px;
-        text-align: left;
-
-        .font-images-wrapper {
-          float: left;
-          clear: none;
-          width: 50%;
-          margin-left: 0;
-          margin-right: 0;
-          background-position: 50%;
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-size: contain;
-          margin-top: 40px;
-          margin-bottom: 40px;
-          height: 300px;
+      .project-intro {
+        padding: 85px 0;
+        text-align: center;
+        overflow: hidden;
+        background-color: #060c10;
+        .giga-text {
+          color: $white;
+          font-weight: bold;
+          font-size: 10rem;
+          position: absolute;
+          left: 6%;
+          opacity: 0.05;
+          z-index: 0;
         }
 
-        .body-header {
-          display: block;
+        .container {
+          .intro-btn-wrapper {
+            padding: 40px 0;
+            .animBtn {
+              font-size: 2rem;
+              width: 100%;
+              line-height: 45px;
+              padding: 2rem;
+              color: $white;
+              position: relative;
 
-          .header-sub {
-            text-align: center;
-            margin-bottom: 70px;
-            color: $frog-green-light;
-            animation: slideUp 1.2s ease forwards 0.9s;
-            opacity: 0;
-            font-size: 4rem;
+              .button-text {
+                position: relative;
+              }
+
+              &:hover {
+                text-decoration: none;
+              }
+            }
+
+            .cta-btn {
+              background: darken(#060c10, 1.5%);
+              font-weight: 100;
+
+              svg {
+                height: 45px;
+                left: 0;
+                position: absolute;
+                width: 100%;
+              }
+
+              rect {
+                fill: none;
+                stroke: #fff;
+                stroke-width: 2;
+                stroke-dasharray: 422, 0;
+                transition: all 0.35s linear;
+              }
+            }
+
+            .cta-btn:hover {
+              background: rgba(#060c10, 0);
+              font-weight: 900;
+              letter-spacing: 1px;
+
+              rect {
+                stroke-width: 5;
+                stroke-dasharray: 15, 310;
+                stroke-dashoffset: 48;
+                transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+              }
+            }
+          }
+          .intro-description-wrapper {
+            width: 48%;
+            margin: 0 auto;
+            color: $white;
+            position: relative;
+
+            p {
+              text-align: justify;
+            }
+          }
+          .intro-title {
+            display: inline-block;
+            font-size: 5.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: $white;
+            overflow: hidden;
+            position: relative;
+            line-height: 1.3;
           }
         }
+      }
 
-        &.color-palette {
-          padding-top: 85px;
-          padding-bottom: 85px;
-          padding-left: 200px;
+      .project-brand {
+          padding: 85px 0;
+      }
+        .project-body {
+          width: 100%;
+          position: relative;
+          padding-top: 30px;
+          text-align: left;
 
-          .color-palette-wrapper {
+          .font-images-wrapper {
             float: left;
             clear: none;
-            width: 15%;
+            width: 50%;
             margin-left: 0;
-            margin-right: 5%;
-            text-align: center;
+            margin-right: 0;
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            height: 300px;
+          }
 
-            .color {
+          .body-header {
+            display: block;
+
+            .header-sub {
+              text-align: center;
+              margin-bottom: 70px;
+              color: $white;
+              animation: slideUp 1.2s ease forwards 0.9s;
+              opacity: 0;
+              font-size: 4rem;
+            }
+          }
+
+          &.color-palette {
+            padding-top: 85px;
+            padding-bottom: 85px;
+            padding-left: 200px;
+
+            .color-palette-wrapper {
+              float: left;
+              clear: none;
+              width: 15%;
+              margin-left: 0;
+              margin-right: 5%;
+              text-align: center;
+
+              .color {
+                display: block;
+                width: 145px;
+                height: 145px;
+                margin: 0 auto;
+                background-color: #fff;
+                box-shadow: 0 5px 20px 0 rgb(0, 0, 0 / 33%);
+                border-radius: 50%;
+                transition: all 0.3s;
+              }
+            }
+          }
+
+          .wrapper-image {
+            animation: slideUp 0.95s ease forwards 2s;
+            opacity: 0;
+            &:last-child {
+              margin-right: 0;
+            }
+
+            float: left;
+            clear: none;
+            width: 45%;
+            margin-left: 0;
+            margin-right: 3%;
+
+            img {
               display: block;
-              width: 145px;
-              height: 145px;
-              margin: 0 auto;
-              background-color: #fff;
-              box-shadow: 0 5px 20px 0 rgb(0, 0, 0 / 33%);
-              border-radius: 50%;
-              transition: all 0.3s;
+              width: 55%;
+              margin-left: 10%;
+            }
+          }
+
+          .wrapper-text {
+            float: left;
+            clear: none;
+            width: 50%;
+            margin-left: 0;
+            margin-right: 3%;
+            animation: slideUp 0.95s ease forwards 2s;
+            opacity: 0;
+
+            .seperator {
+              width: 33%;
+              height: 3px;
+              margin: 2.6rem 0;
+              background-color: $fuchsia;
+            }
+
+            .wrapper-subtitle {
+              font-size: 3rem;
+              color: $white;
+            }
+
+            &.is-left {
+              padding-left: 200px;
+            }
+
+            .wrapper-content {
+              text-align: justify;
             }
           }
         }
 
-        .wrapper-image {
-          animation: slideUp 0.95s ease forwards 2s;
-          opacity: 0;
-          &:last-child {
-            margin-right: 0;
-          }
-
-          float: left;
-          clear: none;
-          width: 45%;
-          margin-left: 0;
-          margin-right: 3%;
-
-          img {
-            display: block;
-            width: 55%;
-            margin-left: 10%;
-          }
-        }
-
-        .wrapper-text {
-          float: left;
-          clear: none;
-          width: 50%;
-          margin-left: 0;
-          margin-right: 3%;
-          animation: slideUp 0.95s ease forwards 2s;
-          opacity: 0;
-
-          .seperator {
-            width: 33%;
-            height: 3px;
-            margin: 2.6rem 0;
-            background-color: $fuchsia;
-          }
-
-          .wrapper-subtitle {
-            font-size: 3rem;
-            color: $frog-green-light;
-          }
-
-          &.is-left {
-            padding-left: 200px;
-          }
-
-          .wrapper-content {
-            text-align: justify;
-          }
-        }
-      }
 
       .project-header {
         position: relative;
@@ -261,16 +369,27 @@ export default {
         flex-direction: column;
         text-align: center;
         align-items: center;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        justify-content: center;
+        height: 100vh;
         width: 100%;
+
+        .text-loading-mask {
+          .text-loading-overlay {
+            display: none;
+
+            &.reveal {
+              opacity: 1;
+              -webkit-transform: translateX(105%);
+              transform: translateX(105%);
+            }
+          }
+        }
 
         .title {
           margin-left: 25px;
           margin-right: 25px;
-          color: #dbe8d4;
-          margin-top: 50px;
-          font-size: 5.6rem;
+          color: $white;
+          font-size: 6rem;
           font-weight: 600;
           animation: slideUp 0.95s ease forwards 0.5s;
           opacity: 0;
@@ -292,11 +411,11 @@ export default {
           .technology {
             display: inline-block;
             margin: 0.5rem;
-            border: 1px solid $frog-green;
+            border: 1px solid $white;
             border-radius: 4px;
             padding: 0.75rem;
-            color: $frog-green-light;
-            font-weight: lighter;
+            color: $white;
+            font-weight: er;
             letter-spacing: 1px;
             font-size: 1.3rem;
           }
@@ -316,21 +435,21 @@ export default {
           opacity: 0;
         }
         .cta-btn-project {
-          border: 1px solid $frog-green;
+          border: 1px solid $white;
         }
 
         a {
-          color: $frog-green-light;
+          color: $white;
           text-decoration: none;
         }
 
         a:hover {
           transition: all 0.3s ease-in-out;
-          color: $frog-green;
+          color: $white;
         }
 
         .cta-btn-project:hover {
-          color: $frog-green;
+          color: $white;
         }
 
         .cta-btn:after {
@@ -356,26 +475,15 @@ export default {
       p {
         font-weight: 400;
         font-size: 2rem;
-        color: #dbe8d4;
+        color: $white;
       }
       .project-message {
         width: 90%;
-        margin: auto auto 25px;
+        margin: 0 auto;
         text-align: center;
         animation: slideUp 0.95s ease forwards 1.05s;
         opacity: 0;
       }
-
-      /**
-      img.project-img {
-        width: 35%;
-        border-radius: 8px;
-        margin: 42px auto 75px;
-        background: #fff;
-        padding: 24px;
-        box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4);
-      }
-      */
     }
   }
 }
@@ -388,6 +496,38 @@ export default {
   100% {
     transform: translateY(0px);
     opacity: 1;
+  }
+}
+
+@media (min-width: 56.25em) {
+  .project-item
+    .project-parent-container
+    .project-container
+    .project-header
+    .text-loading-mask {
+    display: inline-block;
+    position: relative;
+    padding-top: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+
+    .text-loading-overlay {
+      display: block;
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      transition: -webkit-transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
+      transition: transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
+      transition: transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1),
+        -webkit-transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
+      z-index: 60;
+    }
   }
 }
 
