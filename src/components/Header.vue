@@ -48,6 +48,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dark {
+  .main-nav {
+    .ab-logo {
+      svg.logo-small {
+        fill: $white;
+      }
+    }
+    .nav-links {
+      li {
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
 .main-nav {
   width: 100%;
   position: fixed;
@@ -152,29 +169,29 @@ export default {
 }
 
 @media (max-width: 56.25em) {
-    .main-nav {
-        .nav-links {
-            li {
-                margin-left: 25px;
-            }
-        }
+  .main-nav {
+    .nav-links {
+      li {
+        margin-left: 25px;
+      }
     }
+  }
 }
 
 @media only screen and (max-width: 64em) {
- .main-nav {
-     .container {
-         width: 95% !important;
-         max-width: none;
-     }
- }
+  .main-nav {
+    .container {
+      width: 95% !important;
+      max-width: none;
+    }
+  }
 }
 
 @media only screen and (max-width: 650px) {
- .main-nav {
+  .main-nav {
     .nav-links {
-        display: none;
+      display: none;
     }
- }
+  }
 }
 </style>
