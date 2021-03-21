@@ -74,7 +74,7 @@ export default {
     b.start();
     setTimeout(() => {
       b.reveal(6000);
-    }, 4500);
+    }, 3500);
   },
   methods: {
     toggleDarkMode() {
