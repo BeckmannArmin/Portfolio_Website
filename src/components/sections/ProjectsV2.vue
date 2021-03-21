@@ -105,7 +105,7 @@ export default {
           technologies: ["Laravel", "VueJs"],
           classes: ["frontend", "backend"],
           thumbnail: require("../../assets/conForm_logo.png"),
-          img: require("../../assets/conForm_logo.png"),
+          img: require("../../assets/conForm.png"),
           href: "https://github.com/BeckmannArmin/conForm",
           showModal: false,
         },

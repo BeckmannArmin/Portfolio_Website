@@ -16,10 +16,9 @@
 
 <style lang="scss" scoped>
 #socials-overlay {
-  mix-blend-mode: difference;
   position: absolute;
    right: 0;
-   z-index: 5;
+   z-index: 999;
   .socials-wrapper {
     display: inline-flex;
     flex-flow: column;
@@ -34,7 +33,7 @@
       padding: 2rem;
       font-size: 5rem;
       svg {
-        color: $white;
+        color: #222733;
 
         &:hover {
           color: $fuchsia;
