@@ -7,13 +7,20 @@
         <div class="inner-container">
           <form id="contact-form" method="post" class="form">
             <div class="input">
-              <input type="text" id="name" placeholder="Name" />
+              <input type="text" id="name" :placeholder="$t('contact.name')" />
             </div>
             <div class="input">
-              <input type="text" id="email" placeholder="Email" />
+              <input
+                type="text"
+                id="email"
+                :placeholder="$t('contact.email')"
+              />
             </div>
             <div class="input">
-              <textarea id="message" placeholder="message"></textarea>
+              <textarea
+                id="message"
+                :placeholder="$t('contact.message')"
+              ></textarea>
             </div>
             <div class="inner-container">
               <button type="submit" disabled class="button submit-btn">
@@ -37,38 +44,16 @@
 
 <script>
 export default {
-    methods: {
+  methods: {
     closeModal() {
       const contactModal = document.querySelector(".about-contact");
       contactModal.classList.remove("isopen");
     },
-    }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.contact-form .input:after,
-.contact-form .input:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  transition: width 0.45s cubic-bezier(0.694, 0.048, 0.335, 1);
-}
-
-.contact-form .input:before {
-  background: #26408b;
-  transition-delay: 0.1s;
-  z-index: 10;
-}
-
-.contact-form .input:after {
-  background: #f06449;
-  z-index: 9;
-}
-
 .about-contact {
   position: absolute;
   -webkit-transform-style: preserve-3d;
@@ -234,6 +219,13 @@ export default {
               width: 100%;
               position: relative;
 
+              &:hover {
+                &::before,
+                &::after {
+                  width: 101%;
+                }
+              }
+
               &::before,
               &::after {
                 content: "";
@@ -268,6 +260,11 @@ export default {
                 height: auto;
                 min-height: 100px;
                 margin: 0;
+
+                &:focus {
+                  outline: none;
+                  border-color: #26408b;
+                }
               }
 
               input {
@@ -281,6 +278,11 @@ export default {
                 background: transparent;
                 color: silver;
                 transition: border-color 0.25s;
+
+                &:focus {
+                  outline: none;
+                  border-color: #26408b;
+                }
               }
             }
 
