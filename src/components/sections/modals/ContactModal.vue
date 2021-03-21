@@ -65,7 +65,7 @@ export default {
   width: 1000px;
   height: 90%;
   position: fixed;
-  background-color: $white;
+  background-color: transparent;
   overflow: hidden;
   visibility: hidden;
   transition: visibility 1s, z-index 1s, box-shadow 0.3s;
