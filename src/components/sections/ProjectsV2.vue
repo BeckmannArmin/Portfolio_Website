@@ -7,10 +7,7 @@
       <div
         class="center align-items-center w-100 d-flex flex-column justify-content-center"
       >
-        <div
-          id="button-container"
-          class="project-categories position-relative"
-        >
+        <div id="button-container" class="project-categories position-relative">
           <button class="btn active" @click="filterProjects('all')">
             {{ $t("projects.all") }}
           </button>
@@ -24,22 +21,36 @@
         </div>
         <div class="row d-flex justify-content-center">
           <div class="project-list row-inner">
-            <div v-for="(project, index) in projects" :key="index" class="project" :class="project.classes">
-                <div class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100">
-                    <img class="image img-fluid" :src="project.thumbnail"/>
-                    <b>{{ project.name }}</b>
-                </div>
-                  <div
+            <div
+              v-for="(project, index) in projects"
+              :key="index"
+              class="project"
+              :class="project.classes"
+            >
+              <div
+                class="project-inner-container d-flex align-items-center justify-content-center flex-column position-relative h-100 w-100"
+              >
+                <img class="image img-fluid" :src="project.thumbnail" />
+                <b>{{ project.name }}</b>
+              </div>
+              <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
               >
-                <a @click="activeProject = project">{{ $t("projects.view") }}</a>
+                <a @click="activeProject = project">{{
+                  $t("projects.view")
+                }}</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <ProjectModal v-if="activeProject" :class="activeProject ? 'enter' : ''" :project="activeProject" @closeProject="activeProject = null" />
+    <ProjectModal
+      v-if="activeProject"
+      :class="activeProject ? 'enter' : ''"
+      :project="activeProject"
+      @closeProject="activeProject = null"
+    />
   </section>
 </template>
 
@@ -49,19 +60,94 @@ export default {
   components: {
     ProjectModal,
   },
-  data()
-  {
-      return {
-        activeProject: null,
-        projects: [
-            {id: 1, name: 'Whitebird', titel: this.$t('projects.whitebird_titel') , summary: this.$t('projects.whitebird'), task: this.$t('projects.whitebird_task'), technologies: ['NestJS','Nuxt.js','MongoDB','Fabric.js', 'Skeuomorphism'], classes: ['frontend', 'backend'], thumbnail: require('../../assets/whitebird_logo.svg') ,img: require('../../assets/whitebird_board.png'), href: 'https://github.com/BuchholzTim/Whitebird', showModal: false},
-            {id: 2, name: 'Hly', titel:this.$t('projects.hly_title') , summary: this.$t('projects.hly'), task: this.$t('projects.hly_task'), technologies: ['Photoshop'], classes: ['design'], thumbnail: require('../../assets/hly_logo.png'),img: require('../../assets/hly_storyboard.png'), href: 'https://www.youtube.com/watch?v=bZbDIigXlNc', showModal: false},
-            {id: 3, name: 'conForm', titel: this.$t('projects.conForm_title'), summary: this.$t('projects.conForm'), task: this.$t('projects.conForm_task'), technologies: ['Laravel','VueJs'],classes: ['frontend', 'backend'],thumbnail: require('../../assets/conForm_logo.png'),  img: require('../../assets/conForm_logo.png'),href: 'https://github.com/BeckmannArmin/conForm', showModal: false},
-            {id: 4, name: 'Menschen.Helfen.Leben', titel: this.$t('projects.menschenhelfen_titel'), summary: this.$t('projects.menschenhelfen'), task: this.$t('projects.menschenhelfen_task'), technologies: ['Wordpress', 'CSS', 'JavaScript', 'Oxygen'],classes: ['design'],thumbnail: require('../../assets/menschen.jpg'), img: require('../../assets/menschen.jpg'), href: 'https://menschen-helfen-leben.de/', showModal: false},
-            {id: 5, name: 'Portfolio_V1', titel: 'Portfolio_V1', summary: this.$t('projects.portfolio'), task: this.$t('projects.portfolio_task'), technologies: ['Vue.js', 'SCSS', 'JavsScript', 'anime.js', 'Bootstrap', 'Illustrator', 'Love', 'Darkmode', 'i18n'],classes: ['frontend, design'],thumbnail: require('../../assets/arminlogo_opt.svg'), img: require('../../assets/arminlogo_opt.svg'), href: '', showModal: false},
-        ],
-      }
-    },
+  data() {
+    return {
+      activeProject: null,
+      projects: [
+        {
+          id: 1,
+          name: "Whitebird",
+          titel: this.$t("projects.whitebird_titel"),
+          summary: this.$t("projects.whitebird"),
+          task: this.$t("projects.whitebird_task"),
+          technologies: [
+            "NestJS",
+            "Nuxt.js",
+            "MongoDB",
+            "Fabric.js",
+            "Skeuomorphism",
+          ],
+          classes: ["frontend", "backend"],
+          thumbnail: require("../../assets/whitebird_logo.svg"),
+          img: require("../../assets/whitebird_board.png"),
+          href: "https://github.com/BuchholzTim/Whitebird",
+          showModal: false,
+        },
+        {
+          id: 2,
+          name: "Hly",
+          titel: this.$t("projects.hly_title"),
+          summary: this.$t("projects.hly"),
+          task: this.$t("projects.hly_task"),
+          technologies: ["Photoshop"],
+          classes: ["design"],
+          thumbnail: require("../../assets/hly_logo.png"),
+          img: require("../../assets/hly_storyboard.png"),
+          href: "https://www.youtube.com/watch?v=bZbDIigXlNc",
+          showModal: false,
+        },
+        {
+          id: 3,
+          name: "conForm",
+          titel: this.$t("projects.conForm_title"),
+          summary: this.$t("projects.conForm"),
+          task: this.$t("projects.conForm_task"),
+          technologies: ["Laravel", "VueJs"],
+          classes: ["frontend", "backend"],
+          thumbnail: require("../../assets/conForm_logo.png"),
+          img: require("../../assets/conForm_logo.png"),
+          href: "https://github.com/BeckmannArmin/conForm",
+          showModal: false,
+        },
+        {
+          id: 4,
+          name: "Menschen.Helfen.Leben",
+          titel: this.$t("projects.menschenhelfen_titel"),
+          summary: this.$t("projects.menschenhelfen"),
+          task: this.$t("projects.menschenhelfen_task"),
+          technologies: ["Wordpress", "CSS", "JavaScript", "Oxygen"],
+          classes: ["design"],
+          thumbnail: require("../../assets/menschen.jpg"),
+          img: require("../../assets/menschen.jpg"),
+          href: "https://menschen-helfen-leben.de/",
+          showModal: false,
+        },
+        {
+          id: 5,
+          name: "Portfolio_V1",
+          titel: "Portfolio_V1",
+          summary: this.$t("projects.portfolio"),
+          task: this.$t("projects.portfolio_task"),
+          technologies: [
+            "Vue.js",
+            "SCSS",
+            "JavsScript",
+            "anime.js",
+            "Bootstrap",
+            "Illustrator",
+            "Love",
+            "Darkmode",
+            "i18n",
+          ],
+          classes: ["frontend, design"],
+          thumbnail: require("../../assets/arminlogo_opt.svg"),
+          img: require("../../assets/arminlogo_opt.svg"),
+          href: "",
+          showModal: false,
+        },
+      ],
+    };
+  },
   mounted() {
     this.highlightActiveBtn();
   },
@@ -117,32 +203,31 @@ export default {
       }
     },
     showModalFor(project) {
-        project.showModal = true;
-    }
+      project.showModal = true;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .dark {
-    #projects {
-        background: $bg-dark;
-        .section-title {
-            color: $section-title-dark;
-            &:after {
-                color: $fuchsia;
-            }
-        }
-
-        .project-categories {
-            background: $bg-dark;
-
-            .btn {
-                color: $section-title-dark;
-            }
-        }
+  #projects {
+    background: $bg-dark;
+    .section-title {
+      color: $section-title-dark;
+      &:after {
+        color: $fuchsia;
+      }
     }
+
+    .project-categories {
+      background: $bg-dark;
+
+      .btn {
+        color: $section-title-dark;
+      }
+    }
+  }
 }
 section {
   width: 100%;
@@ -238,7 +323,7 @@ a {
     min-height: 275px;
     min-width: 250px;
     margin: 16px 12px 0;
-    background: $fuchsia;
+    background: rgb(172, 22, 73);
     border-radius: 6px;
     position: relative;
     flex: 1;
@@ -248,25 +333,64 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
 
-  .project-inner-container {
-    transition: margin 0.475s $project-transition;
-    flex: auto;
-    margin: 24px;
-  }
+    &:hover {
+      cursor: pointer;
 
-  .project img {
-    position: absolute;
-    top: -6px;
-    z-index: 1;
-    object-fit: cover;
-    height: 90%;
-    width: 85%;
-    transition: height 0.375s $project-transition,
-      width 0.375s $project-transition, flex 0.375s $project-transition,
-      top 0.375s $project-transition;
-    box-shadow: 0 3px 7px 0 rgb(0, 0, 0 / 25%);
+      img {
+        width: 100%;
+        height: 100%;
+        top: 0;
+      }
+
+      .project-inner-container {
+        margin: 0;
+      }
+    }
+
+    .project-inner-container {
+      transition: margin 0.475s $project-transition;
+      flex: auto;
+      margin: 24px;
+    }
+
+    .overlay {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      opacity: 0;
+      z-index: 5;
+      background: $background-overlay;
+      transition: opacity 0.375s cubic-bezier(1, 0, 0, 1);
+      overflow: hidden;
+      border-radius: 6px;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      a {
+        padding: 10px 26px;
+        color: $white;
+        border: 2px solid $fuchsia;
+        transition: all 0.375s $project-transition;
+        z-index: 3;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: -6px;
+      z-index: 1;
+      object-fit: cover;
+      height: 90%;
+      width: 85%;
+      transition: height 0.375s $project-transition,
+        width 0.375s $project-transition, flex 0.375s $project-transition,
+        top 0.375s $project-transition;
+      box-shadow: 0 3px 7px 0 rgb(0, 0, 0 / 25%);
+    }
   }
 
   .project b {
@@ -280,42 +404,23 @@ a {
     max-height: 24px;
     overflow: hidden;
   }
+}
 
-  .project .overlay {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    opacity: 0;
-    z-index: 5;
-    background: $background-overlay;
-    transition: opacity 0.375s cubic-bezier(1, 0, 0, 1);
-    overflow: hidden;
-    border-radius: 6px;
-
-    &:hover {
-      opacity: 1;
-    }
-
-    a {
-      padding: 10px 26px;
-      color: $white;
-      border: 2px solid $fuchsia;
-      transition: all 0.375s $project-transition;
-      z-index: 3;
+@media (max-width: 56.25em) {
+  #projects {
+    .project-categories {
+      margin: 0 auto;
+      overflow-x: auto;
+      max-width: none;
     }
   }
 }
 
-@media (max-width: 56.25em) {
-    #projects {
-        .project-categories {
-            margin: 0 auto;
-            overflow-x: auto;
-            max-width: none;
-            width: 80%;
-        }
+@media (max-width: 37.5em) {
+  #projects {
+    .project-categories {
+      width: 80%;
     }
+  }
 }
-
 </style>

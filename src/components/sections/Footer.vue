@@ -7,15 +7,6 @@
             id="curved"
             class="position-relative d-flex justify-content-center align-items-center flex-column"
           >
-            <div class="contact">
-              <a
-                href="mailto:armin.beckmann@protonmail.com"
-                title="Get in touch"
-                rel="me"
-                target="_blank"
-                >armin.beckmann@protonmail.com</a
-              >
-            </div>
             <div class="socials d-flex justify-content-center flex-row">
               <a href="https://github.com/BeckmannArmin" target="_blank">
                 <font-awesome-icon :icon="['fab', 'github']" />
@@ -206,21 +197,7 @@ export default {
   }
 
   #curved {
-    padding-top: 80px;
-
-    .contact {
-      a {
-        text-decoration: none;
-        color: $white;
-        cursor: pointer;
-        font-size: 1.6rem;
-        padding-top: 2rem;
-
-        &:hover {
-            color: $fuchsia;
-        }
-      }
-    }
+    padding-top: 60px;
 
     &:before {
       content: "";
