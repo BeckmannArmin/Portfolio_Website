@@ -92,10 +92,17 @@ this.setToggleBtnState();
       const loader = document.querySelector("#preloader");
       const wrapper = document.querySelector(".welcome-section-wrapper");
       const shapes = document.querySelector("#shapes");
+       const overlay = document.querySelectorAll(".text-loading-overlay");
       setTimeout(() => {
         loader.classList.add("leave");
         wrapper.classList.add("enter");
       }, 1500);
+
+      setTimeout(() => {
+           overlay.forEach((e) => {
+          e.classList.add("reveal");
+      });
+      }, 3000);
 
       setTimeout(() => {
         shapes.classList.add("loaded");

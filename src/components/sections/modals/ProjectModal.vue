@@ -87,19 +87,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-fade-enter-active,
-.fade-leave-active {
-  transition: transform 0.375s cubic-bezier(1, 0, 0, 1),
-    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out !important;
-  opacity: 1;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: scale(0.6);
-  transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1),
-    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
 
-  opacity: 0;
+.fade-enter-active {
+   transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
 }
+
+.fade-leave-active {
+   transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
 .project-item {
   background: #1c1d25;
   z-index: 99999;
@@ -117,6 +117,10 @@ fade-enter-active,
   overflow: hidden;
 
   &.enter {
+    border-radius: 0;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform .375s cubic-bezier(1,0,0,1),opacity .375s ease-in-out,border-radius .375s ease-in-out!important;
     overflow-y: auto;
   }
 

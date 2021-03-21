@@ -22,33 +22,35 @@
       </svg>
     </div>
     <!-- Hero title and subtitle -->
-    <div class="container d-flex flex-column">
-      <h1 class="hero-title">
-        <span>
-          <span class="text-color-main">
-            <span class="title">
-              <h2 class="text-color-main">Armin Beckmann</h2>
-            </span>
-          </span>
-        </span>
-        <span class="intro"
-          ><span class="introRipple">{{
-            $t("hero.introduction.frontend")
-          }}</span>
-          <button
-            id="rippleBtn"
-            type="button"
-            class="ripple-btn"
-            @click="toggleDarkMode"
-          >
-            <div class="sun"></div>
-            <div class="moon">
-              <div class="star"></div>
-              <div class="star small"></div>
+    <div class="main-hero-text">
+      <div class="container">
+        <div class="text-loading-mask">
+          <div class="text-loading-overlay"></div>
+          <h2 class="text-color-main">Armin Beckmann</h2>
+        </div>
+        <div>
+          <div class="text-loading-mask">
+              <div class="text-loading-overlay"></div>
+            <div class="intro">
+              <span class="introRipple">{{
+                $t("hero.introduction.frontend")
+              }}</span>
+              <button
+                id="rippleBtn"
+                type="button"
+                class="ripple-btn"
+                @click="toggleDarkMode"
+              >
+                <div class="sun"></div>
+                <div class="moon">
+                  <div class="star"></div>
+                  <div class="star small"></div>
+                </div>
+              </button>
             </div>
-          </button>
-        </span>
-      </h1>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -72,7 +74,7 @@ export default {
     b.start();
     setTimeout(() => {
       b.reveal(6000);
-    }, 3500);
+    }, 4500);
   },
   methods: {
     toggleDarkMode() {
@@ -144,6 +146,19 @@ export default {
   z-index: -1;
   transition: transform 1s cubic-bezier(1, 0, 0, 1);
 
+  .main-hero-text {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    transition: color 0.3s ease, opacity 0.3s ease 0.65s;
+    z-index: 7;
+  }
+
   .brand {
     position: absolute;
     left: 50%;
@@ -160,195 +175,192 @@ export default {
     }
   }
 
-  .title {
-    width: 70%;
-    position: relative;
-    display: inline-block;
-    height: 100%;
+  h2 {
+    font-size: 6.2rem;
+    font-weight: 700;
+    -webkit-animation: mainFadeIn 2s forwards;
+    -o-animation: mainFadeIn 2s forwards;
+    animation: mainFadeIn 2s forwards;
+    animation-delay: 3s;
+    opacity: 0;
 
-    h2 {
-      font-size: 6.2rem;
-      font-weight: 700;
-      -webkit-animation: mainFadeIn 2s forwards;
-      -o-animation: mainFadeIn 2s forwards;
-      animation: mainFadeIn 2s forwards;
-      animation-delay: 3s;
-      opacity: 0;
+    &.text-color-main {
+      background: $hero-title-gradient;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
 
-      &.text-color-main {
-        background: $hero-title-gradient;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: transparent;
+      background: -moz-linear-gradient(
+        135deg,
+        $fuchsia,
+        $fuchsia_light
+      ); /* FF3.6+ */
 
-        background: -moz-linear-gradient(
-          135deg,
-          $fuchsia,
-          $fuchsia_light
-        ); /* FF3.6+ */
+      background: -webkit-gradient(
+        135deg,
+        $fuchsia,
+        $fuchsia_light
+      ); /* Chrome,Safari4+ */
 
-        background: -webkit-gradient(
-          135deg,
-          $fuchsia,
-          $fuchsia_light
-        ); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(
+        135deg,
+        $fuchsia,
+        $fuchsia_light
+      ); /* Chrome10+,Safari5.1+ */
 
-        background: -webkit-linear-gradient(
-          135deg,
-          $fuchsia,
-          $fuchsia_light
-        ); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(
+        135deg,
+        $fuchsia,
+        $fuchsia_light
+      ); /* Opera 11.10+ */
 
-        background: -o-linear-gradient(
-          135deg,
-          $fuchsia,
-          $fuchsia_light
-        ); /* Opera 11.10+ */
+      background: -ms-linear-gradient(
+        135deg,
+        $fuchsia,
+        $fuchsia_light
+      ); /* IE10+ */
+    }
+  }
 
-        background: -ms-linear-gradient(
-          135deg,
-          $fuchsia,
-          $fuchsia_light
-        ); /* IE10+ */
+  .text-loading-mask {
+    .text-loading-overlay {
+      display: none;
+
+      &.reveal {
+        opacity: 1;
+        -webkit-transform: translateX(105%);
+        transform: translateX(105%);
       }
     }
   }
 
-  .hero-title {
-    display: flex;
-    flex-flow: column;
-    font-size: 5.6rem;
+  .intro {
+    font-size: 3rem;
+    display: inline-flex;
+    color: $modal-bg;
     font-weight: 700;
-    z-index: 6;
-    margin-bottom: 3.2rem;
-    text-align: left;
-    .intro {
-      font-size: 3rem;
+
+    .ripple-btn {
+      width: 42px;
+      height: 42px;
+      transform: scale(0.85);
+      box-sizing: border-box;
+      padding: 12px;
+      background: none;
+      border: none;
       display: inline-flex;
-      color: $modal-bg;
+      justify-content: center;
+      align-items: center;
+      position: relative;
 
-      .ripple-btn {
-        width: 42px;
-        height: 42px;
-        transform: scale(0.85);
-        box-sizing: border-box;
-        padding: 12px;
-        background: none;
-        border: none;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
+      .sun {
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        pointer-events: none;
+        opacity: 0;
+        transform: scale(0.6) rotate(0deg);
+        transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
+        /*  white transparent for Safari  */
+      }
+      .sun:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #ffde00;
+        transform: rotate(45deg);
+        border-radius: 50%;
+        box-shadow: 0 0 0 4.2px #e9b23a80, 0 0 0 8.8px #e9b23a60,
+          0 0 0 10.15px #e9b23a40, 0 0 0 12px #e9b23a20, 0 0 0 21px #e9b23a00,
+          0 0 8px 21px #e9b23a10;
+        animation: sunrise 2s infinite linear forwards,
+          rays 2s 2s infinite linear;
+      }
+
+      .sun.visible {
+        pointer-events: auto;
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+        transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
+      }
+      .moon {
+        width: 50%;
+        height: 50%;
+        pointer-events: none;
+        position: absolute;
+        left: 12.5%;
+        top: 18.75%;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 50%;
+        box-shadow: 9px 3px 0px 0px rgb(255, 217, 0);
+        opacity: 0;
+        transform: scale(0.3) rotate(65deg);
+        transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
+      }
+      .moon.visible {
+        pointer-events: auto;
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+        transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
+      }
+      .star {
+        position: absolute;
+        top: 25%;
+        left: 5%;
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-right: 7px solid rgba(0, 0, 0, 0);
+        border-bottom: 5px solid #ffcf96;
+        border-left: 7px solid rgba(0, 0, 0, 0);
+        transform: scale(0.55) rotate(35deg);
+        opacity: 0;
+        transition: all 0.2s ease-in 0.4s;
+      }
+      .star:before {
+        border-bottom: 5px solid #ffcf96;
+        border-left: 3px solid rgba(0, 0, 0, 0);
+        border-right: 3px solid rgba(0, 0, 0, 0);
+        position: absolute;
+        height: 0;
+        width: 0;
+        top: -3px;
+        left: -5px;
+        display: block;
+        content: "";
+        transform: rotate(-35deg);
+      }
+      .star:after {
+        position: absolute;
+        display: block;
+        color: #ffcf96;
+        top: 0px;
+        left: -7px;
+        width: 0px;
+        height: 0px;
+        border-right: 7px solid rgba(0, 0, 0, 0);
+        border-bottom: 5px solid #ffcf96;
+        border-left: 7px solid rgba(0, 0, 0, 0);
+        transform: rotate(-70deg);
+        content: "";
+      }
+      .moon.visible .star {
+        opacity: 0.8;
+      }
+      .star.small {
+        transform: scale(0.35) rotate(35deg);
         position: relative;
-
-        .sun {
-          width: 50%;
-          height: 50%;
-          position: absolute;
-          pointer-events: none;
-          opacity: 0;
-          transform: scale(0.6) rotate(0deg);
-          transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
-          /*  white transparent for Safari  */
-        }
-        .sun:before {
-          content: "";
-          position: absolute;
-          display: block;
-          width: 100%;
-          height: 100%;
-          background: #ffde00;
-          transform: rotate(45deg);
-          border-radius: 50%;
-          box-shadow: 0 0 0 4.2px #e9b23a80, 0 0 0 8.8px #e9b23a60,
-            0 0 0 10.15px #e9b23a40, 0 0 0 12px #e9b23a20, 0 0 0 21px #e9b23a00,
-            0 0 8px 21px #e9b23a10;
-          animation: sunrise 2s infinite linear forwards,
-            rays 2s 2s infinite linear;
-        }
-
-        .sun.visible {
-          pointer-events: auto;
-          opacity: 1;
-          transform: scale(1) rotate(180deg);
-          transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
-        }
-        .moon {
-          width: 50%;
-          height: 50%;
-          pointer-events: none;
-          position: absolute;
-          left: 12.5%;
-          top: 18.75%;
-          background-color: rgba(0, 0, 0, 0);
-          border-radius: 50%;
-          box-shadow: 9px 3px 0px 0px rgb(255, 217, 0);
-          opacity: 0;
-          transform: scale(0.3) rotate(65deg);
-          transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
-        }
-        .moon.visible {
-          pointer-events: auto;
-          opacity: 1;
-          transform: scale(1) rotate(0deg);
-          transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
-        }
-        .star {
-          position: absolute;
-          top: 25%;
-          left: 5%;
-          display: block;
-          width: 0px;
-          height: 0px;
-          border-right: 7px solid rgba(0, 0, 0, 0);
-          border-bottom: 5px solid #ffcf96;
-          border-left: 7px solid rgba(0, 0, 0, 0);
-          transform: scale(0.55) rotate(35deg);
-          opacity: 0;
-          transition: all 0.2s ease-in 0.4s;
-        }
-        .star:before {
-          border-bottom: 5px solid #ffcf96;
-          border-left: 3px solid rgba(0, 0, 0, 0);
-          border-right: 3px solid rgba(0, 0, 0, 0);
-          position: absolute;
-          height: 0;
-          width: 0;
-          top: -3px;
-          left: -5px;
-          display: block;
-          content: "";
-          transform: rotate(-35deg);
-        }
-        .star:after {
-          position: absolute;
-          display: block;
-          color: #ffcf96;
-          top: 0px;
-          left: -7px;
-          width: 0px;
-          height: 0px;
-          border-right: 7px solid rgba(0, 0, 0, 0);
-          border-bottom: 5px solid #ffcf96;
-          border-left: 7px solid rgba(0, 0, 0, 0);
-          transform: rotate(-70deg);
-          content: "";
-        }
-        .moon.visible .star {
-          opacity: 0.8;
-        }
-        .star.small {
-          transform: scale(0.35) rotate(35deg);
-          position: relative;
-          top: 50%;
-          left: 37.5%;
-          opacity: 0;
-          transition: all 0.2s ease-in 0.45s;
-        }
-        .moon.visible .star.small {
-          opacity: 0.7;
-          transform: scale(0.45) rotate(35deg);
-        }
+        top: 50%;
+        left: 37.5%;
+        opacity: 0;
+        transition: all 0.2s ease-in 0.45s;
+      }
+      .moon.visible .star.small {
+        opacity: 0.7;
+        transform: scale(0.45) rotate(35deg);
       }
     }
   }
@@ -406,6 +418,33 @@ export default {
   }
 }
 
+@media (min-width: 64em) {
+  #hero .text-loading-mask {
+    display: inline-block;
+    position: relative;
+    padding-top: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    .text-loading-overlay {
+      display: block;
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      transition: -webkit-transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
+      transition: transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
+      transition: transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1),
+        -webkit-transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
+      z-index: 60;
+    }
+  }
+}
+
 @media (max-width: 56.25em) {
   #hero {
     .brand {
@@ -418,62 +457,35 @@ export default {
         transform: scale(1.1);
       }
     }
-    .hero-title {
-      font-size: 3.6rem;
-
-      .title {
-        h2 {
-          font-size: 4rem;
-        }
-      }
-    }
-
-    .home-nav {
-      display: none;
+    h2 {
+      font-size: 4.4rem;
     }
   }
 }
 @media (max-width: 37.5em) {
   #hero {
     padding: 0 1.6rem;
-    .hero-title {
+    font-size: 3.5rem;
+    line-height: 1.5;
+
+    h2 {
       font-size: 3.5rem;
-      line-height: 1.5;
-
-      .title {
-        h2 {
-          font-size: 3.5rem;
-        }
-      }
-
-      .intro {
-        font-size: 2.5rem;
-      }
     }
 
-    .home-nav {
-      a {
-        font-size: 1.2rem;
-        margin: 0;
-        letter-spacing: 0;
-        padding: 0.75rem;
-      }
+    .intro {
+      font-size: 2.5rem;
     }
   }
 }
 
 @media (max-width: 20em) {
   #hero {
-    .hero-title {
+    font-size: 2.8rem;
+    h2.text-color-main {
       font-size: 2.8rem;
-      .title {
-        h2 {
-          font-size: 2.8rem;
-        }
-      }
-      .intro {
-        font-size: 2rem;
-      }
+    }
+    .intro {
+      font-size: 2rem;
     }
   }
 }
