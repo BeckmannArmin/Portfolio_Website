@@ -78,6 +78,16 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+      const html = document.querySelector("html");
+      html.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+  },
+  destroyed() {
+      const html = document.querySelector("html");
+      html.style.overflow = "";
+      document.body.style.overflow = "";
+  },
   methods: {
     closeModal() {
       this.$emit("closeProject");
@@ -87,15 +97,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .fade-enter-active {
-   transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
+  transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
 }
 
 .fade-leave-active {
-   transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
+  transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
 }
-.fade-enter, .fade-leave-to {
+
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
   transform: scale(0.6);
 }
@@ -113,15 +126,18 @@ export default {
   align-items: center;
   border-radius: 0;
   justify-content: center;
-  border-radius: 8px;
   overflow: hidden;
 
   &.enter {
-    border-radius: 0;
-    opacity: 1;
-    transform: scale(1);
-    transition: transform .375s cubic-bezier(1,0,0,1),opacity .375s ease-in-out,border-radius .375s ease-in-out!important;
     overflow-y: auto;
+    .project-parent-container
+      .project-container
+      .project-header
+      .text-loading-mask {
+      .text-loading-overlay {
+        animation: translate 0.95s ease forwards .75s;
+      }
+    }
   }
 
   .project-parent-container {
@@ -399,12 +415,6 @@ export default {
         .text-loading-mask {
           .text-loading-overlay {
             display: none;
-
-            &.reveal {
-              opacity: 1;
-              -webkit-transform: translateX(105%);
-              transform: translateX(105%);
-            }
           }
         }
 
@@ -438,7 +448,6 @@ export default {
             border-radius: 4px;
             padding: 0.75rem;
             color: $white;
-            font-weight: er;
             letter-spacing: 1px;
             font-size: 1.3rem;
           }
@@ -519,6 +528,14 @@ export default {
   100% {
     transform: translateY(0px);
     opacity: 1;
+  }
+}
+
+@keyframes translate {
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(105%);
+    transform: translateX(105%);
   }
 }
 
@@ -641,49 +658,10 @@ export default {
 
 @media (max-width: 37.5em) {
   .project-item .project-parent-container .project-container .project-body {
-    .font-images-wrapper {
-      display: none;
-    }
-
     .body-header {
       .header-sub {
         font-size: 3.2rem;
       }
-    }
-    &.color-palette .color-palette-wrapper {
-      float: left;
-      clear: none;
-      width: 45%;
-      margin-left: 0;
-      margin-right: 3%;
-      margin-bottom: 40px;
-
-      .color {
-        width: 125px;
-        height: 125px;
-      }
-    }
-  }
-}
-
-@media (max-width: 29em) {
-  .project-item
-    .project-parent-container
-    .project-container
-    .project-body.color-palette
-    .color-palette-wrapper {
-    display: block;
-    clear: both;
-    float: none;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    &:first-child {
-      margin-left: auto;
-    }
-    .color {
-      width: 125px;
-      height: 125px;
     }
   }
 }
