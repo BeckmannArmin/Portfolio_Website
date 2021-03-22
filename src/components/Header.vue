@@ -29,7 +29,7 @@
           <a href="#projects">{{ $t("projects.projects") }}</a>
         </li>
         <li>
-          <a @click="toggleContactModal">{{ $t("contact.contact") }}</a>
+          <a @click="$emit('toggleContactModal')">{{ $t("contact.contact") }}</a>
         </li>
       </ul>
     </div>

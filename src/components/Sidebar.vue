@@ -21,7 +21,6 @@
       <a
         :class="{ active: isContact }"
         @click="toggleContacts"
-        href="#contact"
         >{{ $t("contact.contact") }}</a
       >
     </div>
@@ -84,6 +83,13 @@ export default {
       this.isProjects = false;
       this.isContact = true;
       this.$emit("toggleClose");
+      setTimeout(() => {
+          const contactModal = document.querySelector(".about-contact");
+      contactModal.classList.add("isopen");
+      const html = document.querySelector("html");
+    html.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+      }, 1500);
     },
   },
 };

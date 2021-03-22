@@ -16,6 +16,7 @@
     "baffle": "^0.3.6",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
+    "emailjs-com": "^2.6.4",
     "gsap": "^3.6.0",
     "scrollmagic": "^2.0.8",
     "vue": "^2.6.11",

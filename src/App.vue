@@ -8,12 +8,12 @@
       </div>
     </div>
     <div id="app">
-     <Header />
+     <Header @toggleContactModal="contact = true" />
       <!-- NavBarCollapse collapsed -->
       <NavBarCollapse />
       <Experience />
       <Projects />
-      <ContactV2 />
+      <ContactV2 v-if="contact" :class="contact ? 'isopen' : '' " @closeContact="contact = false" />
       <Footer />
     </div>
   </div>
@@ -48,6 +48,7 @@ export default {
       mode: localStorage.getItem("theme-color"),
       currentTheme: "",
       y: 0,
+      contact: false
     };
   },
   computed: {

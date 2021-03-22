@@ -455,7 +455,7 @@ export default {
               li {
                  display: inline-block;
                 clear: none;
-                width: 30%;
+                width: 33%;
                 margin-left: 0;
                 vertical-align: middle;
                 text-transform: uppercase;
@@ -465,7 +465,7 @@ export default {
 
                 strong {
                   color: #37a5eb;
-
+                  padding-right: 5px;
                 }
               }
             }
@@ -619,6 +619,7 @@ export default {
             margin-left: auto;
             margin-right: auto;
             width: auto;
+            font-size: 1.3rem;
             display: inline-block;
             text-align: center;
             margin-right: 20px;

@@ -1,41 +1,63 @@
 <template>
   <div class="about-contact">
-    <div id="contact-half" class="half-contact is-contact">
-      <div class="giga-text">{{ $t("contact.contact") }}</div>
-      <div class="contact-info">
-        <h3 class="info-title">{{ $t("contact.contact") }}</h3>
-        <div class="inner-container">
-          <form id="contact-form" method="post" class="form">
-            <div class="input">
-              <input type="text" id="name" :placeholder="$t('contact.name')" />
-            </div>
-            <div class="input">
-              <input
-                type="text"
-                id="email"
-                :placeholder="$t('contact.email')"
-              />
-            </div>
-            <div class="input">
-              <textarea
-                id="message"
-                :placeholder="$t('contact.message')"
-              ></textarea>
-            </div>
-            <div class="inner-container">
-              <button type="submit" disabled class="button submit-btn">
-                <span class="button-text">{{ $t("contact.send") }}</span>
-                <div class="button-mask"></div>
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="close-contact" @click="closeModal">
-          <div class="leftright"></div>
-          <div class="rightleft"></div>
+    <transition name="contactFade">
+      <div id="contact-half" class="half-contact is-contact">
+        <div class="giga-text">{{ $t("contact.contact") }}</div>
+        <div class="contact-info">
+          <h3 class="info-title">{{ $t("contact.contact") }}</h3>
+          <div class="inner-container">
+            <form
+              id="contact-form"
+              method="post"
+              class="form"
+              @submit.prevent="sendEmail"
+            >
+              <div class="input">
+                <input
+                  type="text"
+                  v-model="name"
+                  name="name"
+                  id="name"
+                  :placeholder="$t('contact.name')"
+                />
+              </div>
+              <div class="input">
+                <input
+                  type="text"
+                  v-model="email"
+                  name="email"
+                  id="email"
+                  :placeholder="$t('contact.email')"
+                />
+              </div>
+              <div class="input">
+                <textarea
+                  id="message"
+                  name="message"
+                  v-model="message"
+                  :placeholder="$t('contact.message')"
+                ></textarea>
+              </div>
+              <div class="inner-container">
+                <button
+                  type="submit"
+                  ref="btnSubmit"
+                  class="button submit-btn"
+                  @click="clearForm"
+                >
+                  <span class="button-text">{{ $t("contact.send") }}</span>
+                  <div class="button-mask"></div>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="close-contact" @click="$emit('closeContact')">
+            <div class="leftright"></div>
+            <div class="rightleft"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
     <div class="half-contact is-about">
       <div class="giga-text">{{ $t("about.me") }}</div>
     </div>
@@ -43,17 +65,67 @@
 </template>
 
 <script>
+import emailjs from "emailjs-com";;
+
 export default {
+  data() {
+    return {
+      name: "",
+      email: "",
+      message: "",
+      btnOldHtml: "",
+    };
+  },
+  mounted() {
+    const html = document.querySelector("html");
+    html.style.overflow = "hidden";
+  },
+  destroyed() {
+    const html = document.querySelector("html");
+    html.style.overflow = "";
+  },
   methods: {
-    closeModal() {
-      const contactModal = document.querySelector(".about-contact");
-      contactModal.classList.remove("isopen");
+    sendEmail: (e) => {
+      emailjs.sendForm("service_unh9x8m", "template_c1dkja8", e.target).then(
+        (result) => {
+          console.log("SUCCESS!", result.status, result.text);
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );
+    },
+    clearForm() {
+      this.disableSubmission(this.$refs.btnSubmit);
+      setTimeout(() => {
+        this.enableSubmission(this.$refs.btnSubmit);
+      }, 2000);
+
+      (this.name = ""), (this.email = ""), (this.message = "");
+    },
+    disableSubmission: function disableSubmission(btn) {
+      btn.setAttribute("disabled", "disabled");
+      this.btnOldHtml = btn.innerHTML;
+      btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Please wait...';
+    },
+    enableSubmission: function enableSubmission(btn) {
+      btn.removeAttribute("disabled");
+      btn.innerHTML = this.btnOldHtml;
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+
+.contactFade-leave-to {
+
+}
+.contactFade-enter-to {
+    -webkit-transform: translateY(0) !important;
+      transform: translateY(0) !important;
+}
+
 .about-contact {
   position: absolute;
   -webkit-transform-style: preserve-3d;
@@ -64,12 +136,11 @@ export default {
   transform: translate(-50%, -50%);
   width: 1000px;
   height: 90%;
+  z-index: 9999;
   position: fixed;
   background-color: transparent;
   overflow: hidden;
-  visibility: hidden;
-  transition: visibility 1s, z-index 1s, box-shadow 0.3s;
-  z-index: -1;
+  box-shadow: 0 20px 80px 0 rgb(0, 0, 0 / 55%);
 
   &.isopen {
     visibility: visible;
@@ -78,10 +149,8 @@ export default {
     transition: visibility 1s, z-index 1s, box-shadow 0.5s ease 0.4s;
 
     .half-contact {
-      transition-delay: 0.2s !important;
+     transition-delay: 0.2s !important;
       opacity: 1 !important;
-      -webkit-transform: translateY(0) !important;
-      transform: translateY(0) !important;
     }
   }
 
@@ -96,7 +165,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
+    opacity: 1;
     width: 50%;
     height: 100%;
     overflow: hidden;
@@ -286,26 +355,35 @@ export default {
               }
             }
 
-            button.button-disabled,
-            button[disabled] {
-              cursor: not-allowed;
-              opacity: 0.65;
-            }
-
             .button {
               font-size: 2rem;
-              border-radius: 12px;
               letter-spacing: 3px;
-              padding: 8px 16px;
+              padding: 12px 20px;
               background-color: #f06449;
               background: linear-gradient(270deg, #f06449, #ef3636);
-              color: #fff;
+              color: $white;
               position: relative;
               transition: all 0.3s;
-
               display: inline-block;
               text-align: center;
               vertical-align: middle;
+
+              &.submit-btn {
+                cursor: pointer;
+                text-decoration: none;
+                border: 0;
+                border-radius: 4px;
+              }
+
+              &:hover {
+                .button-mask {
+                  &::before,
+                  &::after {
+                    -webkit-transform: translateX(200%);
+                    transform: translateX(200%);
+                  }
+                }
+              }
 
               .button-mask::after,
               .button-mask::before {
@@ -358,6 +436,7 @@ export default {
 
               .button-text {
                 position: relative;
+                z-index: 3;
               }
             }
           }
