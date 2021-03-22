@@ -29,7 +29,7 @@
           <a href="#projects">{{ $t("projects.projects") }}</a>
         </li>
         <li>
-          <a @click="$emit('toggleContactModal')">{{ $t("contact.contact") }}</a>
+          <a @click="toggleContactModal">{{ $t("contact.contact") }}</a>
         </li>
       </ul>
     </div>
@@ -42,6 +42,8 @@ export default {
     toggleContactModal() {
       const contactModal = document.querySelector(".about-contact");
       contactModal.classList.add("isopen");
+      const html = document.querySelector("html");
+      html.style.overflow = "hidden";
     },
   },
 };

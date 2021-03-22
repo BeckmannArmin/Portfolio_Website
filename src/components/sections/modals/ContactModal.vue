@@ -1,63 +1,61 @@
 <template>
   <div class="about-contact">
-    <transition name="contactFade">
-      <div id="contact-half" class="half-contact is-contact">
-        <div class="giga-text">{{ $t("contact.contact") }}</div>
-        <div class="contact-info">
-          <h3 class="info-title">{{ $t("contact.contact") }}</h3>
-          <div class="inner-container">
-            <form
-              id="contact-form"
-              method="post"
-              class="form"
-              @submit.prevent="sendEmail"
-            >
-              <div class="input">
-                <input
-                  type="text"
-                  v-model="name"
-                  name="name"
-                  id="name"
-                  :placeholder="$t('contact.name')"
-                />
-              </div>
-              <div class="input">
-                <input
-                  type="text"
-                  v-model="email"
-                  name="email"
-                  id="email"
-                  :placeholder="$t('contact.email')"
-                />
-              </div>
-              <div class="input">
-                <textarea
-                  id="message"
-                  name="message"
-                  v-model="message"
-                  :placeholder="$t('contact.message')"
-                ></textarea>
-              </div>
-              <div class="inner-container">
-                <button
-                  type="submit"
-                  ref="btnSubmit"
-                  class="button submit-btn"
-                  @click="clearForm"
-                >
-                  <span class="button-text">{{ $t("contact.send") }}</span>
-                  <div class="button-mask"></div>
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="close-contact" @click="$emit('closeContact')">
-            <div class="leftright"></div>
-            <div class="rightleft"></div>
-          </div>
+    <div id="contact-half" class="half-contact is-contact">
+      <div class="giga-text">{{ $t("contact.contact") }}</div>
+      <div class="contact-info">
+        <h3 class="info-title">{{ $t("contact.contact") }}</h3>
+        <div class="inner-container">
+          <form
+            id="contact-form"
+            method="post"
+            class="form"
+            @submit.prevent="sendEmail"
+          >
+            <div class="input">
+              <input
+                type="text"
+                v-model="name"
+                name="name"
+                id="name"
+                :placeholder="$t('contact.name')"
+              />
+            </div>
+            <div class="input">
+              <input
+                type="text"
+                v-model="email"
+                name="email"
+                id="email"
+                :placeholder="$t('contact.email')"
+              />
+            </div>
+            <div class="input">
+              <textarea
+                id="message"
+                name="message"
+                v-model="message"
+                :placeholder="$t('contact.message')"
+              ></textarea>
+            </div>
+            <div class="inner-container">
+              <button
+                type="submit"
+                ref="btnSubmit"
+                class="button submit-btn"
+                @click="clearForm"
+              >
+                <span class="button-text">{{ $t("contact.send") }}</span>
+                <div class="button-mask"></div>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="close-contact" @click="closeContact">
+          <div class="leftright"></div>
+          <div class="rightleft"></div>
         </div>
       </div>
-    </transition>
+    </div>
     <div class="half-contact is-about">
       <div class="giga-text">{{ $t("about.me") }}</div>
     </div>
@@ -65,7 +63,8 @@
 </template>
 
 <script>
-import emailjs from "emailjs-com";;
+import emailjs from "emailjs-com";
+import { init } from "emailjs-com";
 
 export default {
   data() {
@@ -77,12 +76,7 @@ export default {
     };
   },
   mounted() {
-    const html = document.querySelector("html");
-    html.style.overflow = "hidden";
-  },
-  destroyed() {
-    const html = document.querySelector("html");
-    html.style.overflow = "";
+    init("user_BatA0UzJbm7mv43AnVe6G");
   },
   methods: {
     sendEmail: (e) => {
@@ -103,6 +97,12 @@ export default {
 
       (this.name = ""), (this.email = ""), (this.message = "");
     },
+    closeContact() {
+      const contactModal = document.querySelector(".about-contact");
+      contactModal.classList.remove("isopen");
+      const html = document.querySelector("html");
+      html.style.overflow = "";
+    },
     disableSubmission: function disableSubmission(btn) {
       btn.setAttribute("disabled", "disabled");
       this.btnOldHtml = btn.innerHTML;
@@ -117,15 +117,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.contactFade-leave-to {
-
-}
-.contactFade-enter-to {
-    -webkit-transform: translateY(0) !important;
-      transform: translateY(0) !important;
-}
-
 .about-contact {
   position: absolute;
   -webkit-transform-style: preserve-3d;
@@ -140,17 +131,26 @@ export default {
   position: fixed;
   background-color: transparent;
   overflow: hidden;
-  box-shadow: 0 20px 80px 0 rgb(0, 0, 0 / 55%);
+  visibility: hidden;
+  transition: visibility 1s, z-index 1s, box-shadow 0.3s;
 
   &.isopen {
     visibility: visible;
-    box-shadow: 0 20px 80px 0 rgb(0, 0, 0 / 55%);
+    box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.55);
     z-index: 995;
     transition: visibility 1s, z-index 1s, box-shadow 0.5s ease 0.4s;
 
     .half-contact {
-     transition-delay: 0.2s !important;
       opacity: 1 !important;
+      -webkit-transform: translateY(0) !important;
+      transform: translateY(0) !important;
+
+      .is-about {
+           transition-delay: 0s;
+      }
+      .is-contact {
+           transition-delay: .2s;
+      }
     }
   }
 
