@@ -81,7 +81,14 @@ export default {
           thumbnail: require("../../assets/whitebird_logo.svg"),
           img: require("../../assets/whitebird_board.png"),
           href: "https://github.com/BuchholzTim/Whitebird",
-          showModal: false,
+          context: [
+            { text: "Role", roles: "Frontend" },
+            {
+              text: "Context",
+              roles: "Skeueomorphism",
+            },
+            { text: "Period", roles: "End 2020" },
+          ],
         },
         {
           id: 2,
@@ -94,7 +101,6 @@ export default {
           thumbnail: require("../../assets/hly_logo.png"),
           img: require("../../assets/hly_storyboard.png"),
           href: "https://www.youtube.com/watch?v=bZbDIigXlNc",
-          showModal: false,
         },
         {
           id: 3,
@@ -107,7 +113,6 @@ export default {
           thumbnail: require("../../assets/conForm_logo.png"),
           img: require("../../assets/conForm.png"),
           href: "https://github.com/BeckmannArmin/conForm",
-          showModal: false,
         },
         {
           id: 4,
@@ -120,7 +125,6 @@ export default {
           thumbnail: require("../../assets/menschen.jpg"),
           img: require("../../assets/menschen.jpg"),
           href: "https://menschen-helfen-leben.de/",
-          showModal: false,
         },
         {
           id: 5,
@@ -143,7 +147,6 @@ export default {
           thumbnail: require("../../assets/arminlogo_opt.svg"),
           img: require("../../assets/arminlogo_opt.svg"),
           href: "",
-          showModal: false,
         },
       ],
     };

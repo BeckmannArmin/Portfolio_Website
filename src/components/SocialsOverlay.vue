@@ -15,6 +15,18 @@
 </template>
 
 <style lang="scss" scoped>
+
+.dark {
+    #socials-overlay {
+        .socials-wrapper {
+            a {
+                svg {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
 #socials-overlay {
   position: absolute;
    right: 0;

@@ -115,11 +115,9 @@ export default {
       }
     }
 
-    .hero-title {
       .intro {
         color: $white;
       }
-    }
   }
 }
 

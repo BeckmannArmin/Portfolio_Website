@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="projectFade">
     <div :id="project.id" class="project-item">
       <div class="project-parent-container">
         <button class="project-close" @click="closeModal">
@@ -22,6 +22,16 @@
                 {{ technology }}
               </li>
             </ul>
+            <div class="work-context">
+              <div class="content-wrapper">
+                <ul class="work-context-wrapper">
+                  <li v-for="(context, index) in project.context" :key="index">
+                    <strong>{{ context.text }}</strong>
+                    <span>{{ context.roles }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
           <!-- Project Header End -->
 
@@ -79,14 +89,14 @@ export default {
     return {};
   },
   mounted() {
-      const html = document.querySelector("html");
-      html.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
+    const html = document.querySelector("html");
+    html.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
   },
   destroyed() {
-      const html = document.querySelector("html");
-      html.style.overflow = "";
-      document.body.style.overflow = "";
+    const html = document.querySelector("html");
+    html.style.overflow = "";
+    document.body.style.overflow = "";
   },
   methods: {
     closeModal() {
@@ -97,24 +107,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fade-enter-active {
-  transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1),
-    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
-}
-
-.fade-leave-active {
-  transition: transform 0.375s cubic-bezier(0.165, 0.84, 0.44, 1),
-    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  transform: scale(0.6);
-}
-
 .project-item {
-  background: #1c1d25;
   z-index: 99999;
   position: fixed;
   left: 0;
@@ -124,9 +117,24 @@ export default {
   width: 100vw;
   min-height: 100vh;
   align-items: center;
-  border-radius: 0;
   justify-content: center;
   overflow: hidden;
+
+  &::-webkit-scrollbar-track {
+    background-color: #171a1d;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #171a1d;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    border: 0;
+    background-color: $frog-green;
+  }
 
   &.enter {
     overflow-y: auto;
@@ -135,12 +143,13 @@ export default {
       .project-header
       .text-loading-mask {
       .text-loading-overlay {
-        animation: translate 0.95s ease forwards .75s;
+        animation: translate 0.95s ease forwards 0.75s;
       }
     }
   }
 
   .project-parent-container {
+    background: #1c1d25;
     width: 100%;
     position: relative;
     margin: auto;
@@ -297,21 +306,6 @@ export default {
         padding-top: 30px;
         text-align: left;
 
-        .font-images-wrapper {
-          float: left;
-          clear: none;
-          width: 50%;
-          margin-left: 0;
-          margin-right: 0;
-          background-position: 50%;
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-size: contain;
-          margin-top: 40px;
-          margin-bottom: 40px;
-          height: 300px;
-        }
-
         .body-header {
           display: block;
 
@@ -322,32 +316,6 @@ export default {
             animation: slideUp 1.2s ease forwards 0.9s;
             opacity: 0;
             font-size: 4rem;
-          }
-        }
-
-        &.color-palette {
-          padding-top: 85px;
-          padding-bottom: 85px;
-          padding-left: 200px;
-
-          .color-palette-wrapper {
-            float: left;
-            clear: none;
-            width: 15%;
-            margin-left: 0;
-            margin-right: 5%;
-            text-align: center;
-
-            .color {
-              display: block;
-              width: 145px;
-              height: 145px;
-              margin: 0 auto;
-              background-color: #fff;
-              box-shadow: 0 5px 20px 0 rgb(0, 0, 0 / 33%);
-              border-radius: 50%;
-              transition: all 0.3s;
-            }
           }
         }
 
@@ -453,6 +421,44 @@ export default {
           }
         }
 
+        .work-context {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding-bottom: 45px;
+          color: $white;
+
+          .content-wrapper {
+              margin: 0 auto;
+              max-width: 1170px;
+            .work-context-wrapper {
+              margin: 0;
+              padding: 0;
+              list-style: none;
+              opacity: 0;
+              animation: slideUp 0.95s ease forwards 0.75s;
+
+              li {
+                 display: inline-block;
+                clear: none;
+                width: 30%;
+                margin-left: 0;
+                vertical-align: middle;
+                text-transform: uppercase;
+                font-size: 1.6rem;
+                font-weight: bold;
+                letter-spacing: 2px;
+
+                strong {
+                  color: #37a5eb;
+
+                }
+              }
+            }
+          }
+        }
+
         .cta-btn {
           display: inline-block;
           position: relative;
@@ -520,6 +526,23 @@ export default {
   }
 }
 
+.projectFade-enter-active,
+.projectFade-leave-active {
+  transition: transform 0.375s cubic-bezier(1, 0, 0, 1),
+    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
+}
+
+.projectFade-enter {
+  opacity: 1;
+  transform: scale(0.6);
+  border-radius: 0;
+}
+
+.projectFade-leave-to {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
 /** keyframes */
 @keyframes slideUp {
   0% {
@@ -550,7 +573,6 @@ export default {
     padding-top: 10px;
     padding-right: 10px;
     overflow: hidden;
-    transition: all 0.2s ease;
 
     .text-loading-overlay {
       display: block;
@@ -562,10 +584,6 @@ export default {
       background-color: #fff;
       -webkit-transform: translateX(0);
       transform: translateX(0);
-      transition: -webkit-transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
-      transition: transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
-      transition: transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1),
-        -webkit-transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
       z-index: 60;
     }
   }
@@ -573,88 +591,99 @@ export default {
 
 @media (max-width: 56.25em) {
   .project-item .project-parent-container .project-container {
-    .project-intro .container .intro-title {
-      font-size: 2.5rem;
-    }
-    .project-body {
-      .font-images-wrapper {
-        height: 200px;
-      }
-      &.color-palette {
-        padding-left: 0;
+    .project-header {
+      .work-context .content-wrapper {
+        max-width: none;
+        width: 95%;
 
-        .color-palette-wrapper {
-          .color {
-            width: 90px;
-            height: 90px;
+        .work-context-wrapper {
+          text-align: center;
+          li {
+            display: block;
+            clear: both;
+            float: none;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+            display: inline-block;
+            text-align: center;
+            margin-right: 20px;
+            &:first-child {
+              margin-left: auto;
+            }
           }
         }
       }
-
-      .wrapper-text {
-        &:first-child {
-          margin-left: auto;
-        }
-        display: block;
-        clear: both;
-        float: none;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 35px;
-        &.is-left {
-          padding-left: 0;
-          padding: 0 8%;
-        }
-
-        .wrapper-subtitle {
-          font-size: 2.5rem;
-        }
-
-        .wrapper-content {
-          text-align: left !important;
-        }
+    }
+      .project-intro .container .intro-title {
+        font-size: 2.5rem;
       }
-      .wrapper-image {
-        display: block;
-        clear: both;
-        float: none;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        &:last-child {
-          margin-right: auto;
-        }
-
-        img {
+      .project-body {
+        .wrapper-text {
+          &:first-child {
+            margin-left: auto;
+          }
           display: block;
-          width: 90%;
-          margin: 0 auto;
-          transition: none;
-        }
-      }
+          clear: both;
+          float: none;
+          width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 35px;
+          &.is-left {
+            padding-left: 0;
+            padding: 0 8%;
+          }
 
-      .body-header {
-        .header-sub {
-          font-size: 3.4rem;
+          .wrapper-subtitle {
+            font-size: 2.5rem;
+          }
+
+          .wrapper-content {
+            text-align: left !important;
+          }
+        }
+        .wrapper-image {
+          display: block;
+          clear: both;
+          float: none;
+          width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          &:last-child {
+            margin-right: auto;
+          }
+
+          img {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+            transition: none;
+          }
+        }
+
+        .body-header {
+          .header-sub {
+            font-size: 3.4rem;
+          }
         }
       }
     }
-  }
 
-  p {
-    font-size: 1.6rem !important;
-  }
+    p {
+      font-size: 1.6rem !important;
+    }
 
-  h1.title {
-    font-size: 2.5rem !important;
-    padding: 0 2rem;
-  }
+    h1.title {
+      font-size: 2.5rem !important;
+      padding: 0 2rem;
+    }
 
-  img.project-img {
-    width: 80% !important;
+    img.project-img {
+      width: 80% !important;
+    }
   }
-}
 
 @media (max-width: 37.5em) {
   .project-item .project-parent-container .project-container .project-body {
