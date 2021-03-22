@@ -101,6 +101,14 @@ export default {
           thumbnail: require("../../assets/hly_logo.png"),
           img: require("../../assets/hly_storyboard.png"),
           href: "https://www.youtube.com/watch?v=bZbDIigXlNc",
+            context: [
+            { text: "Role", roles: "Storyboard" },
+            {
+              text: "Context",
+              roles: "Advertisment",
+            },
+            { text: "Period", roles: "End 2020" },
+          ],
         },
         {
           id: 3,
@@ -113,6 +121,14 @@ export default {
           thumbnail: require("../../assets/conForm_logo.png"),
           img: require("../../assets/conForm.png"),
           href: "https://github.com/BeckmannArmin/conForm",
+            context: [
+            { text: "Role", roles: "Frontend, Backend" },
+            {
+              text: "Context",
+              roles: "Skeueomorphism",
+            },
+            { text: "Period", roles: "End 2020" },
+          ],
         },
         {
           id: 4,
@@ -125,6 +141,14 @@ export default {
           thumbnail: require("../../assets/menschen.jpg"),
           img: require("../../assets/menschen.jpg"),
           href: "https://menschen-helfen-leben.de/",
+            context: [
+            { text: "Role", roles: "Frontend, UI/UX Developer" },
+            {
+              text: "Context",
+              roles: "website redesign",
+            },
+            { text: "Period", roles: "Mid 2020" },
+          ],
         },
         {
           id: 5,
@@ -147,6 +171,14 @@ export default {
           thumbnail: require("../../assets/arminlogo_opt.svg"),
           img: require("../../assets/arminlogo_opt.svg"),
           href: "",
+            context: [
+            { text: "Role", roles: "Frontend, UI/UX Developer" },
+            {
+              text: "Context",
+              roles: "Portfolio",
+            },
+            { text: "Period", roles: "Begin 2021" },
+          ],
         },
       ],
     };

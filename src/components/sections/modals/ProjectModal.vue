@@ -27,7 +27,7 @@
                 <ul class="work-context-wrapper">
                   <li v-for="(context, index) in project.context" :key="index">
                     <strong>{{ context.text }}</strong>
-                    <span>{{ context.roles }}</span>
+                    <span class="context-baffle">{{ context.roles }}</span>
                   </li>
                 </ul>
               </div>
@@ -83,6 +83,8 @@
 </template>
 
 <script>
+import baffle from "baffle";
+
 export default {
   props: ["project"],
   data() {
@@ -90,8 +92,19 @@ export default {
   },
   mounted() {
     const html = document.querySelector("html");
+    const b = baffle(".context-baffle", {
+        characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
+    });
     html.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
+
+    setTimeout(() => {
+         b.start();
+    }, 1000);
+
+     setTimeout(() => {
+      b.reveal(6000);
+    }, 2000);
   },
   destroyed() {
     const html = document.querySelector("html");
