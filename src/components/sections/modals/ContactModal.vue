@@ -5,11 +5,7 @@
       <div class="contact-info">
         <h3 class="info-title">{{ $t("contact.contact") }}</h3>
         <div class="inner-container">
-          <form
-            id="contact-form"
-            class="form"
-           @submit.prevent="sendEmail"
-          >
+          <form id="contact-form" class="form" @submit.prevent="sendEmail">
             <div class="input">
               <input
                 type="text"
@@ -38,7 +34,8 @@
             </div>
             <div class="inner-container">
               <button
-                type="submit" value="Send"
+                type="submit"
+                value="Send"
                 class="paperplane-button"
                 @click="animateAndClearForm"
               >
@@ -91,14 +88,21 @@ export default {
   },
   methods: {
     sendEmail: (e) => {
-      emailjs.sendForm("service_unh9x8m", "template_c1dkja8", e.target, "user_BatA0UzJbm7mv43AnVe6G").then(
-        (result) => {
-          console.log("SUCCESS!", result.status, result.text);
-        },
-        (error) => {
-          console.log("FAILED...", error);
-        }
-      );
+      emailjs
+        .sendForm(
+          "service_unh9x8m",
+          "template_c1dkja8",
+          e.target,
+          "user_BatA0UzJbm7mv43AnVe6G"
+        )
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.status, result.text);
+          },
+          (error) => {
+            console.log("FAILED...", error);
+          }
+        );
     },
     animateAndClearForm() {
       const button = document.querySelector(".paperplane-button");
@@ -296,12 +300,11 @@ export default {
   cursor: pointer;
   position: relative;
   border: 0;
-  padding: 0.8rem;
+  padding: 10px 20px;
   min-width: 100px;
   text-align: center;
   margin: 0;
   line-height: 2.4rem;
-  font-family: inherit;
   font-weight: 600;
   font-size: 1.6rem;
   background: none;
@@ -676,6 +679,7 @@ export default {
               }
             }
 
+            /*
             .button {
               font-size: 2rem;
               letter-spacing: 3px;
@@ -760,6 +764,7 @@ export default {
                 z-index: 3;
               }
             }
+*/
           }
         }
       }
