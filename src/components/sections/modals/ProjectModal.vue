@@ -227,6 +227,8 @@ export default {
       top: 30px;
       right: 75px;
       z-index: 5;
+      width: 65px;
+      height: 65px;
       background-color: transparent;
       border: none;
       cursor: pointer;
@@ -704,7 +706,7 @@ export default {
         }
 
         .seperator {
-            opacity: 0;
+          opacity: 0;
         }
 
         .wrapper-subtitle {
