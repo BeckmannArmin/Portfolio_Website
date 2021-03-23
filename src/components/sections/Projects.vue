@@ -35,8 +35,9 @@
               </div>
               <div
                 class="overlay d-flex position-absolute justify-content-center align-items-center"
+                @click="activeProject = project"
               >
-                <a @click="activeProject = project">{{
+                <a class="button submit-btn">{{
                   $t("projects.view")
                 }}</a>
               </div>
@@ -412,7 +413,8 @@ a {
         z-index: 3;
 
         &:hover {
-            background: red;
+            background:$fuchsia;
+            text-decoration: none;
         }
       }
     }
