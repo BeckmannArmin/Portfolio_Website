@@ -20,6 +20,10 @@ AOS.init({
     disable: 'phone',
 });
 
+import { ObserveVisibility } from 'vue-observe-visibility'
+
+Vue.directive('observe-visibility', ObserveVisibility)
+
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

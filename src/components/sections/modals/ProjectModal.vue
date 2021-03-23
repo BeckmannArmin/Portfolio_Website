@@ -1,85 +1,99 @@
 <template>
-  <transition name="projectFade">
-    <div :id="project.id" class="project-item">
-      <div class="project-parent-container">
-        <button class="project-close" @click="closeModal">
-          <div class="leftright"></div>
-          <div class="rightleft"></div>
-        </button>
-        <div class="project-container">
-          <!-- Project Header -->
-          <div class="project-header">
-            <div class="text-loading-mask">
-              <div class="text-loading-overlay"></div>
-              <h1 class="title">{{ project.name }}</h1>
-            </div>
-            <ul class="technologies-used">
-              <li
-                v-for="(technology, index) in project.technologies"
-                :key="index"
-                class="technology"
-              >
-                {{ technology }}
-              </li>
-            </ul>
-            <div class="work-context">
-              <div class="content-wrapper">
-                <ul class="work-context-wrapper">
-                  <li v-for="(context, index) in project.context" :key="index">
-                    <strong>{{ context.text }}</strong>
-                    <span class="context-baffle">{{ context.roles }}</span>
-                  </li>
-                </ul>
-              </div>
+  <div :id="project.id" class="project-item">
+    <div class="project-parent-container">
+      <button class="project-close" @click="closeModal">
+        <div class="leftright"></div>
+        <div class="rightleft"></div>
+      </button>
+      <div class="project-container">
+        <!-- Project Header -->
+        <div class="project-header">
+          <div class="text-loading-mask">
+            <div class="text-loading-overlay" :class="{ reveal : isVisible }"></div>
+            <h1
+              v-observe-visibility="{
+                callback: visibilityChanged,
+                throttle: 400,
+                once: true,
+              }"
+              class="title"
+            >
+              {{ project.name }}
+            </h1>
+          </div>
+          <ul class="technologies-used">
+            <li
+              v-for="(technology, index) in project.technologies"
+              :key="index"
+              class="technology"
+            >
+              {{ technology }}
+            </li>
+          </ul>
+          <div class="work-context">
+            <div class="content-wrapper">
+              <ul class="work-context-wrapper">
+                <li v-for="(context, index) in project.context" :key="index">
+                  <strong>{{ context.text }}</strong>
+                  <span class="context-baffle">{{ context.roles }}</span>
+                </li>
+              </ul>
             </div>
           </div>
-          <!-- Project Header End -->
+        </div>
+        <!-- Project Header End -->
 
-          <!-- Project Intro -->
-          <div class="project-intro">
-            <div class="giga-text">
-              {{ project.name }}
-            </div>
-            <div class="container">
-              <h2 class="intro-title">
+        <!-- Project Intro -->
+        <div class="project-intro">
+          <div class="giga-text">
+            {{ project.name }}
+          </div>
+          <div class="container">
+            <div class="text-loading-mask">
+              <div class="text-loading-overlay" :class="{ reveal : isIntroVisible }"></div>
+              <h2
+                v-observe-visibility="{
+                  callback: introVisibilityChanged,
+                  throttle: 400,
+                  once: true,
+                }"
+                class="intro-title"
+              >
                 {{ $t("projects.theproject") }}
               </h2>
-              <div class="intro-description-wrapper">
-                <p>{{ project.summary }}</p>
-              </div>
-              <div class="intro-btn-wrapper">
-                <a :href="project.href" target="_blank" class="animBtn cta-btn">
-                  <svg>
-                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                  </svg>
-                  <span class="button-text">{{ $t("projects.see") }}</span>
-                </a>
-              </div>
+            </div>
+            <div class="intro-description-wrapper">
+              <p>{{ project.summary }}</p>
+            </div>
+            <div class="intro-btn-wrapper">
+              <a :href="project.href" target="_blank" class="btn cta-btn">
+                <span class="button-text">{{ $t("projects.see") }}</span>
+              </a>
             </div>
           </div>
-          <!-- Project Intro End -->
-
-          <!-- Project brand -->
-          <div class="project-brand">
-            <div class="project-body">
-              <div class="body-header">
-                <h2 class="header-sub">{{ $t("projects.designing") }}</h2>
-              </div>
-              <div class="wrapper-text is-left">
-                <h3 class="wrapper-subtitle">{{ project.titel }}</h3>
-                <div class="seperator"></div>
-                <p class="wrapper-content">{{ project.task }}</p>
-              </div>
-              <div class="wrapper-image is-right">
-                <img class="project-img" :src="project.img" />
-              </div>
-            </div>
-          </div>
-          <!-- Project brand End -->
         </div>
+        <!-- Project Intro End -->
+
+        <!-- Project brand -->
+        <div class="project-brand">
+          <div class="project-body">
+            <div class="body-header">
+              <h2 class="header-sub">{{ $t("projects.designing") }}</h2>
+            </div>
+            <div class="wrapper-text is-left">
+              <h3 class="wrapper-subtitle">{{ project.titel }}</h3>
+              <div class="seperator"></div>
+              <p class="wrapper-content">{{ project.task }}</p>
+            </div>
+            <div class="wrapper-image is-right">
+              <img class="project-img" :src="project.img" />
+            </div>
+          </div>
+        </div>
+        <!-- Project brand End -->
       </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -88,21 +102,24 @@ import baffle from "baffle";
 export default {
   props: ["project"],
   data() {
-    return {};
+    return {
+      isVisible: false,
+      isIntroVisible: false,
+    };
   },
   mounted() {
     const html = document.querySelector("html");
     const b = baffle(".context-baffle", {
-        characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
+      characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
     });
     html.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
     setTimeout(() => {
-         b.start();
+      b.start();
     }, 1000);
 
-     setTimeout(() => {
+    setTimeout(() => {
       b.reveal(6000);
     }, 2000);
   },
@@ -115,6 +132,12 @@ export default {
     closeModal() {
       this.$emit("closeProject");
     },
+    visibilityChanged(isVisible) {
+      this.isVisible = isVisible;
+    },
+    introVisibilityChanged(isVisible) {
+        this.isIntroVisible = isVisible;
+    }
   },
 };
 </script>
@@ -151,14 +174,16 @@ export default {
 
   &.enter {
     overflow-y: auto;
-    .project-parent-container
-      .project-container
-      .project-header
-      .text-loading-mask {
-      .text-loading-overlay {
-        animation: translate 0.95s ease forwards 0.75s;
+
+     .text-loading-mask {
+    .text-loading-overlay {
+      &.reveal {
+           opacity: 1;
+      -webkit-transform: translateX(105%);
+      transform: translateX(105%);
       }
     }
+  }
   }
 
   .project-parent-container {
@@ -237,53 +262,49 @@ export default {
         .container {
           .intro-btn-wrapper {
             padding: 40px 0;
-            .animBtn {
+
+            .btn {
+              pointer-events: auto;
+              cursor: pointer;
+              background: #e7e7e7;
+              border: none;
+              padding: 1.5rem 3rem;
+              margin: 0;
               font-size: 2rem;
-              width: 100%;
-              line-height: 45px;
-              padding: 2rem;
-              color: $white;
               position: relative;
+              display: inline-block;
 
-              .button-text {
-                position: relative;
-              }
-
-              &:hover {
-                text-decoration: none;
+              &::before,
+              &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
               }
             }
 
             .cta-btn {
-              background: darken(#060c10, 1.5%);
-              font-weight: 100;
+              background: #37a5eb;
+              font-weight: 700;
+              padding: 0;
+              border-radius: 5px;
 
-              svg {
-                height: 45px;
-                left: 0;
-                position: absolute;
-                width: 100%;
+              &:hover {
+                span {
+                  transform: translate3d(-8px, -8px, 0);
+                }
               }
 
-              rect {
-                fill: none;
-                stroke: #fff;
-                stroke-width: 2;
-                stroke-dasharray: 422, 0;
-                transition: all 0.35s linear;
-              }
-            }
-
-            .cta-btn:hover {
-              background: rgba(#060c10, 0);
-              font-weight: 900;
-              letter-spacing: 1px;
-
-              rect {
-                stroke-width: 5;
-                stroke-dasharray: 15, 310;
-                stroke-dashoffset: 48;
-                transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+              span {
+                display: block;
+                color: $text-main;
+                background: #ece9f1;
+                padding: 1.5rem 2rem;
+                border: 1px solid #000;
+                border-radius: 5px;
+                transform: translate3d(-4px, -4px, 0);
+                transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
               }
             }
           }
@@ -328,7 +349,8 @@ export default {
             color: $white;
             animation: slideUp 1.2s ease forwards 0.9s;
             opacity: 0;
-            font-size: 4rem;
+            font-size: 4.2rem;
+            font-weight: bold;
           }
         }
 
@@ -393,12 +415,6 @@ export default {
         height: 100vh;
         width: 100%;
 
-        .text-loading-mask {
-          .text-loading-overlay {
-            display: none;
-          }
-        }
-
         .title {
           margin-left: 25px;
           margin-right: 25px;
@@ -443,8 +459,8 @@ export default {
           color: $white;
 
           .content-wrapper {
-              margin: 0 auto;
-              max-width: 1170px;
+            margin: 0 auto;
+            max-width: 1170px;
             .work-context-wrapper {
               margin: 0;
               padding: 0;
@@ -453,7 +469,7 @@ export default {
               animation: slideUp 0.95s ease forwards 0.75s;
 
               li {
-                 display: inline-block;
+                display: inline-block;
                 clear: none;
                 width: 33%;
                 margin-left: 0;
@@ -539,21 +555,10 @@ export default {
   }
 }
 
-.projectFade-enter-active,
-.projectFade-leave-active {
-  transition: transform 0.375s cubic-bezier(1, 0, 0, 1),
-    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
-}
-
-.projectFade-enter {
-  opacity: 1;
-  transform: scale(0.6);
-  border-radius: 0;
-}
-
-.projectFade-leave-to {
-  opacity: 0;
-  transform: scale(0.6);
+.text-loading-mask {
+  .text-loading-overlay {
+    display: none;
+  }
 }
 
 /** keyframes */
@@ -567,20 +572,8 @@ export default {
   }
 }
 
-@keyframes translate {
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(105%);
-    transform: translateX(105%);
-  }
-}
-
 @media (min-width: 56.25em) {
-  .project-item
-    .project-parent-container
-    .project-container
-    .project-header
-    .text-loading-mask {
+  .text-loading-mask {
     display: inline-block;
     position: relative;
     padding-top: 10px;
@@ -597,6 +590,10 @@ export default {
       background-color: #fff;
       -webkit-transform: translateX(0);
       transform: translateX(0);
+      transition: -webkit-transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
+      transition: transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
+      transition: transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1),
+        -webkit-transform 0.65s cubic-bezier(0.694, 0.048, 0.335, 1);
       z-index: 60;
     }
   }
@@ -630,80 +627,97 @@ export default {
         }
       }
     }
-      .project-intro .container .intro-title {
+    .project-intro .container {
+      .intro-btn-wrapper {
+        .btn {
+          font-size: 1.5rem;
+        }
+      }
+      .intro-title {
         font-size: 2.5rem;
       }
-      .project-body {
-        .wrapper-text {
-          &:first-child {
-            margin-left: auto;
-          }
-          display: block;
-          clear: both;
-          float: none;
-          width: 100%;
+    }
+    .project-body {
+      .wrapper-text {
+        &:first-child {
           margin-left: auto;
-          margin-right: auto;
-          margin-bottom: 35px;
-          &.is-left {
-            padding-left: 0;
-            padding: 0 8%;
-          }
-
-          .wrapper-subtitle {
-            font-size: 2.5rem;
-          }
-
-          .wrapper-content {
-            text-align: left !important;
-          }
         }
-        .wrapper-image {
-          display: block;
-          clear: both;
-          float: none;
-          width: 100%;
-          margin-left: auto;
-          margin-right: auto;
-          &:last-child {
-            margin-right: auto;
-          }
-
-          img {
-            display: block;
-            width: 90%;
-            margin: 0 auto;
-            transition: none;
-          }
+        display: block;
+        clear: both;
+        float: none;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 35px;
+        &.is-left {
+          padding-left: 0;
+          padding: 0 8%;
         }
 
-        .body-header {
-          .header-sub {
-            font-size: 3.4rem;
-          }
+        .wrapper-subtitle {
+          font-size: 2.5rem;
+        }
+
+        .wrapper-content {
+          text-align: left !important;
         }
       }
-    }
+      .wrapper-image {
+        display: block;
+        clear: both;
+        float: none;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        &:last-child {
+          margin-right: auto;
+        }
 
-    p {
-      font-size: 1.6rem !important;
-    }
+        img {
+          display: block;
+          width: 90%;
+          margin: 0 auto;
+          transition: none;
+        }
+      }
 
-    h1.title {
-      font-size: 2.5rem !important;
-      padding: 0 2rem;
-    }
-
-    img.project-img {
-      width: 80% !important;
+      .body-header {
+        .header-sub {
+          font-size: 3.4rem;
+        }
+      }
     }
   }
 
+  p {
+    font-size: 1.6rem !important;
+  }
+
+  h1.title {
+    font-size: 2.5rem !important;
+    padding: 0 2rem;
+  }
+
+  img.project-img {
+    width: 80% !important;
+  }
+}
+
 @media (max-width: 37.5em) {
-  .project-item .project-parent-container .project-container .project-body {
-    .body-header {
-      .header-sub {
-        font-size: 3.2rem;
+  .project-item .project-parent-container .project-container {
+    .project-intro .container {
+      .intro-btn-wrapper {
+        .btn {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .project-body {
+      .body-header {
+        .header-sub {
+          font-size: 3.2rem;
+        }
       }
     }
   }

@@ -45,12 +45,14 @@
         </div>
       </div>
     </div>
+    <transition name="projectFade">
     <ProjectModal
       v-if="activeProject"
       :class="activeProject ? 'enter' : ''"
       :project="activeProject"
       @closeProject="activeProject = null"
     />
+    </transition>
   </section>
 </template>
 
@@ -436,6 +438,23 @@ a {
     max-height: 24px;
     overflow: hidden;
   }
+}
+
+.projectFade-enter-active,
+.projectFade-leave-active {
+  transition: transform 0.375s cubic-bezier(1, 0, 0, 1),
+    opacity 0.375s ease-in-out, border-radius 0.375s ease-in-out;
+}
+
+.projectFade-enter {
+  opacity: 1;
+  transform: scale(0.6);
+  border-radius: 0;
+}
+
+.projectFade-leave-to {
+  opacity: 0;
+  transform: scale(0.6);
 }
 
 @media (max-width: 56.25em) {

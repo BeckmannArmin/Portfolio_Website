@@ -25,13 +25,35 @@
     <div class="main-hero-text">
       <div class="container">
         <div class="text-loading-mask">
-          <div class="text-loading-overlay"></div>
-          <h2 class="text-color-main">Armin Beckmann</h2>
+          <div
+            class="text-loading-overlay"
+            :class="{ reveal: isVisible }"
+          ></div>
+          <h2
+            v-observe-visibility="{
+              callback: visibilityChanged,
+              throttle: 3500,
+              once: true,
+            }"
+            class="text-color-main"
+          >
+            Armin Beckmann
+          </h2>
         </div>
         <div>
           <div class="text-loading-mask">
-              <div class="text-loading-overlay"></div>
-            <div class="intro">
+            <div
+              class="text-loading-overlay"
+              :class="{ reveal: isVisible }"
+            ></div>
+            <div
+              v-observe-visibility="{
+                callback: visibilityChanged,
+                throttle: 3500,
+                once: true,
+              }"
+              class="intro"
+            >
               <span class="introRipple">{{
                 $t("hero.introduction.frontend")
               }}</span>
@@ -66,16 +88,12 @@ export default {
     ShapesMask,
     SocialsOverlay,
   },
-  mounted() {
-    const b = baffle(".introRipple", {
-      characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
-    });
-
-    b.start();
-    setTimeout(() => {
-      b.reveal(6000);
-    }, 3500);
+  data() {
+    return {
+      isVisible: false,
+    };
   },
+  mounted() {},
   methods: {
     toggleDarkMode() {
       /**TODO: add them in css */
@@ -89,6 +107,20 @@ export default {
     toggleContactModal() {
       const contactModal = document.querySelector(".about-contact");
       contactModal.classList.add("isopen");
+    },
+    startBaffle() {
+      const b = baffle(".introRipple", {
+        characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
+      });
+
+      b.start();
+      setTimeout(() => {
+        b.reveal(6000);
+      }, 3500);
+    },
+    visibilityChanged(isVisible) {
+      this.isVisible = isVisible;
+      this.startBaffle();
     },
   },
 };
@@ -115,9 +147,9 @@ export default {
       }
     }
 
-      .intro {
-        color: $white;
-      }
+    .intro {
+      color: $white;
+    }
   }
 }
 
