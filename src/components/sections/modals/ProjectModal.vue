@@ -9,7 +9,10 @@
         <!-- Project Header -->
         <div class="project-header">
           <div class="text-loading-mask">
-            <div class="text-loading-overlay" :class="{ reveal : isVisible }"></div>
+            <div
+              class="text-loading-overlay"
+              :class="{ reveal: isVisible }"
+            ></div>
             <h1
               v-observe-visibility="{
                 callback: visibilityChanged,
@@ -48,17 +51,20 @@
           <div class="giga-text">
             {{ project.name }}
           </div>
-          <div class="container">
+          <div
+            v-observe-visibility="{
+              callback: introVisibilityChanged,
+              throttle: 200,
+              once: true,
+            }"
+            class="container"
+          >
             <div class="text-loading-mask">
-              <div class="text-loading-overlay" :class="{ reveal : isIntroVisible }"></div>
-              <h2
-                v-observe-visibility="{
-                  callback: introVisibilityChanged,
-                  throttle: 400,
-                  once: true,
-                }"
-                class="intro-title"
-              >
+              <div
+                class="text-loading-overlay"
+                :class="{ reveal: isIntroVisible }"
+              ></div>
+              <h2 class="intro-title">
                 {{ $t("projects.theproject") }}
               </h2>
             </div>
@@ -77,15 +83,19 @@
         <!-- Project brand -->
         <div class="project-brand">
           <div class="project-body">
-            <div class="body-header">
-              <h2 class="header-sub">{{ $t("projects.designing") }}</h2>
+            <div v-observe-visibility="{
+              callback: brandVisibilityChanged,
+              throttle: 200,
+              once: true,
+            }" class="body-header">
+              <h2 class="header-sub" :class="{ reveal : isBrandVisible }">{{ $t("projects.designing") }}</h2>
             </div>
-            <div class="wrapper-text is-left">
+            <div class="wrapper-text is-left" :class="{ reveal : isBrandVisible }">
               <h3 class="wrapper-subtitle">{{ project.titel }}</h3>
               <div class="seperator"></div>
               <p class="wrapper-content">{{ project.task }}</p>
             </div>
-            <div class="wrapper-image is-right">
+            <div class="wrapper-image is-right" :class="{ reveal : isBrandVisible }">
               <img class="project-img" :src="project.img" />
             </div>
           </div>
@@ -105,6 +115,7 @@ export default {
     return {
       isVisible: false,
       isIntroVisible: false,
+      isBrandVisible: false,
     };
   },
   mounted() {
@@ -136,7 +147,10 @@ export default {
       this.isVisible = isVisible;
     },
     introVisibilityChanged(isVisible) {
-        this.isIntroVisible = isVisible;
+      this.isIntroVisible = isVisible;
+    },
+    brandVisibilityChanged(isVisible) {
+        this.isBrandVisible = isVisible;
     }
   },
 };
@@ -175,15 +189,15 @@ export default {
   &.enter {
     overflow-y: auto;
 
-     .text-loading-mask {
-    .text-loading-overlay {
-      &.reveal {
-           opacity: 1;
-      -webkit-transform: translateX(105%);
-      transform: translateX(105%);
+    .text-loading-mask {
+      .text-loading-overlay {
+        &.reveal {
+          opacity: 1;
+          -webkit-transform: translateX(105%);
+          transform: translateX(105%);
+        }
       }
     }
-  }
   }
 
   .project-parent-container {
@@ -347,16 +361,22 @@ export default {
             text-align: center;
             margin-bottom: 70px;
             color: $white;
-            animation: slideUp 1.2s ease forwards 0.9s;
             opacity: 0;
             font-size: 4.2rem;
             font-weight: bold;
+
+            &.reveal {
+                 animation: slideUp 0.95s ease forwards;
+            }
           }
         }
 
         .wrapper-image {
-          animation: slideUp 0.95s ease forwards 2s;
           opacity: 0;
+
+          &.reveal {
+             animation: slideUp 0.95s ease forwards;
+          }
           &:last-child {
             margin-right: 0;
           }
@@ -380,8 +400,11 @@ export default {
           width: 50%;
           margin-left: 0;
           margin-right: 3%;
-          animation: slideUp 0.95s ease forwards 2s;
           opacity: 0;
+
+           &.reveal {
+             animation: slideUp 0.95s ease forwards;
+          }
 
           .seperator {
             width: 33%;
