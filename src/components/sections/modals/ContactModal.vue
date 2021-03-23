@@ -461,7 +461,6 @@ export default {
   &.isopen {
     visibility: visible;
     box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.55);
-    z-index: 995;
     transition: visibility 1s, z-index 1s, box-shadow 0.5s ease 0.4s;
 
     .half-contact {
@@ -837,6 +836,8 @@ export default {
 
         &.is-contact {
           right: auto;
+          padding-top: 80px;
+
         }
       }
     }
