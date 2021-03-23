@@ -84,12 +84,12 @@ export default {
           img: require("../../assets/whitebird_board.png"),
           href: "https://github.com/BuchholzTim/Whitebird",
           context: [
-            { text: "Role", roles: "Frontend" },
+            { text: this.$t("projects.context.role"), roles: "Frontend" },
             {
-              text: "Context",
-              roles: "Skeueomorphism",
+              text: this.$t("projects.context.context"),
+              roles: this.$t("projects.context.sceuo"),
             },
-            { text: "Period", roles: "End 2020" },
+            { text: this.$t("projects.context.period"), roles: this.$t("projects.context.end20") },
           ],
         },
         {
@@ -104,12 +104,12 @@ export default {
           img: require("../../assets/hly_storyboard.png"),
           href: "https://www.youtube.com/watch?v=bZbDIigXlNc",
             context: [
-            { text: "Role", roles: "Storyboard" },
+            { text: this.$t("projects.context.role"), roles: this.$t("projects.context.storyboard") },
             {
-              text: "Context",
-              roles: "Advertisment",
+              text: this.$t("projects.context.context"),
+              roles: this.$t("projects.context.advertisment"),
             },
-            { text: "Period", roles: "End 2020" },
+            { text: this.$t("projects.context.period"), roles: this.$t("projects.context.end20") },
           ],
         },
         {
@@ -124,12 +124,12 @@ export default {
           img: require("../../assets/conForm.png"),
           href: "https://github.com/BeckmannArmin/conForm",
             context: [
-            { text: "Role", roles: "Frontend, Backend" },
+            { text: this.$t("projects.context.role"), roles: "Frontend, Backend" },
             {
-              text: "Context",
-              roles: "Skeueomorphism",
+              text: this.$t("projects.context.context"),
+              roles: this.$t("projects.context.sceuo"),
             },
-            { text: "Period", roles: "End 2020" },
+            { text: this.$t("projects.context.period"), roles: this.$t("projects.context.end20") },
           ],
         },
         {
@@ -144,12 +144,12 @@ export default {
           img: require("../../assets/menschen.jpg"),
           href: "https://menschen-helfen-leben.de/",
             context: [
-            { text: "Role", roles: "Frontend, UI/UX Developer" },
+            { text: this.$t("projects.context.role"), roles: "Frontend, UI/UX Developer" },
             {
-              text: "Context",
-              roles: "website redesign",
+              text: this.$t("projects.context.context"),
+              roles: this.$t("projects.context.redesign"),
             },
-            { text: "Period", roles: "Mid 2020" },
+            { text: this.$t("projects.context.period"), roles: this.$t("projects.context.mid20") },
           ],
         },
         {
@@ -174,12 +174,12 @@ export default {
           img: require("../../assets/arminlogo_opt.svg"),
           href: "",
             context: [
-            { text: "Role", roles: "Frontend, UI/UX Developer" },
+            { text: this.$t("projects.context.role"), roles: "Frontend, UI/UX Developer" },
             {
-              text: "Context",
+              text: this.$t("projects.context.context"),
               roles: "Portfolio",
             },
-            { text: "Period", roles: "Begin 2021" },
+            { text: this.$t("projects.context.period"), roles: this.$t("projects.context.begin21") },
           ],
         },
       ],
@@ -410,6 +410,10 @@ a {
         border: 2px solid $fuchsia;
         transition: all 0.375s $project-transition;
         z-index: 3;
+
+        &:hover {
+            background: red;
+        }
       }
     }
 

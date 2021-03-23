@@ -24,6 +24,18 @@
         }
     },
     "projects": {
+        "context": {
+            "role": "Role",
+            "context": "Context",
+            "period": "Period",
+            "sceuo": "Skeuomorphism",
+            "end20": "End 2020",
+            "advertisment": "Advertisment",
+            "storyboard": "Storyboarding",
+            "redesign": "Website redesign",
+            "mid20": "Mid 2020",
+            "begin21": "Begin 2021"
+        },
         "projects": "Projects",
         "theproject": "Introduction",
         "designing": "Design",

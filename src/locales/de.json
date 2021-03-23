@@ -23,6 +23,18 @@
         }
     },
     "projects": {
+        "context": {
+            "role": "Funktion",
+            "context": "Kontext",
+            "period": "Zeitraum",
+            "sceuo": "Skeuomorphismus",
+            "end20": "Ende 2020",
+            "advertisment": "Werbepsychologie",
+            "storyboard": "Storyboarding",
+            "redesign": "Neuegstaltung",
+            "mid20": "Mitte 2020",
+            "begin21": "Anfang 2021"
+        },
         "projects": "Projekte",
         "theproject": "Einführung",
         "designing": "Entwurf",
