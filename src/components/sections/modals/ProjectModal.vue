@@ -8,7 +8,7 @@
       <div class="project-container">
         <!-- Project Header -->
         <div class="project-header">
-          <div class="text-loading-mask">
+          <div class="text-loading-mask wrapper">
             <div
               class="text-loading-overlay"
               :class="{ reveal: isVisible }"
@@ -438,6 +438,11 @@ export default {
         height: 100vh;
         width: 100%;
 
+        .wrapper {
+            width: 100%;
+            word-break: break-word;
+        }
+
         .title {
           margin-left: 25px;
           margin-right: 25px;
@@ -478,7 +483,7 @@ export default {
           bottom: 0;
           left: 0;
           width: 100%;
-          padding-bottom: 45px;
+          padding-bottom: 65px;
           color: $white;
 
           .content-wrapper {
@@ -625,6 +630,11 @@ export default {
 @media (max-width: 56.25em) {
   .project-item .project-parent-container .project-container {
     .project-header {
+        .technologies-used {
+            .technology {
+                padding: .5rem;
+            }
+        }
       .work-context .content-wrapper {
         max-width: none;
         width: 95%;
@@ -638,8 +648,7 @@ export default {
             width: 100%;
             margin-left: auto;
             margin-right: auto;
-            width: auto;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             display: inline-block;
             text-align: center;
             margin-right: 20px;
@@ -717,8 +726,7 @@ export default {
   }
 
   h1.title {
-    font-size: 2.5rem !important;
-    padding: 0 2rem;
+    font-size: 3.8rem !important;
   }
 
   img.project-img {
@@ -735,6 +743,10 @@ export default {
         }
       }
     }
+
+     h1.title {
+    font-size: 3.2rem !important;
+  }
 
     .project-body {
       .body-header {
