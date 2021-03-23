@@ -93,7 +93,6 @@ export default {
       isVisible: false,
     };
   },
-  mounted() {},
   methods: {
     toggleDarkMode() {
       /**TODO: add them in css */
@@ -110,17 +109,20 @@ export default {
     },
     startBaffle() {
       const b = baffle(".introRipple", {
-        characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
+        characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█",
       });
 
       b.start();
       setTimeout(() => {
-        b.reveal(6000);
-      }, 3500);
+        b.reveal(4000);
+      }, 2500);
     },
     visibilityChanged(isVisible) {
       this.isVisible = isVisible;
-      this.startBaffle();
+
+      if (window.innerWidth > 1025) {
+        this.startBaffle();
+      }
     },
   },
 };

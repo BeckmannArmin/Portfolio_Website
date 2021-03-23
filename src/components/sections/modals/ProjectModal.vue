@@ -83,19 +83,30 @@
         <!-- Project brand -->
         <div class="project-brand">
           <div class="project-body">
-            <div v-observe-visibility="{
-              callback: brandVisibilityChanged,
-              throttle: 200,
-              once: true,
-            }" class="body-header">
-              <h2 class="header-sub" :class="{ reveal : isBrandVisible }">{{ $t("projects.designing") }}</h2>
+            <div
+              v-observe-visibility="{
+                callback: brandVisibilityChanged,
+                throttle: 200,
+                once: true,
+              }"
+              class="body-header"
+            >
+              <h2 class="header-sub" :class="{ reveal: isBrandVisible }">
+                {{ $t("projects.designing") }}
+              </h2>
             </div>
-            <div class="wrapper-text is-left" :class="{ reveal : isBrandVisible }">
+            <div
+              class="wrapper-text is-left"
+              :class="{ reveal: isBrandVisible }"
+            >
               <h3 class="wrapper-subtitle">{{ project.titel }}</h3>
               <div class="seperator"></div>
               <p class="wrapper-content">{{ project.task }}</p>
             </div>
-            <div class="wrapper-image is-right" :class="{ reveal : isBrandVisible }">
+            <div
+              class="wrapper-image is-right"
+              :class="{ reveal: isBrandVisible }"
+            >
               <img class="project-img" :src="project.img" />
             </div>
           </div>
@@ -120,19 +131,12 @@ export default {
   },
   mounted() {
     const html = document.querySelector("html");
-    const b = baffle(".context-baffle", {
-      characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█ /█▒█ ░░▓█",
-    });
     html.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
-    setTimeout(() => {
-      b.start();
-    }, 1000);
-
-    setTimeout(() => {
-      b.reveal(6000);
-    }, 2000);
+    if (window.innerWidth > 1025) {
+      this.startBaffle();
+    }
   },
   destroyed() {
     const html = document.querySelector("html");
@@ -140,6 +144,18 @@ export default {
     document.body.style.overflow = "";
   },
   methods: {
+    startBaffle() {
+      const b = baffle(".context-baffle", {
+        characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█",
+      });
+      setTimeout(() => {
+        b.start();
+      }, 1000);
+
+      setTimeout(() => {
+        b.reveal(6000);
+      }, 2000);
+    },
     closeModal() {
       this.$emit("closeProject");
     },
@@ -150,8 +166,8 @@ export default {
       this.isIntroVisible = isVisible;
     },
     brandVisibilityChanged(isVisible) {
-        this.isBrandVisible = isVisible;
-    }
+      this.isBrandVisible = isVisible;
+    },
   },
 };
 </script>
@@ -366,7 +382,7 @@ export default {
             font-weight: bold;
 
             &.reveal {
-                 animation: slideUp 0.95s ease forwards;
+              animation: slideUp 0.95s ease forwards;
             }
           }
         }
@@ -375,7 +391,7 @@ export default {
           opacity: 0;
 
           &.reveal {
-             animation: slideUp 0.95s ease forwards;
+            animation: slideUp 0.95s ease forwards;
           }
           &:last-child {
             margin-right: 0;
@@ -402,8 +418,8 @@ export default {
           margin-right: 3%;
           opacity: 0;
 
-           &.reveal {
-             animation: slideUp 0.95s ease forwards;
+          &.reveal {
+            animation: slideUp 0.95s ease forwards;
           }
 
           .seperator {
@@ -439,8 +455,8 @@ export default {
         width: 100%;
 
         .wrapper {
-            width: 100%;
-            word-break: break-word;
+          width: 100%;
+          word-break: break-word;
         }
 
         .title {
@@ -630,11 +646,11 @@ export default {
 @media (max-width: 56.25em) {
   .project-item .project-parent-container .project-container {
     .project-header {
-        .technologies-used {
-            .technology {
-                padding: .5rem;
-            }
+      .technologies-used {
+        .technology {
+          padding: 0.5rem;
         }
+      }
       .work-context .content-wrapper {
         max-width: none;
         width: 95%;
@@ -684,6 +700,11 @@ export default {
         &.is-left {
           padding-left: 0;
           padding: 0 8%;
+          text-align: center;
+        }
+
+        .seperator {
+            opacity: 0;
         }
 
         .wrapper-subtitle {
@@ -744,9 +765,9 @@ export default {
       }
     }
 
-     h1.title {
-    font-size: 3.2rem !important;
-  }
+    h1.title {
+      font-size: 3.2rem !important;
+    }
 
     .project-body {
       .body-header {
