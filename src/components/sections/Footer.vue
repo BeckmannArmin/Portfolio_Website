@@ -73,7 +73,7 @@ export default {
 }
 /** reversed gradient of contact section */
 #footer {
-  background: $white;
+  background: hsl(300, 11%, 96%);
   padding-top: 100px;
 }
 .footer {

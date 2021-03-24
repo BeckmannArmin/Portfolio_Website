@@ -9,7 +9,7 @@
           <span>{{ $t("about.openminded.start") }}</span>
         </div>
         <div class="r" style="transform: translate3d(0,0,0)">
-          <span class="info-text-colored">{{
+          <span class="outline js-fun">{{
             $t("about.openminded.creative")
           }}</span>
         </div>
@@ -58,7 +58,7 @@
   }
 }
 #about {
-  background: none;
+  background-color: $lighter-blue;
   width: 100%;
   height: 100vh;
   opacity: 1;
@@ -82,7 +82,7 @@
 
       .l1:after {
         content: ".";
-        color: $frog-green;
+        color: $fuchsia;
       }
 
       div {
@@ -90,12 +90,23 @@
         margin-right: 16px;
 
         span {
-          color: $white;
+          color: hsl(0, 0%, 20%);
         }
 
         span.info-text-colored {
-          color: $text-main !important;
+          color: $fuchsia_light !important;
           font-weight: 800;
+        }
+
+          .outline {
+             color: hsl(0, 0%, 20%);
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke-width: 1.5px;
+          -webkit-text-stroke-color: hsl(0, 0%, 20%);
+
+          &:hover {
+           -webkit-text-fill-color: hsl(0, 0%, 20%);
+          }
         }
       }
     }

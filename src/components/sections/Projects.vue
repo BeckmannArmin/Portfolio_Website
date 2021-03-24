@@ -278,7 +278,7 @@ a {
 }
 
 #projects {
-  background: $white;
+  background: hsl(300, 11%, 96%);
   text-align: center;
   position: relative;
   padding-bottom: 180px;

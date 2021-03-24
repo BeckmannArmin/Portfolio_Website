@@ -206,7 +206,7 @@ this.setToggleBtnState();
     position: absolute;
     bottom: -1px;
     z-index: 3;
-    box-shadow: 0 -75px 50px $fuchsia;
+    //box-shadow: 0 -75px 50px $fuchsia;
   }
 
   .welcome-section-animated {

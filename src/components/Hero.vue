@@ -169,7 +169,7 @@ export default {
   border-bottom: 0;
   font-weight: 400;
   color: #ebebeb;
-  background: #ebebeb;
+  background: hsl(300, 11%, 94%);
   padding: 0 5.6rem;
   margin-bottom: 0;
   top: 0;
