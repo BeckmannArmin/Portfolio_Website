@@ -146,7 +146,7 @@ export default {
     background: $hero-bg-gradient;
     .brand {
       .logo-white {
-        fill: $white;
+        fill: $blue;
       }
     }
 
