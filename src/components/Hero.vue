@@ -112,10 +112,8 @@ export default {
         characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█",
       });
 
-      b.start();
-      setTimeout(() => {
-        b.reveal(4000);
-      }, 2500);
+      b.start()
+      .reveal(6000);
     },
     visibilityChanged(isVisible) {
       this.isVisible = isVisible;

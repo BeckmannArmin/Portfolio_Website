@@ -129,7 +129,7 @@ this.setToggleBtnState();
       }
       let secondSectionScroll = this.y + offSet;
       if (secondSectionScroll < 0) {
-        this.transformLetters(secondSectionScroll);
+        //this.transformLetters(secondSectionScroll);
         this.transformAboutContent(secondSectionScroll);
       }
     },
