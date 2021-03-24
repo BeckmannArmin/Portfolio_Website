@@ -200,7 +200,7 @@ export default {
     transform-style: preserve-3d;
 
     .logo-white {
-      fill: $modal-bg;
+      fill: #A5AFFB;
     }
 
     .logo-large {

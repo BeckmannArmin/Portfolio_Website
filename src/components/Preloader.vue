@@ -22,7 +22,7 @@
         <g
           id="strokes"
           fill="none"
-          stroke="#e91e63"
+          stroke="#6979F8"
           stroke-linecap="round"
           stroke-linejoin="round"
         >
@@ -43,7 +43,7 @@
         <g
           id="strokes2"
           fill="none"
-          stroke="#cbe2be"
+          stroke="#A5AFFB"
           stroke-linecap="round"
           stroke-linejoin="round"
         >

@@ -14,7 +14,12 @@
             "middle": "und",
             "open": "aufgeschlossener Entwickler",
             "try": "und gestalte moderne und ästhetische Webseiten"
-        }
+        },
+        "like": "Ich mag es",
+        "fun": "lustige",
+        "interactive": "und interaktive Dinge mit",
+        "code": "Code",
+        "program": "zu programmieren"
     },
     "hero": {
         "introduction": {
