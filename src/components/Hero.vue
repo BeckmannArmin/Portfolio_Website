@@ -113,6 +113,9 @@ export default {
       });
 
       b.start()
+      .set({
+          speed: 75
+      })
       .reveal(6000);
     },
     visibilityChanged(isVisible) {
