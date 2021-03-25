@@ -121,17 +121,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/**
-#master.stage-0 {
-  transform: translateX(0);
-  color: $black;
-}
-#master.stage-1 #hero,
-#master.stage-2 #hero {
-  transform: translateX(105vw);
-}
-*/
-
 .dark {
   #hero {
     background: $hero-bg-gradient;
