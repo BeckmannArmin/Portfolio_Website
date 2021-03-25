@@ -97,16 +97,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/**
-#master.stage-0 #about {
-  transform: translateX(-100vw);
-}
-#master.stage-1 #about,
-#master.stage-2 #about {
-  transform: translateX(0);
-}
-*/
-
 .dark {
   #about {
     background-color: $bg-black;
