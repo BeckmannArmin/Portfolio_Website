@@ -185,17 +185,16 @@ export default {
 
   .brand {
     position: absolute;
-    left: 50%;
-    z-index: 3;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 50%;
+    z-index: 3;
 
     .logo-white {
       fill: #a5affb;
-    }
-
-    .logo-large {
-      transform: scale(2);
     }
   }
 
@@ -427,6 +426,18 @@ export default {
 }
 
 /** Media queries */
+
+@media (min-width: 62.5em) {
+    #hero {
+        .brand {
+            svg {
+                height: 300px;
+                width: 300px;
+            }
+        }
+    }
+}
+
 @media (max-width: 75em) {
   #hero {
     .hero-title {
