@@ -1129,6 +1129,15 @@ export default {
         transform: translateX(-100%);
       }
 
+      &.is-about {
+          .mini-me-wrapper {
+              svg {
+                  width: 500px;
+                  height: 500px;
+              }
+          }
+      }
+
       .contact-info {
         position: absolute;
         -webkit-transform-style: preserve-3d;
