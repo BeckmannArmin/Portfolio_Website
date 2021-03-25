@@ -22,23 +22,21 @@
       </svg>
     </div>
     <!-- Hero title and subtitle -->
-    <div class="main-hero-text">
+    <div
+      v-observe-visibility="{
+        callback: visibilityChanged,
+        throttle: 3500,
+        once: true,
+      }"
+      class="main-hero-text"
+    >
       <div class="container">
         <div class="text-loading-mask">
           <div
             class="text-loading-overlay"
             :class="{ reveal: isVisible }"
           ></div>
-          <h2
-            v-observe-visibility="{
-              callback: visibilityChanged,
-              throttle: 3500,
-              once: true,
-            }"
-            class="text-color-main"
-          >
-            Armin Beckmann
-          </h2>
+          <h2 class="text-color-main">Armin Beckmann</h2>
         </div>
         <div>
           <div class="text-loading-mask">
@@ -46,14 +44,7 @@
               class="text-loading-overlay"
               :class="{ reveal: isVisible }"
             ></div>
-            <div
-              v-observe-visibility="{
-                callback: visibilityChanged,
-                throttle: 3500,
-                once: true,
-              }"
-              class="intro"
-            >
+            <div class="intro">
               <span class="introRipple">{{
                 $t("hero.introduction.frontend")
               }}</span>
@@ -109,14 +100,14 @@ export default {
     },
     startBaffle() {
       const b = baffle(".introRipple", {
-        characters: "▒█/ ░▓<▓▒ █▓█░▒ █░░ ▒█▓░█ ░▓<▒ ░/█",
+        characters: "▒█/░▓<▓▒ █▓█░▒█░░▒█",
       });
 
       b.start()
-      .set({
-          speed: 75
-      })
-      .reveal(6000);
+        .set({
+          speed: 75,
+        })
+        .reveal(6000);
     },
     visibilityChanged(isVisible) {
       this.isVisible = isVisible;
@@ -200,7 +191,7 @@ export default {
     transform-style: preserve-3d;
 
     .logo-white {
-      fill: #A5AFFB;
+      fill: #a5affb;
     }
 
     .logo-large {
