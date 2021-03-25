@@ -26,7 +26,11 @@
         </div>
       </div>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 350">
+    <svg
+      class="about-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 300 350"
+    >
       <g id="shapes-about">
         <text opacity="0" fill="#88d3d1">&#35;</text>
         <text opacity="0" fill="#dd859c">&#8730;</text>
@@ -139,14 +143,12 @@ export default {
   opacity: 1;
   z-index: 1;
 
-  svg {
-    position: relative;
-    display: block;
-    margin: auto;
+  .about-svg {
+    display: none;
     z-index: -1;
 
     #shapes-about {
-      transform: translate(100px, 100px);
+      transform: translate(100px, 150px);
     }
   }
 
@@ -210,6 +212,16 @@ export default {
         opacity: 1 !important;
         transform: none !important;
       }
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  #about {
+    .about-svg {
+      display: block;
+      height: 100vh;
+      flex-grow: 1;
     }
   }
 }
