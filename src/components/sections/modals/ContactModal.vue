@@ -14,6 +14,7 @@
                 id="name"
                 :placeholder="$t('contact.name')"
               />
+              <span v-if="msg.name" class="invalid">{{ msg.name }}</span>
             </div>
             <div class="input">
               <input
@@ -23,6 +24,7 @@
                 id="email"
                 :placeholder="$t('contact.email')"
               />
+              <span v-if="msg.email" class="invalid">{{ msg.email }}</span>
             </div>
             <div class="input">
               <textarea
@@ -37,6 +39,7 @@
                 type="submit"
                 value="Send"
                 class="paperplane-button"
+                :disabled="!name.length || !email.length || !message.length || isDisabled"
                 @click="animateAndClearForm"
               >
                 <span class="default">{{ $t("contact.send") }}</span>
@@ -71,7 +74,12 @@
       <div class="giga-text">{{ $t("about.me") }}</div>
       <div class="mini-me-wrapper">
         <!-- SVG of myself -->
-        <svg width="1150" height="1000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 1000">
+        <svg
+          width="1150"
+          height="1000"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1150 1000"
+        >
           <g id="body">
             <path
               d="M796.6 79c-200.4 43.3-210.1 219-272.1 240-162.1 55-272.8-45-363.2-22S17.6 391 17 479c-.9 127.8 39.3 321.2 286.5 392.7v-18.2c0-95.2 67.7-174.6 157.6-192.6.4-.1.7-.1 1.1-.2 1.3-.3 2.7-.5 4-.7l1.5-.3c1.2-.2 2.4-.4 3.7-.6.6-.1 1.2-.2 1.8-.2 1.2-.2 2.3-.3 3.5-.4.6-.1 1.3-.1 1.9-.2 1.1-.1 2.3-.2 3.4-.3.7-.1 1.3-.1 2-.2 1.1-.1 2.3-.2 3.4-.2.6 0 1.3-.1 1.9-.1 1.2-.1 2.5-.1 3.7-.2.6 0 1.1 0 1.7-.1 1.8 0 3.6-.1 5.4-.1 1.8 0 3.6 0 5.4.1.6 0 1.1 0 1.7.1 1.2 0 2.5.1 3.7.2.6 0 1.3.1 1.9.1 1.1.1 2.3.1 3.4.2.7.1 1.3.1 2 .2 1.1.1 2.3.2 3.4.3.6.1 1.3.1 1.9.2 1.2.1 2.3.3 3.5.4.6.1 1.2.2 1.8.2 1.2.2 2.4.4 3.7.6l1.5.3c1.4.2 2.7.5 4 .7.4.1.7.1 1.1.2C629 679 696.7 758.3 696.7 853.5v11.6c116-39.6 252.3-122.7 376.1-292.1 97.2-133 29.1-560-276.2-494z"
@@ -275,13 +283,41 @@ export default {
       name: "",
       email: "",
       message: "",
-      btnOldHtml: "",
+      msg: [],
+      isDisabled: false,
     };
   },
   mounted() {
     this.animateMiniMe();
   },
+  watch: {
+    email(value) {
+      // binding this to the data value in the email input
+      this.email = value;
+      this.validateEmail(value);
+    },
+    name(value) {
+      this.name = value;
+      this.validateName(value);
+    },
+  },
   methods: {
+    validateEmail(value) {
+      if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+        this.msg["email"] = "";
+        this.isDisabled = false;
+      } else {
+        this.msg["email"] = "Invalid Email Address";
+        this.isDisabled = true;
+      }
+    },
+    validateName(value) {
+      if (!value.length) {
+        this.msg["name"] = "Name is required";
+      } else {
+        this.msg["name"] = "";
+      }
+    },
     animateMiniMe() {
       const safeToAnimate = window.matchMedia(
         "(prefers-reduced-motion: no-preference)"
@@ -517,6 +553,11 @@ export default {
       contactModal.classList.remove("isopen");
       const html = document.querySelector("html");
       html.style.overflow = "";
+      this.clearForm();
+    },
+    clearForm() {
+      (this.name = ""), (this.email = ""), (this.message = "");
+      this.msg = [];
     },
   },
 };
@@ -861,7 +902,7 @@ export default {
         height: 100%;
         overflow: hidden;
         svg {
-        margin: 0 auto;
+          margin: 0 auto;
           display: block;
 
           .st1 {
@@ -929,6 +970,12 @@ export default {
               margin-bottom: 33px;
               width: 100%;
               position: relative;
+
+              .invalid {
+                position: absolute;
+                font-size: 1.2rem;
+                color: red;
+              }
 
               &:hover {
                 &::before,
@@ -1130,12 +1177,12 @@ export default {
       }
 
       &.is-about {
-          .mini-me-wrapper {
-              svg {
-                  width: 500px;
-                  height: 500px;
-              }
+        .mini-me-wrapper {
+          svg {
+            width: 500px;
+            height: 500px;
           }
+        }
       }
 
       .contact-info {
