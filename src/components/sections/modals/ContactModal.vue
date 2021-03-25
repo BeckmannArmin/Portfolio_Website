@@ -39,7 +39,9 @@
                 type="submit"
                 value="Send"
                 class="paperplane-button"
-                :disabled="!name.length || !email.length || !message.length || isDisabled"
+                :disabled="
+                  !name.length || !email.length || !message.length || isDisabled
+                "
                 @click="animateAndClearForm"
               >
                 <span class="default">{{ $t("contact.send") }}</span>
@@ -306,6 +308,9 @@ export default {
       if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
         this.msg["email"] = "";
         this.isDisabled = false;
+      } else if (!value.length) {
+        this.msg["email"] = "E-Mail is required";
+        this.isDisabled = true;
       } else {
         this.msg["email"] = "Invalid Email Address";
         this.isDisabled = true;
@@ -549,15 +554,14 @@ export default {
       }
     },
     closeContact() {
+      this.clearForm();
       const contactModal = document.querySelector(".about-contact");
       contactModal.classList.remove("isopen");
       const html = document.querySelector("html");
       html.style.overflow = "";
-      this.clearForm();
     },
     clearForm() {
-      (this.name = ""), (this.email = ""), (this.message = "");
-      this.msg = [];
+      (this.name = ""), (this.email = ""), (this.message = ""), (this.msg = []);
     },
   },
 };
@@ -993,6 +997,13 @@ export default {
                 width: 0;
                 height: 2px;
                 transition: width 0.45s cubic-bezier(0.694, 0.048, 0.335, 1);
+              }
+
+              &:nth-child(3) {
+                &::after,
+                &::before {
+                  bottom: 2px;
+                }
               }
 
               &::before {
