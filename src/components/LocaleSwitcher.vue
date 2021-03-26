@@ -42,7 +42,7 @@ export default {
     color: $white;
     font-weight: 700;
     &:not(.active) {
-      font-weight: 500;
+      font-weight: 300;
     }
   }
 

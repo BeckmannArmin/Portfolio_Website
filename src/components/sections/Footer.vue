@@ -7,6 +7,7 @@
             id="curved"
             class="position-relative d-flex justify-content-center align-items-center flex-column"
           >
+            <LocaleSwitcher />
             <div class="socials d-flex justify-content-center flex-row">
               <a href="https://github.com/BeckmannArmin" target="_blank">
                 <font-awesome-icon :icon="['fab', 'github']" />
@@ -56,7 +57,12 @@
 </template>
 
 <script>
+import LocaleSwitcher from "../LocaleSwitcher.vue";
+
 export default {
+  components: {
+    LocaleSwitcher,
+  },
   data() {
     return {
       opacity: 0,
@@ -107,7 +113,7 @@ export default {
           color: $white;
 
           &:hover {
-              color: $fuchsia;
+            color: $fuchsia;
           }
         }
       }
