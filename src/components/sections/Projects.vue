@@ -85,7 +85,7 @@ export default {
           img: require("../../assets/whitebird_board.png"),
           href: "https://github.com/BuchholzTim/Whitebird",
           context: [
-            { text: this.$t("projects.context.role"), roles: "Frontend" },
+            { text: this.$t("projects.context.role"), roles: "Frontend Developer" },
             {
               text: this.$t("projects.context.context"),
               roles: this.$t("projects.context.sceuo"),
