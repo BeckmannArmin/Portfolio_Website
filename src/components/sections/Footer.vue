@@ -7,7 +7,6 @@
             id="curved"
             class="position-relative d-flex justify-content-center align-items-center flex-column"
           >
-            <LocaleSwitcher />
             <div class="socials d-flex justify-content-center flex-row">
               <a href="https://github.com/BeckmannArmin" target="_blank">
                 <font-awesome-icon :icon="['fab', 'github']" />
@@ -46,6 +45,7 @@
                 />
               </div>
             </div>
+            <LocaleSwitcher />
             <a href="#top">
               <div class="arrow"></div>
             </a>

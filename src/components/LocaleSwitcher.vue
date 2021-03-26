@@ -35,6 +35,7 @@ export default {
   display: flex;
   justify-content: center;
   flex-flow: row;
+  padding-top: 30px;
 
   a {
     font-size: 2.4rem;
