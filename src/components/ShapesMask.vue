@@ -126,8 +126,8 @@ export default {
         var y = yPosition;
 
         gsap.to(dom.a7, {
-          yPercent: y / 30,
-          xPercent: x / 30,
+          yPercent: y / 5,
+          xPercent: x / 4,
         });
         gsap.to(dom.a2, {
           yPercent: y / 3,
