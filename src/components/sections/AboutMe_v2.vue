@@ -37,10 +37,12 @@
         <text opacity="0" fill="#88d3d1">&#35;</text>
         <text opacity="0" fill="#dd859c">&#8730;</text>
         <text opacity="0" fill="#dd859c">&#8716;</text>
-        <text opacity="0" fill="#a3b2e5">&#123;&#47;&#125;</text>
+        <text opacity="0" fill="#a3b2e5">&#123; &#125;</text>
         <text opacity="0" fill="#f2c5c2">&#37;</text>
         <text opacity="0" fill="#f9e4ac">&#8710;</text>
         <text opacity="0" fill="#88d3d1">&#8712;</text>
+        <text opacity="0" fill="#e91e63">&#x34;&#x32;</text>
+        <text opacity="0" fill="#A5AFFB">&#8895;</text>
         <text opacity="0" fill="#d6a0e0">&#8711;</text>
         <text opacity="0" fill="#a3b2e5">&#8710;</text>
         <text opacity="0" fill="#f9e4ac">&#8713;</text>
