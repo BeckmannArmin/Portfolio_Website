@@ -1,6 +1,8 @@
 {
     "footer": {
-        "chooselang": "Choose language"
+        "chooselang": "Choose language",
+        "privacy": "Privacy Policy",
+        "legal": "Legal Notice"
     },
     "about": {
         "me": "About me",

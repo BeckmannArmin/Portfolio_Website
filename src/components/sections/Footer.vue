@@ -49,23 +49,33 @@
             <a href="#top">
               <div class="arrow"></div>
             </a>
+            <div class="legal-wrapper d-flex flex-row">
+              <a @click="showPrivacy = true"> {{ $t("footer.privacy") }} </a>
+              <a @click="showLegal = true"> {{ $t("footer.legal") }} </a>
+            </div>
           </div>
         </div>
       </div>
+      <LegalNotice v-if="showLegal" :class="showLegal ? 'enter' : ''" @closeLegal="showLegal = false" />
+      <Privacy v-if="showPrivacy" :class="showPrivacy ? 'enter' : ''" @closePrivacy="showPrivacy = false" />
     </footer>
   </section>
 </template>
 
 <script>
 import LocaleSwitcher from "../LocaleSwitcher.vue";
+import LegalNotice from "./modals/LegalNotice.vue";
+import Privacy from "./modals/PrivacyPolicy.vue";
 
 export default {
   components: {
-    LocaleSwitcher,
+    LocaleSwitcher, LegalNotice, Privacy
   },
   data() {
     return {
       opacity: 0,
+      showLegal: false,
+      showPrivacy: false
     };
   },
 };
@@ -218,6 +228,14 @@ export default {
       z-index: -1;
       border-radius: 50%;
       background-color: $bg-black;
+    }
+
+    .legal-wrapper {
+      a {
+        color: $white;
+        font-size: 1.1rem;
+        padding: .5rem;
+      }
     }
   }
 }

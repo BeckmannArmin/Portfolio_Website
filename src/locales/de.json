@@ -1,6 +1,8 @@
 {
     "footer": {
-        "chooselang": "Sprache auswählen"
+        "chooselang": "Sprache auswählen",
+        "privacy": "Datenschutzerklärung",
+        "legal": "Impressum"
     },
     "about": {
         "me": "Über mich",
