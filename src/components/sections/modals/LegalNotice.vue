@@ -12,7 +12,7 @@
         <p>
           Armin Beckmann<br />
           Elstersteinstra&szlig;e.28<br />
-          66286 St.Ingbert
+          66386 St.Ingbert
         </p>
 
         <h2>Kontakt</h2>
