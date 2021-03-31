@@ -57,7 +57,7 @@
         "menschenhelfen_task": "Ich habe die Webseite von Grund auf neu entworfen um deren Ziel hervorzuheben und im allgemeinen die Usability der Seite zu steigern. Die Interaktion sollte den Nutzer:innen so angenehm wie möglich gemacht werden. Die Webseite wurde mit Hilfe von Wordpress, Oxygen, eigenes JavaScript, sowie CSS gestaltet",
         "about": "Über",
         "project": "Projekt",
-        "portfolio": "Mein persöhnliches Portfolio, welches ich aus reiner Laune heraus entworfen habe",
+        "portfolio": "Mein persönliches Portfolio, welches ich aus reiner Laune heraus entworfen habe",
         "portfolio_task": "Das Frontend wurde mittels Bootstrap in Kombination mit (S)CSS und Javascript gestaltet. Das Logo wurde mit Illustrator entworfen und mit AnimeJS animiert. Der Rest ist Logik und viel Liebe"
     },
     "contact": {
