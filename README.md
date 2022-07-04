@@ -1,4 +1,4 @@
-# vue-portfolio
+# 👋 Hi, this is my portfolio website I created with Vue.js 🌱
 
 ## Project setup
 ```
