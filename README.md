@@ -1,6 +1,6 @@
-# 👋 Hi, this is my portfolio website I created with Vue.js 🌱
+# 👋 Hi, this is my portfolio website I created with Vue.js
 
-## Project setup
+## To run the project for whatever ever reason, just run the following commands. Feel free to customize the project according to your wishes
 ```
 npm install
 ```
