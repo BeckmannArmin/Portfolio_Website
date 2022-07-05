@@ -1,6 +1,8 @@
 # 👋 Hi, this is my portfolio website I created with Vue.js
 
-## To run the project for whatever ever reason, just run the following commands. Feel free to customize the project according to your wishes
+> To run the project for whatever ever reason, just run the following commands. Feel free to customize the project according to your wishes
+<br>
+
 ```
 npm install
 ```
