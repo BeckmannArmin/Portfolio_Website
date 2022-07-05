@@ -94,6 +94,9 @@
         "study_master_desc": "Mensch-Technik-Interaktion",
         "minarc": "Frontend & WordPress Entwickler",
         "minarc_desc": "Entwicklung von WordPress & WooCommerce Seiten für Kund*innen und Unternehmen.",
-        "date_minarc": "Juni 21 - Heute"
+        "date_minarc": "Juni 21 - Heute",
+        "master1": "Masterarbeit",
+        "master2": "Cross-Plattform-Entwicklung einer mobilen Anwendung zum operativen Task-Management",
+        "master3": "Konzeption und prototypische Umsetzung mittels Flutter"
     }
 }

@@ -46,18 +46,6 @@
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
                 <p class="timeline-event-thumbnail">
-                  {{ $t("experience.thesis_date") }}
-                </p>
-                <h3>{{ $t("experience.thesis_title") }}</h3>
-                <p>
-                  {{ $t("experience.thesis") }}
-                </p>
-              </div>
-            </li>
-            <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
-              <label class="timeline-event-icon"></label>
-              <div class="timeline-event-copy text-left">
-                <p class="timeline-event-thumbnail">
                   {{ $t("experience.intern_date") }}
                 </p>
                 <h3>Eyeled GmbH</h3>
@@ -90,15 +78,17 @@
                 </p>
               </div>
             </li>
-            <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
+             <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
-                <p class="timeline-event-thumbnail">2016 - 2020</p>
-                <h3>{{ $t("experience.study") }}</h3>
-                <p>
-                  <strong>{{ $t("experience.study_deg") }}</strong>
+                <p class="timeline-event-thumbnail">
+                  November 2021 - Mai 2022
+                </p>
+                <h3>{{ $t("experience.master1") }}</h3>
+                <p class="text-left">
+                  <strong>{{ $t("experience.master2") }}</strong>
                   <br />
-                  {{ $t("experience.study_desc") }}
+                  {{ $t("experience.master3") }}
                 </p>
               </div>
             </li>
@@ -111,6 +101,18 @@
                 <h3>{{ $t("experience.thesis_title") }}</h3>
                 <p>
                   {{ $t("experience.thesis") }}
+                </p>
+              </div>
+            </li>
+            <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
+              <label class="timeline-event-icon"></label>
+              <div class="timeline-event-copy text-left">
+                <p class="timeline-event-thumbnail">2016 - 2020</p>
+                <h3>{{ $t("experience.study") }}</h3>
+                <p>
+                  <strong>{{ $t("experience.study_deg") }}</strong>
+                  <br />
+                  {{ $t("experience.study_desc") }}
                 </p>
               </div>
             </li>
