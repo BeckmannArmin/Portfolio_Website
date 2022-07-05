@@ -1,5 +1,5 @@
 <template>
-  <div class="toggleWrapper pt-4">
+  <div class="toggleWrapper">
     <input
       type="checkbox"
       :checked="mode === 'dark' ? 'checked' : false"
@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .toggleWrapper {
-
+  transform: scale(.55);
   input {
     position: absolute;
     right: -99em;

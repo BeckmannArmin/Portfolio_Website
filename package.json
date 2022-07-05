@@ -11,12 +11,16 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
+    "animejs": "^3.2.1",
     "aos": "^3.0.0-beta.6",
+    "baffle": "^0.3.6",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
-    "gsap": "file:gsap-bonus.tgz",
+    "emailjs-com": "^2.6.4",
+    "gsap": "^3.6.0",
     "vue": "^2.6.11",
-    "vue-i18n": "^8.23.0"
+    "vue-i18n": "^8.23.0",
+    "vue-observe-visibility": "^1.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

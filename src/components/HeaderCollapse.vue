@@ -1,5 +1,5 @@
 <template>
-  <div id="navbar-collapse" class="fixed-top">
+  <div id="navbar-collapse" class="fixed--top">
     <div
       id="menu-icon-wrapper"
       class="menu-icon-wrapper"
@@ -23,8 +23,12 @@
         @click="toggleClass"
       ></button>
     </div>
-    <Sidebar :class="{open : isOpen}" @toggleClose="closeMenu" style="transform: translateX(-100vw)" />
-    <Overlay :class="{open : isOpen}"/>
+    <Sidebar
+      :class="{ open: isOpen }"
+      @toggleClose="closeMenu"
+      style="transform: translateX(-100vw)"
+    />
+    <Overlay :class="{ open: isOpen }" />
   </div>
 </template>
 
@@ -38,51 +42,55 @@ export default {
     };
   },
   components: {
-      Sidebar,
-      Overlay
+    Sidebar,
+    Overlay,
   },
   methods: {
     toggleClass() {
-          this.isOpen = !this.isOpen;
+      this.isOpen = !this.isOpen;
     },
     closeMenu() {
-        setTimeout(() => {
-            this.isOpen = !this.isOpen
-        }, 1000)
-    }
+      setTimeout(() => {
+        this.isOpen = !this.isOpen;
+      }, 1000);
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.fixed--top {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1030;
+}
 
 .menu-icon-wrapper {
   width: 55px;
   height: 55px;
   padding: 2rem;
   pointer-events: none;
-  background: #fff;
   transition: 0.1s;
-  border-bottom-right-radius: 6px;
-  box-shadow: 0 3px 7px 0 rgba(0,0,0, 0.4);
 
   &.open {
-      box-shadow: none;
+    box-shadow: none;
+    background: none;
   }
 }
 
 .menu-icon-wrapper svg {
   position: absolute;
-  top: -14px;
-  left: -12px;
-  -webkit-transform: scale(0.08);
-  transform: scale(0.08);
+  top: -22.5px;
+  left: -22.5px;
+  -webkit-transform: scale(0.1);
+  transform: scale(0.1);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
 
 .menu-icon-wrapper svg path {
-  stroke: $salmon-light;
+  stroke: $fuchsia-light;
   stroke-width: 40px;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -130,14 +138,14 @@ export default {
 }
 
 .menu-icon-wrapper.open {
-    transform: translateX(0)!important;
-    visibility: visible!important;
-    opacity: 1;
+  transform: translateX(0) !important;
+  visibility: visible !important;
+  opacity: 1;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 650px) {
   #navbar-collapse {
-    display: none;
+      display: none;
   }
 }
 </style>

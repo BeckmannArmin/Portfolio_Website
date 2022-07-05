@@ -7,20 +7,22 @@ import en from './locales/en.json';
 import de from './locales/de.json';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedinIn, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import animejs from "animejs";
 
-library.add(faGithub,faLinkedinIn)
+library.add(faGithub,faLinkedinIn, faCodepen)
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-AOS.init();
+AOS.init({
+    disable: 'phone',
+});
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ObserveVisibility } from 'vue-observe-visibility'
 
-gsap.registerPlugin(ScrollTrigger);
+Vue.directive('observe-visibility', ObserveVisibility)
 
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
@@ -31,6 +33,7 @@ Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.config.productionTip = false
 Vue.use(VueI18n)
+Vue.use(animejs);
 
 
 var lang = localStorage.getItem('lang');

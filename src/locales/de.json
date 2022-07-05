@@ -1,6 +1,8 @@
 {
     "footer": {
-        "chooselang": "Sprache auswählen"
+        "chooselang": "Sprache auswählen",
+        "privacy": "Datenschutzerklärung",
+        "legal": "Impressum"
     },
     "about": {
         "me": "Über mich",
@@ -19,20 +21,44 @@
     "hero": {
         "introduction": {
             "name": "mein Name ist",
-            "frontend": "Ich bin ein Frontend Entwickler"
+            "frontend": "Frontend Entwickler"
         }
     },
     "projects": {
+        "context": {
+            "role": "Funktion",
+            "context": "Kontext",
+            "period": "Zeitraum",
+            "sceuo": "Skeuomorphismus",
+            "end20": "Ende 2020",
+            "advertisment": "Werbepsychologie",
+            "storyboard": "Storyboarding",
+            "redesign": "Neuegstaltung",
+            "mid20": "Mitte 2020",
+            "begin21": "Anfang 2021"
+        },
         "projects": "Projekte",
+        "theproject": "Einführung",
+        "designing": "Entwurf",
         "see": "Projekt anschauen",
-        "whitebird": "ist ein Open-Source, webbasiertes, kollaboratives, digitales Whiteboard, das mit NestJS, MongoDB, NuxtJs und FabricJs gebaut wurde. Ich habe mich hauptsächlich um das Frontend gekümmert, habe aber auch im Backend geholfen",
-        "conForm": "ist ein Programm, mit dem der Benutzer mehrere Konzeptpapiere erstellen, bearbeiten und speichern kann. Um die Erstellung eines Konzeptpapiers zu vereinfachen, sollte eine Webanwendung entwickelt werden, die das herkömmliche Herunterladen, Ausfüllen, Bearbeiten und erneute Hochladen eines jeden Papiers ersetzt. Jede Gruppe sollte die Möglichkeit haben, in einer eigenen Sitzung an ihrem Konzeptpapier zu arbeiten. Der Zugang sollte über Benutzerauthentifizierung und Join-Codes gewährleistet sein",
-        "hly": "war ein Projekt im Rahmen des Studium dessen Ziel darin lag ein positives Urteil beim Verbraucher zu erzeugen und damit mehr Kunden für das noch unbekannte Getränk zu gewinnen",
+        "whitebird": "Whitebird ist ein Open-Source, webbasiertes, kollaboratives, digitales Whiteboard, das mit NestJS, MongoDB, NuxtJs und FabricJs gebaut wurde",
+        "whitebird_task": "Als Frontend-Entwickler war ich für das gesamte Design und Aussehen der Anwendung verantwortlich. Eine der spannendsten Erfahrungen war die Arbeit mit Skeuomorphismen um den Nutzer : innen ein vertrautes Erlebnis zu bieten",
+        "whitebird_titel": "Webbasierte Skeuomorphismen",
+        "conForm_title": "Gestaltung der Benutzeroberfläche",
+        "conForm": "conForm ist ein Programm, mit dem der Benutzer mehrere Konzeptpapiere erstellen, bearbeiten und speichern kann",
+        "conForm_task": "In diesem Projekt war ich sowohl als Frontend, sowie Backend Entwickler eingebunden. Meine Aufgabe bestand zum einen darin das Design zu entwerfen, und zum anderen habe ich die Routen als auch das Persistieren der Daten übernommen. Eine der spannendsten Erfahrungen war die Arbeit mit dem Backend Framework: Laravel",
+        "hly": "Hly ist ein Hard Seltzer - ein alkoholisches Getränk mit 5% Alkohol",
+        "hly_task": "Das Ziel des Projektes bestand darin ein positives Urteil beim Verbraucher zu erzeugen und damit mehr Kunden für das noch unbekannte Getränk zu gewinnen. Durch verschiedene Schnitttechniken sollte eine Wohlfühlatmosphäre bei den Nutzer : innen geschaffen werden um das Getränk positiv hervorzuheben",
+        "hly_title": "Werbepsychologie",
         "all": "Alle",
         "view": "Projekt anschauen",
-        "menschenhelfen": "ist eine Webseite, deren Ziel ist es möglichst viele Menschen für die regionale Blutspende zu gewinnen. Ich habe die Webseite neu entworfen um deren Ziel hervorzuheben und im allgemeinen die Usability der Seite zu steigern",
+        "menschenhelfen_titel": "Umgestaltung & Neukonzeption",
+        "menschenhelfen": "Menschen.Helfen.Leben ist eine gemeinnüztige Organisation, deren Ziel ist es möglichst viele Menschen für die regionale Blutspende zu gewinnen",
+        "menschenhelfen_task": "Ich habe die Webseite von Grund auf neu entworfen um deren Ziel hervorzuheben und im allgemeinen die Usability der Seite zu steigern. Die Interaktion sollte den Nutzer:innen so angenehm wie möglich gemacht werden. Die Webseite wurde mit Hilfe von Wordpress, Oxygen, eigenes JavaScript, sowie CSS gestaltet",
         "about": "Über",
-        "project": "Projekt"
+        "project": "Projekt",
+        "portfolio": "Mein persönliches Portfolio, welches ich aus reiner Laune heraus entworfen habe",
+        "portfolio_task": "Das Frontend wurde mittels Bootstrap in Kombination mit (S)CSS und Javascript gestaltet. Das Logo wurde mit Illustrator entworfen und mit AnimeJS animiert. Der Rest ist Logik und viel Liebe"
     },
     "contact": {
         "contact": "Kontakt",
@@ -49,23 +75,8 @@
         "education": "Ausbildung",
         "skills": "Fähigkeiten",
         "web": "Webentwicklung",
-        "web_text_1": "Ich benutze",
-        "web_text_2": "täglich und versuche, mit den neuesten Funktionen und Trends Schritt zu halten",
-        "web_text_3": "Für meine Webprojekte verwende ich",
-        "web_text_4": "ziemlich oft. Meine bevorzugten JS-Frameworks sind",
-        "web_text_5": "Für einige Server-seitige Aufgaben verwendete ich",
-        "web_text_6": "gepaart mit",
-        "web_text_7": "Ich habe",
-        "web_text_8": "Apps während meines Studiums und in meiner vorherigen Tätigkeit entwickelt",
-        "web_text_9": "Für alle meine Programmierarbeiten verwende ich",
-        "web_text_10": "um meine Arbeit zu verfolgen und zu koordinieren",
-        "design_text_1": "Ich habe Erfahrung mit",
-        "design_text_2": "Für meinen Web-Design-Workflow beginne ich in der Regel mit der Erstellung eines",
-        "design_text_3": "gefolgt von ein paar groben",
-        "design_text_4": "und dann einen",
-        "design_text_5": "welcher in ein paar Iterationen eine finale Form annimmt",
         "design": "Design",
-        "eyeled": "Werksstudent",
+        "eyeled": "Werkstudent",
         "eyeled_desc": "Entwicklung von mobilen Benutzerschnittstellen in Swift, sowie Webentwicklung",
         "date_eye": "September 19 - Dezember 20",
         "thesis": "Umsetzung einer GPS-gestützten Fußgängernavigations-Komponente für Messe-Außengelände mit optimierter Benutzerführung auf mobilen Endgeräten unter iOS in Objective-C",

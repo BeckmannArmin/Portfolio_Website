@@ -1,13 +1,12 @@
 <template>
-  <div class="locale-changer container">
-    <select v-model="localLang">
-      <option value="choose-one" class="choose-lang" disabled="true">
-        {{ $t("footer.chooselang") }}
-      </option>
-      <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">
-        {{ lang }}
-      </option>
-    </select>
+  <div class="locale-changer">
+    <div
+      v-for="(lang, i) in langs"
+      :key="`Lang${i}`"
+      @click="changeLang(lang, i)"
+    >
+      <a :class="{ active: i === activeItem }"> {{ lang }} </a>
+    </div>
   </div>
 </template>
 
@@ -17,30 +16,45 @@ export default {
   data() {
     return {
       langs: ["de", "en"],
-      localLang: this.$i18n.locale,
+      activeItem: null,
     };
   },
-  watch: {
-    localLang(localLang) {
-      localStorage.setItem("lang", localLang);
+  methods: {
+    changeLang(localLang, i) {
+
       this.$i18n.locale = localLang;
+      this.activeItem = i;
+      localStorage.setItem("lang", localLang);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
-  margin: 1rem 0 1rem !important;
+.locale-changer {
+  display: flex;
+  justify-content: center;
+  flex-flow: row;
+  padding-top: 30px;
 
-  select {
-    background: #fff;
-    border-radius: 10px;
-    height: 25px;
-    width: 150px;
+  a {
+    font-size: 2.4rem;
+    text-decoration: none;
+    color: $white;
+    font-weight: 700;
+    &:not(.active) {
+      font-weight: 300;
+    }
+  }
 
-    .choose-lang {
-        width: 150px;
+  div:nth-child(1) {
+    padding-right: .5rem;
+
+    &::after {
+      content: "/";
+      font-size: 2rem;
+      font-weight: 500;
+      color: $white;
     }
   }
 }

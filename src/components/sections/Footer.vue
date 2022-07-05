@@ -7,15 +7,6 @@
             id="curved"
             class="position-relative d-flex justify-content-center align-items-center flex-column"
           >
-            <div class="contact">
-              <a
-                href="mailto:armin.beckmann@protonmail.com"
-                title="Get in touch"
-                rel="me"
-                target="_blank"
-                >armin.beckmann@protonmail.com</a
-              >
-            </div>
             <div class="socials d-flex justify-content-center flex-row">
               <a href="https://github.com/BeckmannArmin" target="_blank">
                 <font-awesome-icon :icon="['fab', 'github']" />
@@ -25,6 +16,9 @@
                 target="_blank"
               >
                 <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+              </a>
+              <a href="https://codepen.io/Preefix99" target="_blank">
+                <font-awesome-icon :icon="['fab', 'codepen']" />
               </a>
             </div>
             <div class="info pt-4">
@@ -41,51 +35,61 @@
                   alt="deal with it"
                   class="deal-with-it-img"
                   src="../../assets/deal-with-it.png"
-                  :style="{opacity: opacity + '!important'}"
+                  :style="{ opacity: opacity + '!important' }"
                 />
                 <img
-                alt="im on fire"
-                class="fire-img"
-                src="../../assets/burn-baby-burn.gif"
-                :style="{opacity: opacity + '!important'}"
+                  alt="im on fire"
+                  class="fire-img"
+                  src="../../assets/burn-baby-burn.gif"
+                  :style="{ opacity: opacity + '!important' }"
                 />
               </div>
             </div>
+            <LocaleSwitcher />
             <a href="#top">
               <div class="arrow"></div>
             </a>
+            <div class="legal-wrapper d-flex flex-row">
+              <a @click="showPrivacy = true"> {{ $t("footer.privacy") }} </a>
+              <a @click="showLegal = true"> {{ $t("footer.legal") }} </a>
+            </div>
           </div>
         </div>
       </div>
+      <LegalNotice v-if="showLegal" :class="showLegal ? 'enter' : ''" @closeLegal="showLegal = false" />
+      <Privacy v-if="showPrivacy" :class="showPrivacy ? 'enter' : ''" @closePrivacy="showPrivacy = false" />
     </footer>
   </section>
 </template>
 
 <script>
 import LocaleSwitcher from "../LocaleSwitcher.vue";
+import LegalNotice from "./modals/LegalNotice.vue";
+import Privacy from "./modals/PrivacyPolicy.vue";
+
 export default {
-  data() {
-      return {
-          opacity: 0,
-      }
-  },
   components: {
-    // eslint-disable-next-line vue/no-unused-components
-    LocaleSwitcher,
+    LocaleSwitcher, LegalNotice, Privacy
+  },
+  data() {
+    return {
+      opacity: 0,
+      showLegal: false,
+      showPrivacy: false
+    };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .dark {
-    #footer {
-        background-image: $bg-dark;
-    }
+  #footer {
+    background-image: $bg-dark;
+  }
 }
 /** reversed gradient of contact section */
 #footer {
-  background-image: $footer-bg-gradient;
+  background: hsl(300, 11%, 96%);
   padding-top: 100px;
 }
 .footer {
@@ -117,6 +121,10 @@ export default {
 
         svg {
           color: $white;
+
+          &:hover {
+            color: $fuchsia;
+          }
         }
       }
     }
@@ -148,7 +156,7 @@ export default {
         flex: 1;
 
         .image-me {
-            z-index: 2;
+          z-index: 2;
         }
 
         .deal-with-it-img {
@@ -161,7 +169,6 @@ export default {
           -ms-flex-item-align: end;
           align-self: flex-end;
           opacity: 0;
-
         }
         .fire-img {
           position: absolute;
@@ -195,28 +202,18 @@ export default {
         transform-origin: 100% 0;
       }
       &:hover:after {
-        border-color: $salmon;
+        border-color: $fuchsia;
         height: 120%;
       }
       &:hover:before {
-        border-color: $salmon;
+        border-color: $fuchsia;
         transform: scale(0.8);
       }
     }
   }
 
   #curved {
-    padding-top: 80px;
-
-    .contact {
-      a {
-        text-decoration: none;
-        color: $white;
-        cursor: pointer;
-        font-size: 1.6rem;
-        padding-top: 2rem;
-      }
-    }
+    padding-top: 60px;
 
     &:before {
       content: "";
@@ -231,6 +228,14 @@ export default {
       z-index: -1;
       border-radius: 50%;
       background-color: $bg-black;
+    }
+
+    .legal-wrapper {
+      a {
+        color: $white;
+        font-size: 1.1rem;
+        padding: .5rem;
+      }
     }
   }
 }

@@ -2,11 +2,14 @@
   <section id="contact">
     <div class="wrapper">
       <div class="form-wrapper">
-        <h2 data-aos="fade-in" class="section-title">
+        <h2
+          data-aos="fade-in"
+          class="section-title"
+        >
           {{ $t("contact.contact") }}
         </h2>
-        <form class="contact-form validate-form">
-          <div class="input-wrapper validate-form">
+        <form data-aos="fade-in" class="contact-form validate-form">
+          <div  class="input-wrapper validate-form">
             <input
               class="input"
               type="text"
@@ -82,24 +85,25 @@ export default {
 
 <style lang="scss" scoped>
 .dark {
-    #contact {
-        background: $bg-dark;
-        .wrapper {
-            background-image: $contact-bg-gradient-dark;
+  #contact {
+    background: $bg-dark;
+    .wrapper {
+      background-image: $contact-bg-gradient-dark;
 
-            .form-wrapper {
-                .section-title{ color: $section-title-dark;
-                &:after {
-                    color: $salmon;
-                }
-                }
-            }
+      .form-wrapper {
+        .section-title {
+          color: $section-title-dark;
+          &:after {
+            color: $fuchsia;
+          }
         }
+      }
     }
+  }
 }
 
 #contact {
-    background: $white;
+  background: $white;
   .wrapper {
     width: 100%;
     min-height: 100vh;
@@ -211,8 +215,8 @@ export default {
 
           .btn-submit {
             color: #fff;
-            background: $salmon;
-            border: 1px solid $salmon;
+            background: $fuchsia;
+            border: 1px solid $fuchsia;
             font-weight: 700;
             font-size: 1.6rem;
             padding: 10px;

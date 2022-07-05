@@ -1,6 +1,8 @@
 {
     "footer": {
-        "chooselang": "Choose language"
+        "chooselang": "Choose language",
+        "privacy": "Privacy Policy",
+        "legal": "Legal Notice"
     },
     "about": {
         "me": "About me",
@@ -15,25 +17,48 @@
             "open": "open minded developer",
             "try": "creating modern and aestethically websites"
         }
-
     },
     "hero": {
         "introduction": {
             "name": "my name is",
-            "frontend": "I am a frontend developer"
+            "frontend": "Front-end Developer"
         }
     },
     "projects": {
+        "context": {
+            "role": "Role",
+            "context": "Context",
+            "period": "Period",
+            "sceuo": "Skeuomorphism",
+            "end20": "End 2020",
+            "advertisment": "Advertisment",
+            "storyboard": "Storyboarding",
+            "redesign": "Website redesign",
+            "mid20": "Mid 2020",
+            "begin21": "Begin 2021"
+        },
         "projects": "Projects",
+        "theproject": "Introduction",
+        "designing": "Design",
         "see": "See project",
-        "whitebird": "is an open-source, web-based, collaborative, digital Whiteboard built with NestJS, MongoDB, NuxtJs and FabricJs. I mainly took care of the frontend, but also helped in the backend",
-        "conForm": "is a program that allows the user to create, edit and save multiple concept papers. In order to simplify the creation of a concept paper, a web application should be developed that will replace the conventional download, fill in, edit and upload again of each paper. Each group should have the opportunity to work on the their concept paper in their own session. Access should be guaranteed via user authentification and join codes",
-        "hly": "was a project within the study whose aim was to generate a positive opinion among consumers and thus to win more customers for the still unknown beverage",
+        "whitebird": "Whitebird is an open-source, web-based, collaborative, digital Whiteboard built with NestJS, MongoDB, NuxtJs and FabricJs",
+        "whitebird_task": "As a Front-end Developer, I was responsible for the overall design and appearance of the application. One of the most exciting experiences was working with skeuomorphisms to provide the user a confidential experience",
+        "whitebird_titel": "Web-based skeuomorphism",
+        "conForm_title": "User Interface Design",
+        "conForm": "conForm is a program that allows the user to create, edit and save multiple concept papers",
+        "conForm_task": "In this project I was involved as frontend as well as backend developer. My task was on the one hand to create the design, and on the other hand I took over the routes as well as the persistence of the data. One of the most exciting experiences was working with the backend framework: Laravel",
+        "hly": "Hly is a hard seltzer - an alcoholic drink with 5% alcohol",
+        "hly_task": "The aim of the project was to create a positive opinion among consumers and thus attract more customers for the still unknown beverage. Through various cutting techniques, a feel-good atmosphere was to be created for the users in order to positively emphasize the beverage",
+        "hly_title": "Advertising Psychology",
         "all": "All",
         "view": "View project",
-        "menschenhelfen": "is a website whose goal is to attract as many people as possible to donate blood in the region. I have redesigned the website to emphasize its goal and in general increase the usability of the site",
+        "menschenhelfen_titel": "Redesign & new conception",
+        "menschenhelfen": "Menschen.Helfen.Leben is a non-profit organization, whose goal is to attract as many people as possible to donate blood in the region",
+        "menschenhelfen_task": "I redesigned the website from scratch to highlight its goal and generally increase the usability of the site. The interaction should be made as pleasant as possible for the user. The website was designed with the help of Wordpress, Oxygen, custom JavaScript and CSS",
         "about": "About",
-        "project": "Project"
+        "project": "Project",
+        "portfolio": "My personal portfolio, which I designed on a whim",
+        "portfolio_task": "The frontend was designed using Bootstrap in combination with (S)CSS and Javascript. The logo was designed with Illustrator and animated with AnimeJS. The rest is logic and a lot of love"
     },
     "contact": {
         "contact": "Contact",
@@ -50,21 +75,6 @@
         "education": "Education",
         "skills": "Skills",
         "web": "Web development",
-        "web_text_1": "I use",
-        "web_text_2": "on a daily basis, and try to keep up with the latest features and trends",
-        "web_text_3": "For my web projects I use",
-        "web_text_4": "fairly often. My favorite JS frameworks are",
-        "web_text_5": "For some server-side related stuff I used",
-        "web_text_6": "paired with",
-        "web_text_7": "I have developed apps in",
-        "web_text_8": "during my study and in my prior job",
-        "web_text_9": "For all my programming work I use",
-        "web_text_10": "to track & coordinate my work",
-        "design_text_1": "I have experience with",
-        "design_text_2": "For my web design workflow, I usually start by creating a",
-        "design_text_3": "followed by a few rough",
-        "design_text_4": "and then a",
-        "design_text_5": "which takes a final form in a few iterations",
         "design": "Design",
         "eyeled": "Working student",
         "eyeled_desc": "Development of mobile user interfaces in Swift, as well as web development",

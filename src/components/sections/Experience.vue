@@ -2,12 +2,12 @@
   <section id="experience">
     <div class="container">
       <div class="mb-4">
-        <h1 data-aos="fade-in" class="section-title salmon-text">
+        <h1 data-aos="fade-in" class="section-title fuchsia-text">
           {{ $t("experience.resume") }}
         </h1>
         <div style="height: 50px"></div>
         <!-- Employment -->
-        <h2 class="subsection-title salmon-text">
+        <h2 class="subsection-title fuchsia-text">
           {{ $t("experience.experience") }}
         </h2>
         <div class="col-md-12">
@@ -55,7 +55,7 @@
           </ul>
         </div>
         <!-- Study -->
-        <h2 class="subsection-title salmon-text" style="padding-top: 100px">
+        <h2 class="subsection-title fuchsia-text" style="padding-top: 100px">
           {{ $t("experience.education") }}
         </h2>
         <div class="col-md-12">
@@ -77,7 +77,7 @@
             <li class="position-relative" data-aos="fade-up">
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
-                <p class="timeline-event-thumbnail">{{ $t("2016-2020") }}</p>
+                <p class="timeline-event-thumbnail">2016 - 2020</p>
                 <h3>{{ $t("experience.study") }}</h3>
                 <p>
                   <strong>{{ $t("experience.study_deg") }}</strong>
@@ -113,27 +113,28 @@
      .section-title {
          color: $section-title-dark;
          &:after {
-      color: $salmon;
+      color: $fuchsia;
     }
      }
 
      .subsection-title {
-         color: $frog-green-light;
+         color: $frog-green;
      }
  }
 }
 
 #experience {
+    background: #fff;
   p {
     font-size: 1.6rem;
   }
-  padding: 3rem 0;
+  padding-top: 90px;
+  padding-bottom: 90px;
   .section-title {
     position: relative;
     margin: 0 0 4.5rem;
     font-size: 4.5rem;
     font-weight: 700;
-    text-transform: uppercase;
 
     &:after {
       content: ".";
@@ -142,7 +143,7 @@
   }
 
   .rounded {
-    border-top: 8px solid $salmon-light;
+    border-top: 8px solid $fuchsia-light;
     position: relative;
     border-radius: 5px;
     width: 35%;
@@ -153,7 +154,6 @@
     margin: 0 0 4.5rem;
     font-size: 3rem;
     font-weight: 600;
-    text-transform: uppercase;
   }
 
   .subsubsection-title {
@@ -161,10 +161,9 @@
     margin: 0 0 4.5rem;
     font-size: 2.5rem;
     font-weight: 600;
-    text-transform: uppercase;
   }
 
-  .salmon-text {
+  .fuchsia-text {
     color: $text-main;
   }
 
@@ -191,7 +190,7 @@
       transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
-      background-color: $salmon-light;
+      background-color: $fuchsia-light;
       outline: 10px solid $neutral-grey;
       display: block;
       margin: 0.5em 0.5em 0.5em -0.5em;
@@ -219,7 +218,7 @@
         color: white;
         font-size: 12px;
         font-weight: bold;
-        background-color: $salmon_light;
+        background-color: $fuchsia_light;
         box-shadow: inset 0 0 0 0em $blue;
         display: inline-block;
         margin-bottom: 1.2em;
