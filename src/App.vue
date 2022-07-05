@@ -72,6 +72,7 @@ export default {
   },
   mounted() {
 this.setToggleBtnState();
+this.printConsoleMessage();
   },
   methods: {
          setToggleBtnState() {
@@ -171,6 +172,9 @@ this.setToggleBtnState();
         this.currentTheme = localStorage.getItem("theme-color");
       }
     },
+    printConsoleMessage() {
+      console.log('%cCrafted with ❤️ and <code/> by Armin Beckmann 🤯', 'font-size: 20px;color: #F2EEE7; background: linear-gradient(48deg, hsla(204, 100%, 50%, 1) 13%, hsla(213, 79%, 50%, 1) 24%, hsla(278, 63%, 43%, 1) 56%, hsla(286, 69%, 40%, 1) 68%, hsla(288, 64%, 45%, 1) 75%, hsla(297, 85%, 63%, 1) 90%);padding:10px;');
+    }
   },
 };
 </script>
