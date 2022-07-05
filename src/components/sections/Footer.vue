@@ -28,8 +28,6 @@
                   style="height: 125px"
                   alt="Thats me"
                   src="../../assets/armin.png"
-                  @mouseover="opacity = 1"
-                  @mouseout="opacity = 0"
                 />
                 <img
                   alt="deal with it"
@@ -68,6 +66,9 @@ import LegalNotice from "./modals/LegalNotice.vue";
 import Privacy from "./modals/PrivacyPolicy.vue";
 
 export default {
+  mounted () {
+    this.scrollBottom();
+  },
   components: {
     LocaleSwitcher, LegalNotice, Privacy
   },
@@ -75,9 +76,26 @@ export default {
     return {
       opacity: 0,
       showLegal: false,
-      showPrivacy: false
+      showPrivacy: false,
+      scrolledToBottom: false
     };
   },
+  methods: {
+    scrollBottom () {
+  window.onscroll = () => {
+    let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
+
+    if (bottomOfWindow) {
+      this.scrolledToBottom = true;
+      this.opacity = 1;
+    } else {
+      this.scrolledToBottom = false;
+      this.opacity = 0;
+    }
+
+ }
+}
+  }
 };
 </script>
 

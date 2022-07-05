@@ -42,6 +42,7 @@ export default {
     text-decoration: none;
     color: $white;
     font-weight: 700;
+    cursor:pointer;
     &:not(.active) {
       font-weight: 300;
     }

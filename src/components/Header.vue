@@ -107,6 +107,7 @@ export default {
         font-weight: bold;
         transition: color 0.35s ease;
         background-color: transparent;
+        cursor: pointer;
 
         &:hover {
           text-decoration: none;
