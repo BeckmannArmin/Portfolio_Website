@@ -91,6 +91,9 @@
         "experience_datenow": "Present",
         "expected": "expected completion Jan 2022",
         "study_master": "Master of Science, MS, Computer Science",
-        "study_master_desc": "Human-Computer-Interaction"
+        "study_master_desc": "Human-Computer-Interaction",
+        "minarc": "Frontend & WordPress Developer",
+        "minarc_desc": "WordPress & WooCommerce site development for clients and businesses",
+        "date_minarc": "Juni 21 - Today"
     }
 }

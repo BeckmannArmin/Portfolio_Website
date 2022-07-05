@@ -89,8 +89,11 @@
         "study_deg": "Bachelor of Science - BS, Medieninformatik",
         "study_desc": "Mobile Kommunikation & Usability Engineering",
         "experience_datenow": "Heute",
-        "expected": "voraussichtlicher Abschluss Jan 2022",
+        "expected": "Abschluss Jan 2022",
         "study_master": "Master of Science, MS, Informatik",
-        "study_master_desc": "Mensch-Technik-Interaktion"
+        "study_master_desc": "Mensch-Technik-Interaktion",
+        "minarc": "Frontend & WordPress Entwickler",
+        "minarc_desc": "Entwicklung von WordPress & WooCommerce Seiten für Kund*innen und Unternehmen.",
+        "date_minarc": "Juni 21 - Heute"
     }
 }

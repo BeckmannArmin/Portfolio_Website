@@ -8,11 +8,27 @@
         <div style="height: 50px"></div>
         <!-- Employment -->
         <h2 class="subsection-title fuchsia-text">
-          {{ $t("experience.experience") }}
+          {{ 
+          $t("experience.experience") 
+          }}
         </h2>
         <div class="col-md-12">
           <ul class="timeline">
-            <li class="position-relative" data-aos="fade-up">
+             <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
+              <label class="timeline-event-icon"></label>
+              <div class="timeline-event-copy text-left">
+                <p class="timeline-event-thumbnail">
+                  {{ $t("experience.date_minarc") }}
+                </p>
+                <h3>Gründung der Minarc UG</h3>
+                <p>
+                  <strong>{{ $t("experience.minarc") }}</strong>
+                  <br />
+                  {{ $t("experience.minarc_desc") }}
+                </p>
+              </div>
+            </li>
+            <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
                 <p class="timeline-event-thumbnail">
@@ -26,7 +42,7 @@
                 </p>
               </div>
             </li>
-            <li class="position-relative" data-aos="fade-up">
+            <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
                 <p class="timeline-event-thumbnail">
@@ -38,7 +54,7 @@
                 </p>
               </div>
             </li>
-            <li class="position-relative" data-aos="fade-up">
+            <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
                 <p class="timeline-event-thumbnail">
@@ -60,11 +76,11 @@
         </h2>
         <div class="col-md-12">
           <ul class="timeline">
-            <li class="position-relative" data-aos="fade-up">
+            <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
                 <p class="timeline-event-thumbnail">
-                  2020 - {{ $t("experience.experience_datenow") }}
+                  2020 - 2022
                 </p>
                 <h3>{{ $t("experience.study") }}</h3>
                 <p class="text-left">
@@ -74,7 +90,7 @@
                 </p>
               </div>
             </li>
-            <li class="position-relative" data-aos="fade-up">
+            <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
                 <p class="timeline-event-thumbnail">2016 - 2020</p>
@@ -86,7 +102,7 @@
                 </p>
               </div>
             </li>
-            <li class="position-relative" data-aos="fade-up">
+            <li class="position-relative" data-aos="fade-up" data-aos-duration="1450">
               <label class="timeline-event-icon"></label>
               <div class="timeline-event-copy text-left">
                 <p class="timeline-event-thumbnail">
