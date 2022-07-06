@@ -58,7 +58,9 @@
         "about": "About",
         "project": "Project",
         "portfolio": "My personal portfolio, which I designed on a whim",
-        "portfolio_task": "The frontend was designed using Bootstrap in combination with (S)CSS and Javascript. The logo was designed with Illustrator and animated with AnimeJS. The rest is logic and a lot of love"
+        "portfolio_task": "The frontend was designed using Bootstrap in combination with (S)CSS and Javascript. The logo was designed with Illustrator and animated with AnimeJS. The rest is logic and a lot of love",
+        "loidl1": "An e-commerce site for a client with a CMS",
+        "loidl2": "The frontend was designed using Oxygen, a page builder for WordPress. The store functionalities were added using WooCommerce. Individual functionalities were implemented using web technologies (JavaScript, HTML, CSS)."
     },
     "contact": {
         "contact": "Contact",

@@ -183,6 +183,32 @@ export default {
             { text: this.$t("projects.context.period"), roles: this.$t("projects.context.begin21") },
           ],
         },
+        {
+          id: 6,
+          name: "Daniel Loidl",
+          titel: "Daniel Loidl",
+          summary: this.$t("projects.loidl1"),
+          task: this.$t("projects.loidl2"),
+          technologies: [
+            "WordPress",
+            "WooCommerce",
+            "CMS",
+            "CRO",
+            "JavsScript",
+          ],
+          classes: ["frontend, design"],
+          thumbnail: require("../../assets/daniel-loidl.jpeg"),
+          img: require("../../assets/daniel-loidl.jpeg"),
+          href: "https://danielloidl.de",
+            context: [
+            { text: this.$t("projects.context.role"), roles: "Frontend, UI/UX Developer" },
+            {
+              text: this.$t("projects.context.context"),
+              roles: "E-Commerce Shop",
+            },
+            { text: this.$t("projects.context.period"), roles: this.$t("projects.context.begin21") },
+          ],
+        },
       ],
     };
   },

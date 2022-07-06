@@ -347,7 +347,7 @@ export default {
             position: relative;
 
             p {
-              text-align: justify;
+              text-align: center;
             }
           }
           .intro-title {
